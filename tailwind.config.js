@@ -5,7 +5,11 @@ module.exports = {
     extend: {},
     container: {
       center: true,
-      padding: '2rem',
+      // padding: '2rem',
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+      },
     },
     fontFamily: {
       sans: ['ui-sans-serif', 'system-ui'],
