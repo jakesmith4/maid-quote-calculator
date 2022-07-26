@@ -26,7 +26,7 @@
     </h1>
     <div class="container">
       <!-- Card -->
-      <div class="bg-white rounded-2xl max-w-5xl mx-auto shadow-xl py-5">
+      <div class="bg-white rounded-2xl max-w-5xl mx-auto shadow-xl py-5 my-5">
         <label
           for="square-footage"
           class="capitalize text-2xl font-semibold text-center pt-4 block"
@@ -46,7 +46,7 @@
           <option value="2500">2500</option>
         </select>
         <div
-          class="quotes-container text-center px-10 space-y-5 md:space-y-0 md:space-x-5 md:flex md:justify-center"
+          class="quotes-container text-center px-10 space-y-5 md:space-y-0 md:space-x-5 md:flex md:justify-center md:flex-wrap md:gap-y-5"
         >
           <!-- Deep Clean -->
           <article class="p-3 bg-[#f8f3f9]">
@@ -159,6 +159,174 @@
             </div>
           </article>
           <!-- End Of General Clean -->
+
+          <!-- Weekly Clean -->
+          <article class="p-3 bg-[#f8f3f9]">
+            <i
+              class="fa-solid fa-calendar-week p-4 text-xl bg-white rounded-full"
+            ></i>
+            <h3
+              class="capitalize tracking-wider font-bold font-serif text-xl my-4"
+            >
+              weekly price
+            </h3>
+            <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
+              <span
+                class="inline-flex items-center justify-center bg-white py-2 px-4"
+              >
+                <i class="fa-solid fa-magnifying-glass-dollar mr-2"></i>
+                <small class="capitalize tracking-widest">price</small>
+              </span>
+              <small
+                class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest"
+                >$200</small
+              >
+            </div>
+            <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
+              <span
+                class="inline-flex items-center justify-center bg-white py-2 px-4"
+              >
+                <i class="fa-solid fa-clock mr-2"></i>
+                <small class="capitalize tracking-widest">hours</small>
+              </span>
+              <small
+                class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest"
+                >13.5</small
+              >
+            </div>
+            <div class="bg-slate-200 py-2 px-4 w-4/5 mx-auto md:w-full">
+              <span
+                class="inline-flex items-center justify-center bg-white p-2 cursor-pointer"
+              >
+                <i class="fa-solid fa-lock-open mr-2"></i>
+                <i class="fa-solid fa-lock"></i>
+              </span>
+              <select
+                name="change-hours"
+                id="change-hours"
+                class="border-2 font-serif py-[.35rem] px-1 text-sm cursor-pointer focus:outline-emerald-600"
+              >
+                <option value="">Change Hours</option>
+                <option value="0">0</option>
+                <option value=".25">+.25</option>
+                <option value=".50">+.50</option>
+                <option value=".75">+.75</option>
+              </select>
+            </div>
+          </article>
+          <!-- End Of Weekly Clean -->
+
+          <!-- Bi-Weekly Clean -->
+          <article class="p-3 bg-[#f8f3f9]">
+            <i
+              class="fa-solid fa-calendar-day p-4 text-xl bg-white rounded-full"
+            ></i>
+            <h3
+              class="capitalize tracking-wider font-bold font-serif text-xl my-4"
+            >
+              bi-weekly price
+            </h3>
+            <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
+              <span
+                class="inline-flex items-center justify-center bg-white py-2 px-4"
+              >
+                <i class="fa-solid fa-magnifying-glass-dollar mr-2"></i>
+                <small class="capitalize tracking-widest">price</small>
+              </span>
+              <small
+                class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest"
+                >$200</small
+              >
+            </div>
+            <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
+              <span
+                class="inline-flex items-center justify-center bg-white py-2 px-4"
+              >
+                <i class="fa-solid fa-clock mr-2"></i>
+                <small class="capitalize tracking-widest">hours</small>
+              </span>
+              <small
+                class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest"
+                >13.5</small
+              >
+            </div>
+            <div class="bg-slate-200 py-2 px-4 w-4/5 mx-auto md:w-full">
+              <span
+                class="inline-flex items-center justify-center bg-white p-2 cursor-pointer"
+              >
+                <i class="fa-solid fa-lock-open mr-2"></i>
+                <i class="fa-solid fa-lock"></i>
+              </span>
+              <select
+                name="change-hours"
+                id="change-hours"
+                class="border-2 font-serif py-[.35rem] px-1 text-sm cursor-pointer focus:outline-emerald-600"
+              >
+                <option value="">Change Hours</option>
+                <option value="0">0</option>
+                <option value=".25">+.25</option>
+                <option value=".50">+.50</option>
+                <option value=".75">+.75</option>
+              </select>
+            </div>
+          </article>
+          <!-- End Of Bi-Weekly Clean -->
+
+          <!-- Monthly Clean -->
+          <article class="p-3 bg-[#f8f3f9]">
+            <i
+              class="fa-solid fa-calendar-days p-4 text-xl bg-white rounded-full"
+            ></i>
+            <h3
+              class="capitalize tracking-wider font-bold font-serif text-xl my-4"
+            >
+              monthly price
+            </h3>
+            <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
+              <span
+                class="inline-flex items-center justify-center bg-white py-2 px-4"
+              >
+                <i class="fa-solid fa-magnifying-glass-dollar mr-2"></i>
+                <small class="capitalize tracking-widest">price</small>
+              </span>
+              <small
+                class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest"
+                >$200</small
+              >
+            </div>
+            <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
+              <span
+                class="inline-flex items-center justify-center bg-white py-2 px-4"
+              >
+                <i class="fa-solid fa-clock mr-2"></i>
+                <small class="capitalize tracking-widest">hours</small>
+              </span>
+              <small
+                class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest"
+                >13.5</small
+              >
+            </div>
+            <div class="bg-slate-200 py-2 px-4 w-4/5 mx-auto md:w-full">
+              <span
+                class="inline-flex items-center justify-center bg-white p-2 cursor-pointer"
+              >
+                <i class="fa-solid fa-lock-open mr-2"></i>
+                <i class="fa-solid fa-lock"></i>
+              </span>
+              <select
+                name="change-hours"
+                id="change-hours"
+                class="border-2 font-serif py-[.35rem] px-1 text-sm cursor-pointer focus:outline-emerald-600"
+              >
+                <option value="">Change Hours</option>
+                <option value="0">0</option>
+                <option value=".25">+.25</option>
+                <option value=".50">+.50</option>
+                <option value=".75">+.75</option>
+              </select>
+            </div>
+          </article>
+          <!-- End Of Monthly Clean -->
         </div>
       </div>
       <!-- End Of Card -->
