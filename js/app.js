@@ -109,7 +109,6 @@ formControl.addEventListener('change', e => {
   const hoursBiWeekly = +document.getElementById('change-hours-bi-weekly')
     .value;
   const hoursMonthly = +document.getElementById('change-hours-monthly').value;
-  console.log(hoursMonthly);
   if (sqFootage.value === '1000-1500') {
     runData(
       0,
