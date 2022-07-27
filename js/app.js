@@ -105,6 +105,27 @@ const processQuote = (
   );
 };
 
+const displayChangeIcon = (change, selectEl) => {
+  const element = document.getElementById(selectEl);
+  const article = element.parentElement.parentElement;
+  const icon =
+    element.parentElement.parentElement.querySelector('.deep-changed');
+  console.log(icon);
+
+  if (change !== 0) {
+    icon.classList.remove('hidden');
+    article.style.background =
+      'linear-gradient(to bottom right, #f9f7f4, #f6f3f8)';
+    article.classList.add('border-[#e5e7eb]');
+    article.classList.remove('border-transparent');
+  } else {
+    icon.classList.add('hidden');
+    article.classList.remove('border-[#e5e7eb]');
+    article.classList.add('border-transparent');
+    article.style.background = '#f8f3f9';
+  }
+};
+
 // EVENT HANDLERS //
 formControl.addEventListener('change', e => {
   const amountPerHour = +document.getElementById('amount-per-hour').value;
@@ -125,6 +146,14 @@ formControl.addEventListener('change', e => {
     amountPerHour,
     taxRate
   );
+
+  // Display Changed Icon
+  displayChangeIcon(changeDeep, 'change-hours-deep');
+  displayChangeIcon(changeGeneral, 'change-hours-general');
+  displayChangeIcon(changeWeekly, 'change-hours-weekly');
+  displayChangeIcon(changeBiWeekly, 'change-hours-bi-weekly');
+  displayChangeIcon(changeMonthly, 'change-hours-monthly');
+
   if (sqFootage.value === '1000-1500') {
     processedQuote(0);
   }
