@@ -29,7 +29,7 @@ const allbiWeeklyHours = [
   3, 3.25, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6,
 ];
 const allMonthlyHours = [
-  3.25, 3.5, 4, 4.25, 4.5, 4, 75, 5, 5.25, 5.5, 5.75, 6, 6.25,
+  3.25, 3.5, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6, 6.25,
 ];
 
 // FUNCTIONS //
@@ -133,5 +133,32 @@ formControl.addEventListener('change', e => {
   }
   if (sqFootage.value === '2100-2200') {
     processedQuote(2);
+  }
+  if (sqFootage.value === '2300-2500') {
+    processedQuote(3);
+  }
+  if (sqFootage.value === '2600-2800') {
+    processedQuote(4);
+  }
+  if (sqFootage.value === '2900-3100') {
+    processedQuote(5);
+  }
+  if (sqFootage.value === '3200-3400') {
+    processedQuote(6);
+  }
+  if (sqFootage.value === '3500-3700') {
+    processedQuote(7);
+  }
+  if (sqFootage.value === '3800-4000') {
+    processedQuote(8);
+  }
+  if (sqFootage.value === '4100-4300') {
+    processedQuote(9);
+  }
+  if (sqFootage.value === '4400-4600') {
+    processedQuote(10);
+  }
+  if (sqFootage.value === '4800-5000') {
+    processedQuote(11);
   }
 });
