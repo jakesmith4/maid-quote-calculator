@@ -33,7 +33,6 @@ const allMonthlyHours = [
 ];
 
 // FUNCTIONS //
-
 const setCorrectData = (
   elementPrice,
   elementHours,
@@ -48,14 +47,14 @@ const setCorrectData = (
 };
 
 const runData = (
-  num,
-  hourAmount,
-  taxAmount,
   hoursDeep,
   hoursGeneral,
   hoursWeekly,
   hoursBiWeekly,
-  hoursMonthly
+  hoursMonthly,
+  hourAmount,
+  taxAmount,
+  num
 ) => {
   setCorrectData(
     deepPrice,
@@ -103,34 +102,26 @@ const runData = (
 formControl.addEventListener('change', e => {
   const amountPerHour = +document.getElementById('amount-per-hour').value;
   const taxRate = +document.getElementById('tax-rate').value;
-  const hoursDeep = +document.getElementById('change-hours-deep').value;
-  const hoursGeneral = +document.getElementById('change-hours-general').value;
-  const hoursWeekly = +document.getElementById('change-hours-weekly').value;
-  const hoursBiWeekly = +document.getElementById('change-hours-bi-weekly')
+  const changeDeep = +document.getElementById('change-hours-deep').value;
+  const changeGeneral = +document.getElementById('change-hours-general').value;
+  const changeWeekly = +document.getElementById('change-hours-weekly').value;
+  const changeBiWeekly = +document.getElementById('change-hours-bi-weekly')
     .value;
-  const hoursMonthly = +document.getElementById('change-hours-monthly').value;
+  const changeMonthly = +document.getElementById('change-hours-monthly').value;
+  const runDataBinded = runData.bind(
+    runData,
+    changeDeep,
+    changeGeneral,
+    changeWeekly,
+    changeBiWeekly,
+    changeMonthly,
+    amountPerHour,
+    taxRate
+  );
   if (sqFootage.value === '1000-1500') {
-    runData(
-      0,
-      amountPerHour,
-      taxRate,
-      hoursDeep,
-      hoursGeneral,
-      hoursWeekly,
-      hoursBiWeekly,
-      hoursMonthly
-    );
+    runDataBinded(0);
   }
   if (sqFootage.value === '1600-2000') {
-    runData(
-      1,
-      amountPerHour,
-      taxRate,
-      hoursDeep,
-      hoursGeneral,
-      hoursWeekly,
-      hoursBiWeekly,
-      hoursMonthly
-    );
+    runDataBinded(1);
   }
 });
