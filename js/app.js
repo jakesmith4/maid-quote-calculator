@@ -42,7 +42,9 @@ const setCorrectData = (
   changeHours
 ) => {
   const tax = (taxRate / 100) * (arrElement + changeHours) * amount;
-  elementPrice.textContent = (arrElement + changeHours) * amount + tax;
+  elementPrice.textContent = ((arrElement + changeHours) * amount + tax)
+    .toFixed(2)
+    .replace(/^/, '$');
   elementHours.textContent = arrElement + changeHours;
 };
 
@@ -123,5 +125,8 @@ formControl.addEventListener('change', e => {
   }
   if (sqFootage.value === '1600-2000') {
     runDataBinded(1);
+  }
+  if (sqFootage.value === '2100-2200') {
+    runDataBinded(2);
   }
 });
