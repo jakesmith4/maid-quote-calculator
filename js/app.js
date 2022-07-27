@@ -33,7 +33,7 @@ const allMonthlyHours = [
 ];
 
 // FUNCTIONS //
-const setCorrectData = (
+const calcDisplayQuote = (
   elementPrice,
   elementHours,
   arrElement,
@@ -48,7 +48,7 @@ const setCorrectData = (
   elementHours.textContent = arrElement + changeHours;
 };
 
-const runData = (
+const processQuote = (
   hoursDeep,
   hoursGeneral,
   hoursWeekly,
@@ -58,7 +58,7 @@ const runData = (
   taxAmount,
   num
 ) => {
-  setCorrectData(
+  calcDisplayQuote(
     deepPrice,
     deepHours,
     allDeepHours[num],
@@ -66,7 +66,7 @@ const runData = (
     taxAmount,
     hoursDeep
   );
-  setCorrectData(
+  calcDisplayQuote(
     generalPrice,
     generalHours,
     allGeneralHours[num],
@@ -74,7 +74,7 @@ const runData = (
     taxAmount,
     hoursGeneral
   );
-  setCorrectData(
+  calcDisplayQuote(
     weeklyPrice,
     weeklyHours,
     allWeeklyHours[num],
@@ -82,7 +82,7 @@ const runData = (
     taxAmount,
     hoursWeekly
   );
-  setCorrectData(
+  calcDisplayQuote(
     biWeeklyPrice,
     biWeeklyHours,
     allbiWeeklyHours[num],
@@ -90,7 +90,7 @@ const runData = (
     taxAmount,
     hoursBiWeekly
   );
-  setCorrectData(
+  calcDisplayQuote(
     monthlyPrice,
     monthlyHours,
     allMonthlyHours[num],
@@ -110,8 +110,8 @@ formControl.addEventListener('change', e => {
   const changeBiWeekly = +document.getElementById('change-hours-bi-weekly')
     .value;
   const changeMonthly = +document.getElementById('change-hours-monthly').value;
-  const runDataBinded = runData.bind(
-    runData,
+  const processedQuote = processQuote.bind(
+    processQuote,
     changeDeep,
     changeGeneral,
     changeWeekly,
@@ -121,12 +121,12 @@ formControl.addEventListener('change', e => {
     taxRate
   );
   if (sqFootage.value === '1000-1500') {
-    runDataBinded(0);
+    processedQuote(0);
   }
   if (sqFootage.value === '1600-2000') {
-    runDataBinded(1);
+    processedQuote(1);
   }
   if (sqFootage.value === '2100-2200') {
-    runDataBinded(2);
+    processedQuote(2);
   }
 });
