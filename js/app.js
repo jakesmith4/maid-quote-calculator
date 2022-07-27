@@ -41,11 +41,16 @@ const calcDisplayQuote = (
   taxRate,
   changeHours
 ) => {
-  const tax = (taxRate / 100) * (arrElement + changeHours) * amount;
-  elementPrice.textContent = ((arrElement + changeHours) * amount + tax)
+  // Calculate Hours
+  const allHours = arrElement + changeHours;
+  // Calculate Tax
+  const tax = (taxRate / 100) * allHours * amount;
+  // Display Price
+  elementPrice.textContent = (allHours * amount + tax)
     .toFixed(2)
     .replace(/^/, '$');
-  elementHours.textContent = arrElement + changeHours;
+  // Display Hours
+  elementHours.textContent = allHours;
 };
 
 const processQuote = (
