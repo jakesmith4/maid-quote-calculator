@@ -105,12 +105,18 @@ const processQuote = (
   );
 };
 
-const displayChangeIcon = (change, selectEl) => {
+const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
   const element = document.getElementById(selectEl);
   const article = element.parentElement.parentElement;
   const icon =
     element.parentElement.parentElement.querySelector('.deep-changed');
-  console.log(icon);
+
+  const removeChangeIcon = () => {
+    icon.classList.add('hidden');
+    article.classList.remove('border-[#e5e7eb]');
+    article.classList.add('border-transparent');
+    article.style.background = '#f8f3f9';
+  };
 
   if (change !== 0) {
     icon.classList.remove('hidden');
@@ -119,11 +125,21 @@ const displayChangeIcon = (change, selectEl) => {
     article.classList.add('border-[#e5e7eb]');
     article.classList.remove('border-transparent');
   } else {
-    icon.classList.add('hidden');
-    article.classList.remove('border-[#e5e7eb]');
-    article.classList.add('border-transparent');
-    article.style.background = '#f8f3f9';
+    removeChangeIcon();
   }
+
+  element.previousElementSibling.addEventListener('click', () => {
+    element.value = 0;
+    removeChangeIcon();
+    calcDisplayQuote(
+      article.children[3].children[1],
+      article.children[4].children[1],
+      allHours[sqFootage.selectedIndex - 1],
+      hour,
+      tax,
+      0
+    );
+  });
 };
 
 // EVENT HANDLERS //
@@ -146,13 +162,38 @@ formControl.addEventListener('change', e => {
     amountPerHour,
     taxRate
   );
+  const processedDisplayChangeIcon = displayChangeIcon.bind(
+    displayChangeIcon,
+    amountPerHour,
+    taxRate
+  );
 
-  // Display Changed Icon
-  displayChangeIcon(changeDeep, 'change-hours-deep');
-  displayChangeIcon(changeGeneral, 'change-hours-general');
-  displayChangeIcon(changeWeekly, 'change-hours-weekly');
-  displayChangeIcon(changeBiWeekly, 'change-hours-bi-weekly');
-  displayChangeIcon(changeMonthly, 'change-hours-monthly');
+  // Processed Display Changed Icon
+  processedDisplayChangeIcon(changeDeep, 'change-hours-deep', allDeepHours);
+
+  processedDisplayChangeIcon(
+    changeGeneral,
+    'change-hours-general',
+    allGeneralHours
+  );
+
+  processedDisplayChangeIcon(
+    changeWeekly,
+    'change-hours-weekly',
+    allWeeklyHours
+  );
+
+  processedDisplayChangeIcon(
+    changeBiWeekly,
+    'change-hours-bi-weekly',
+    allbiWeeklyHours
+  );
+
+  processedDisplayChangeIcon(
+    changeMonthly,
+    'change-hours-monthly',
+    allMonthlyHours
+  );
 
   if (sqFootage.value === '1000-1500') {
     processedQuote(0);
