@@ -108,14 +108,15 @@ const processQuotes = (
 const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
   const element = document.getElementById(selectEl);
   const article = element.parentElement.parentElement;
-  const icon =
-    element.parentElement.parentElement.querySelector('.deep-changed');
+  const icon = article.querySelector('.deep-changed');
+  const numIcon = article.querySelector('.num-icon');
 
   const removeChangeIcon = () => {
     icon.classList.add('hidden');
     article.classList.remove('border-[#e5e7eb]');
     article.classList.add('border-transparent');
     article.style.background = '#f8f3f9';
+    numIcon.style.background = '';
   };
 
   if (change !== 0) {
@@ -124,6 +125,11 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
       'linear-gradient(to bottom right, #f9f7f4, #f6f3f8)';
     article.classList.add('border-[#e5e7eb]');
     article.classList.remove('border-transparent');
+    numIcon.classList.remove('hidden');
+    numIcon.textContent = `${change > 0 ? '+' : ''}${change}`;
+    numIcon.style.background = `${
+      change > 0 ? 'rgb(52 211 153)' : 'rgb(248 113 113)'
+    }`;
   } else {
     removeChangeIcon();
   }
@@ -132,8 +138,8 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
     element.value = 0;
     removeChangeIcon();
     calcDisplayQuote(
-      article.children[3].children[1],
       article.children[4].children[1],
+      article.children[5].children[1],
       allHours[sqFootage.selectedIndex - 1],
       hour,
       tax,
