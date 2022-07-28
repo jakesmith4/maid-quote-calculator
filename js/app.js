@@ -117,6 +117,7 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
     article.classList.add('border-transparent');
     article.style.background = '#f8f3f9';
     numIcon.style.background = '';
+    numIcon.classList.add('hidden');
   };
 
   if (change !== 0) {
