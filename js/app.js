@@ -53,7 +53,7 @@ const calcDisplayQuote = (
   elementHours.textContent = allHours;
 };
 
-const processQuote = (
+const processQuotes = (
   hoursDeep,
   hoursGeneral,
   hoursWeekly,
@@ -152,8 +152,8 @@ formControl.addEventListener('change', e => {
   const changeBiWeekly = +document.getElementById('change-hours-bi-weekly')
     .value;
   const changeMonthly = +document.getElementById('change-hours-monthly').value;
-  const processedQuote = processQuote.bind(
-    processQuote,
+  const processedQuotes = processQuotes.bind(
+    processQuotes,
     changeDeep,
     changeGeneral,
     changeWeekly,
@@ -196,39 +196,39 @@ formControl.addEventListener('change', e => {
   );
 
   if (sqFootage.value === '1000-1500') {
-    processedQuote(0);
+    processedQuotes(0);
   }
   if (sqFootage.value === '1600-2000') {
-    processedQuote(1);
+    processedQuotes(1);
   }
   if (sqFootage.value === '2100-2200') {
-    processedQuote(2);
+    processedQuotes(2);
   }
   if (sqFootage.value === '2300-2500') {
-    processedQuote(3);
+    processedQuotes(3);
   }
   if (sqFootage.value === '2600-2800') {
-    processedQuote(4);
+    processedQuotes(4);
   }
   if (sqFootage.value === '2900-3100') {
-    processedQuote(5);
+    processedQuotes(5);
   }
   if (sqFootage.value === '3200-3400') {
-    processedQuote(6);
+    processedQuotes(6);
   }
   if (sqFootage.value === '3500-3700') {
-    processedQuote(7);
+    processedQuotes(7);
   }
   if (sqFootage.value === '3800-4000') {
-    processedQuote(8);
+    processedQuotes(8);
   }
   if (sqFootage.value === '4100-4300') {
-    processedQuote(9);
+    processedQuotes(9);
   }
   if (sqFootage.value === '4400-4600') {
-    processedQuote(10);
+    processedQuotes(10);
   }
   if (sqFootage.value === '4800-5000') {
-    processedQuote(11);
+    processedQuotes(11);
   }
 });
