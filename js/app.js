@@ -17,6 +17,9 @@ const monthlyHours = document.querySelector('.monthly-hours');
 const formControl = document.querySelector('.form-control');
 const sqFootage = document.getElementById('square-footage');
 
+// Global State Var
+let flag = true;
+
 // DATA //
 const allDeepHours = [
   6.5, 8, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5,
@@ -39,7 +42,8 @@ const calcDisplayQuote = (
   arrElement,
   amount,
   taxRate,
-  changeHours
+  changeHours,
+  taxDomElement
 ) => {
   // Calculate Hours
   const allHours = arrElement + changeHours;
@@ -51,6 +55,10 @@ const calcDisplayQuote = (
     .replace(/^/, '$');
   // Display Hours
   elementHours.textContent = allHours;
+  // Display Taxes
+  if (flag) {
+    taxDomElement.textContent = tax.toFixed(2).replace(/^/, '$');
+  }
 };
 
 const processQuotes = (
@@ -61,6 +69,11 @@ const processQuotes = (
   hoursMonthly,
   hourAmount,
   taxAmount,
+  taxDeep,
+  taxGeneral,
+  taxWeekly,
+  taxBiWeekly,
+  taxMonthly,
   num
 ) => {
   calcDisplayQuote(
@@ -69,7 +82,8 @@ const processQuotes = (
     allDeepHours[num],
     hourAmount,
     taxAmount,
-    hoursDeep
+    hoursDeep,
+    taxDeep
   );
   calcDisplayQuote(
     generalPrice,
@@ -77,7 +91,8 @@ const processQuotes = (
     allGeneralHours[num],
     hourAmount,
     taxAmount,
-    hoursGeneral
+    hoursGeneral,
+    taxGeneral
   );
   calcDisplayQuote(
     weeklyPrice,
@@ -85,7 +100,8 @@ const processQuotes = (
     allWeeklyHours[num],
     hourAmount,
     taxAmount,
-    hoursWeekly
+    hoursWeekly,
+    taxWeekly
   );
   calcDisplayQuote(
     biWeeklyPrice,
@@ -93,7 +109,8 @@ const processQuotes = (
     allbiWeeklyHours[num],
     hourAmount,
     taxAmount,
-    hoursBiWeekly
+    hoursBiWeekly,
+    taxBiWeekly
   );
   calcDisplayQuote(
     monthlyPrice,
@@ -101,7 +118,8 @@ const processQuotes = (
     allMonthlyHours[num],
     hourAmount,
     taxAmount,
-    hoursMonthly
+    hoursMonthly,
+    taxMonthly
   );
 };
 
@@ -110,7 +128,17 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
   const article = element.parentElement.parentElement;
   const icon = article.querySelector('.deep-changed');
   const numIcon = article.querySelector('.num-icon');
+  const taxElementContainer = article.querySelector('.tax-element');
+  const taxElement = taxElementContainer.children[1];
 
+  // Calculate Taxes
+  const taxAmount = (
+    (tax / 100) *
+    allHours[sqFootage.selectedIndex - 1] *
+    hour
+  ).toFixed(2);
+
+  // Remove Change Icons
   const removeChangeIcon = () => {
     icon.classList.add('hidden');
     article.classList.remove('border-[#e5e7eb]');
@@ -120,6 +148,14 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
     numIcon.classList.add('hidden');
   };
 
+  // Add Or Remove Tax Element
+  if (tax > 0) {
+    taxElementContainer.classList.remove('hidden');
+  } else {
+    taxElementContainer.classList.add('hidden');
+  }
+
+  // Add Change Icons
   if (change !== 0) {
     icon.classList.remove('hidden');
     article.style.background =
@@ -135,7 +171,9 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
     removeChangeIcon();
   }
 
+  // Change Back Hours
   element.previousElementSibling.addEventListener('click', () => {
+    flag = false;
     element.value = 0;
     removeChangeIcon();
     calcDisplayQuote(
@@ -146,11 +184,13 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
       tax,
       0
     );
+    taxElement.textContent = taxAmount;
+    flag = !flag;
   });
 };
 
 // EVENT HANDLERS //
-formControl.addEventListener('change', e => {
+formControl.addEventListener('change', () => {
   const amountPerHour = +document.getElementById('amount-per-hour').value;
   const taxRate = +document.getElementById('tax-rate').value;
   const changeDeep = +document.getElementById('change-hours-deep').value;
@@ -159,6 +199,13 @@ formControl.addEventListener('change', e => {
   const changeBiWeekly = +document.getElementById('change-hours-bi-weekly')
     .value;
   const changeMonthly = +document.getElementById('change-hours-monthly').value;
+
+  const taxesDeep = document.querySelector('.taxes-deep');
+  const taxesGeneral = document.querySelector('.taxes-general');
+  const taxesWeekly = document.querySelector('.taxes-weekly');
+  const taxesBiWeekly = document.querySelector('.taxes-bi-weekly');
+  const taxesMonthly = document.querySelector('.taxes-monthly');
+
   const processedQuotes = processQuotes.bind(
     processQuotes,
     changeDeep,
@@ -167,7 +214,12 @@ formControl.addEventListener('change', e => {
     changeBiWeekly,
     changeMonthly,
     amountPerHour,
-    taxRate
+    taxRate,
+    taxesDeep,
+    taxesGeneral,
+    taxesWeekly,
+    taxesBiWeekly,
+    taxesMonthly
   );
   const processedDisplayChangeIcon = displayChangeIcon.bind(
     displayChangeIcon,
