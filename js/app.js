@@ -291,3 +291,50 @@ formControl.addEventListener('change', () => {
     processedQuotes(11);
   }
 });
+
+// MODAL
+const settingsIcon = document.querySelector('.settings');
+const modal = document.querySelector('.modal');
+const closeModal = document.querySelector('.close-modal');
+
+// Toggle Modal On Setting Icon Click
+settingsIcon.addEventListener('click', e => {
+  modal.classList.toggle('invisible');
+  document.body.classList.toggle('overflow-hidden');
+});
+
+// Close Modal On Close Button Click
+closeModal.addEventListener('click', () => {
+  modal.classList.add('invisible');
+  document.body.classList.remove('overflow-hidden');
+});
+
+// Close Modal On Escape Key Press
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && !modal.classList.contains('invisible')) {
+    modal.classList.add('invisible');
+    document.body.classList.remove('overflow-hidden');
+  }
+});
+
+// Toggle Dark Functionality
+let darkFlag = true;
+const toggler = document.querySelector('.toggler');
+const sunIcon = document.querySelector('.sun');
+const moonIcon = document.querySelector('.moon');
+// Toggle Dark Function
+const toggleDark = () => {
+  toggler.addEventListener('click', () => {
+    const html = document.documentElement;
+    // toggler.children[0].classList.toggle('translate-x-5');
+    sunIcon.classList.toggle('hidden');
+    moonIcon.classList.toggle('hidden');
+    if (darkFlag) {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
+    darkFlag = !darkFlag;
+  });
+};
+toggleDark();
