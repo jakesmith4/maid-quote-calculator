@@ -20,18 +20,20 @@
     />
     <title>Maid Quote Calculator</title>
   </head>
-  <body class="bg-[#e9eef6]">
-    <h1
-      class="text-3xl font-semibold text-center py-4 font-serif dark:text-green-400"
-    >
-      Maid Quote Calculator
-    </h1>
+  <body class="bg-[#e9eef6] dark:bg-slate-700">
+    <div class="container">
+      <h1
+        class="text-3xl max-w-sm mx-auto rounded-bl-2xl rounded-br-2xl shadow-xl bg-emerald-700 font-semibold text-center py-4 font-serif dark:text-white dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+      >
+        Maid Quote Calculator
+      </h1>
+    </div>
     <!-- Modal -->
     <div
-      class="modal bg-black bg-opacity-70 h-screen absolute top-0 left-0 w-full backdrop-blur-sm flex items-center justify-center invisible"
+      class="modal bg-black bg-opacity-70 h-screen fixed top-0 left-0 w-full backdrop-blur-sm flex items-center justify-center invisible"
     >
       <div
-        class="bg-white p-8 shadow-lg rounded-xl relative w-2/3 max-w-md dark:bg-zinc-700 dark:text-white"
+        class="bg-white p-8 shadow-lg rounded-xl relative w-[90vw] max-w-md dark:bg-zinc-700 dark:text-white"
       >
         <div class="flex items-center justify-between">
           <small class="tracking-widest font-semibold text-xl">Settings</small>
@@ -53,14 +55,16 @@
           <!-- End Of Toggler -->
         </div>
         <button class="close-modal">
-          <i class="fa-solid fa-rectangle-xmark absolute top-2 left-2"></i>
+          <i
+            class="fa-solid fa-rectangle-xmark absolute top-2 left-2 text-red-500 text-2xl rounded-full"
+          ></i>
         </button>
       </div>
     </div>
     <!-- End Of Modal -->
     <!-- Sidebar -->
     <div
-      class="fixed top-1/2 -translate-y-1/2 bg-emerald-700 w-14 rounded-xl -translate-x-12 hover:-translate-x-1 hover:rounded-tl-none hover:rounded-bl-none hover:bg-emerald-600 transition-all shadow-2xll flex items-start justify-center py-2 border-2 border-transparent hover:border-black md:w-36 md:justify-end md:pr-1 md:-translate-x-24 group"
+      class="fixed top-1/2 -translate-y-1/2 bg-emerald-700 w-14 rounded-xl -translate-x-12 hover:-translate-x-1 hover:rounded-tl-none hover:rounded-bl-none hover:bg-emerald-600 transition-all shadow-2xll flex items-start justify-center py-2 border-2 border-transparent hover:border-black md:w-36 md:justify-end md:pr-1 md:-translate-x-24 dark:bg-gradient-to-tr dark:from-emerald-600 dark:to-neutral-600 group"
     >
       <div
         class="flex flex-col items-center group-hover:md:items-end group-hover:md:pr-2"
@@ -131,7 +135,9 @@
     <!-- End Of Sidebar -->
     <div class="container">
       <!-- Card -->
-      <div class="bg-white rounded-2xl max-w-5xl mx-auto shadow-xl py-5 my-5">
+      <div
+        class="bg-white rounded-2xl max-w-5xl mx-auto shadow-xl py-5 my-5 dark:bg-neutral-800 dark:text-white"
+      >
         <form class="form-control">
           <!-- Square Footage Select -->
           <div>
@@ -145,7 +151,7 @@
             <select
               name="square-foot"
               id="square-footage"
-              class="py-2 px-0 border-2 block mx-auto my-4 font-serif focus:outline-emerald-600 sm:px-4"
+              class="py-2 px-0 border-2 block mx-auto my-4 font-serif focus:outline-emerald-600 sm:px-4 dark:bg-emerald-700 dark:focus:outline-white"
             >
               <option value="" disabled>Select Your Square Footage</option>
               <option value="1000-1500">1000-1500</option>
@@ -163,7 +169,7 @@
             </select>
           </div>
           <!-- End Of Square Footage Select -->
-          <!-- Rate Input Wrapper -->
+          <!-- Hourly Rate Input Wrapper -->
           <div class="md:flex md:items-center md:justify-center md:space-x-20">
             <!-- Amount Per Hour Input -->
             <div>
@@ -176,7 +182,7 @@
               <input
                 type="number"
                 id="amount-per-hour"
-                class="py-2 px-4 border-2 block mx-auto my-4 font-serif w-20 focus:outline-emerald-600"
+                class="py-2 px-4 border-2 block mx-auto my-4 font-serif w-20 focus:outline-emerald-600 dark:bg-emerald-700 dark:focus:outline-white"
                 value="38"
               />
             </div>
@@ -192,23 +198,23 @@
               <input
                 type="number"
                 id="tax-rate"
-                class="py-2 px-4 border-2 block mx-auto my-4 font-serif w-24 focus:outline-emerald-600"
+                class="py-2 px-4 border-2 block mx-auto my-4 font-serif w-24 focus:outline-emerald-600 dark:bg-emerald-700 dark:focus:outline-white"
                 value="0"
                 step=".01"
               />
             </div>
             <!-- End Of Tax Rate Input -->
           </div>
-          <!-- End Of Rate Input Wrapper -->
+          <!-- End Of Hourly Rate Input Wrapper -->
           <div
             class="quotes-container text-center px-3 space-y-5 md:space-y-0 md:space-x-5 md:flex md:justify-center md:flex-wrap md:gap-y-5 sm:px-10"
           >
             <!-- Deep Clean -->
             <article
-              class="p-3 bg-[#f8f3f9] border-2 border-transparent transition-all duration-300"
+              class="p-3 bg-[#f8f3f9] border-2 border-transparent transition-all duration-300 dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
             >
               <i
-                class="fa-solid fa-hand-sparkles p-4 text-xl bg-white rounded-full"
+                class="fa-solid fa-hand-sparkles p-4 text-xl bg-white rounded-full dark:bg-neutral-800"
               ></i>
               <small
                 class="bg-red-400 p-2 rounded-full text-white font-semibold tracking-wider deep-changed hidden"
@@ -224,25 +230,25 @@
               </h3>
               <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
                 <span
-                  class="inline-flex items-center justify-center bg-white py-2 px-4"
+                  class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
                 >
                   <i class="fa-solid fa-magnifying-glass-dollar mr-2"></i>
                   <small class="capitalize tracking-widest">price</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] deep-price"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] deep-price dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >$247.00</small
                 >
               </div>
               <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
                 <span
-                  class="inline-flex items-center justify-center bg-white py-2 px-4"
+                  class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
                 >
                   <i class="fa-solid fa-clock mr-2"></i>
                   <small class="capitalize tracking-widest">hours</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] deep-hours"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] deep-hours dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >6.5</small
                 >
               </div>
@@ -250,25 +256,25 @@
                 class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full tax-element hidden"
               >
                 <span
-                  class="inline-flex items-center justify-center bg-white py-2 px-4"
+                  class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
                 >
                   <i class="fa-solid fa-hand-holding-dollar mr-2"></i>
                   <small class="capitalize tracking-widest">taxes</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-deep"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-deep dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >6.5</small
                 >
               </div>
               <div class="bg-slate-200 py-2 px-4 w-4/5 mx-auto md:w-full">
                 <span
-                  class="inline-flex items-center justify-center bg-white p-2 cursor-pointer"
+                  class="inline-flex items-center justify-center bg-white p-2 cursor-pointer dark:bg-neutral-800 dark:text-white"
                 >
                   <i class="fa-solid fa-clock-rotate-left"></i>
                 </span>
                 <select
                   id="change-hours-deep"
-                  class="border-2 font-serif py-[.35rem] px-1 text-sm cursor-pointer focus:outline-emerald-600"
+                  class="border-2 font-serif py-[.35rem] px-1 text-sm cursor-pointer focus:outline-emerald-600 dark:bg-emerald-700"
                 >
                   <option value="">Change Hours</option>
                   <option value="-2.00">-2.00</option>
@@ -295,10 +301,10 @@
 
             <!-- General Clean -->
             <article
-              class="p-3 bg-[#f8f3f9] border-2 border-transparent transition-all duration-300"
+              class="p-3 bg-[#f8f3f9] border-2 border-transparent transition-all duration-300 dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
             >
               <i
-                class="fa-solid fa-spray-can-sparkles p-4 text-xl bg-white rounded-full"
+                class="fa-solid fa-spray-can-sparkles p-4 text-xl bg-white rounded-full dark:bg-neutral-800"
               ></i>
               <small
                 class="bg-red-400 p-2 rounded-full text-white font-semibold tracking-wider deep-changed hidden"
@@ -314,25 +320,25 @@
               </h3>
               <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
                 <span
-                  class="inline-flex items-center justify-center bg-white py-2 px-4"
+                  class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800"
                 >
                   <i class="fa-solid fa-magnifying-glass-dollar mr-2"></i>
                   <small class="capitalize tracking-widest">price</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] general-price"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] general-price dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >$152.00</small
                 >
               </div>
               <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
                 <span
-                  class="inline-flex items-center justify-center bg-white py-2 px-4"
+                  class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800"
                 >
                   <i class="fa-solid fa-clock mr-2"></i>
                   <small class="capitalize tracking-widest">hours</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] general-hours"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] general-hours dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >4</small
                 >
               </div>
@@ -340,25 +346,25 @@
                 class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full tax-element hidden"
               >
                 <span
-                  class="inline-flex items-center justify-center bg-white py-2 px-4"
+                  class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800"
                 >
                   <i class="fa-solid fa-hand-holding-dollar mr-2"></i>
                   <small class="capitalize tracking-widest">taxes</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-general"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-general dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >6.5</small
                 >
               </div>
               <div class="bg-slate-200 py-2 px-4 w-4/5 mx-auto md:w-full">
                 <span
-                  class="inline-flex items-center justify-center bg-white p-2 cursor-pointer"
+                  class="inline-flex items-center justify-center bg-white p-2 cursor-pointer dark:bg-neutral-800"
                 >
                   <i class="fa-solid fa-clock-rotate-left"></i>
                 </span>
                 <select
                   id="change-hours-general"
-                  class="border-2 font-serif py-[.35rem] px-1 text-sm cursor-pointer focus:outline-emerald-600"
+                  class="border-2 font-serif py-[.35rem] px-1 text-sm cursor-pointer focus:outline-emerald-600 dark:bg-emerald-700"
                 >
                   <option value="">Change Hours</option>
                   <option value="-2">-2</option>
@@ -385,10 +391,10 @@
 
             <!-- Weekly Clean -->
             <article
-              class="p-3 bg-[#f8f3f9] border-2 border-transparent transition-all duration-300"
+              class="p-3 bg-[#f8f3f9] border-2 border-transparent transition-all duration-300 dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
             >
               <i
-                class="fa-solid fa-calendar-week p-4 text-xl bg-white rounded-full"
+                class="fa-solid fa-calendar-week p-4 text-xl bg-white rounded-full dark:bg-neutral-800"
               ></i>
               <small
                 class="bg-red-400 p-2 rounded-full text-white font-semibold tracking-wider deep-changed hidden"
@@ -404,25 +410,25 @@
               </h3>
               <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
                 <span
-                  class="inline-flex items-center justify-center bg-white py-2 px-4"
+                  class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800"
                 >
                   <i class="fa-solid fa-magnifying-glass-dollar mr-2"></i>
                   <small class="capitalize tracking-widest">price</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] weekly-price"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] weekly-price dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >$95.00</small
                 >
               </div>
               <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
                 <span
-                  class="inline-flex items-center justify-center bg-white py-2 px-4"
+                  class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800"
                 >
                   <i class="fa-solid fa-clock mr-2"></i>
                   <small class="capitalize tracking-widest">hours</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] weekly-hours"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] weekly-hours dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >2.5</small
                 >
               </div>
@@ -430,25 +436,25 @@
                 class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full tax-element hidden"
               >
                 <span
-                  class="inline-flex items-center justify-center bg-white py-2 px-4"
+                  class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800"
                 >
                   <i class="fa-solid fa-hand-holding-dollar mr-2"></i>
                   <small class="capitalize tracking-widest">taxes</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-weekly"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-weekly dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >6.5</small
                 >
               </div>
               <div class="bg-slate-200 py-2 px-4 w-4/5 mx-auto md:w-full">
                 <span
-                  class="inline-flex items-center justify-center bg-white p-2 cursor-pointer"
+                  class="inline-flex items-center justify-center bg-white p-2 cursor-pointer dark:bg-neutral-800"
                 >
                   <i class="fa-solid fa-clock-rotate-left"></i>
                 </span>
                 <select
                   id="change-hours-weekly"
-                  class="border-2 font-serif py-[.35rem] px-1 text-sm cursor-pointer focus:outline-emerald-600"
+                  class="border-2 font-serif py-[.35rem] px-1 text-sm cursor-pointer focus:outline-emerald-600 dark:bg-emerald-700"
                 >
                   <option value="">Change Hours</option>
                   <option value="-2">-2</option>
@@ -475,10 +481,10 @@
 
             <!-- Bi-Weekly Clean -->
             <article
-              class="p-3 bg-[#f8f3f9] border-2 border-transparent transition-all duration-300"
+              class="p-3 bg-[#f8f3f9] border-2 border-transparent transition-all duration-300 dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
             >
               <i
-                class="fa-solid fa-calendar-day p-4 text-xl bg-white rounded-full"
+                class="fa-solid fa-calendar-day p-4 text-xl bg-white rounded-full dark:bg-neutral-800"
               ></i>
               <small
                 class="bg-red-400 p-2 rounded-full text-white font-semibold tracking-wider deep-changed hidden"
@@ -494,25 +500,25 @@
               </h3>
               <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
                 <span
-                  class="inline-flex items-center justify-center bg-white py-2 px-4"
+                  class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800"
                 >
                   <i class="fa-solid fa-magnifying-glass-dollar mr-2"></i>
                   <small class="capitalize tracking-widest">price</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] bi-weekly-price"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] bi-weekly-price dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >$114.00</small
                 >
               </div>
               <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
                 <span
-                  class="inline-flex items-center justify-center bg-white py-2 px-4"
+                  class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800"
                 >
                   <i class="fa-solid fa-clock mr-2"></i>
                   <small class="capitalize tracking-widest">hours</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] bi-weekly-hours"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] bi-weekly-hours dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >3</small
                 >
               </div>
@@ -520,25 +526,25 @@
                 class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full tax-element hidden"
               >
                 <span
-                  class="inline-flex items-center justify-center bg-white py-2 px-4"
+                  class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800"
                 >
                   <i class="fa-solid fa-hand-holding-dollar mr-2"></i>
                   <small class="capitalize tracking-widest">taxes</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-bi-weekly"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-bi-weekly dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >6.5</small
                 >
               </div>
               <div class="bg-slate-200 py-2 px-4 w-4/5 mx-auto md:w-full">
                 <span
-                  class="inline-flex items-center justify-center bg-white p-2 cursor-pointer"
+                  class="inline-flex items-center justify-center bg-white p-2 cursor-pointer dark:bg-neutral-800"
                 >
                   <i class="fa-solid fa-clock-rotate-left"></i>
                 </span>
                 <select
                   id="change-hours-bi-weekly"
-                  class="border-2 font-serif py-[.35rem] px-1 text-sm cursor-pointer focus:outline-emerald-600"
+                  class="border-2 font-serif py-[.35rem] px-1 text-sm cursor-pointer focus:outline-emerald-600 dark:bg-emerald-700"
                 >
                   <option value="">Change Hours</option>
                   <option value="-2">-2</option>
@@ -565,10 +571,10 @@
 
             <!-- Monthly Clean -->
             <article
-              class="p-3 bg-[#f8f3f9] border-2 border-transparent transition-all duration-300"
+              class="p-3 bg-[#f8f3f9] border-2 border-transparent transition-all duration-300 dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
             >
               <i
-                class="fa-solid fa-calendar-days p-4 text-xl bg-white rounded-full"
+                class="fa-solid fa-calendar-days p-4 text-xl bg-white rounded-full dark:bg-neutral-800"
               ></i>
               <small
                 class="bg-red-400 p-2 rounded-full text-white font-semibold tracking-wider deep-changed hidden"
@@ -584,25 +590,25 @@
               </h3>
               <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
                 <span
-                  class="inline-flex items-center justify-center bg-white py-2 px-4"
+                  class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800"
                 >
                   <i class="fa-solid fa-magnifying-glass-dollar mr-2"></i>
                   <small class="capitalize tracking-widest">price</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] monthly-price"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] monthly-price dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >$123.50</small
                 >
               </div>
               <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
                 <span
-                  class="inline-flex items-center justify-center bg-white py-2 px-4"
+                  class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800"
                 >
                   <i class="fa-solid fa-clock mr-2"></i>
                   <small class="capitalize tracking-widest">hours</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] monthly-hours"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] monthly-hours dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >3.25</small
                 >
               </div>
@@ -610,25 +616,25 @@
                 class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full tax-element hidden"
               >
                 <span
-                  class="inline-flex items-center justify-center bg-white py-2 px-4"
+                  class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800"
                 >
                   <i class="fa-solid fa-hand-holding-dollar mr-2"></i>
                   <small class="capitalize tracking-widest">taxes</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-monthly"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-monthly dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >6.5</small
                 >
               </div>
               <div class="bg-slate-200 py-2 px-4 w-4/5 mx-auto md:w-full">
                 <span
-                  class="inline-flex items-center justify-center bg-white p-2 cursor-pointer"
+                  class="inline-flex items-center justify-center bg-white p-2 cursor-pointer dark:bg-neutral-800"
                 >
                   <i class="fa-solid fa-clock-rotate-left"></i>
                 </span>
                 <select
                   id="change-hours-monthly"
-                  class="border-2 font-serif py-[.35rem] px-1 text-sm cursor-pointer focus:outline-emerald-600"
+                  class="border-2 font-serif py-[.35rem] px-1 text-sm cursor-pointer focus:outline-emerald-600 dark:bg-emerald-700"
                 >
                   <option value="">Change Hours</option>
                   <option value="-2">-2</option>

@@ -132,20 +132,25 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
   const taxElement = taxElementContainer.children[1];
 
   // Calculate Taxes
-  const taxAmount = (
-    (tax / 100) *
-    allHours[sqFootage.selectedIndex - 1] *
-    hour
-  ).toFixed(2);
+  const taxAmount = ((tax / 100) * allHours[sqFootage.selectedIndex - 1] * hour)
+    .toFixed(2)
+    .replace(/^/, '$');
 
   // Remove Change Icons
   const removeChangeIcon = () => {
     icon.classList.add('hidden');
+    // article.classList.remove('border-[#e5e7eb]');
+    // article.classList.add('border-transparent');
+    // article.style.background = '#f8f3f9';
+    numIcon.style.background = '';
+    numIcon.classList.add('hidden');
+  };
+
+  // Change Article Background
+  const changeArticleBcg = () => {
     article.classList.remove('border-[#e5e7eb]');
     article.classList.add('border-transparent');
     article.style.background = '#f8f3f9';
-    numIcon.style.background = '';
-    numIcon.classList.add('hidden');
   };
 
   // Add Or Remove Tax Element
@@ -158,8 +163,8 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
   // Add Change Icons
   if (change !== 0) {
     icon.classList.remove('hidden');
-    article.style.background =
-      'linear-gradient(to bottom right, #f9f7f4, #f6f3f8)';
+    // article.style.background =
+    //   'linear-gradient(to bottom right, #f9f7f4, #f6f3f8)';
     article.classList.add('border-[#e5e7eb]');
     article.classList.remove('border-transparent');
     numIcon.classList.remove('hidden');
@@ -169,6 +174,7 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
     }`;
   } else {
     removeChangeIcon();
+    article.classList.add('border-transparent');
   }
 
   // Change Back Hours
@@ -176,6 +182,10 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
     flag = false;
     element.value = 0;
     removeChangeIcon();
+    article.classList.add('border-transparent');
+    if (flag) {
+      changeArticleBcg();
+    }
     calcDisplayQuote(
       article.children[4].children[1],
       article.children[5].children[1],
