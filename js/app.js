@@ -332,6 +332,8 @@ document.addEventListener('keydown', e => {
 });
 
 // Toggle Dark Functionality
+// FUNCTION //
+// Dark flag is used as a state variable (in this toggleDark function) to toggle dark mode on and off
 let darkFlag = true;
 const toggler = document.querySelector('.toggler');
 const sunIcon = document.querySelector('.sun');
@@ -340,7 +342,6 @@ const moonIcon = document.querySelector('.moon');
 const toggleDark = () => {
   toggler.addEventListener('click', () => {
     const html = document.documentElement;
-    // toggler.children[0].classList.toggle('translate-x-5');
     sunIcon.classList.toggle('hidden');
     moonIcon.classList.toggle('hidden');
     if (darkFlag) {
@@ -353,7 +354,8 @@ const toggleDark = () => {
 };
 toggleDark();
 
-// Show Alert Message
+// FUNCTION //
+// Show Tax Alert Message
 const alertDom = document.querySelector('.alert');
 const showAlertMessage = message => {
   alertDom.classList.remove('opacity-0');
@@ -363,6 +365,7 @@ const showAlertMessage = message => {
         <p class="tracking-widest mt-3">Taxes will be <span class="bg-red-600 inline-block px-3">${message}</span> ${
     message === 'REMOVED' ? 'from' : 'to'
   } price on next estamite</p>`;
+
   setTimeout(() => {
     alertDom.classList.add('opacity-0');
     alertDom.classList.remove('opacity-1');
@@ -370,6 +373,8 @@ const showAlertMessage = message => {
 };
 
 // Toggler Tax
+// FUNCTION //
+// Toggle flag is used to toggle as a global variable to toggle taxes on and off in the calcDisplayQuote Function
 let taxFlag = true;
 const toggleTaxEl = document.querySelector('.toggler-tax');
 const toggleTax = () => {
