@@ -50,9 +50,13 @@ const calcDisplayQuote = (
   // Calculate Tax
   const tax = (taxRate / 100) * allHours * amount;
   // Display Price
-  elementPrice.textContent = (allHours * amount + tax)
-    .toFixed(2)
-    .replace(/^/, '$');
+  if (taxFlag) {
+    elementPrice.textContent = (allHours * amount + tax)
+      .toFixed(2)
+      .replace(/^/, '$');
+  } else {
+    elementPrice.textContent = (allHours * amount).toFixed(2).replace(/^/, '$');
+  }
   // Display Hours
   elementHours.textContent = allHours;
   // Display Taxes
@@ -348,3 +352,38 @@ const toggleDark = () => {
   });
 };
 toggleDark();
+
+// Show Alert Message
+const alertDom = document.querySelector('.alert');
+const showAlertMessage = message => {
+  alertDom.classList.remove('opacity-0');
+  alertDom.classList.add('opacity-1');
+  alertDom.innerHTML = `<span class="inline-flex items-center justify-center rounded-full bg-red-600">
+  <i class="fa-solid fa-circle-exclamation text-3xl"></i></span>
+        <p class="tracking-widest mt-3">Taxes will be <span class="bg-red-600 inline-block px-3">${message}</span> ${
+    message === 'REMOVED' ? 'from' : 'to'
+  } price on next estamite</p>`;
+  setTimeout(() => {
+    alertDom.classList.add('opacity-0');
+    alertDom.classList.remove('opacity-1');
+  }, 4000);
+};
+
+// Toggler Tax
+let taxFlag = true;
+const toggleTaxEl = document.querySelector('.toggler-tax');
+const toggleTax = () => {
+  toggleTaxEl.addEventListener('click', () => {
+    toggleTaxEl.children[0].classList.toggle('translate-x-6');
+    if (toggleTaxEl.classList.contains('bg-green-700')) {
+      showAlertMessage('REMOVED');
+      toggleTaxEl.classList.remove('bg-green-700');
+      toggleTaxEl.classList.add('bg-gray-500');
+    } else {
+      showAlertMessage('APPLIED');
+      toggleTaxEl.classList.add('bg-green-700');
+    }
+    taxFlag = !taxFlag;
+  });
+};
+toggleTax();

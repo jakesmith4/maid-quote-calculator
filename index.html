@@ -33,6 +33,12 @@
       class="modal bg-black bg-opacity-70 h-screen fixed top-0 left-0 w-full backdrop-blur-sm flex items-center justify-center invisible"
     >
       <div
+        class="absolute top-2 left-1/2 w-3/4 max-w-md transform -translate-x-1/2 bg-gradient-to-br from-emerald-700 to-neutral-800 text-center text-white tracking-widest p-2 shadow-xl rounded-xl border-2 border-white transition-all opacity-0 alert"
+      >
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <p>Settings will be applied on next estamite</p>
+      </div>
+      <div
         class="bg-white p-3 shadow-lg rounded-xl w-[70vw] max-w-sm dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
       >
         <div class="px-4 pt-2">
@@ -46,14 +52,14 @@
               ></i>
             </button>
           </div>
-          <!-- Toggler Wrapper -->
-          <div class="flex space-x-2 items-center">
+          <!-- Toggler Wrapper (Dark Mode) -->
+          <div class="flex space-x-2 items-center mb-4">
             <!-- Toggler -->
             <div
               class="bg-gray-500 w-12 h-6 cursor-pointer rounded-3xl toggler dark:bg-green-700 flex items-center transition-all"
             >
               <div
-                class="bg-white w-6 h-6 scale-75 rounded-3xl transition-transform dark:bg-black flex items-center justify-center dark:translate-x-6"
+                class="bg-white w-6 h-6 transform scale-75 rounded-3xl transition-transform dark:bg-black flex items-center justify-center dark:translate-x-6"
               >
                 <span class="sun">
                   <i class="fa-solid fa-sun scale-75 text-yellow-500"></i>
@@ -70,7 +76,25 @@
             >
             <!-- End Of Toggler Name -->
           </div>
-          <!-- End Of Toggler Wrapper -->
+          <!-- End Of Toggler Wrapper (Dark Mode) -->
+          <!-- Toggler Wrapper (Tax Toggle) -->
+          <div class="flex space-x-2 items-center">
+            <!-- Toggler -->
+            <div
+              class="bg-green-700 w-12 h-6 cursor-pointer rounded-3xl flex items-center transition-all toggler-tax"
+            >
+              <div
+                class="bg-white w-6 h-6 transform translate-x-6 scale-75 rounded-3xl transition-transform flex items-center justify-center"
+              ></div>
+            </div>
+            <!-- End Of Toggler -->
+            <!-- Toggler Name -->
+            <small class="dark:text-white tracking-widest font-semibold"
+              >Include tax into price</small
+            >
+            <!-- End Of Toggler Name -->
+          </div>
+          <!-- End Of Toggler Wrapper (Tax Toggle) -->
         </div>
       </div>
     </div>
