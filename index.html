@@ -33,32 +33,45 @@
       class="modal bg-black bg-opacity-70 h-screen fixed top-0 left-0 w-full backdrop-blur-sm flex items-center justify-center invisible"
     >
       <div
-        class="bg-white p-8 shadow-lg rounded-xl relative w-[90vw] max-w-md dark:bg-zinc-700 dark:text-white"
+        class="bg-white p-3 shadow-lg rounded-xl w-[70vw] max-w-sm dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
       >
-        <div class="flex items-center justify-between">
-          <small class="tracking-widest font-semibold text-xl">Settings</small>
-          <!-- Toggler -->
-          <div
-            class="bg-gray-500 w-12 h-6 cursor-pointer rounded-3xl toggler dark:bg-green-500 flex items-center transition-all"
-          >
-            <div
-              class="bg-white w-6 h-6 scale-75 rounded-3xl transition-transform dark:bg-black flex items-center justify-center dark:translate-x-6"
+        <div class="px-4 pt-2">
+          <div class="flex items-center justify-between border-b-2 mb-4 pb-4">
+            <small class="tracking-widest font-semibold text-xl"
+              >App Settings</small
             >
-              <span class="sun">
-                <i class="fa-solid fa-sun scale-75 text-yellow-500"></i>
-              </span>
-              <span class="moon hidden">
-                <i class="fa-solid fa-moon text-white"></i>
-              </span>
-            </div>
+            <button class="close-modal">
+              <i
+                class="fa-solid fa-circle-xmark text-red-500 text-3xl rounded-full hover:text-red-600"
+              ></i>
+            </button>
           </div>
-          <!-- End Of Toggler -->
+          <!-- Toggler Wrapper -->
+          <div class="flex space-x-2 items-center">
+            <!-- Toggler -->
+            <div
+              class="bg-gray-500 w-12 h-6 cursor-pointer rounded-3xl toggler dark:bg-green-700 flex items-center transition-all"
+            >
+              <div
+                class="bg-white w-6 h-6 scale-75 rounded-3xl transition-transform dark:bg-black flex items-center justify-center dark:translate-x-6"
+              >
+                <span class="sun">
+                  <i class="fa-solid fa-sun scale-75 text-yellow-500"></i>
+                </span>
+                <span class="moon hidden">
+                  <i class="fa-solid fa-moon text-white"></i>
+                </span>
+              </div>
+            </div>
+            <!-- End Of Toggler -->
+            <!-- Toggler Name -->
+            <small class="dark:text-white tracking-widest font-semibold"
+              >Toggle dark mode</small
+            >
+            <!-- End Of Toggler Name -->
+          </div>
+          <!-- End Of Toggler Wrapper -->
         </div>
-        <button class="close-modal">
-          <i
-            class="fa-solid fa-rectangle-xmark absolute top-2 left-2 text-red-500 text-2xl rounded-full"
-          ></i>
-        </button>
       </div>
     </div>
     <!-- End Of Modal -->
