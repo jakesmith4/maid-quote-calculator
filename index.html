@@ -28,9 +28,9 @@
         Maid Quote Calculator
       </h1>
     </div>
-    <!-- Modal -->
+    <!-- Settings Modal -->
     <div
-      class="modal bg-black bg-opacity-70 h-screen fixed top-0 left-0 w-full backdrop-blur-sm flex items-center justify-center invisible"
+      class="modal bg-black bg-opacity-70 h-screen fixed top-0 left-0 w-full backdrop-blur-sm hidden items-center justify-center invisible"
     >
       <div
         class="absolute top-2 left-1/2 w-3/4 max-w-md transform -translate-x-1/2 bg-gradient-to-br from-emerald-700 to-neutral-800 text-center text-white tracking-widest p-2 shadow-xl rounded-xl border-2 border-white transition-all opacity-0 alert"
@@ -47,7 +47,7 @@
             >
             <button class="close-modal">
               <i
-                class="fa-solid fa-circle-xmark text-red-500 text-3xl rounded-full hover:text-red-600"
+                class="fa-solid fa-circle-xmark text-red-500 text-3xl rounded-full hover:text-red-600 close"
               ></i>
             </button>
           </div>
@@ -97,7 +97,216 @@
         </div>
       </div>
     </div>
-    <!-- End Of Modal -->
+    <!-- End Of Settings Modal -->
+    <!-- SAVE Quote Modal (Save Button Modal) -->
+    <div
+      class="modal-quote bg-black bg-opacity-70 h-screen fixed top-0 left-0 w-full backdrop-blur-sm hidden items-center justify-center invisible"
+    >
+      <div
+        class="bg-white p-3 shadow-lg rounded-xl w-[70vw] max-w-sm dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
+      >
+        <div class="px-4 pt-2">
+          <div class="flex items-center justify-between border-b-2 mb-4 pb-4">
+            <small class="tracking-widest font-semibold text-xl quote-heading"
+              >Save Quote</small
+            >
+            <button class="close-modal">
+              <i
+                class="fa-solid fa-circle-xmark text-red-500 text-3xl rounded-full hover:text-red-600 close"
+              ></i>
+            </button>
+          </div>
+          <!-- Save Quote Form -->
+          <form action="" spellcheck="false" class="space-y-3 save-quote-form">
+            <!-- Name Input -->
+            <div>
+              <label
+                for="name"
+                class="text-emerald-600 tracking-widest font-semibold mr-4"
+                >Name:</label
+              >
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Enter Name"
+                class="outline-emerald-600 border-2 py-[.10rem] px-2 placeholder:tracking-wide text-black name"
+              />
+            </div>
+            <!-- End Of Name Input -->
+            <!-- Email Input -->
+            <div>
+              <label
+                for="email"
+                class="text-emerald-600 tracking-widest font-semibold mr-5"
+                >Email:</label
+              >
+              <input
+                type="text"
+                name="email"
+                id="email"
+                placeholder="Enter Email"
+                class="outline-emerald-600 border-2 py-[.10rem] px-2 placeholder:tracking-wide text-black email"
+              />
+            </div>
+            <!-- End Of Email Input -->
+            <!-- Phone Number Input -->
+            <div>
+              <label
+                for="number"
+                class="text-emerald-600 tracking-widest font-semibold"
+                >Number:</label
+              >
+              <input
+                type="tel"
+                name="number"
+                id="number"
+                placeholder="Enter Number"
+                class="outline-emerald-600 border-2 py-[.10rem] px-2 placeholder:tracking-wide text-black phone-number"
+              />
+            </div>
+            <!-- End Of Phone Number Input -->
+            <!-- Address Input -->
+            <div>
+              <label
+                for="address"
+                class="text-neutral-800 tracking-widest font-semibold"
+                >Address:</label
+              >
+              <textarea
+                name="number"
+                id="address"
+                cols="35"
+                rows="3"
+                placeholder="Enter Address"
+                class="outline-emerald-600 border-2 px-2 placeholder:tracking-wide text-black address"
+              ></textarea>
+            </div>
+            <!-- End Of Address Input -->
+            <!-- City Input -->
+            <div>
+              <label
+                for="city"
+                class="text-neutral-800 tracking-widest font-semibold block"
+                >City:</label
+              >
+              <input
+                type="text"
+                name="name"
+                id="city"
+                placeholder="Enter City"
+                class="outline-emerald-600 border-2 py-[.10rem] px-2 placeholder:tracking-wide text-black w-full city"
+              />
+            </div>
+            <!-- End Of City Input -->
+            <!-- Zip Code Input -->
+            <div>
+              <label
+                for="zipcode"
+                class="text-neutral-800 tracking-widest font-semibold block"
+                >Zip Code:</label
+              >
+              <input
+                type="number"
+                name="zipcode"
+                id="number"
+                placeholder="Enter Zip Code"
+                class="outline-emerald-600 border-2 py-[.10rem] px-2 placeholder:tracking-wide text-black zip-code"
+              />
+            </div>
+            <!-- End Of Zip Code Input -->
+            <!-- Special Note Textarea -->
+            <div>
+              <label
+                for="special-note"
+                class="text-neutral-800 tracking-widest font-semibold"
+                >Special Notes:</label
+              >
+              <textarea
+                name="number"
+                id="special-note"
+                cols="35"
+                rows="4"
+                placeholder="Enter Special Notes Here"
+                class="outline-emerald-600 border-2 px-2 placeholder:tracking-wide text-black address special-notes"
+              ></textarea>
+            </div>
+            <!-- End Of Special Note Textarea -->
+            <button
+              class="w-full text-white bg-emerald-700 tracking-widest block mx-auto transition-all border-2 border-emerald-500 hover:shadow-xl hover:bg-emerald-600 close"
+            >
+              <i class="fa-solid fa-floppy-disk close"></i>
+              Save
+            </button>
+          </form>
+          <!-- End Of Save Quote Form -->
+        </div>
+      </div>
+    </div>
+    <!-- End Of SAVE Quote Modal (Save Button Modal) -->
+    <!-- SAVED Quotes Modal (Sidebar Icon Modal) -->
+    <div
+      class="modal-saved bg-black bg-opacity-70 h-screen fixed top-0 left-0 w-full backdrop-blur-sm hidden items-center justify-center invisible"
+    >
+      <div
+        class="bg-white p-3 shadow-lg rounded-xl w-[70vw] max-w-sm max-h-[80vh] dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white overflow-y-scroll"
+      >
+        <div class="px-4 pt-2">
+          <!-- Quote Heading -->
+          <div class="flex items-center justify-between border-b-2 mb-4 pb-4">
+            <small class="tracking-widest font-semibold text-xl"
+              >Saved Quotes</small
+            >
+            <button class="close-modal">
+              <i
+                class="fa-solid fa-circle-xmark text-red-500 text-3xl rounded-full hover:text-red-600 close"
+              ></i>
+            </button>
+          </div>
+          <!-- End Of Quote Heading -->
+          <!-- Quote Info -->
+          <div class="quote-names"></div>
+          <!-- End Of Quote Info -->
+        </div>
+      </div>
+    </div>
+    <!-- End Of Saved Modal (Sidebar Icon Modal) -->
+    <!-- Show Quote Modal -->
+    <div
+      class="modal-show bg-black bg-opacity-70 h-screen fixed top-0 left-0 w-full backdrop-blur-sm hidden items-center justify-center invisible"
+    >
+      <div
+        class="absolute top-2 left-1/2 w-3/4 max-w-md transform -translate-x-1/2 bg-gradient-to-br from-emerald-700 to-neutral-800 text-center text-white tracking-widest p-2 shadow-xl rounded-xl border-2 border-white transition-all opacity-0 alert"
+      >
+        Text from Javascript is iserted here
+      </div>
+      <div
+        class="bg-white p-3 shadow-lg rounded-xl w-[70vw] max-w-sm dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
+      >
+        <div class="px-4 pt-2">
+          <!-- Quote Heading -->
+          <div class="flex items-center justify-between border-b-2 mb-4 pb-4">
+            <button class="back-btn">
+              <i class="fa-solid fa-arrow-left-long"></i>
+            </button>
+            <small
+              class="tracking-widest font-semibold text-xl show-quote-heading"
+              >text from javascript inserted here</small
+            >
+            <button class="close-modal">
+              <i
+                class="fa-solid fa-circle-xmark text-red-500 text-3xl rounded-full hover:text-red-600 close"
+              ></i>
+            </button>
+          </div>
+          <!-- End Of Quote Heading -->
+          <!-- Quote Info -->
+          <div class="quote-info"></div>
+          <!-- End Of Quote Info -->
+        </div>
+      </div>
+    </div>
+    <!-- End Of Show Quote Modal -->
     <!-- Sidebar -->
     <div
       class="fixed top-1/2 -translate-y-1/2 bg-emerald-700 w-14 rounded-xl -translate-x-12 hover:-translate-x-1 hover:rounded-tl-none hover:rounded-bl-none hover:bg-emerald-600 transition-all shadow-2xll flex items-start justify-center py-2 border-2 border-transparent hover:border-black md:w-36 md:justify-end md:pr-1 md:-translate-x-24 dark:bg-gradient-to-tr dark:from-emerald-600 dark:to-neutral-600 group"
@@ -115,6 +324,7 @@
           ></i>
         </div>
         <div class="flex flex-col space-y-4 group-hover:md:items-end">
+          <!-- Settings Icon -->
           <div
             class="group-hover:md:bg-slate-100 group-hover:md:p-2 group-hover:md:w-[119px]"
           >
@@ -122,12 +332,30 @@
               class="font-semibold hidden md:group-hover:inline-block tracking-widest"
               >Settings</span
             >
-            <a href="#" title="Settings" class="ml-[.15rem]">
+            <a href="#" title="Settings" class="ml-[.10rem]">
               <i
                 class="fa-solid fa-gear transition-all text-lg hover:scale-110 hover:text-white md:hover:text-emerald-600 hover:rotate-[360deg] duration-200 settings"
               ></i>
             </a>
           </div>
+          <!-- End Of Settings Icon -->
+          <!-- Save Icon -->
+          <div
+            class="group-hover:md:bg-slate-100 group-hover:md:p-2 group-hover:md:w-[119px]"
+          >
+            <span
+              class="font-semibold hidden md:group-hover:inline-block tracking-widest"
+              >Quotes</span
+            >
+            <a href="#" title="Saved Quotes" class="ml-[.17rem]">
+              <i
+                class="fa-solid fa-floppy-disk transition-all text-lg hover:scale-110 hover:text-white md:hover:text-emerald-600 hover:rotate-[360deg] duration-200 save"
+              ></i>
+            </a>
+          </div>
+          <!-- End Of Save Icon -->
+          <!-- End Of Settings Icon -->
+          <!-- Deep Icon -->
           <div
             class="group-hover:md:bg-slate-100 group-hover:md:p-2 group-hover:md:w-[119px]"
           >
@@ -141,6 +369,8 @@
               ></i>
             </a>
           </div>
+          <!-- End Of Deep Icon -->
+          <!-- General Icon -->
           <div
             class="group-hover:md:bg-slate-100 group-hover:md:p-2 group-hover:md:w-[119px]"
           >
@@ -154,17 +384,20 @@
               ></i>
             </a>
           </div>
+          <!-- End Of General Icon -->
+          <!-- Maintenance Icon -->
           <div class="group-hover:md:bg-slate-100 group-hover:md:p-2">
             <span
               class="font-semibold hidden md:group-hover:inline-block tracking-widest"
               >Maint CL</span
             >
-            <a href="#" title="Maintenance Clean" class="ml-[0.35rem]">
+            <a href="#" title="Maintenance Clean" class="ml-[0.28rem]">
               <i
                 class="fa-solid fa-calendar-check transition-all text-lg hover:scale-110 hover:text-white md:ml-0 md:hover:text-emerald-600 hover:rotate-[360deg] duration-200"
               ></i>
             </a>
           </div>
+          <!-- End Of Maintenance Icon -->
         </div>
       </div>
     </div>
@@ -187,7 +420,7 @@
             <select
               name="square-foot"
               id="square-footage"
-              class="py-2 px-0 border-2 block mx-auto my-4 font-serif focus:outline-emerald-600 sm:px-4 dark:bg-emerald-700 dark:focus:outline-white"
+              class="py-2 px-0 border-2 block mx-auto my-4 font-serif focus:outline-emerald-600 sm:px-4 dark:bg-emerald-700 dark:focus:outline-white square-foot-select"
             >
               <option value="" disabled>Select Your Square Footage</option>
               <option value="1000-1500">1000-1500</option>
@@ -252,62 +485,87 @@
               <i
                 class="fa-solid fa-hand-sparkles p-4 text-xl bg-white rounded-full dark:bg-neutral-800"
               ></i>
+              <!-- Hours Changed Icon -->
               <small
                 class="bg-red-400 p-2 rounded-full text-white font-semibold tracking-wider deep-changed hidden"
                 >Hours Changed</small
               >
+              <!-- End Of Hours Changed Icon -->
+              <!-- Hours Num Icon -->
               <small
                 class="p-2 rounded-full text-white font-semibold tracking-wider num-icon hidden"
               ></small>
+              <!-- End Of Hours Num Icon  -->
               <h3
-                class="capitalize tracking-wider font-bold font-serif text-xl my-4"
+                class="capitalize tracking-wider font-bold font-serif text-xl my-4 cleaning-type"
               >
                 deep clean
               </h3>
+              <!-- Price Container -->
               <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
+                <!-- Price Logo -->
                 <span
                   class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
                 >
                   <i class="fa-solid fa-magnifying-glass-dollar mr-2"></i>
                   <small class="capitalize tracking-widest">price</small>
                 </span>
+                <!-- End Of Price Logo -->
+                <!-- Price Number -->
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] deep-price dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] deep-price price dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >$247.00</small
                 >
+                <!-- End Of Price Number -->
               </div>
+              <!-- End Of Price Container -->
+              <!-- Hours Container -->
               <div class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full">
+                <!-- Hours Logo -->
                 <span
                   class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
                 >
                   <i class="fa-solid fa-clock mr-2"></i>
                   <small class="capitalize tracking-widest">hours</small>
                 </span>
+                <!-- End Of Hours Logo -->
+                <!-- Hours Number -->
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] deep-hours dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] deep-hours hours dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >6.5</small
                 >
+                <!-- End Of Hours Number -->
               </div>
+              <!-- End Of Hours Container -->
+              <!-- Taxes Container -->
               <div
                 class="bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full tax-element hidden"
               >
+                <!-- Taxes Logo -->
                 <span
                   class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
                 >
                   <i class="fa-solid fa-hand-holding-dollar mr-2"></i>
                   <small class="capitalize tracking-widest">taxes</small>
                 </span>
+                <!-- End Of Taxes Logo -->
+                <!-- Taxes Number -->
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-deep dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
-                  >6.5</small
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-deep dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 tax-number"
+                  >0</small
                 >
+                <!-- End Of Taxes Number -->
               </div>
+              <!-- End Of Taxes Container -->
+              <!-- Change Hours Container -->
               <div class="bg-slate-200 py-2 px-4 w-4/5 mx-auto md:w-full">
+                <!-- Change Hours Back Icon -->
                 <span
                   class="inline-flex items-center justify-center bg-white p-2 cursor-pointer dark:bg-neutral-800 dark:text-white"
                 >
                   <i class="fa-solid fa-clock-rotate-left"></i>
                 </span>
+                <!-- End Of Change Hours Back Icon -->
                 <select
                   id="change-hours-deep"
                   class="border-2 font-serif py-[.35rem] px-1 text-sm cursor-pointer focus:outline-emerald-600 dark:bg-emerald-700"
@@ -332,6 +590,15 @@
                   <option value="2.00">+2.00</option>
                 </select>
               </div>
+              <!-- End Of Change Hours Container -->
+              <div class="bg-slate-200 py-2 px-4 mt-3 w-4/5 mx-auto md:w-full">
+                <button
+                  class="bg-neutral-700 py-1 px-4 text-white tracking-widest border-[3px] border-emerald-600 transition-colors hover:bg-neutral-600 dark:bg-neutral-800 dark:hover:bg-neutral-700 quote-btn"
+                >
+                  <i class="fa-solid fa-floppy-disk"></i>
+                  Save Quote
+                </button>
+              </div>
             </article>
             <!-- End Of Deep Clean -->
 
@@ -350,7 +617,7 @@
                 class="p-2 rounded-full text-white font-semibold tracking-wider num-icon hidden"
               ></small>
               <h3
-                class="capitalize tracking-wider font-bold font-serif text-xl my-4"
+                class="capitalize tracking-wider font-bold font-serif text-xl my-4 cleaning-type"
               >
                 general clean
               </h3>
@@ -362,7 +629,7 @@
                   <small class="capitalize tracking-widest">price</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] general-price dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] general-price price dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >$152.00</small
                 >
               </div>
@@ -374,7 +641,7 @@
                   <small class="capitalize tracking-widest">hours</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] general-hours dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] general-hours hours dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >4</small
                 >
               </div>
@@ -388,8 +655,8 @@
                   <small class="capitalize tracking-widest">taxes</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-general dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
-                  >6.5</small
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-general tax-number dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+                  >0</small
                 >
               </div>
               <div class="bg-slate-200 py-2 px-4 w-4/5 mx-auto md:w-full">
@@ -422,6 +689,14 @@
                   <option value="2">+2</option>
                 </select>
               </div>
+              <div class="bg-slate-200 py-2 px-4 mt-3 w-4/5 mx-auto md:w-full">
+                <button
+                  class="bg-neutral-700 py-1 px-4 text-white tracking-widest border-[3px] border-emerald-600 transition-colors hover:bg-neutral-600 dark:bg-neutral-800 dark:hover:bg-neutral-700 quote-btn"
+                >
+                  <i class="fa-solid fa-floppy-disk"></i>
+                  Save Quote
+                </button>
+              </div>
             </article>
             <!-- End Of General Clean -->
 
@@ -440,7 +715,7 @@
                 class="p-2 rounded-full text-white font-semibold tracking-wider num-icon hidden"
               ></small>
               <h3
-                class="capitalize tracking-wider font-bold font-serif text-xl my-4"
+                class="capitalize tracking-wider font-bold font-serif text-xl my-4 cleaning-type"
               >
                 weekly price
               </h3>
@@ -452,7 +727,7 @@
                   <small class="capitalize tracking-widest">price</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] weekly-price dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] weekly-price price dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >$95.00</small
                 >
               </div>
@@ -464,7 +739,7 @@
                   <small class="capitalize tracking-widest">hours</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] weekly-hours dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] weekly-hours hours dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >2.5</small
                 >
               </div>
@@ -478,8 +753,8 @@
                   <small class="capitalize tracking-widest">taxes</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-weekly dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
-                  >6.5</small
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-weekly tax-number dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+                  >0</small
                 >
               </div>
               <div class="bg-slate-200 py-2 px-4 w-4/5 mx-auto md:w-full">
@@ -512,6 +787,14 @@
                   <option value="2">+2</option>
                 </select>
               </div>
+              <div class="bg-slate-200 py-2 px-4 mt-3 w-4/5 mx-auto md:w-full">
+                <button
+                  class="bg-neutral-700 py-1 px-4 text-white tracking-widest border-[3px] border-emerald-600 transition-colors hover:bg-neutral-600 dark:bg-neutral-800 dark:hover:bg-neutral-700 quote-btn"
+                >
+                  <i class="fa-solid fa-floppy-disk"></i>
+                  Save Quote
+                </button>
+              </div>
             </article>
             <!-- End Of Weekly Clean -->
 
@@ -530,7 +813,7 @@
                 class="p-2 rounded-full text-white font-semibold tracking-wider num-icon hidden"
               ></small>
               <h3
-                class="capitalize tracking-wider font-bold font-serif text-xl my-4"
+                class="capitalize tracking-wider font-bold font-serif text-xl my-4 cleaning-type"
               >
                 bi-weekly price
               </h3>
@@ -542,7 +825,7 @@
                   <small class="capitalize tracking-widest">price</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] bi-weekly-price dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] bi-weekly-price price dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >$114.00</small
                 >
               </div>
@@ -554,7 +837,7 @@
                   <small class="capitalize tracking-widest">hours</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] bi-weekly-hours dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] bi-weekly-hours hours dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >3</small
                 >
               </div>
@@ -568,8 +851,8 @@
                   <small class="capitalize tracking-widest">taxes</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-bi-weekly dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
-                  >6.5</small
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-bi-weekly tax-number dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+                  >0</small
                 >
               </div>
               <div class="bg-slate-200 py-2 px-4 w-4/5 mx-auto md:w-full">
@@ -602,6 +885,14 @@
                   <option value="2">+2</option>
                 </select>
               </div>
+              <div class="bg-slate-200 py-2 px-4 mt-3 w-4/5 mx-auto md:w-full">
+                <button
+                  class="bg-neutral-700 py-1 px-4 text-white tracking-widest border-[3px] border-emerald-600 transition-colors hover:bg-neutral-600 dark:bg-neutral-800 dark:hover:bg-neutral-700 quote-btn"
+                >
+                  <i class="fa-solid fa-floppy-disk"></i>
+                  Save Quote
+                </button>
+              </div>
             </article>
             <!-- End Of Bi-Weekly Clean -->
 
@@ -620,7 +911,7 @@
                 class="p-2 rounded-full text-white font-semibold tracking-wider num-icon hidden"
               ></small>
               <h3
-                class="capitalize tracking-wider font-bold font-serif text-xl my-4"
+                class="capitalize tracking-wider font-bold font-serif text-xl my-4 cleaning-type"
               >
                 monthly price
               </h3>
@@ -632,7 +923,7 @@
                   <small class="capitalize tracking-widest">price</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] monthly-price dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] monthly-price price dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >$123.50</small
                 >
               </div>
@@ -644,7 +935,7 @@
                   <small class="capitalize tracking-widest">hours</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] monthly-hours dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] monthly-hours hours dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
                   >3.25</small
                 >
               </div>
@@ -658,8 +949,8 @@
                   <small class="capitalize tracking-widest">taxes</small>
                 </span>
                 <small
-                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-monthly dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
-                  >6.5</small
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-monthly tax-number dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+                  >0</small
                 >
               </div>
               <div class="bg-slate-200 py-2 px-4 w-4/5 mx-auto md:w-full">
@@ -691,6 +982,14 @@
                   <option value="1.75">+1.75</option>
                   <option value="2">+2</option>
                 </select>
+              </div>
+              <div class="bg-slate-200 py-2 px-4 mt-3 w-4/5 mx-auto md:w-full">
+                <button
+                  class="bg-neutral-700 py-1 px-4 text-white tracking-widest border-[3px] border-emerald-600 transition-colors hover:bg-neutral-600 dark:bg-neutral-800 dark:hover:bg-neutral-700 quote-btn"
+                >
+                  <i class="fa-solid fa-floppy-disk"></i>
+                  Save Quote
+                </button>
               </div>
             </article>
             <!-- End Of Monthly Clean -->

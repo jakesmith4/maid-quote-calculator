@@ -1,3 +1,5 @@
+// THIS FIRST HALF OF THE CODE DEALS WITH CALCULATING & DISPLAYING THE VALUES FOR THE MAIN CALCULATOR
+
 // ELEMENTS //
 // Price Elements
 const deepPrice = document.querySelector('.deep-price');
@@ -306,30 +308,158 @@ formControl.addEventListener('change', () => {
   }
 });
 
-// MODAL
+// THIS SECOND HALF OF CODE DEALS WITH SHOWING ALL MODALS & DISPLAYING ALL THE DATA FOR SAVING QUOTES
+
+// MODALS
 const settingsIcon = document.querySelector('.settings');
-const modal = document.querySelector('.modal');
+const saveIcon = document.querySelector('.save');
+const settingsModal = document.querySelector('.modal');
+const saveQuoteModal = document.querySelector('.modal-quote');
+const savedQuoteModal = document.querySelector('.modal-saved');
+const showQuoteModal = document.querySelector('.modal-show');
 const closeModal = document.querySelector('.close-modal');
+const quoteHeading = document.querySelector('.quote-heading');
 
-// Toggle Modal On Setting Icon Click
-settingsIcon.addEventListener('click', e => {
-  modal.classList.toggle('invisible');
-  document.body.classList.toggle('overflow-hidden');
-});
+// FUNCTION //
+// Close Modal
+const closeModalFunc = modal => {
+  modal.addEventListener('click', e => {
+    if (e.target.classList.contains('close')) {
+      modal.classList.add('invisible');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  });
+};
+closeModalFunc(saveQuoteModal);
+closeModalFunc(savedQuoteModal);
+closeModalFunc(settingsModal);
+closeModalFunc(showQuoteModal);
 
-// Close Modal On Close Button Click
-closeModal.addEventListener('click', () => {
-  modal.classList.add('invisible');
-  document.body.classList.remove('overflow-hidden');
-});
-
-// Close Modal On Escape Key Press
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && !modal.classList.contains('invisible')) {
-    modal.classList.add('invisible');
-    document.body.classList.remove('overflow-hidden');
+// FUNCTION //
+// Remove Other Active Modals
+const removeactiveModals = (firstModal, secondModal) => {
+  if (!firstModal.classList.contains('invisible')) {
+    firstModal.classList.add('invisible');
+    firstModal.classList.remove('flex');
+    firstModal.classList.add('hidden');
   }
+  if (!secondModal.classList.contains('invisible')) {
+    secondModal.classList.add('invisible');
+    secondModal.classList.remove('flex');
+    secondModal.classList.add('hidden');
+  }
+};
+
+// Toggle Save Quote Modal On Save Icon Click (Sidebar)
+saveIcon.addEventListener('click', () => {
+  savedQuoteModal.classList.remove('invisible');
+  savedQuoteModal.classList.remove('hidden');
+  savedQuoteModal.classList.add('flex');
+  // Remove Other Active Modals
+  removeactiveModals(settingsModal, saveQuoteModal);
 });
+
+// Toggle Settings Modal On Setting Icon Click (Sidebar)
+settingsIcon.addEventListener('click', e => {
+  settingsModal.classList.toggle('invisible');
+  settingsModal.classList.toggle('flex');
+  settingsModal.classList.toggle('hidden');
+
+  // document.body.classList.toggle('overflow-hidden');
+  // Remove Other Active Modals
+  removeactiveModals(saveQuoteModal, savedQuoteModal);
+});
+
+// Show Current Quote On Name Click
+let currentQuote;
+document.addEventListener('click', e => {
+  const allQuoteNames = document.querySelectorAll('.quote-name');
+  allQuoteNames.forEach(quote => {
+    quote.addEventListener('click', e => {
+      currentQuote = savedQuotes.find(
+        quote => quote.name === e.target.textContent
+      );
+      showQuoteModal.classList.remove('invisible');
+      showQuoteModal.classList.remove('hidden');
+      showQuoteModal.classList.add('flex');
+      if (!savedQuoteModal.classList.contains('invisible')) {
+        savedQuoteModal.classList.add('invisible');
+      }
+      displayCurrentQuote();
+    });
+  });
+});
+
+// Display Current Quote
+const showQuoteHeading = document.querySelector('.show-quote-heading');
+const quoteInfo = document.querySelector('.quote-info');
+const displayCurrentQuote = () => {
+  showQuoteHeading.textContent = currentQuote.name;
+  quoteInfo.innerHTML = `
+  <div>
+  <span>Price: ${currentQuote.price}</span>
+  </div>
+  <div>
+  <span>Email: ${currentQuote.email}</span>
+  </div>
+  <div>
+  <span>Phone Number: ${currentQuote.phoneNumber}</span>
+  </div>
+  <div>
+  <span>Address: ${currentQuote.address}</span>
+  </div>
+  <div>
+  <span>City: ${currentQuote.city}</span>
+  </div>
+  <div>
+  <span>Zip Code: ${currentQuote.zipCode}</span>
+  </div>
+  <div>
+  <span>Hours: ${currentQuote.hours}</span>
+  </div>
+  <div>
+  <span>Taxes: ${currentQuote.taxes}</span>
+  </div>
+  <div>
+  <span>Cleaning Type: ${currentQuote.clean}</span>
+  </div>
+  <div>
+  <span>Square Footage: ${currentQuote.squareFootage}</span>
+  </div>
+  <div>
+  <span>Amount Per Hour: ${currentQuote.amountPerHour}</span>
+  </div>
+  <div>
+  <span>Tax Rate: ${currentQuote.taxRate}</span>
+  </div>
+  <div>
+  <span>Special Notes: ${currentQuote.specialNotes}</span>
+  </div>
+  `;
+};
+
+// Go Back To Saved Quotes Modal
+const backBtn = document.querySelector('.back-btn');
+backBtn.addEventListener('click', () => {
+  showQuoteModal.classList.add('invisible');
+  savedQuoteModal.classList.remove('invisible');
+});
+
+// Escape Keypress Modal Close
+const keypressEscModal = modalName => {
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !closeModal.classList.contains('invisible')) {
+      modalName.classList.add('invisible');
+      modalName.classList.add('hidden');
+      modalName.classList.remove('flex');
+    }
+  });
+};
+keypressEscModal(settingsModal);
+keypressEscModal(savedQuoteModal);
+keypressEscModal(saveQuoteModal);
+keypressEscModal(showQuoteModal);
 
 // Toggle Dark Functionality
 // FUNCTION //
@@ -392,3 +522,94 @@ const toggleTax = () => {
   });
 };
 toggleTax();
+
+// FUNCTION //
+// Display Save Quote Modal
+const saveQuoteBtns = document.querySelectorAll('.quote-btn');
+let price;
+let hours;
+let clean;
+let taxes;
+const displaySaveQuoteModal = () => {
+  saveQuoteBtns.forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      // Show Save Quote Modal
+      saveQuoteModal.classList.remove('invisible');
+      saveQuoteModal.classList.remove('hidden');
+      saveQuoteModal.classList.add('flex');
+      // Remove Other Modals (If They Are Present)
+      if (!settingsModal.classList.contains('invisible')) {
+        settingsModal.classList.add('invisible');
+      }
+
+      // Select Current Quote
+      const article = e.currentTarget.parentElement.parentElement;
+
+      // Store Price Into Var
+      price = article.querySelector('.price').textContent;
+
+      // Store Hours Into Var
+      hours = article.querySelector('.hours').textContent;
+
+      // Store Cleanining Type Into Var
+      clean = article.querySelector('.cleaning-type').textContent;
+
+      // Store Taxes Into Var
+      taxes = article.querySelector('.tax-number').textContent;
+    });
+  });
+};
+displaySaveQuoteModal();
+
+// Save Quote Info
+const savedQuotes = [];
+const quoteNamesContainer = document.querySelector('.quote-names');
+const saveQuoteForm = document.querySelector('.save-quote-form');
+const saveQuoteInfo = () => {
+  saveQuoteForm.addEventListener('submit', e => {
+    e.preventDefault();
+    // Select Inputs
+    const nameInput = document.querySelector('.name');
+    const emailInput = document.querySelector('.email');
+    const phoneNumberInput = document.querySelector('.phone-number');
+    const addressInput = document.querySelector('.address');
+    const cityInput = document.querySelector('.city');
+    const zipCodeInput = document.querySelector('.zip-code');
+    const specialNotesInput = document.querySelector('.special-notes');
+    const squareFootSelect = document.querySelector('.square-foot-select');
+    const amountPerHour = document.getElementById('amount-per-hour');
+    const taxRate = document.getElementById('tax-rate');
+
+    // Add Number To End Of Name If That Name Already Exists
+    let quoteName;
+    const savedQuotesNames = savedQuotes.map(quote => quote.name);
+    if (savedQuotesNames.includes(nameInput.value)) {
+      quoteName = `${nameInput.value}${Math.floor(Math.random() * 999) + 1}`;
+    } else {
+      quoteName = nameInput.value;
+    }
+
+    // Push Data Into Saved Quotes Array
+    savedQuotes.push({
+      name: `${quoteName}`,
+      email: `${emailInput.value}`,
+      phoneNumber: `${phoneNumberInput.value}`,
+      address: `${addressInput.value}`,
+      city: `${cityInput.value}`,
+      zipCode: `${zipCodeInput.value}`,
+      price: `${price}`,
+      hours: `${hours}`,
+      taxes: `${taxes}`,
+      clean: `${clean}`,
+      squareFootage: `${squareFootSelect.value}`,
+      amountPerHour: `${amountPerHour.value}`,
+      taxRate: `${taxRate.value}`,
+      specialNotes: `${specialNotesInput.value}`,
+    });
+    const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name">${quoteName}</a>`;
+    quoteNamesContainer.insertAdjacentHTML('beforeend', html);
+    closeModalFunc(saveQuoteModal);
+  });
+};
+saveQuoteInfo();
