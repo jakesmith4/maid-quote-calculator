@@ -331,7 +331,7 @@ const closeModalFunc = modal => {
     }
   });
 };
-// closeModalFunc(saveQuoteModal);
+closeModalFunc(saveQuoteModal);
 closeModalFunc(savedQuoteModal);
 closeModalFunc(settingsModal);
 closeModalFunc(showQuoteModal);
