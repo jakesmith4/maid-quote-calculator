@@ -27,18 +27,37 @@
       >
         Maid Quote Calculator
       </h1>
+      <div
+        class="fixed top-2 left-1/2 w-3/4 max-w-md transform -translate-x-1/2 bg-gradient-to-br from-emerald-700 to-neutral-800 text-center text-white tracking-widest p-2 shadow-xl rounded-xl border-2 border-white transition-all alert-save-form hidden opacity-0"
+      >
+        <span
+          class="inline-flex items-center justify-center rounded-full bg-green-600"
+        >
+          <i class="fa-solid fa-circle-exclamation text-3xl"></i
+        ></span>
+        <p class="tracking-widest mt-1 par-text">Quote Saved</p>
+        <span class="bg-green-600 inline-block px-3 span-text"
+          >Donnette Smith</span
+        >
+      </div>
     </div>
     <!-- Settings Modal -->
     <div
       class="modal bg-black bg-opacity-70 h-screen fixed top-0 left-0 w-full backdrop-blur-sm hidden items-center justify-center invisible"
     >
       <div
-        class="absolute top-2 left-1/2 w-3/4 max-w-md transform -translate-x-1/2 bg-gradient-to-br from-emerald-700 to-neutral-800 text-center text-white tracking-widest p-2 shadow-xl rounded-xl border-2 border-white transition-all opacity-0 alert"
+        class="fixed top-2 left-1/2 w-3/4 max-w-md transform -translate-x-1/2 bg-gradient-to-br from-emerald-700 to-neutral-800 text-center text-white tracking-widest p-2 shadow-xl rounded-xl border-2 border-white transition-all alert-tax hidden opacity-0"
       >
-        Text from Javascript is iserted here
+        <span
+          class="inline-flex items-center justify-center rounded-full bg-red-600"
+        >
+          <i class="fa-solid fa-circle-exclamation text-3xl"></i
+        ></span>
+        <p class="tracking-widest mt-1 tax-text">Quote Saved</p>
+        <span class="bg-red-600 inline-block px-3 span-tax-text"></span>
       </div>
       <div
-        class="bg-white p-3 shadow-lg rounded-xl w-[70vw] max-w-sm dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
+        class="bg-white p-3 shadow-lg rounded-xl w-[80vw] max-w-sm dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
       >
         <div class="px-4 pt-2">
           <div class="flex items-center justify-between border-b-2 mb-4 pb-4">
@@ -103,7 +122,8 @@
       class="modal-quote bg-black bg-opacity-70 h-screen fixed top-0 left-0 w-full backdrop-blur-sm hidden items-center justify-center invisible"
     >
       <div
-        class="bg-white p-3 shadow-lg rounded-xl w-[70vw] max-w-sm dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
+        class="bg-white p-3 shadow-lg rounded-xl w-[80vw] max-w-sm overflow-y-scroll dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
+        style="max-height: 98vh"
       >
         <div class="px-4 pt-2">
           <div class="flex items-center justify-between border-b-2 mb-4 pb-4">
@@ -130,7 +150,7 @@
                 name="name"
                 id="name"
                 placeholder="Enter Name"
-                class="outline-emerald-600 border-2 py-[.10rem] px-2 placeholder:tracking-wide text-black name"
+                class="outline-emerald-600 border-2 py-[.10rem] px-2 placeholder:tracking-wide text-black w-full name"
               />
             </div>
             <!-- End Of Name Input -->
@@ -146,7 +166,7 @@
                 name="email"
                 id="email"
                 placeholder="Enter Email"
-                class="outline-emerald-600 border-2 py-[.10rem] px-2 placeholder:tracking-wide text-black email"
+                class="outline-emerald-600 border-2 py-[.10rem] px-2 placeholder:tracking-wide text-black w-full email"
               />
             </div>
             <!-- End Of Email Input -->
@@ -162,7 +182,7 @@
                 name="number"
                 id="number"
                 placeholder="Enter Number"
-                class="outline-emerald-600 border-2 py-[.10rem] px-2 placeholder:tracking-wide text-black phone-number"
+                class="outline-emerald-600 border-2 py-[.10rem] px-2 placeholder:tracking-wide text-black w-full phone-number"
               />
             </div>
             <!-- End Of Phone Number Input -->
@@ -170,16 +190,16 @@
             <div>
               <label
                 for="address"
-                class="text-neutral-800 tracking-widest font-semibold"
+                class="text-emerald-600 tracking-widest font-semibold"
                 >Address:</label
               >
               <textarea
                 name="number"
                 id="address"
                 cols="35"
-                rows="3"
+                rows="2"
                 placeholder="Enter Address"
-                class="outline-emerald-600 border-2 px-2 placeholder:tracking-wide text-black address"
+                class="outline-emerald-600 border-2 px-2 placeholder:tracking-wide text-black w-full address"
               ></textarea>
             </div>
             <!-- End Of Address Input -->
@@ -187,7 +207,7 @@
             <div>
               <label
                 for="city"
-                class="text-neutral-800 tracking-widest font-semibold block"
+                class="text-emerald-600 tracking-widest font-semibold block"
                 >City:</label
               >
               <input
@@ -203,7 +223,7 @@
             <div>
               <label
                 for="zipcode"
-                class="text-neutral-800 tracking-widest font-semibold block"
+                class="text-emerald-600 tracking-widest font-semibold block"
                 >Zip Code:</label
               >
               <input
@@ -211,7 +231,7 @@
                 name="zipcode"
                 id="number"
                 placeholder="Enter Zip Code"
-                class="outline-emerald-600 border-2 py-[.10rem] px-2 placeholder:tracking-wide text-black zip-code"
+                class="outline-emerald-600 border-2 py-[.10rem] px-2 placeholder:tracking-wide text-black w-full zip-code"
               />
             </div>
             <!-- End Of Zip Code Input -->
@@ -219,21 +239,21 @@
             <div>
               <label
                 for="special-note"
-                class="text-neutral-800 tracking-widest font-semibold"
+                class="text-emerald-600 tracking-widest font-semibold"
                 >Special Notes:</label
               >
               <textarea
                 name="number"
                 id="special-note"
                 cols="35"
-                rows="4"
+                rows="3"
                 placeholder="Enter Special Notes Here"
-                class="outline-emerald-600 border-2 px-2 placeholder:tracking-wide text-black address special-notes"
+                class="outline-emerald-600 border-2 px-2 placeholder:tracking-wide text-black address w-full special-notes"
               ></textarea>
             </div>
             <!-- End Of Special Note Textarea -->
             <button
-              class="w-full text-white bg-emerald-700 tracking-widest block mx-auto transition-all border-2 border-emerald-500 hover:shadow-xl hover:bg-emerald-600 close"
+              class="w-full text-white bg-emerald-700 tracking-widest block mx-auto transition-all border-2 border-emerald-500 hover:shadow-xl hover:bg-emerald-600 close save-quote"
             >
               <i class="fa-solid fa-floppy-disk close"></i>
               Save
@@ -249,7 +269,18 @@
       class="modal-saved bg-black bg-opacity-70 h-screen fixed top-0 left-0 w-full backdrop-blur-sm hidden items-center justify-center invisible"
     >
       <div
-        class="bg-white p-3 shadow-lg rounded-xl w-[70vw] max-w-sm max-h-[80vh] dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white overflow-y-scroll"
+        class="fixed top-2 left-1/2 w-3/4 max-w-md transform -translate-x-1/2 bg-gradient-to-br from-emerald-700 to-neutral-800 text-center text-white tracking-widest p-2 shadow-xl rounded-xl border-2 border-white transition-all alert-saved-quotes hidden opacity-0"
+      >
+        <span
+          class="inline-flex items-center justify-center rounded-full bg-red-600"
+        >
+          <i class="fa-solid fa-circle-exclamation text-3xl"></i
+        ></span>
+        <p class="tracking-widest mt-1 saved-text">Quote Saved</p>
+        <span class="bg-red-600 inline-block px-3 small-text"></span>
+      </div>
+      <div
+        class="bg-white p-3 shadow-lg rounded-xl w-[80vw] max-w-sm max-h-[80vh] dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white overflow-y-scroll"
       >
         <div class="px-4 pt-2">
           <!-- Quote Heading -->
@@ -281,7 +312,7 @@
         Text from Javascript is iserted here
       </div>
       <div
-        class="bg-white p-3 shadow-lg rounded-xl w-[70vw] max-w-sm dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
+        class="bg-white p-3 shadow-lg rounded-xl w-[80vw] max-w-sm dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
       >
         <div class="px-4 pt-2">
           <!-- Quote Heading -->
@@ -290,7 +321,7 @@
               <i class="fa-solid fa-arrow-left-long"></i>
             </button>
             <small
-              class="tracking-widest font-semibold text-xl show-quote-heading"
+              class="tracking-widest font-semibold text-xl show-quote-heading text-center px-4"
               >text from javascript inserted here</small
             >
             <button class="close-modal">

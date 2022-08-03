@@ -365,11 +365,31 @@ settingsIcon.addEventListener('click', e => {
   settingsModal.classList.toggle('invisible');
   settingsModal.classList.toggle('flex');
   settingsModal.classList.toggle('hidden');
-
-  // document.body.classList.toggle('overflow-hidden');
   // Remove Other Active Modals
   removeactiveModals(saveQuoteModal, savedQuoteModal);
 });
+
+// Go Back To Saved Quotes Modal
+const backBtn = document.querySelector('.back-btn');
+backBtn.addEventListener('click', () => {
+  showQuoteModal.classList.add('invisible');
+  savedQuoteModal.classList.remove('invisible');
+});
+
+// Escape Keypress Modal Close
+const keypressEscModal = modalName => {
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !closeModal.classList.contains('invisible')) {
+      modalName.classList.add('invisible');
+      modalName.classList.add('hidden');
+      modalName.classList.remove('flex');
+    }
+  });
+};
+keypressEscModal(settingsModal);
+keypressEscModal(savedQuoteModal);
+keypressEscModal(saveQuoteModal);
+keypressEscModal(showQuoteModal);
 
 // Show Current Quote On Name Click
 let currentQuote;
@@ -436,30 +456,53 @@ const displayCurrentQuote = () => {
   <div>
   <span>Special Notes: ${currentQuote.specialNotes}</span>
   </div>
+  <button class="p-2 px-3 bg-red-400 tracking-widest delete-quote ">Delete Quote</button>
   `;
+  deleteQuote();
 };
 
-// Go Back To Saved Quotes Modal
-const backBtn = document.querySelector('.back-btn');
-backBtn.addEventListener('click', () => {
-  showQuoteModal.classList.add('invisible');
-  savedQuoteModal.classList.remove('invisible');
-});
+// FUNCTION //
+// Delete Quote
+const deleteQuote = () => {
+  const deleteQuoteBtn = document.querySelector('.delete-quote');
+  const allQuoteNames = [...document.querySelectorAll('.quote-name')];
+  deleteQuoteBtn.addEventListener('click', () => {
+    // Find Correct Quote To Delete
+    const quoteToDelete = allQuoteNames.find(
+      quote => quote.dataset.id === currentQuote.name
+    );
 
-// Escape Keypress Modal Close
-const keypressEscModal = modalName => {
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && !closeModal.classList.contains('invisible')) {
-      modalName.classList.add('invisible');
-      modalName.classList.add('hidden');
-      modalName.classList.remove('flex');
-    }
+    // showAlertDeleteMessage('Quote Deleted');
+    showAlertMessage(
+      document.querySelector('.alert-saved-quotes'),
+      document.querySelector('.saved-text'),
+      document.querySelector('.small-text'),
+      'Quote Deleted',
+      quoteToDelete.textContent
+    );
+
+    // Remove That Quote From The DOM
+    quoteToDelete.remove();
+
+    // Find The Index Of The Quote That Needs To Be Deleted From savedQuotes
+    const savedQuoteIndex = savedQuotes.findIndex(
+      quote => quote.name === currentQuote.name
+    );
+
+    // Remove That Quote From The savedQuotes Array
+    savedQuotes.splice(savedQuoteIndex, 1);
+
+    // Close Modal
+    showQuoteModal.classList.add('invisible');
+    showQuoteModal.classList.add('hidden');
+    showQuoteModal.classList.remove('flex');
+
+    // Open Saved Quotes Modal
+    savedQuoteModal.classList.remove('invisible');
+    savedQuoteModal.classList.remove('hidden');
+    savedQuoteModal.classList.add('flex');
   });
 };
-keypressEscModal(settingsModal);
-keypressEscModal(savedQuoteModal);
-keypressEscModal(saveQuoteModal);
-keypressEscModal(showQuoteModal);
 
 // Toggle Dark Functionality
 // FUNCTION //
@@ -485,20 +528,17 @@ const toggleDark = () => {
 toggleDark();
 
 // FUNCTION //
-// Show Tax Alert Message
-const alertDom = document.querySelector('.alert');
-const showAlertMessage = message => {
+// Show Alert Message
+const showAlertMessage = (alertDom, parDom, spanDom, parText, spanText) => {
   alertDom.classList.remove('opacity-0');
+  alertDom.classList.remove('hidden');
   alertDom.classList.add('opacity-1');
-  alertDom.innerHTML = `<span class="inline-flex items-center justify-center rounded-full bg-red-600">
-  <i class="fa-solid fa-circle-exclamation text-3xl"></i></span>
-        <p class="tracking-widest mt-3">Taxes will be <span class="bg-red-600 inline-block px-3">${message}</span> ${
-    message === 'REMOVED' ? 'from' : 'to'
-  } price on next estamite</p>`;
-
+  parDom.textContent = parText;
+  spanDom.textContent = spanText;
   setTimeout(() => {
-    alertDom.classList.add('opacity-0');
     alertDom.classList.remove('opacity-1');
+    alertDom.classList.add('opacity-0');
+    alertDom.classList.add('hidden');
   }, 4000);
 };
 
@@ -507,15 +547,29 @@ const showAlertMessage = message => {
 // Toggle flag is used to toggle as a global variable to toggle taxes on and off in the calcDisplayQuote Function
 let taxFlag = true;
 const toggleTaxEl = document.querySelector('.toggler-tax');
+const showAlertMessageBinded = showAlertMessage.bind(
+  showAlertMessage,
+  document.querySelector('.alert-tax'),
+  document.querySelector('.tax-text'),
+  document.querySelector('.span-tax-text')
+);
 const toggleTax = () => {
   toggleTaxEl.addEventListener('click', () => {
     toggleTaxEl.children[0].classList.toggle('translate-x-6');
     if (toggleTaxEl.classList.contains('bg-green-700')) {
-      showAlertMessage('REMOVED');
+      // Show Alert Message
+      showAlertMessageBinded(
+        'Tax will be Removed from price on next quote given',
+        'Taxes Removed'
+      );
       toggleTaxEl.classList.remove('bg-green-700');
       toggleTaxEl.classList.add('bg-gray-500');
     } else {
-      showAlertMessage('APPLIED');
+      // Show Alert Message
+      showAlertMessageBinded(
+        'Tax will be Added to price on next quote given',
+        'Taxes added'
+      );
       toggleTaxEl.classList.add('bg-green-700');
     }
     taxFlag = !taxFlag;
@@ -538,10 +592,6 @@ const displaySaveQuoteModal = () => {
       saveQuoteModal.classList.remove('invisible');
       saveQuoteModal.classList.remove('hidden');
       saveQuoteModal.classList.add('flex');
-      // Remove Other Modals (If They Are Present)
-      if (!settingsModal.classList.contains('invisible')) {
-        settingsModal.classList.add('invisible');
-      }
 
       // Select Current Quote
       const article = e.currentTarget.parentElement.parentElement;
@@ -590,6 +640,27 @@ const saveQuoteInfo = () => {
       quoteName = nameInput.value;
     }
 
+    // Show Alert Message
+    showAlertMessage(
+      document.querySelector('.alert-save-form'),
+      document.querySelector('.par-text'),
+      document.querySelector('.span-text'),
+      'Quote Saved',
+      nameInput.value
+    );
+
+    // DATA READY FOR DESIGN TO BE PUT INTO PLACE
+    console.log(deepPrice.textContent);
+    console.log(generalPrice.textContent);
+    console.log(weeklyPrice.textContent);
+    console.log(biWeeklyPrice.textContent);
+    console.log(monthlyPrice.textContent);
+    console.log(deepHours.textContent);
+    console.log(generalHours.textContent);
+    console.log(weeklyHours.textContent);
+    console.log(biWeeklyHours.textContent);
+    console.log(monthlyHours.textContent);
+
     // Push Data Into Saved Quotes Array
     savedQuotes.push({
       name: `${quoteName}`,
@@ -607,7 +678,7 @@ const saveQuoteInfo = () => {
       taxRate: `${taxRate.value}`,
       specialNotes: `${specialNotesInput.value}`,
     });
-    const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name">${quoteName}</a>`;
+    const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}">${quoteName}</a>`;
     quoteNamesContainer.insertAdjacentHTML('beforeend', html);
     closeModalFunc(saveQuoteModal);
   });
