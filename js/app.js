@@ -331,7 +331,7 @@ const closeModalFunc = modal => {
     }
   });
 };
-closeModalFunc(saveQuoteModal);
+// closeModalFunc(saveQuoteModal);
 closeModalFunc(savedQuoteModal);
 closeModalFunc(settingsModal);
 closeModalFunc(showQuoteModal);
@@ -631,56 +631,69 @@ const saveQuoteInfo = () => {
     const amountPerHour = document.getElementById('amount-per-hour');
     const taxRate = document.getElementById('tax-rate');
 
-    // Add Number To End Of Name If That Name Already Exists
-    let quoteName;
-    const savedQuotesNames = savedQuotes.map(quote => quote.name);
-    if (savedQuotesNames.includes(nameInput.value)) {
-      quoteName = `${nameInput.value}${Math.floor(Math.random() * 999) + 1}`;
+    if (nameInput.value !== '') {
+      // Add Number To End Of Name If That Name Already Exists
+      let quoteName;
+      const savedQuotesNames = savedQuotes.map(quote => quote.name);
+      if (savedQuotesNames.includes(nameInput.value)) {
+        quoteName = `${nameInput.value}${Math.floor(Math.random() * 999) + 1}`;
+      } else {
+        quoteName = nameInput.value;
+      }
+
+      // Show Alert Message
+      showAlertMessage(
+        document.querySelector('.alert-save-form'),
+        document.querySelector('.par-text'),
+        document.querySelector('.span-text'),
+        'Quote Saved',
+        nameInput.value
+      );
+
+      // DATA READY FOR DESIGN TO BE PUT INTO PLACE
+      console.log(deepPrice.textContent);
+      console.log(generalPrice.textContent);
+      console.log(weeklyPrice.textContent);
+      console.log(biWeeklyPrice.textContent);
+      console.log(monthlyPrice.textContent);
+      console.log(deepHours.textContent);
+      console.log(generalHours.textContent);
+      console.log(weeklyHours.textContent);
+      console.log(biWeeklyHours.textContent);
+      console.log(monthlyHours.textContent);
+
+      // Push Data Into Saved Quotes Array
+      savedQuotes.push({
+        name: `${quoteName}`,
+        email: `${emailInput.value}`,
+        phoneNumber: `${phoneNumberInput.value}`,
+        address: `${addressInput.value}`,
+        city: `${cityInput.value}`,
+        zipCode: `${zipCodeInput.value}`,
+        price: `${price}`,
+        hours: `${hours}`,
+        taxes: `${taxes}`,
+        clean: `${clean}`,
+        squareFootage: `${squareFootSelect.value}`,
+        amountPerHour: `${amountPerHour.value}`,
+        taxRate: `${taxRate.value}`,
+        specialNotes: `${specialNotesInput.value}`,
+      });
+      const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}">${quoteName}</a>`;
+      quoteNamesContainer.insertAdjacentHTML('beforeend', html);
+
+      saveQuoteModal.classList.add('invisible');
+      saveQuoteModal.classList.add('hidden');
+      saveQuoteModal.classList.remove('flex');
     } else {
-      quoteName = nameInput.value;
+      showAlertMessage(
+        document.querySelector('.alert-saving-form'),
+        document.querySelector('.saving-text'),
+        document.querySelector('.span-saving-text'),
+        '',
+        'Please Enter A Name'
+      );
     }
-
-    // Show Alert Message
-    showAlertMessage(
-      document.querySelector('.alert-save-form'),
-      document.querySelector('.par-text'),
-      document.querySelector('.span-text'),
-      'Quote Saved',
-      nameInput.value
-    );
-
-    // DATA READY FOR DESIGN TO BE PUT INTO PLACE
-    console.log(deepPrice.textContent);
-    console.log(generalPrice.textContent);
-    console.log(weeklyPrice.textContent);
-    console.log(biWeeklyPrice.textContent);
-    console.log(monthlyPrice.textContent);
-    console.log(deepHours.textContent);
-    console.log(generalHours.textContent);
-    console.log(weeklyHours.textContent);
-    console.log(biWeeklyHours.textContent);
-    console.log(monthlyHours.textContent);
-
-    // Push Data Into Saved Quotes Array
-    savedQuotes.push({
-      name: `${quoteName}`,
-      email: `${emailInput.value}`,
-      phoneNumber: `${phoneNumberInput.value}`,
-      address: `${addressInput.value}`,
-      city: `${cityInput.value}`,
-      zipCode: `${zipCodeInput.value}`,
-      price: `${price}`,
-      hours: `${hours}`,
-      taxes: `${taxes}`,
-      clean: `${clean}`,
-      squareFootage: `${squareFootSelect.value}`,
-      amountPerHour: `${amountPerHour.value}`,
-      taxRate: `${taxRate.value}`,
-      specialNotes: `${specialNotesInput.value}`,
-    });
-    const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}">${quoteName}</a>`;
-    quoteNamesContainer.insertAdjacentHTML('beforeend', html);
-    closeModalFunc(saveQuoteModal);
   });
 };
 saveQuoteInfo();

@@ -138,6 +138,19 @@
           </div>
           <!-- Save Quote Form -->
           <form action="" spellcheck="false" class="space-y-3 save-quote-form">
+            <div
+              class="fixed top-2 left-1/2 w-3/4 max-w-md transform -translate-x-1/2 bg-gradient-to-br from-emerald-700 to-neutral-800 text-center text-white tracking-widest p-2 shadow-xl rounded-xl border-2 border-white transition-all alert-saving-form hidden opacity-0"
+            >
+              <span
+                class="inline-flex items-center justify-center rounded-full bg-red-600"
+              >
+                <i class="fa-solid fa-circle-exclamation text-3xl"></i
+              ></span>
+              <p class="tracking-widest mt-3 saving-text">Quote Saved</p>
+              <span
+                class="bg-red-600 inline-block px-3 span-saving-text"
+              ></span>
+            </div>
             <!-- Name Input -->
             <div>
               <label
@@ -253,9 +266,9 @@
             </div>
             <!-- End Of Special Note Textarea -->
             <button
-              class="w-full text-white bg-emerald-700 tracking-widest block mx-auto transition-all border-2 border-emerald-500 hover:shadow-xl hover:bg-emerald-600 close save-quote"
+              class="w-full text-white bg-emerald-700 tracking-widest block mx-auto transition-all border-2 border-emerald-500 hover:shadow-xl hover:bg-emerald-600 save-quote"
             >
-              <i class="fa-solid fa-floppy-disk close"></i>
+              <i class="fa-solid fa-floppy-disk"></i>
               Save
             </button>
           </form>
