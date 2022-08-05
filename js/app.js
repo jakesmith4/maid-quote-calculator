@@ -320,6 +320,33 @@ const showQuoteModal = document.querySelector('.modal-show');
 const closeModal = document.querySelector('.close-modal');
 const quoteHeading = document.querySelector('.quote-heading');
 
+// Display Current Quote
+const showQuoteHeading = document.querySelector('.show-quote-heading');
+const amountPerHour = document.querySelector('.single-per-hour');
+const quoteInfo = document.querySelector('.quote-info');
+const singleTaxRate = document.querySelector('.single-tax-rate');
+const singlePrice = document.querySelector('.single-price');
+const singleHours = document.querySelector('.single-hours');
+const cleanType = document.querySelector('.clean-type');
+const squareFootVal = document.querySelector('.square-foot-val');
+const singleTaxes = document.querySelector('.single-taxes');
+const singleEmail = document.querySelector('.single-email');
+const singlePhone = document.querySelector('.single-phone');
+const singleAddress = document.querySelector('.single-address');
+const singleCity = document.querySelector('.single-city');
+const singleZipcode = document.querySelector('.single-zipcode');
+const singleNotes = document.querySelector('.single-notes');
+const singleDeepPrice = document.querySelector('.single-deep-price');
+const singleDeepHours = document.querySelector('.single-deep-hours');
+const singleGeneralPrice = document.querySelector('.single-general-price');
+const singleGeneralHours = document.querySelector('.single-general-hours');
+const singleWeeklyPrice = document.querySelector('.single-weekly-price');
+const singleWeeklyHours = document.querySelector('.single-weekly-hours');
+const singleBiWeeklyPrice = document.querySelector('.single-bi-weekly-price');
+const singleBiWeeklyHours = document.querySelector('.single-bi-weekly-hours');
+const singleMonthlyPrice = document.querySelector('.single-monthly-price');
+const singleMonthlyHours = document.querySelector('.single-monthly-hours');
+
 // FUNCTION //
 // Close Modal
 const closeModalFunc = modal => {
@@ -396,52 +423,51 @@ keypressEscModal(savedQuoteModal);
 keypressEscModal(saveQuoteModal);
 keypressEscModal(showQuoteModal);
 
-// Show Current Quote On Name Click
-let currentQuote;
-document.addEventListener('click', e => {
-  const allQuoteNames = document.querySelectorAll('.quote-name');
-  allQuoteNames.forEach(quote => {
-    quote.addEventListener('click', e => {
-      currentQuote = savedQuotes.find(
-        quote => quote.name === e.target.textContent
-      );
-      showQuoteModal.classList.remove('invisible');
-      showQuoteModal.classList.remove('hidden');
-      showQuoteModal.classList.add('flex');
-      if (!savedQuoteModal.classList.contains('invisible')) {
-        savedQuoteModal.classList.add('invisible');
-      }
-      displayCurrentQuote();
-    });
-  });
-});
+const deleteQuote = () => {
+  const allQuoteNames = [...document.querySelectorAll('.quote-name')];
+  // Find Correct Quote To Delete
+  const quoteToDelete = allQuoteNames.find(
+    quote => quote.dataset.id === currentQuote.name
+  );
+
+  // showAlertDeleteMessage('Quote Deleted');
+  showAlertMessage(
+    document.querySelector('.alert-saved-quotes'),
+    document.querySelector('.saved-text'),
+    document.querySelector('.small-text'),
+    'Quote Deleted',
+    quoteToDelete.textContent
+  );
+
+  // Remove That Quote From The DOM
+  quoteToDelete.remove();
+
+  // Find The Index Of The Quote That Needs To Be Deleted From savedQuotes
+  const savedQuoteIndex = savedQuotes.findIndex(
+    quote => quote.name === currentQuote.name
+  );
+
+  // Remove That Quote From The savedQuotes Array
+  savedQuotes.splice(savedQuoteIndex, 1);
+
+  // Close Modal
+  showQuoteModal.classList.add('invisible');
+  showQuoteModal.classList.add('hidden');
+  showQuoteModal.classList.remove('flex');
+
+  // Open Saved Quotes Modal
+  savedQuoteModal.classList.remove('invisible');
+  savedQuoteModal.classList.remove('hidden');
+  savedQuoteModal.classList.add('flex');
+};
+
+// Delete Quote
+const addListenerToDeleteBtn = () => {
+  const deleteQuoteBtn = document.querySelector('.delete-quote');
+  deleteQuoteBtn.addEventListener('click', deleteQuote);
+};
 
 // Display Current Quote
-const showQuoteHeading = document.querySelector('.show-quote-heading');
-const amountPerHour = document.querySelector('.single-per-hour');
-const quoteInfo = document.querySelector('.quote-info');
-const singleTaxRate = document.querySelector('.single-tax-rate');
-const singlePrice = document.querySelector('.single-price');
-const singleHours = document.querySelector('.single-hours');
-const cleanType = document.querySelector('.clean-type');
-const squareFootVal = document.querySelector('.square-foot-val');
-const singleTaxes = document.querySelector('.single-taxes');
-const singleEmail = document.querySelector('.single-email');
-const singlePhone = document.querySelector('.single-phone');
-const singleAddress = document.querySelector('.single-address');
-const singleCity = document.querySelector('.single-city');
-const singleZipcode = document.querySelector('.single-zipcode');
-const singleNotes = document.querySelector('.single-notes');
-const singleDeepPrice = document.querySelector('.single-deep-price');
-const singleDeepHours = document.querySelector('.single-deep-hours');
-const singleGeneralPrice = document.querySelector('.single-general-price');
-const singleGeneralHours = document.querySelector('.single-general-hours');
-const singleWeeklyPrice = document.querySelector('.single-weekly-price');
-const singleWeeklyHours = document.querySelector('.single-weekly-hours');
-const singleBiWeeklyPrice = document.querySelector('.single-bi-weekly-price');
-const singleBiWeeklyHours = document.querySelector('.single-bi-weekly-hours');
-const singleMonthlyPrice = document.querySelector('.single-monthly-price');
-const singleMonthlyHours = document.querySelector('.single-monthly-hours');
 const displayCurrentQuote = () => {
   // Set Heading As Name
   showQuoteHeading.textContent = currentQuote.name;
@@ -471,8 +497,31 @@ const displayCurrentQuote = () => {
   singleMonthlyPrice.textContent = monthlyPrice.textContent;
   singleMonthlyHours.textContent = monthlyHours.textContent;
 
-  deleteQuote();
+  document
+    .querySelector('.delete-quote')
+    .removeEventListener('click', deleteQuote);
+  addListenerToDeleteBtn();
 };
+
+// Show Current Quote On Name Click
+let currentQuote;
+document.addEventListener('click', e => {
+  const allQuoteNames = document.querySelectorAll('.quote-name');
+  allQuoteNames.forEach(quote => {
+    quote.addEventListener('click', e => {
+      currentQuote = savedQuotes.find(
+        quote => quote.name === e.target.textContent
+      );
+      showQuoteModal.classList.remove('invisible');
+      showQuoteModal.classList.remove('hidden');
+      showQuoteModal.classList.add('flex');
+      if (!savedQuoteModal.classList.contains('invisible')) {
+        savedQuoteModal.classList.add('invisible');
+      }
+      displayCurrentQuote();
+    });
+  });
+});
 
 // See All Cleans Dropdown
 const seeCleans = document.querySelector('.see-cleans');
@@ -510,49 +559,6 @@ const carouselSlider = () => {
   };
 };
 carouselSlider();
-
-// FUNCTION //
-// Delete Quote
-const deleteQuote = () => {
-  const deleteQuoteBtn = document.querySelector('.delete-quote');
-  const allQuoteNames = [...document.querySelectorAll('.quote-name')];
-  deleteQuoteBtn.addEventListener('click', () => {
-    // Find Correct Quote To Delete
-    const quoteToDelete = allQuoteNames.find(
-      quote => quote.dataset.id === currentQuote.name
-    );
-
-    // showAlertDeleteMessage('Quote Deleted');
-    showAlertMessage(
-      document.querySelector('.alert-saved-quotes'),
-      document.querySelector('.saved-text'),
-      document.querySelector('.small-text'),
-      'Quote Deleted',
-      quoteToDelete.textContent
-    );
-
-    // Remove That Quote From The DOM
-    quoteToDelete.remove();
-
-    // Find The Index Of The Quote That Needs To Be Deleted From savedQuotes
-    const savedQuoteIndex = savedQuotes.findIndex(
-      quote => quote.name === currentQuote.name
-    );
-
-    // Remove That Quote From The savedQuotes Array
-    savedQuotes.splice(savedQuoteIndex, 1);
-
-    // Close Modal
-    showQuoteModal.classList.add('invisible');
-    showQuoteModal.classList.add('hidden');
-    showQuoteModal.classList.remove('flex');
-
-    // Open Saved Quotes Modal
-    savedQuoteModal.classList.remove('invisible');
-    savedQuoteModal.classList.remove('hidden');
-    savedQuoteModal.classList.add('flex');
-  });
-};
 
 // Toggle Dark Functionality
 // FUNCTION //
