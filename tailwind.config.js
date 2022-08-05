@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
   darkMode: 'class',
   content: ['./*.html'],
@@ -16,6 +17,12 @@ module.exports = {
       sans: ['ui-sans-serif', 'system-ui'],
       serif: ['Poppins', 'sans-serif'],
       mono: ['ui-monospace', 'SFMono-Regular'],
+    },
+
+    screens: {
+      xss: '378px',
+      xs: '388px',
+      ...defaultTheme.screens,
     },
   },
   plugins: [],

@@ -338,7 +338,7 @@ closeModalFunc(showQuoteModal);
 
 // FUNCTION //
 // Remove Other Active Modals
-const removeactiveModals = (firstModal, secondModal) => {
+const removeactiveModals = (firstModal, secondModal, thirdModal) => {
   if (!firstModal.classList.contains('invisible')) {
     firstModal.classList.add('invisible');
     firstModal.classList.remove('flex');
@@ -349,6 +349,11 @@ const removeactiveModals = (firstModal, secondModal) => {
     secondModal.classList.remove('flex');
     secondModal.classList.add('hidden');
   }
+  if (!thirdModal.classList.contains('invisible')) {
+    thirdModal.classList.add('invisible');
+    thirdModal.classList.remove('flex');
+    thirdModal.classList.add('hidden');
+  }
 };
 
 // Toggle Save Quote Modal On Save Icon Click (Sidebar)
@@ -357,7 +362,7 @@ saveIcon.addEventListener('click', () => {
   savedQuoteModal.classList.remove('hidden');
   savedQuoteModal.classList.add('flex');
   // Remove Other Active Modals
-  removeactiveModals(settingsModal, saveQuoteModal);
+  removeactiveModals(settingsModal, saveQuoteModal, showQuoteModal);
 });
 
 // Toggle Settings Modal On Setting Icon Click (Sidebar)
@@ -366,7 +371,7 @@ settingsIcon.addEventListener('click', e => {
   settingsModal.classList.toggle('flex');
   settingsModal.classList.toggle('hidden');
   // Remove Other Active Modals
-  removeactiveModals(saveQuoteModal, savedQuoteModal);
+  removeactiveModals(saveQuoteModal, savedQuoteModal, showQuoteModal);
 });
 
 // Go Back To Saved Quotes Modal
@@ -413,53 +418,98 @@ document.addEventListener('click', e => {
 
 // Display Current Quote
 const showQuoteHeading = document.querySelector('.show-quote-heading');
+const amountPerHour = document.querySelector('.single-per-hour');
 const quoteInfo = document.querySelector('.quote-info');
+const singleTaxRate = document.querySelector('.single-tax-rate');
+const singlePrice = document.querySelector('.single-price');
+const singleHours = document.querySelector('.single-hours');
+const cleanType = document.querySelector('.clean-type');
+const squareFootVal = document.querySelector('.square-foot-val');
+const singleTaxes = document.querySelector('.single-taxes');
+const singleEmail = document.querySelector('.single-email');
+const singlePhone = document.querySelector('.single-phone');
+const singleAddress = document.querySelector('.single-address');
+const singleCity = document.querySelector('.single-city');
+const singleZipcode = document.querySelector('.single-zipcode');
+const singleNotes = document.querySelector('.single-notes');
+const singleDeepPrice = document.querySelector('.single-deep-price');
+const singleDeepHours = document.querySelector('.single-deep-hours');
+const singleGeneralPrice = document.querySelector('.single-general-price');
+const singleGeneralHours = document.querySelector('.single-general-hours');
+const singleWeeklyPrice = document.querySelector('.single-weekly-price');
+const singleWeeklyHours = document.querySelector('.single-weekly-hours');
+const singleBiWeeklyPrice = document.querySelector('.single-bi-weekly-price');
+const singleBiWeeklyHours = document.querySelector('.single-bi-weekly-hours');
+const singleMonthlyPrice = document.querySelector('.single-monthly-price');
+const singleMonthlyHours = document.querySelector('.single-monthly-hours');
 const displayCurrentQuote = () => {
+  // Set Heading As Name
   showQuoteHeading.textContent = currentQuote.name;
-  quoteInfo.innerHTML = `
-  <div>
-  <span>Price: ${currentQuote.price}</span>
-  </div>
-  <div>
-  <span>Email: ${currentQuote.email}</span>
-  </div>
-  <div>
-  <span>Phone Number: ${currentQuote.phoneNumber}</span>
-  </div>
-  <div>
-  <span>Address: ${currentQuote.address}</span>
-  </div>
-  <div>
-  <span>City: ${currentQuote.city}</span>
-  </div>
-  <div>
-  <span>Zip Code: ${currentQuote.zipCode}</span>
-  </div>
-  <div>
-  <span>Hours: ${currentQuote.hours}</span>
-  </div>
-  <div>
-  <span>Taxes: ${currentQuote.taxes}</span>
-  </div>
-  <div>
-  <span>Cleaning Type: ${currentQuote.clean}</span>
-  </div>
-  <div>
-  <span>Square Footage: ${currentQuote.squareFootage}</span>
-  </div>
-  <div>
-  <span>Amount Per Hour: ${currentQuote.amountPerHour}</span>
-  </div>
-  <div>
-  <span>Tax Rate: ${currentQuote.taxRate}</span>
-  </div>
-  <div>
-  <span>Special Notes: ${currentQuote.specialNotes}</span>
-  </div>
-  <button class="p-2 px-3 bg-red-400 tracking-widest delete-quote ">Delete Quote</button>
-  `;
+  // Set All Main Content
+  amountPerHour.textContent = `$${currentQuote.amountPerHour} per hour`;
+  singleTaxRate.textContent = `${currentQuote.taxRate}% tax rate`;
+  cleanType.textContent = currentQuote.clean;
+  squareFootVal.textContent = `${currentQuote.squareFootage} Sq foot`;
+  // Set All Secondary Content
+  singlePrice.textContent = currentQuote.price;
+  singleHours.textContent = currentQuote.hours;
+  singleTaxes.textContent = currentQuote.taxes;
+  singleEmail.textContent = currentQuote.email;
+  singlePhone.textContent = currentQuote.phoneNumber;
+  singleAddress.textContent = currentQuote.address;
+  singleCity.textContent = currentQuote.city;
+  singleZipcode.textContent = currentQuote.zipCode;
+  singleNotes.textContent = currentQuote.specialNotes;
+  singleDeepPrice.textContent = deepPrice.textContent;
+  singleDeepHours.textContent = deepHours.textContent;
+  singleGeneralPrice.textContent = generalPrice.textContent;
+  singleGeneralHours.textContent = generalHours.textContent;
+  singleWeeklyPrice.textContent = weeklyPrice.textContent;
+  singleWeeklyHours.textContent = weeklyHours.textContent;
+  singleBiWeeklyPrice.textContent = biWeeklyPrice.textContent;
+  singleBiWeeklyHours.textContent = biWeeklyHours.textContent;
+  singleMonthlyPrice.textContent = monthlyPrice.textContent;
+  singleMonthlyHours.textContent = monthlyHours.textContent;
+
   deleteQuote();
 };
+
+// See All Cleans Dropdown
+const seeCleans = document.querySelector('.see-cleans');
+const showCleans = document.querySelector('.show-cleans');
+seeCleans.addEventListener('click', () => {
+  showCleans.classList.toggle('hidden');
+});
+
+// All Cleans Slider
+const slides = document.querySelectorAll('.slide');
+const nextBtn = document.querySelector('.next-btn');
+const prevBtn = document.querySelector('.prev-btn');
+
+const carouselSlider = () => {
+  let counter = 0;
+  nextBtn.addEventListener('click', () => {
+    counter++;
+    carousel();
+  });
+  prevBtn.addEventListener('click', () => {
+    counter--;
+    carousel();
+  });
+
+  const carousel = () => {
+    slides.forEach(slide => {
+      if (counter === slides.length) {
+        counter = 0;
+      }
+      if (counter < 0) {
+        counter = slides.length - 1;
+      }
+      slide.style.transform = `translateX(-${counter * 100}%)`;
+    });
+  };
+};
+carouselSlider();
 
 // FUNCTION //
 // Delete Quote
@@ -650,18 +700,6 @@ const saveQuoteInfo = () => {
         nameInput.value
       );
 
-      // DATA READY FOR DESIGN TO BE PUT INTO PLACE
-      console.log(deepPrice.textContent);
-      console.log(generalPrice.textContent);
-      console.log(weeklyPrice.textContent);
-      console.log(biWeeklyPrice.textContent);
-      console.log(monthlyPrice.textContent);
-      console.log(deepHours.textContent);
-      console.log(generalHours.textContent);
-      console.log(weeklyHours.textContent);
-      console.log(biWeeklyHours.textContent);
-      console.log(monthlyHours.textContent);
-
       // Push Data Into Saved Quotes Array
       savedQuotes.push({
         name: `${quoteName}`,
@@ -682,9 +720,20 @@ const saveQuoteInfo = () => {
       const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}">${quoteName}</a>`;
       quoteNamesContainer.insertAdjacentHTML('beforeend', html);
 
+      // Close Modal
       saveQuoteModal.classList.add('invisible');
       saveQuoteModal.classList.add('hidden');
       saveQuoteModal.classList.remove('flex');
+
+      // Clear Input Values
+      nameInput.value =
+        emailInput.value =
+        phoneNumberInput.value =
+        addressInput.value =
+        cityInput.value =
+        zipCodeInput.value =
+        specialNotesInput.value =
+          '';
     } else {
       showAlertMessage(
         document.querySelector('.alert-saving-form'),

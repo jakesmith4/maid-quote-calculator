@@ -122,8 +122,7 @@
       class="modal-quote bg-black bg-opacity-70 h-screen fixed top-0 left-0 w-full backdrop-blur-sm hidden items-center justify-center invisible"
     >
       <div
-        class="bg-white p-3 shadow-lg rounded-xl w-[80vw] max-w-sm overflow-y-scroll dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
-        style="max-height: 98vh"
+        class="bg-white p-3 shadow-lg rounded-xl w-[80vw] max-w-sm max-h-[98vh] overflow-y-scroll dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
       >
         <div class="px-4 pt-2">
           <div class="flex items-center justify-between border-b-2 mb-4 pb-4">
@@ -319,13 +318,13 @@
     <div
       class="modal-show bg-black bg-opacity-70 h-screen fixed top-0 left-0 w-full backdrop-blur-sm hidden items-center justify-center invisible"
     >
-      <div
+      <!-- <div
         class="absolute top-2 left-1/2 w-3/4 max-w-md transform -translate-x-1/2 bg-gradient-to-br from-emerald-700 to-neutral-800 text-center text-white tracking-widest p-2 shadow-xl rounded-xl border-2 border-white transition-all opacity-0 alert"
       >
         Text from Javascript is iserted here
-      </div>
+      </div> -->
       <div
-        class="bg-white p-3 shadow-lg rounded-xl w-[80vw] max-w-sm dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
+        class="bg-white p-3 shadow-lg rounded-xl w-[80vw] max-w-sm max-h-[95vh] overflow-y-scroll dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
       >
         <div class="px-4 pt-2">
           <!-- Quote Heading -->
@@ -345,7 +344,385 @@
           </div>
           <!-- End Of Quote Heading -->
           <!-- Quote Info -->
-          <div class="quote-info"></div>
+          <div class="quote-info">
+            <!-- Amount Per Hour -->
+            <small class="single-per-hour block text-center text-xl"></small>
+            <!-- End Of Amount Per Hour -->
+            <!-- Amount Per Hour -->
+            <small class="single-tax-rate block text-center text-xl"></small>
+            <!-- End Of Amount Per Hour -->
+            <!-- Clean Type -->
+            <h3
+              class="text-center text-2xl tracking-widest clean-type font-semibold"
+            ></h3>
+            <!-- Square Footage -->
+            <div
+              class="square-foot-val text-center font-semibold text-xl mb-3"
+            ></div>
+            <!-- Price Container -->
+            <div class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2">
+              <!-- Price Logo -->
+              <span
+                class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
+              >
+                <i class="fa-solid fa-magnifying-glass-dollar mr-2"></i>
+                <small class="capitalize tracking-widest">price</small>
+              </span>
+              <!-- End Of Price Logo -->
+              <!-- Price Number -->
+              <small
+                class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 single-price"
+              ></small>
+              <!-- End Of Price Number -->
+            </div>
+            <!-- End Of Price Container -->
+            <!-- Taxes Container -->
+            <div class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2">
+              <!-- Taxes Logo -->
+              <span
+                class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
+              >
+                <i class="fa-solid fa-hand-holding-dollar mr-2"></i>
+                <small class="capitalize tracking-widest">Taxes</small>
+              </span>
+              <!-- End Of Taxes Logo -->
+              <!-- Taxes Number -->
+              <small
+                class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 single-taxes"
+              ></small>
+              <!-- End Of Taxes Number -->
+            </div>
+            <!-- End Of Taxes Container -->
+            <!-- Hours Container -->
+            <div class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2">
+              <!-- Hours Logo -->
+              <span
+                class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
+              >
+                <i class="fa-solid fa-clock mr-2"></i>
+                <small class="capitalize tracking-widest">hours</small>
+              </span>
+              <!-- End Of Hours Logo -->
+              <!-- Hours Number -->
+              <small
+                class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 single-hours"
+              ></small>
+              <!-- End Of Hours Number -->
+            </div>
+            <!-- End Of Hours Container -->
+            <!-- Email -->
+            <h3 class="text-center font-semibold tracking-widest">Email</h3>
+            <div class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2">
+              <small
+                class="single-email text-black font-semibold tracking-wider"
+              ></small>
+            </div>
+            <!-- End Of Email -->
+            <!-- Phone Number -->
+            <h3 class="text-center font-semibold tracking-widest">
+              Phone Number
+            </h3>
+            <div class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2">
+              <small
+                class="single-phone text-black font-semibold tracking-wider"
+              ></small>
+            </div>
+            <!-- End Of Phone Number -->
+            <!-- Address -->
+            <h3 class="text-center font-semibold tracking-widest">Address</h3>
+            <div class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2">
+              <small
+                class="single-address text-black font-semibold tracking-wider"
+              ></small>
+            </div>
+            <!-- End Of Address -->
+            <!-- City -->
+            <h3 class="text-center font-semibold tracking-widest">City</h3>
+            <div class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2">
+              <small
+                class="single-city text-black font-semibold tracking-wider"
+              ></small>
+            </div>
+            <!-- End Of City -->
+            <!-- Zipcode -->
+            <h3 class="text-center font-semibold tracking-widest">Zipcode</h3>
+            <div class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2">
+              <small
+                class="single-zipcode text-black font-semibold tracking-wider"
+              ></small>
+            </div>
+            <!-- End Of Zipcode -->
+            <!-- Special Notes -->
+            <h3 class="text-center font-semibold tracking-widest">
+              Special Notes
+            </h3>
+            <div class="bg-slate-200 py-2 text-center mx-auto mb-2 w-full px-2">
+              <p
+                class="single-notes text-black tracking-wider text-sm px-2"
+              ></p>
+            </div>
+            <!-- End Of Special Notes -->
+            <!-- All Cleans -->
+            <div class="text-center mb-2 all-cleans">
+              <button class="tracking-wider see-cleans group">
+                See all Cleans
+                <i
+                  class="fa-solid fa-angle-down group-hover:animate-bounce"
+                ></i>
+              </button>
+              <!-- Show Cleans -->
+              <div
+                class="w-full h-[258px] xss:h-[200px] xs:h-[158px] overflow-x-hidden mx-auto hidden show-cleans slide-container relative"
+              >
+                <button
+                  class="absolute top-1/2 right-0 text-xl hover:animate-bounce cursor-pointer z-10 next-btn"
+                >
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <button
+                  class="absolute top-1/2 left-0 text-xl hover:animate-bounce cursor-pointer z-10 prev-btn"
+                >
+                  <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <!-- Deep -->
+                <div
+                  class="slide absolute top-0 left-0 w-full transition-transform duration-300"
+                >
+                  <!-- Price Container -->
+                  <h3
+                    class="tracking-widest text-center text-xl font-semibold mb-1"
+                  >
+                    Deep Clean
+                  </h3>
+                  <div class="bg-slate-200 py-2 text-center w-4/5 mx-auto mb-3">
+                    <!-- Price Logo -->
+                    <span
+                      class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
+                    >
+                      <i class="fa-solid fa-magnifying-glass-dollar mr-2"></i>
+                      <small class="capitalize tracking-widest">price</small>
+                    </span>
+                    <!-- End Of Price Logo -->
+                    <!-- Price Number -->
+                    <small
+                      class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 single-deep-price"
+                    ></small>
+                    <!-- End Of Price Number -->
+                  </div>
+                  <!-- End Of Price Container -->
+                  <!-- Hours Container -->
+                  <div class="bg-slate-200 py-2 text-center w-4/5 mx-auto mb-3">
+                    <!-- Hours Logo -->
+                    <span
+                      class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
+                    >
+                      <i class="fa-solid fa-clock mr-2"></i>
+                      <small class="capitalize tracking-widest">hours</small>
+                    </span>
+                    <!-- End Of Hours Logo -->
+                    <!-- Hours Number -->
+                    <small
+                      class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 single-deep-hours"
+                    ></small>
+                    <!-- End Of Hours Number -->
+                  </div>
+                  <!-- End Of Hours Container -->
+                </div>
+                <!-- End Of Deep -->
+                <!-- General -->
+                <div
+                  class="slide absolute top-0 left-full w-full transition-transform duration-300"
+                >
+                  <!-- Price Container -->
+                  <h3
+                    class="tracking-widest text-center text-xl font-semibold mb-1"
+                  >
+                    General Clean
+                  </h3>
+                  <div class="bg-slate-200 py-2 text-center w-4/5 mx-auto mb-3">
+                    <!-- Price Logo -->
+                    <span
+                      class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
+                    >
+                      <i class="fa-solid fa-magnifying-glass-dollar mr-2"></i>
+                      <small class="capitalize tracking-widest">price</small>
+                    </span>
+                    <!-- End Of Price Logo -->
+                    <!-- Price Number -->
+                    <small
+                      class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 single-general-price"
+                    ></small>
+                    <!-- End Of Price Number -->
+                  </div>
+                  <!-- End Of Price Container -->
+                  <!-- Hours Container -->
+                  <div class="bg-slate-200 py-2 text-center w-4/5 mx-auto mb-3">
+                    <!-- Hours Logo -->
+                    <span
+                      class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
+                    >
+                      <i class="fa-solid fa-clock mr-2"></i>
+                      <small class="capitalize tracking-widest">hours</small>
+                    </span>
+                    <!-- End Of Hours Logo -->
+                    <!-- Hours Number -->
+                    <small
+                      class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 single-general-hours"
+                    ></small>
+                    <!-- End Of Hours Number -->
+                  </div>
+                  <!-- End Of Hours Container -->
+                </div>
+                <!-- End Of General -->
+                <!-- Weekly Service -->
+                <div
+                  class="slide absolute top-0 left-[200%] w-full transition-transform duration-300"
+                >
+                  <!-- Price Container -->
+                  <h3
+                    class="tracking-widest text-center text-xl font-semibold mb-1"
+                  >
+                    Weekly Service
+                  </h3>
+                  <div class="bg-slate-200 py-2 text-center w-4/5 mx-auto mb-3">
+                    <!-- Price Logo -->
+                    <span
+                      class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
+                    >
+                      <i class="fa-solid fa-magnifying-glass-dollar mr-2"></i>
+                      <small class="capitalize tracking-widest">price</small>
+                    </span>
+                    <!-- End Of Price Logo -->
+                    <!-- Price Number -->
+                    <small
+                      class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 single-weekly-price"
+                    ></small>
+                    <!-- End Of Price Number -->
+                  </div>
+                  <!-- End Of Price Container -->
+                  <!-- Hours Container -->
+                  <div class="bg-slate-200 py-2 text-center w-4/5 mx-auto mb-3">
+                    <!-- Hours Logo -->
+                    <span
+                      class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
+                    >
+                      <i class="fa-solid fa-clock mr-2"></i>
+                      <small class="capitalize tracking-widest">hours</small>
+                    </span>
+                    <!-- End Of Hours Logo -->
+                    <!-- Hours Number -->
+                    <small
+                      class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 single-weekly-hours"
+                    ></small>
+                    <!-- End Of Hours Number -->
+                  </div>
+                  <!-- End Of Hours Container -->
+                </div>
+                <!-- End Of Weekly Service -->
+                <!-- Bi-Weekly Service -->
+                <div
+                  class="slide absolute top-0 left-[300%] w-full transition-transform duration-300"
+                >
+                  <!-- Price Container -->
+                  <h3
+                    class="tracking-widest text-center text-xl font-semibold mb-1"
+                  >
+                    Bi-Weekly Service
+                  </h3>
+                  <div class="bg-slate-200 py-2 text-center w-4/5 mx-auto mb-3">
+                    <!-- Price Logo -->
+                    <span
+                      class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
+                    >
+                      <i class="fa-solid fa-magnifying-glass-dollar mr-2"></i>
+                      <small class="capitalize tracking-widest">price</small>
+                    </span>
+                    <!-- End Of Price Logo -->
+                    <!-- Price Number -->
+                    <small
+                      class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 single-bi-weekly-price"
+                    ></small>
+                    <!-- End Of Price Number -->
+                  </div>
+                  <!-- End Of Price Container -->
+                  <!-- Hours Container -->
+                  <div class="bg-slate-200 py-2 text-center w-4/5 mx-auto mb-3">
+                    <!-- Hours Logo -->
+                    <span
+                      class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
+                    >
+                      <i class="fa-solid fa-clock mr-2"></i>
+                      <small class="capitalize tracking-widest">hours</small>
+                    </span>
+                    <!-- End Of Hours Logo -->
+                    <!-- Hours Number -->
+                    <small
+                      class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 single-bi-weekly-hours"
+                    ></small>
+                    <!-- End Of Hours Number -->
+                  </div>
+                  <!-- End Of Hours Container -->
+                </div>
+                <!-- End Of Bi-Weekly Service -->
+                <!-- Monthly Service -->
+                <div
+                  class="slide absolute top-0 left-[400%] w-full transition-transform duration-300"
+                >
+                  <!-- Price Container -->
+                  <h3
+                    class="tracking-widest text-center text-xl font-semibold mb-1"
+                  >
+                    Monthy Service
+                  </h3>
+                  <div class="bg-slate-200 py-2 text-center w-4/5 mx-auto mb-3">
+                    <!-- Price Logo -->
+                    <span
+                      class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
+                    >
+                      <i class="fa-solid fa-magnifying-glass-dollar mr-2"></i>
+                      <small class="capitalize tracking-widest">price</small>
+                    </span>
+                    <!-- End Of Price Logo -->
+                    <!-- Price Number -->
+                    <small
+                      class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 single-monthly-price"
+                    ></small>
+                    <!-- End Of Price Number -->
+                  </div>
+                  <!-- End Of Price Container -->
+                  <!-- Hours Container -->
+                  <div class="bg-slate-200 py-2 text-center w-4/5 mx-auto mb-3">
+                    <!-- Hours Logo -->
+                    <span
+                      class="inline-flex items-center justify-center bg-white py-2 px-4 dark:bg-neutral-800 dark:text-white"
+                    >
+                      <i class="fa-solid fa-clock mr-2"></i>
+                      <small class="capitalize tracking-widest">hours</small>
+                    </span>
+                    <!-- End Of Hours Logo -->
+                    <!-- Hours Number -->
+                    <small
+                      class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 single-monthly-hours"
+                    ></small>
+                    <!-- End Of Hours Number -->
+                  </div>
+                  <!-- End Of Hours Container -->
+                </div>
+                <!-- End Of Monthly Service -->
+              </div>
+              <!-- End Of Show Cleans -->
+            </div>
+            <!-- End Of All Cleans -->
+            <!-- Delete Btn -->
+            <button
+              class="py-2 w-4/5 mx-auto bg-red-400 tracking-widest block delete-quote"
+            >
+              <i class="fa-solid fa-trash-can"></i>
+              Delete Quote
+            </button>
+
+            <!-- End Of Delete Btn -->
+          </div>
           <!-- End Of Quote Info -->
         </div>
       </div>
