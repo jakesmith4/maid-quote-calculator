@@ -566,15 +566,15 @@ video {
   padding-left: 1rem;
 }
 
-@media (min-width: 378px) {
+@media (min-width: 359px) {
   .container {
-    max-width: 378px;
+    max-width: 359px;
   }
 }
 
-@media (min-width: 388px) {
+@media (min-width: 368px) {
   .container {
-    max-width: 388px;
+    max-width: 368px;
   }
 }
 
@@ -765,8 +765,8 @@ video {
   height: 1.5rem;
 }
 
-.h-\[258px\] {
-  height: 258px;
+.h-\[230px\] {
+  height: 230px;
 }
 
 .max-h-\[98vh\] {
@@ -913,6 +913,10 @@ video {
 
 .overflow-x-hidden {
   overflow-x: hidden;
+}
+
+.overflow-y-hidden {
+  overflow-y: hidden;
 }
 
 .overflow-y-scroll {
@@ -1478,13 +1482,13 @@ video {
   outline-color: #fff;
 }
 
-@media (min-width: 378px) {
-  .xss\:h-\[200px\] {
-    height: 200px;
+@media (min-width: 359px) {
+  .xss\:h-\[190px\] {
+    height: 190px;
   }
 }
 
-@media (min-width: 388px) {
+@media (min-width: 368px) {
   .xs\:h-\[158px\] {
     height: 158px;
   }

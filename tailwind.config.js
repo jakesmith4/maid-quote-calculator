@@ -20,8 +20,8 @@ module.exports = {
     },
 
     screens: {
-      xss: '378px',
-      xs: '388px',
+      xss: '359px',
+      xs: '368px',
       ...defaultTheme.screens,
     },
   },
