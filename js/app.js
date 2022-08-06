@@ -486,16 +486,27 @@ const displayCurrentQuote = () => {
   singleCity.textContent = currentQuote.city;
   singleZipcode.textContent = currentQuote.zipCode;
   singleNotes.textContent = currentQuote.specialNotes;
-  singleDeepPrice.textContent = deepPrice.textContent;
-  singleDeepHours.textContent = deepHours.textContent;
-  singleGeneralPrice.textContent = generalPrice.textContent;
-  singleGeneralHours.textContent = generalHours.textContent;
-  singleWeeklyPrice.textContent = weeklyPrice.textContent;
-  singleWeeklyHours.textContent = weeklyHours.textContent;
-  singleBiWeeklyPrice.textContent = biWeeklyPrice.textContent;
-  singleBiWeeklyHours.textContent = biWeeklyHours.textContent;
-  singleMonthlyPrice.textContent = monthlyPrice.textContent;
-  singleMonthlyHours.textContent = monthlyHours.textContent;
+
+  // Set Other Quotes
+  // Deep
+  singleDeepPrice.textContent = currentQuote.deepPrice;
+  singleDeepHours.textContent = currentQuote.deepHours;
+
+  // General
+  singleGeneralPrice.textContent = currentQuote.generalPrice;
+  singleGeneralHours.textContent = currentQuote.generalHours;
+
+  // Weekly
+  singleWeeklyPrice.textContent = currentQuote.weeklyPrice;
+  singleWeeklyHours.textContent = currentQuote.weeklyHours;
+
+  // Bi-Weekly
+  singleBiWeeklyPrice.textContent = currentQuote.biWeeklyPrice;
+  singleBiWeeklyHours.textContent = currentQuote.biWeeklyHours;
+
+  // Monthly
+  singleMonthlyPrice.textContent = currentQuote.monthlyPrice;
+  singleMonthlyHours.textContent = currentQuote.monthlyHours;
 
   document
     .querySelector('.delete-quote')
@@ -561,7 +572,6 @@ const carouselSlider = () => {
 carouselSlider();
 
 // Toggle Dark Functionality
-// FUNCTION //
 // Dark flag is used as a state variable (in this toggleDark function) to toggle dark mode on and off
 let darkFlag = true;
 const toggler = document.querySelector('.toggler');
@@ -583,7 +593,6 @@ const toggleDark = () => {
 };
 toggleDark();
 
-// FUNCTION //
 // Show Alert Message
 const showAlertMessage = (alertDom, parDom, spanDom, parText, spanText) => {
   alertDom.classList.remove('opacity-0');
@@ -599,7 +608,6 @@ const showAlertMessage = (alertDom, parDom, spanDom, parText, spanText) => {
 };
 
 // Toggler Tax
-// FUNCTION //
 // Toggle flag is used to toggle as a global variable to toggle taxes on and off in the calcDisplayQuote Function
 let taxFlag = true;
 const toggleTaxEl = document.querySelector('.toggler-tax');
@@ -633,13 +641,30 @@ const toggleTax = () => {
 };
 toggleTax();
 
-// FUNCTION //
 // Display Save Quote Modal
 const saveQuoteBtns = document.querySelectorAll('.quote-btn');
+// Select All Quotes
+const deepArticle = document.querySelector('.deep-article');
+const generalArticle = document.querySelector('.general-article');
+const weeklyArticle = document.querySelector('.weekly-article');
+const biWeeklyArticle = document.querySelector('.bi-weekly-article');
+const monthlyArticle = document.querySelector('.monthly-article');
 let price;
 let hours;
 let clean;
 let taxes;
+// Price
+let deepSavedPrice;
+let generalSavedPrice;
+let weeklySavedPrice;
+let biWeeklySavedPrice;
+let monthlySavedPrice;
+// Hours
+let deepSavedHours;
+let generalSavedHours;
+let weeklySavedHours;
+let biWeeklySavedHours;
+let monthlySavedHours;
 const displaySaveQuoteModal = () => {
   saveQuoteBtns.forEach(btn => {
     btn.addEventListener('click', e => {
@@ -652,6 +677,7 @@ const displaySaveQuoteModal = () => {
       // Select Current Quote
       const article = e.currentTarget.parentElement.parentElement;
 
+      // STORE CURRENT QUOTE
       // Store Price Into Var
       price = article.querySelector('.price').textContent;
 
@@ -663,6 +689,40 @@ const displaySaveQuoteModal = () => {
 
       // Store Taxes Into Var
       taxes = article.querySelector('.tax-number').textContent;
+
+      // STORE OTHER QUOTES
+
+      // PRICE
+      // Store Deep Price Into Var
+      deepSavedPrice = deepArticle.querySelector('.price').textContent;
+
+      // Store General Price Into Var
+      generalSavedPrice = generalArticle.querySelector('.price').textContent;
+
+      // Store Weekly Price Into Var
+      weeklySavedPrice = weeklyArticle.querySelector('.price').textContent;
+
+      // Store Bi-Weekly Price Into Var
+      biWeeklySavedPrice = biWeeklyArticle.querySelector('.price').textContent;
+
+      // Store Monthly Price Into Var
+      monthlySavedPrice = monthlyArticle.querySelector('.price').textContent;
+
+      // HOURS
+      // Store Deep Hours Into Var
+      deepSavedHours = deepArticle.querySelector('.hours').textContent;
+
+      // Store General Hours Into Var
+      generalSavedHours = generalArticle.querySelector('.hours').textContent;
+
+      // Store Weekly Hours Into Var
+      weeklySavedHours = weeklyArticle.querySelector('.hours').textContent;
+
+      // Store Bi-Weekly Hours Into Var
+      biWeeklySavedHours = biWeeklyArticle.querySelector('.hours').textContent;
+
+      // Store Monthly Hours Into Var
+      monthlySavedHours = monthlyArticle.querySelector('.hours').textContent;
     });
   });
 };
@@ -703,7 +763,7 @@ const saveQuoteInfo = () => {
         document.querySelector('.par-text'),
         document.querySelector('.span-text'),
         'Quote Saved',
-        nameInput.value
+        quoteName
       );
 
       // Push Data Into Saved Quotes Array
@@ -722,7 +782,18 @@ const saveQuoteInfo = () => {
         amountPerHour: `${amountPerHour.value}`,
         taxRate: `${taxRate.value}`,
         specialNotes: `${specialNotesInput.value}`,
+        deepPrice: `${deepSavedPrice}`,
+        generalPrice: `${generalSavedPrice}`,
+        weeklyPrice: `${weeklySavedPrice}`,
+        biWeeklyPrice: `${biWeeklySavedPrice}`,
+        monthlyPrice: `${monthlySavedPrice}`,
+        deepHours: `${deepSavedHours}`,
+        generalHours: `${generalSavedHours}`,
+        weeklyHours: `${weeklySavedHours}`,
+        biWeeklyHours: `${biWeeklySavedHours}`,
+        monthlyHours: `${monthlySavedHours}`,
       });
+      console.log(savedQuotes);
       const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}">${quoteName}</a>`;
       quoteNamesContainer.insertAdjacentHTML('beforeend', html);
 
