@@ -450,6 +450,9 @@ const deleteQuote = () => {
   // Remove That Quote From The savedQuotes Array
   savedQuotes.splice(savedQuoteIndex, 1);
 
+  // Update Local Storage
+  localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
+
   // Close Modal
   showQuoteModal.classList.add('invisible');
   showQuoteModal.classList.add('hidden');
@@ -728,9 +731,27 @@ const displaySaveQuoteModal = () => {
 };
 displaySaveQuoteModal();
 
+// Fill QuotesNamesContainer Function
+const fillSavedQuotesContainer = quoteName => {
+  const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}">${quoteName}</a>`;
+  quoteNamesContainer.insertAdjacentHTML('beforeend', html);
+};
+
 // Save Quote Info
-const savedQuotes = [];
 const quoteNamesContainer = document.querySelector('.quote-names');
+let savedQuotes;
+
+if (localStorage.getItem('savedQuotes')) {
+  // Add Local Storage Items To savedQuotes Array
+  savedQuotes = JSON.parse(localStorage.getItem('savedQuotes'));
+  // Loop Over Each Quote and Create A Link. Set Link In quoteNamesContainer
+  savedQuotes.forEach(quote => {
+    fillSavedQuotesContainer(quote.name);
+  });
+} else {
+  savedQuotes = [];
+}
+
 const saveQuoteForm = document.querySelector('.save-quote-form');
 const saveQuoteInfo = () => {
   saveQuoteForm.addEventListener('submit', e => {
@@ -793,9 +814,12 @@ const saveQuoteInfo = () => {
         biWeeklyHours: `${biWeeklySavedHours}`,
         monthlyHours: `${monthlySavedHours}`,
       });
-      console.log(savedQuotes);
-      const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}">${quoteName}</a>`;
-      quoteNamesContainer.insertAdjacentHTML('beforeend', html);
+
+      // Add Newley Created Quote To SavedQuotesContainer Modal
+      fillSavedQuotesContainer(quoteName);
+
+      // Set Saved Quotes To Local Storage
+      localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
 
       // Close Modal
       saveQuoteModal.classList.add('invisible');
