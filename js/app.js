@@ -205,8 +205,26 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
   });
 };
 
+let taxFlag = true;
+// Show Taxes Display Indicator
+const taxesDisplayDom = document.querySelector('.taxes-display');
+const showTaxIndicator = () => {
+  if (taxFlag) {
+    taxesDisplayDom.style.background = '#059669';
+    taxesDisplayDom.textContent = 'Taxes Included In Price';
+  } else {
+    taxesDisplayDom.style.background = '#dc2626';
+    taxesDisplayDom.textContent = 'Taxes NOT Included In Price';
+  }
+};
+
 // EVENT HANDLERS //
-formControl.addEventListener('change', () => {
+formControl.addEventListener('change', e => {
+  // Show Tax Indicator
+  if (!e.target.classList.contains('change-individual')) {
+    showTaxIndicator();
+  }
+
   const amountPerHour = +document.getElementById('amount-per-hour').value;
   const taxRate = +document.getElementById('tax-rate').value;
   const changeDeep = +document.getElementById('change-hours-deep').value;
@@ -632,7 +650,6 @@ const showAlertMessage = (alertDom, parDom, spanDom, parText, spanText) => {
 
 // Toggler Tax
 // Toggle flag is used to toggle as a global variable to toggle taxes on and off in the calcDisplayQuote Function
-let taxFlag = true;
 const toggleTaxEl = document.querySelector('.toggler-tax');
 const showAlertMessageBinded = showAlertMessage.bind(
   showAlertMessage,
