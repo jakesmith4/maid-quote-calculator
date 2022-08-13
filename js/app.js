@@ -366,7 +366,7 @@ const singleBiWeeklyHours = document.querySelector('.single-bi-weekly-hours');
 const singleMonthlyPrice = document.querySelector('.single-monthly-price');
 const singleMonthlyHours = document.querySelector('.single-monthly-hours');
 
-// FUNCTION //
+// FUNCTIONS //
 // Close Modal
 const closeModalFunc = modal => {
   modal.addEventListener('click', e => {
@@ -382,7 +382,6 @@ closeModalFunc(savedQuoteModal);
 closeModalFunc(settingsModal);
 closeModalFunc(showQuoteModal);
 
-// FUNCTION //
 // Remove Other Active Modals
 const removeactiveModals = (firstModal, secondModal, thirdModal) => {
   if (!firstModal.classList.contains('invisible')) {
@@ -442,6 +441,7 @@ keypressEscModal(savedQuoteModal);
 keypressEscModal(saveQuoteModal);
 keypressEscModal(showQuoteModal);
 
+// Delete Quote
 const deleteQuote = () => {
   const allQuoteNames = [...document.querySelectorAll('.quote-name')];
   // Find Correct Quote To Delete
@@ -483,7 +483,7 @@ const deleteQuote = () => {
   savedQuoteModal.classList.add('flex');
 };
 
-// Delete Quote
+// Add Event Listener To Delete Btn
 const addListenerToDeleteBtn = () => {
   const deleteQuoteBtn = document.querySelector('.delete-quote');
   deleteQuoteBtn.addEventListener('click', deleteQuote);
@@ -618,21 +618,19 @@ let darkFlag = true;
 const toggler = document.querySelector('.toggler');
 const sunIcon = document.querySelector('.sun');
 const moonIcon = document.querySelector('.moon');
-// Toggle Dark Function
-const toggleDark = () => {
-  toggler.addEventListener('click', () => {
-    const html = document.documentElement;
-    sunIcon.classList.toggle('hidden');
-    moonIcon.classList.toggle('hidden');
-    if (darkFlag) {
-      html.classList.add('dark');
-    } else {
-      html.classList.remove('dark');
-    }
-    darkFlag = !darkFlag;
-  });
-};
-toggleDark();
+const html = document.documentElement;
+
+// Toggle Dark Mode
+toggler.addEventListener('click', () => {
+  sunIcon.classList.toggle('hidden');
+  moonIcon.classList.toggle('hidden');
+  if (darkFlag) {
+    html.classList.add('dark');
+  } else {
+    html.classList.remove('dark');
+  }
+  darkFlag = !darkFlag;
+});
 
 // Show Alert Message
 const showAlertMessage = (alertDom, parDom, spanDom, parText, spanText) => {
@@ -657,29 +655,27 @@ const showAlertMessageBinded = showAlertMessage.bind(
   document.querySelector('.tax-text'),
   document.querySelector('.span-tax-text')
 );
-const toggleTax = () => {
-  toggleTaxEl.addEventListener('click', () => {
-    toggleTaxEl.children[0].classList.toggle('translate-x-6');
-    if (toggleTaxEl.classList.contains('bg-green-700')) {
-      // Show Alert Message
-      showAlertMessageBinded(
-        'Tax will be Removed from price on next quote given',
-        'Taxes Removed'
-      );
-      toggleTaxEl.classList.remove('bg-green-700');
-      toggleTaxEl.classList.add('bg-gray-500');
-    } else {
-      // Show Alert Message
-      showAlertMessageBinded(
-        'Tax will be Added to price on next quote given',
-        'Taxes added'
-      );
-      toggleTaxEl.classList.add('bg-green-700');
-    }
-    taxFlag = !taxFlag;
-  });
-};
-toggleTax();
+
+toggleTaxEl.addEventListener('click', () => {
+  toggleTaxEl.children[0].classList.toggle('translate-x-6');
+  if (toggleTaxEl.classList.contains('bg-green-700')) {
+    // Show Alert Message
+    showAlertMessageBinded(
+      'Tax will be Removed from price on next quote given',
+      'Taxes Removed'
+    );
+    toggleTaxEl.classList.remove('bg-green-700');
+    toggleTaxEl.classList.add('bg-gray-500');
+  } else {
+    // Show Alert Message
+    showAlertMessageBinded(
+      'Tax will be Added to price on next quote given',
+      'Taxes added'
+    );
+    toggleTaxEl.classList.add('bg-green-700');
+  }
+  taxFlag = !taxFlag;
+});
 
 // Display Save Quote Modal
 const saveQuoteBtns = document.querySelectorAll('.quote-btn');
@@ -705,68 +701,67 @@ let generalSavedHours;
 let weeklySavedHours;
 let biWeeklySavedHours;
 let monthlySavedHours;
-const displaySaveQuoteModal = () => {
-  saveQuoteBtns.forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.preventDefault();
-      // Show Save Quote Modal
-      saveQuoteModal.classList.remove('invisible');
-      saveQuoteModal.classList.remove('hidden');
-      saveQuoteModal.classList.add('flex');
 
-      // Select Current Quote
-      const article = e.currentTarget.parentElement.parentElement;
+// Save Quote Info On Save Quote Btn Click
+saveQuoteBtns.forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    // Show Save Quote Modal
+    saveQuoteModal.classList.remove('invisible');
+    saveQuoteModal.classList.remove('hidden');
+    saveQuoteModal.classList.add('flex');
 
-      // STORE CURRENT QUOTE
-      // Store Price Into Var
-      price = article.querySelector('.price').textContent;
+    // Select Current Quote
+    const article = e.currentTarget.parentElement.parentElement;
 
-      // Store Hours Into Var
-      hours = article.querySelector('.hours').textContent;
+    // STORE CURRENT QUOTE
+    // Store Price Into Var
+    price = article.querySelector('.price').textContent;
 
-      // Store Cleanining Type Into Var
-      clean = article.querySelector('.cleaning-type').textContent;
+    // Store Hours Into Var
+    hours = article.querySelector('.hours').textContent;
 
-      // Store Taxes Into Var
-      taxes = article.querySelector('.tax-number').textContent;
+    // Store Cleanining Type Into Var
+    clean = article.querySelector('.cleaning-type').textContent;
 
-      // STORE OTHER QUOTES
+    // Store Taxes Into Var
+    taxes = article.querySelector('.tax-number').textContent;
 
-      // PRICE
-      // Store Deep Price Into Var
-      deepSavedPrice = deepArticle.querySelector('.price').textContent;
+    // STORE OTHER QUOTES
 
-      // Store General Price Into Var
-      generalSavedPrice = generalArticle.querySelector('.price').textContent;
+    // PRICE
+    // Store Deep Price Into Var
+    deepSavedPrice = deepArticle.querySelector('.price').textContent;
 
-      // Store Weekly Price Into Var
-      weeklySavedPrice = weeklyArticle.querySelector('.price').textContent;
+    // Store General Price Into Var
+    generalSavedPrice = generalArticle.querySelector('.price').textContent;
 
-      // Store Bi-Weekly Price Into Var
-      biWeeklySavedPrice = biWeeklyArticle.querySelector('.price').textContent;
+    // Store Weekly Price Into Var
+    weeklySavedPrice = weeklyArticle.querySelector('.price').textContent;
 
-      // Store Monthly Price Into Var
-      monthlySavedPrice = monthlyArticle.querySelector('.price').textContent;
+    // Store Bi-Weekly Price Into Var
+    biWeeklySavedPrice = biWeeklyArticle.querySelector('.price').textContent;
 
-      // HOURS
-      // Store Deep Hours Into Var
-      deepSavedHours = deepArticle.querySelector('.hours').textContent;
+    // Store Monthly Price Into Var
+    monthlySavedPrice = monthlyArticle.querySelector('.price').textContent;
 
-      // Store General Hours Into Var
-      generalSavedHours = generalArticle.querySelector('.hours').textContent;
+    // HOURS
+    // Store Deep Hours Into Var
+    deepSavedHours = deepArticle.querySelector('.hours').textContent;
 
-      // Store Weekly Hours Into Var
-      weeklySavedHours = weeklyArticle.querySelector('.hours').textContent;
+    // Store General Hours Into Var
+    generalSavedHours = generalArticle.querySelector('.hours').textContent;
 
-      // Store Bi-Weekly Hours Into Var
-      biWeeklySavedHours = biWeeklyArticle.querySelector('.hours').textContent;
+    // Store Weekly Hours Into Var
+    weeklySavedHours = weeklyArticle.querySelector('.hours').textContent;
 
-      // Store Monthly Hours Into Var
-      monthlySavedHours = monthlyArticle.querySelector('.hours').textContent;
-    });
+    // Store Bi-Weekly Hours Into Var
+    biWeeklySavedHours = biWeeklyArticle.querySelector('.hours').textContent;
+
+    // Store Monthly Hours Into Var
+    monthlySavedHours = monthlyArticle.querySelector('.hours').textContent;
   });
-};
-displaySaveQuoteModal();
+});
 
 // Fill QuotesNamesContainer Function
 const fillSavedQuotesContainer = quoteName => {
@@ -853,99 +848,96 @@ if (localStorage.getItem('savedQuotes')) {
 }
 
 const saveQuoteForm = document.querySelector('.save-quote-form');
-const saveQuoteInfo = () => {
-  saveQuoteForm.addEventListener('submit', e => {
-    e.preventDefault();
-    // Select Inputs
-    const nameInput = document.querySelector('.name');
-    const emailInput = document.querySelector('.email');
-    const phoneNumberInput = document.querySelector('.phone-number');
-    const addressInput = document.querySelector('.address');
-    const cityInput = document.querySelector('.city');
-    const zipCodeInput = document.querySelector('.zip-code');
-    const specialNotesInput = document.querySelector('.special-notes');
-    const squareFootSelect = document.querySelector('.square-foot-select');
-    const amountPerHour = document.getElementById('amount-per-hour');
-    const taxRate = document.getElementById('tax-rate');
-    const status = document.getElementById('status');
+saveQuoteForm.addEventListener('submit', e => {
+  e.preventDefault();
+  // Select Inputs
+  const nameInput = document.querySelector('.name');
+  const emailInput = document.querySelector('.email');
+  const phoneNumberInput = document.querySelector('.phone-number');
+  const addressInput = document.querySelector('.address');
+  const cityInput = document.querySelector('.city');
+  const zipCodeInput = document.querySelector('.zip-code');
+  const specialNotesInput = document.querySelector('.special-notes');
+  const squareFootSelect = document.querySelector('.square-foot-select');
+  const amountPerHour = document.getElementById('amount-per-hour');
+  const taxRate = document.getElementById('tax-rate');
+  const status = document.getElementById('status');
 
-    if (nameInput.value !== '') {
-      // Add Number To End Of Name If That Name Already Exists
-      let quoteName;
-      const savedQuotesNames = savedQuotes.map(quote => quote.name);
-      if (savedQuotesNames.includes(nameInput.value)) {
-        quoteName = `${nameInput.value}${Math.floor(Math.random() * 999) + 1}`;
-      } else {
-        quoteName = nameInput.value;
-      }
-
-      // Show Alert Message
-      showAlertMessage(
-        document.querySelector('.alert-save-form'),
-        document.querySelector('.par-text'),
-        document.querySelector('.span-text'),
-        'Quote Saved',
-        quoteName
-      );
-
-      // Push Data Into Saved Quotes Array
-      savedQuotes.push({
-        name: `${quoteName}`,
-        email: `${emailInput.value}`,
-        phoneNumber: `${phoneNumberInput.value}`,
-        address: `${addressInput.value}`,
-        city: `${cityInput.value}`,
-        zipCode: `${zipCodeInput.value}`,
-        price: `${price}`,
-        hours: `${hours}`,
-        taxes: `${taxes}`,
-        clean: `${clean}`,
-        squareFootage: `${squareFootSelect.value}`,
-        amountPerHour: `${amountPerHour.value}`,
-        taxRate: `${taxRate.value}`,
-        specialNotes: `${specialNotesInput.value}`,
-        status: `${status.selectedIndex}`,
-        deepPrice: `${deepSavedPrice}`,
-        generalPrice: `${generalSavedPrice}`,
-        weeklyPrice: `${weeklySavedPrice}`,
-        biWeeklyPrice: `${biWeeklySavedPrice}`,
-        monthlyPrice: `${monthlySavedPrice}`,
-        deepHours: `${deepSavedHours}`,
-        generalHours: `${generalSavedHours}`,
-        weeklyHours: `${weeklySavedHours}`,
-        biWeeklyHours: `${biWeeklySavedHours}`,
-        monthlyHours: `${monthlySavedHours}`,
-      });
-
-      // Add Newley Created Quote To SavedQuotesContainer Modal
-      fillSavedQuotesContainer(quoteName);
-
-      // Set Saved Quotes To Local Storage
-      localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
-
-      // Close Modal
-      saveQuoteModal.classList.add('invisible');
-      saveQuoteModal.classList.add('hidden');
-      saveQuoteModal.classList.remove('flex');
-
-      // Clear Input Values
-      nameInput.value =
-        emailInput.value =
-        phoneNumberInput.value =
-        addressInput.value =
-        cityInput.value =
-        zipCodeInput.value =
-        specialNotesInput.value =
-          '';
+  if (nameInput.value !== '') {
+    // Add Number To End Of Name If That Name Already Exists
+    let quoteName;
+    const savedQuotesNames = savedQuotes.map(quote => quote.name);
+    if (savedQuotesNames.includes(nameInput.value)) {
+      quoteName = `${nameInput.value}${Math.floor(Math.random() * 999) + 1}`;
     } else {
-      showAlertMessage(
-        document.querySelector('.alert-saving-form'),
-        document.querySelector('.saving-text'),
-        document.querySelector('.span-saving-text'),
-        '',
-        'Please Enter A Name'
-      );
+      quoteName = nameInput.value;
     }
-  });
-};
-saveQuoteInfo();
+
+    // Show Alert Message
+    showAlertMessage(
+      document.querySelector('.alert-save-form'),
+      document.querySelector('.par-text'),
+      document.querySelector('.span-text'),
+      'Quote Saved',
+      quoteName
+    );
+
+    // Push Data Into Saved Quotes Array
+    savedQuotes.push({
+      name: `${quoteName}`,
+      email: `${emailInput.value}`,
+      phoneNumber: `${phoneNumberInput.value}`,
+      address: `${addressInput.value}`,
+      city: `${cityInput.value}`,
+      zipCode: `${zipCodeInput.value}`,
+      price: `${price}`,
+      hours: `${hours}`,
+      taxes: `${taxes}`,
+      clean: `${clean}`,
+      squareFootage: `${squareFootSelect.value}`,
+      amountPerHour: `${amountPerHour.value}`,
+      taxRate: `${taxRate.value}`,
+      specialNotes: `${specialNotesInput.value}`,
+      status: `${status.selectedIndex}`,
+      deepPrice: `${deepSavedPrice}`,
+      generalPrice: `${generalSavedPrice}`,
+      weeklyPrice: `${weeklySavedPrice}`,
+      biWeeklyPrice: `${biWeeklySavedPrice}`,
+      monthlyPrice: `${monthlySavedPrice}`,
+      deepHours: `${deepSavedHours}`,
+      generalHours: `${generalSavedHours}`,
+      weeklyHours: `${weeklySavedHours}`,
+      biWeeklyHours: `${biWeeklySavedHours}`,
+      monthlyHours: `${monthlySavedHours}`,
+    });
+
+    // Add Newley Created Quote To SavedQuotesContainer Modal
+    fillSavedQuotesContainer(quoteName);
+
+    // Set Saved Quotes To Local Storage
+    localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
+
+    // Close Modal
+    saveQuoteModal.classList.add('invisible');
+    saveQuoteModal.classList.add('hidden');
+    saveQuoteModal.classList.remove('flex');
+
+    // Clear Input Values
+    nameInput.value =
+      emailInput.value =
+      phoneNumberInput.value =
+      addressInput.value =
+      cityInput.value =
+      zipCodeInput.value =
+      specialNotesInput.value =
+        '';
+  } else {
+    showAlertMessage(
+      document.querySelector('.alert-saving-form'),
+      document.querySelector('.saving-text'),
+      document.querySelector('.span-saving-text'),
+      '',
+      'Please Enter A Name'
+    );
+  }
+});
