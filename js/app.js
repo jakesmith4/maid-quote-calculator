@@ -336,6 +336,7 @@ const singleAddress = document.querySelector('.single-address');
 const singleCity = document.querySelector('.single-city');
 const singleZipcode = document.querySelector('.single-zipcode');
 const singleNotes = document.querySelector('.single-notes');
+const singleStatus = document.querySelector('.single-status');
 const singleDeepPrice = document.querySelector('.single-deep-price');
 const singleDeepHours = document.querySelector('.single-deep-hours');
 const singleGeneralPrice = document.querySelector('.single-general-price');
@@ -470,6 +471,20 @@ const addListenerToDeleteBtn = () => {
   deleteQuoteBtn.addEventListener('click', deleteQuote);
 };
 
+// Change Color Status
+const changeColorStatus = select => {
+  if (select.selectedIndex === 0) {
+    select.style.background = '#2563eb';
+  }
+  if (select.selectedIndex === 1) {
+    select.style.background = '#dc2626';
+  }
+  if (select.selectedIndex === 2) {
+    select.style.background = '#262626';
+  }
+};
+
+const statusGrey = document.querySelector('.status-grey');
 // Display Current Quote
 const displayCurrentQuote = () => {
   // Set Heading As Name
@@ -489,6 +504,8 @@ const displayCurrentQuote = () => {
   singleCity.textContent = currentQuote.city;
   singleZipcode.textContent = currentQuote.zipCode;
   singleNotes.textContent = currentQuote.specialNotes;
+  // singleStatus.textContent = currentQuote.status;
+  singleStatus.selectedIndex = currentQuote.status;
 
   // Set Other Quotes
   // Deep
@@ -515,6 +532,9 @@ const displayCurrentQuote = () => {
     .querySelector('.delete-quote')
     .removeEventListener('click', deleteQuote);
   addListenerToDeleteBtn();
+
+  // Set Status To Correct Color
+  changeColorStatus(statusGrey);
 };
 
 // Show Current Quote On Name Click
@@ -737,10 +757,73 @@ const fillSavedQuotesContainer = quoteName => {
   quoteNamesContainer.insertAdjacentHTML('beforeend', html);
 };
 
+// Set Status To Local Storage
+singleStatus.addEventListener('change', () => {
+  currentQuote.status = singleStatus.selectedIndex;
+  // Update Local Storage
+  localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
+  filterSelect.selectedIndex = 0;
+  quoteNamesContainer.innerHTML = '';
+  savedQuotes.forEach(quote => {
+    fillSavedQuotesContainer(quote.name);
+  });
+});
+
 // Save Quote Info
 const quoteNamesContainer = document.querySelector('.quote-names');
 let savedQuotes;
 
+// Filter Quotes
+const filterSelect = document.getElementById('saved-quotes');
+filterSelect.addEventListener('change', () => {
+  const savedQuotes2 = savedQuotes.filter(
+    quote => +quote.status === filterSelect.selectedIndex - 1
+  );
+  quoteNamesContainer.innerHTML = '';
+  if (filterSelect.selectedIndex === 0) {
+    savedQuotes.forEach(quote => {
+      fillSavedQuotesContainer(quote.name);
+    });
+  } else {
+    savedQuotes2.forEach(quote => {
+      fillSavedQuotesContainer(quote.name);
+    });
+  }
+});
+
+// Change Colors On Status Select Saved Quote Modal
+const statusSelectSaved = document.querySelector('.select-colors');
+
+statusSelectSaved.addEventListener('change', () => {
+  if (statusSelectSaved.selectedIndex === 0) {
+    statusSelectSaved.style.background = '#059669';
+  }
+  if (statusSelectSaved.selectedIndex === 1) {
+    statusSelectSaved.style.background = '#2563eb';
+  }
+  if (statusSelectSaved.selectedIndex === 2) {
+    statusSelectSaved.style.background = '#dc2626';
+  }
+  if (statusSelectSaved.selectedIndex === 3) {
+    statusSelectSaved.style.background = '#262626';
+  }
+});
+
+// Add Main Status Back To Green When, Also Change Induidual Status To Proper Color When Changed
+statusGrey.addEventListener('change', () => {
+  // Add Main Status Back To Green
+  filterSelect.style.background = '#059669';
+  changeColorStatus(statusGrey);
+});
+
+// Change Colors On Status Select Save Quote Modal
+const statusSelectSave = document.querySelector('.others-select-colors');
+
+statusSelectSave.addEventListener('change', () => {
+  changeColorStatus(statusSelectSave);
+});
+
+// Get savedQuotes from Local Storage & Put It into the savedQuotes array
 if (localStorage.getItem('savedQuotes')) {
   // Add Local Storage Items To savedQuotes Array
   savedQuotes = JSON.parse(localStorage.getItem('savedQuotes'));
@@ -767,6 +850,7 @@ const saveQuoteInfo = () => {
     const squareFootSelect = document.querySelector('.square-foot-select');
     const amountPerHour = document.getElementById('amount-per-hour');
     const taxRate = document.getElementById('tax-rate');
+    const status = document.getElementById('status');
 
     if (nameInput.value !== '') {
       // Add Number To End Of Name If That Name Already Exists
@@ -803,6 +887,7 @@ const saveQuoteInfo = () => {
         amountPerHour: `${amountPerHour.value}`,
         taxRate: `${taxRate.value}`,
         specialNotes: `${specialNotesInput.value}`,
+        status: `${status.selectedIndex}`,
         deepPrice: `${deepSavedPrice}`,
         generalPrice: `${generalSavedPrice}`,
         weeklyPrice: `${weeklySavedPrice}`,

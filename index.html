@@ -126,9 +126,28 @@
       >
         <div class="px-4 pt-2">
           <div class="flex items-center justify-between border-b-2 mb-4 pb-4">
-            <small class="tracking-widest font-semibold text-xl quote-heading"
-              >Save Quote</small
-            >
+            <div class="md:flex">
+              <small
+                class="tracking-widest font-semibold text-xl quote-heading md:mr-4"
+                >Save Quote</small
+              >
+              <!-- Set Status -->
+              <div class="flex flex-col">
+                <label for="status" class="tracking-wider font-semibold"
+                  >Set Status</label
+                >
+                <select
+                  name="status"
+                  class="cursor-pointer px-1 text-white bg-blue-600 border-2 others-select-colors"
+                  id="status"
+                >
+                  <option value="gave quote">Gave Quote</option>
+                  <option value="give callback">Give Callback</option>
+                  <option value="booked job">Booked Job</option>
+                </select>
+              </div>
+            </div>
+            <!-- End Of Set Status -->
             <button class="close-modal">
               <i
                 class="fa-solid fa-circle-xmark text-red-500 text-3xl rounded-full hover:text-red-600 close"
@@ -136,7 +155,7 @@
             </button>
           </div>
           <!-- Save Quote Form -->
-          <form action="" spellcheck="false" class="space-y-3 save-quote-form">
+          <form action="" class="space-y-3 save-quote-form">
             <div
               class="fixed top-2 left-1/2 w-3/4 max-w-md transform -translate-x-1/2 bg-gradient-to-br from-emerald-700 to-neutral-800 text-center text-white tracking-widest p-2 shadow-xl rounded-xl border-2 border-white transition-all alert-saving-form hidden opacity-0"
             >
@@ -297,9 +316,26 @@
         <div class="px-4 pt-2">
           <!-- Quote Heading -->
           <div class="flex items-center justify-between border-b-2 mb-4 pb-4">
-            <small class="tracking-widest font-semibold text-xl"
-              >Saved Quotes</small
-            >
+            <div>
+              <small class="tracking-widest font-semibold text-xl pb-2"
+                >Saved Quotes</small
+              >
+              <div class="flex flex-col text-center">
+                <label for="saved-quotes" class="tracking-wider text-md"
+                  >Filter</label
+                >
+                <select
+                  name="saved-quotes"
+                  class="bg-emerald-600 text-white cursor-pointer border-2 px-1 tracking-wider select-colors"
+                  id="saved-quotes"
+                >
+                  <option value="all">All</option>
+                  <option value="gave quote">Gave Quote</option>
+                  <option value="give callback">Give Callback</option>
+                  <option value="booked job">Booked Job</option>
+                </select>
+              </div>
+            </div>
             <button class="close-modal">
               <i
                 class="fa-solid fa-circle-xmark text-red-500 text-3xl rounded-full hover:text-red-600 close"
@@ -462,6 +498,20 @@
               ></p>
             </div>
             <!-- End Of Special Notes -->
+            <!-- Status -->
+            <h3 class="text-center font-semibold tracking-widest">Status</h3>
+            <div class="bg-slate-200 py-2 text-center mx-auto mb-2 w-full px-2">
+              <select
+                name="status-quote"
+                id="status-quote"
+                class="single-status cursor-pointer px-1 text-white border-2 bg-slate-400 dark:bg-neutral-800 status-grey"
+              >
+                <option value="gave quote">Gave Quote</option>
+                <option value="give callback">Give Callback</option>
+                <option value="booked job">Booked Job</option>
+              </select>
+            </div>
+            <!-- End Of Status -->
             <!-- All Cleans -->
             <div class="text-center mb-2 all-cleans">
               <button class="tracking-wider see-cleans group">
@@ -841,9 +891,15 @@
             <select
               name="square-foot"
               id="square-footage"
-              class="py-2 px-0 border-2 block mx-auto my-4 font-serif focus:outline-emerald-600 sm:px-4 dark:bg-emerald-700 dark:focus:outline-white square-foot-select"
+              class="py-2 px-0 cursor-pointer border-2 block mx-auto my-4 font-serif focus:outline-emerald-600 sm:px-4 dark:bg-emerald-700 dark:focus:outline-white square-foot-select"
             >
-              <option value="" disabled>Select Your Square Footage</option>
+              <option
+                value=""
+                disabled
+                class="text-neutral-800 tracking-widest font-semibold"
+              >
+                Select Your Square Footage
+              </option>
               <option value="1000-1500">1000-1500</option>
               <option value="1600-2000">1600-2000</option>
               <option value="2100-2200">2100-2200</option>
