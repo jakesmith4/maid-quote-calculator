@@ -218,11 +218,41 @@ const showTaxIndicator = () => {
   }
 };
 
+// Change Display Of Quotes Container On Browser Resize
+const mediaQuery = window.matchMedia('(min-width: 768px)');
+const changeDisplayOnResize = () => {
+  if (mediaQuery.matches) {
+    quotesContainerDom.style.display = 'flex';
+  } else {
+    quotesContainerDom.style.display = 'block';
+  }
+};
+
+// Display Spinner
+const spinnerDom = document.querySelector('.spinner');
+const quotesContainerDom = document.querySelector('.quotes-container');
+const displaySpinner = () => {
+  spinnerDom.style.display = 'flex';
+  quotesContainerDom.style.display = 'none';
+  setTimeout(() => {
+    spinnerDom.style.display = 'none';
+    // Change Display Depending On Browser Size
+    changeDisplayOnResize();
+  }, 1000);
+};
+
+// Change Quotes Container Display On Browser Resize
+window.onresize = () => {
+  changeDisplayOnResize();
+};
+
 // EVENT HANDLERS //
 formControl.addEventListener('change', e => {
   // Show Tax Indicator
   if (!e.target.classList.contains('change-individual')) {
     showTaxIndicator();
+    // Display Spinner
+    displaySpinner();
   }
 
   const amountPerHour = +document.getElementById('amount-per-hour').value;
@@ -401,31 +431,6 @@ const removeactiveModals = (firstModal, secondModal, thirdModal) => {
   }
 };
 
-// Toggle Save Quote Modal On Save Icon Click (Sidebar)
-saveIcon.addEventListener('click', () => {
-  savedQuoteModal.classList.remove('invisible');
-  savedQuoteModal.classList.remove('hidden');
-  savedQuoteModal.classList.add('flex');
-  // Remove Other Active Modals
-  removeactiveModals(settingsModal, saveQuoteModal, showQuoteModal);
-});
-
-// Toggle Settings Modal On Setting Icon Click (Sidebar)
-settingsIcon.addEventListener('click', e => {
-  settingsModal.classList.toggle('invisible');
-  settingsModal.classList.toggle('flex');
-  settingsModal.classList.toggle('hidden');
-  // Remove Other Active Modals
-  removeactiveModals(saveQuoteModal, savedQuoteModal, showQuoteModal);
-});
-
-// Go Back To Saved Quotes Modal
-const backBtn = document.querySelector('.back-btn');
-backBtn.addEventListener('click', () => {
-  showQuoteModal.classList.add('invisible');
-  savedQuoteModal.classList.remove('invisible');
-});
-
 // Escape Keypress Modal Close
 const keypressEscModal = modalName => {
   document.addEventListener('keydown', e => {
@@ -481,12 +486,6 @@ const deleteQuote = () => {
   savedQuoteModal.classList.remove('invisible');
   savedQuoteModal.classList.remove('hidden');
   savedQuoteModal.classList.add('flex');
-};
-
-// Add Event Listener To Delete Btn
-const addListenerToDeleteBtn = () => {
-  const deleteQuoteBtn = document.querySelector('.delete-quote');
-  deleteQuoteBtn.addEventListener('click', deleteQuote);
 };
 
 // Change Color Status
@@ -555,33 +554,6 @@ const displayCurrentQuote = () => {
   changeColorStatus(statusGrey);
 };
 
-// Show Current Quote On Name Click
-let currentQuote;
-document.addEventListener('click', e => {
-  const allQuoteNames = document.querySelectorAll('.quote-name');
-  allQuoteNames.forEach(quote => {
-    quote.addEventListener('click', e => {
-      currentQuote = savedQuotes.find(
-        quote => quote.name === e.target.textContent
-      );
-      showQuoteModal.classList.remove('invisible');
-      showQuoteModal.classList.remove('hidden');
-      showQuoteModal.classList.add('flex');
-      if (!savedQuoteModal.classList.contains('invisible')) {
-        savedQuoteModal.classList.add('invisible');
-      }
-      displayCurrentQuote();
-    });
-  });
-});
-
-// See All Cleans Dropdown
-const seeCleans = document.querySelector('.see-cleans');
-const showCleans = document.querySelector('.show-cleans');
-seeCleans.addEventListener('click', () => {
-  showCleans.classList.toggle('hidden');
-});
-
 // All Cleans Slider
 const slides = document.querySelectorAll('.slide');
 const nextBtn = document.querySelector('.next-btn');
@@ -612,6 +584,85 @@ const carouselSlider = () => {
 };
 carouselSlider();
 
+// Show Alert Message
+const showAlertMessage = (alertDom, parDom, spanDom, parText, spanText) => {
+  alertDom.classList.remove('opacity-0');
+  alertDom.classList.remove('hidden');
+  alertDom.classList.add('opacity-1');
+  parDom.textContent = parText;
+  spanDom.textContent = spanText;
+  setTimeout(() => {
+    alertDom.classList.remove('opacity-1');
+    alertDom.classList.add('opacity-0');
+    alertDom.classList.add('hidden');
+  }, 4000);
+};
+
+// Fill QuotesNamesContainer Function
+const fillSavedQuotesContainer = quoteName => {
+  const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}">${quoteName}</a>`;
+  quoteNamesContainer.insertAdjacentHTML('beforeend', html);
+};
+
+// EVENT HANDLERS //
+// Toggle Save Quote Modal On Save Icon Click (Sidebar)
+saveIcon.addEventListener('click', () => {
+  savedQuoteModal.classList.remove('invisible');
+  savedQuoteModal.classList.remove('hidden');
+  savedQuoteModal.classList.add('flex');
+  // Remove Other Active Modals
+  removeactiveModals(settingsModal, saveQuoteModal, showQuoteModal);
+});
+
+// Toggle Settings Modal On Setting Icon Click (Sidebar)
+settingsIcon.addEventListener('click', e => {
+  settingsModal.classList.toggle('invisible');
+  settingsModal.classList.toggle('flex');
+  settingsModal.classList.toggle('hidden');
+  // Remove Other Active Modals
+  removeactiveModals(saveQuoteModal, savedQuoteModal, showQuoteModal);
+});
+
+// Go Back To Saved Quotes Modal
+const backBtn = document.querySelector('.back-btn');
+backBtn.addEventListener('click', () => {
+  showQuoteModal.classList.add('invisible');
+  savedQuoteModal.classList.remove('invisible');
+});
+
+// Add Event Listener To Delete Btn
+const addListenerToDeleteBtn = () => {
+  const deleteQuoteBtn = document.querySelector('.delete-quote');
+  deleteQuoteBtn.addEventListener('click', deleteQuote);
+};
+
+// Show Current Quote On Name Click
+let currentQuote;
+document.addEventListener('click', e => {
+  const allQuoteNames = document.querySelectorAll('.quote-name');
+  allQuoteNames.forEach(quote => {
+    quote.addEventListener('click', e => {
+      currentQuote = savedQuotes.find(
+        quote => quote.name === e.target.textContent
+      );
+      showQuoteModal.classList.remove('invisible');
+      showQuoteModal.classList.remove('hidden');
+      showQuoteModal.classList.add('flex');
+      if (!savedQuoteModal.classList.contains('invisible')) {
+        savedQuoteModal.classList.add('invisible');
+      }
+      displayCurrentQuote();
+    });
+  });
+});
+
+// See All Cleans Dropdown
+const seeCleans = document.querySelector('.see-cleans');
+const showCleans = document.querySelector('.show-cleans');
+seeCleans.addEventListener('click', () => {
+  showCleans.classList.toggle('hidden');
+});
+
 // Toggle Dark Functionality
 // Dark flag is used as a state variable (in this toggleDark function) to toggle dark mode on and off
 let darkFlag = true;
@@ -631,20 +682,6 @@ toggler.addEventListener('click', () => {
   }
   darkFlag = !darkFlag;
 });
-
-// Show Alert Message
-const showAlertMessage = (alertDom, parDom, spanDom, parText, spanText) => {
-  alertDom.classList.remove('opacity-0');
-  alertDom.classList.remove('hidden');
-  alertDom.classList.add('opacity-1');
-  parDom.textContent = parText;
-  spanDom.textContent = spanText;
-  setTimeout(() => {
-    alertDom.classList.remove('opacity-1');
-    alertDom.classList.add('opacity-0');
-    alertDom.classList.add('hidden');
-  }, 4000);
-};
 
 // Toggler Tax
 // Toggle flag is used to toggle as a global variable to toggle taxes on and off in the calcDisplayQuote Function
@@ -762,12 +799,6 @@ saveQuoteBtns.forEach(btn => {
     monthlySavedHours = monthlyArticle.querySelector('.hours').textContent;
   });
 });
-
-// Fill QuotesNamesContainer Function
-const fillSavedQuotesContainer = quoteName => {
-  const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}">${quoteName}</a>`;
-  quoteNamesContainer.insertAdjacentHTML('beforeend', html);
-};
 
 // Set Status To Local Storage
 singleStatus.addEventListener('change', () => {

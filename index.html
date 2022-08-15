@@ -125,7 +125,7 @@
         class="bg-white p-3 shadow-lg rounded-xl w-[80vw] max-w-sm max-h-[98vh] overflow-y-scroll dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
       >
         <div class="px-4 pt-2">
-          <div class="flex items-center justify-between border-b-2 mb-4 pb-4">
+          <div class="flex items-center justify-between border-b-2 mb-2 pb-2">
             <div class="md:flex">
               <small
                 class="tracking-widest font-semibold text-xl quote-heading md:mr-4"
@@ -155,7 +155,7 @@
             </button>
           </div>
           <!-- Save Quote Form -->
-          <form action="" class="space-y-3 save-quote-form">
+          <form action="" class="space-y-1 save-quote-form">
             <div
               class="fixed top-2 left-1/2 w-3/4 max-w-md transform -translate-x-1/2 bg-gradient-to-br from-emerald-700 to-neutral-800 text-center text-white tracking-widest p-2 shadow-xl rounded-xl border-2 border-white transition-all alert-saving-form hidden opacity-0"
             >
@@ -879,8 +879,7 @@
         class="bg-white rounded-2xl max-w-5xl mx-auto shadow-xl py-5 my-5 dark:bg-neutral-800 dark:text-white"
       >
         <div class="text-center text-white tracking-wider">
-          <small
-            class="bg-emerald-600 p-2 dark:text-white dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 taxes-display"
+          <small class="bg-emerald-600 py-2 px-4 rounded-full taxes-display"
             >Taxes Included In Price</small
           >
         </div>
@@ -1478,6 +1477,17 @@
             <!-- End Of Monthly Clean -->
           </div>
         </form>
+        <!-- Loading Spinner -->
+        <div class="hidden spinner items-center justify-center m-5">
+          <div
+            class="w-24 h-24 border-l-4 border-emerald-600 rounded-full animate-spin flex items-center justify-center"
+          >
+            <div
+              class="animate-ping w-12 h-12 bg-emerald-600 rounded-full"
+            ></div>
+          </div>
+        </div>
+        <!-- End Of Loading Spinner -->
       </div>
       <!-- End Of Card -->
     </div>
