@@ -395,6 +395,7 @@ const singleBiWeeklyPrice = document.querySelector('.single-bi-weekly-price');
 const singleBiWeeklyHours = document.querySelector('.single-bi-weekly-hours');
 const singleMonthlyPrice = document.querySelector('.single-monthly-price');
 const singleMonthlyHours = document.querySelector('.single-monthly-hours');
+const html = document.documentElement;
 
 // FUNCTIONS //
 // Close Modal
@@ -404,6 +405,7 @@ const closeModalFunc = modal => {
       modal.classList.add('invisible');
       modal.classList.add('hidden');
       modal.classList.remove('flex');
+      html.classList.remove('overflow-y-hidden');
     }
   });
 };
@@ -418,16 +420,19 @@ const removeactiveModals = (firstModal, secondModal, thirdModal) => {
     firstModal.classList.add('invisible');
     firstModal.classList.remove('flex');
     firstModal.classList.add('hidden');
+    html.classList.add('overflow-y-hidden');
   }
   if (!secondModal.classList.contains('invisible')) {
     secondModal.classList.add('invisible');
     secondModal.classList.remove('flex');
     secondModal.classList.add('hidden');
+    html.classList.add('overflow-y-hidden');
   }
   if (!thirdModal.classList.contains('invisible')) {
     thirdModal.classList.add('invisible');
     thirdModal.classList.remove('flex');
     thirdModal.classList.add('hidden');
+    html.classList.add('overflow-y-hidden');
   }
 };
 
@@ -438,6 +443,7 @@ const keypressEscModal = modalName => {
       modalName.classList.add('invisible');
       modalName.classList.add('hidden');
       modalName.classList.remove('flex');
+      html.classList.remove('overflow-y-hidden');
     }
   });
 };
@@ -610,6 +616,7 @@ saveIcon.addEventListener('click', () => {
   savedQuoteModal.classList.remove('invisible');
   savedQuoteModal.classList.remove('hidden');
   savedQuoteModal.classList.add('flex');
+  html.classList.add('overflow-y-hidden');
   // Remove Other Active Modals
   removeactiveModals(settingsModal, saveQuoteModal, showQuoteModal);
 });
@@ -619,6 +626,7 @@ settingsIcon.addEventListener('click', e => {
   settingsModal.classList.toggle('invisible');
   settingsModal.classList.toggle('flex');
   settingsModal.classList.toggle('hidden');
+  html.classList.toggle('overflow-y-hidden');
   // Remove Other Active Modals
   removeactiveModals(saveQuoteModal, savedQuoteModal, showQuoteModal);
 });
@@ -669,7 +677,6 @@ let darkFlag = true;
 const toggler = document.querySelector('.toggler');
 const sunIcon = document.querySelector('.sun');
 const moonIcon = document.querySelector('.moon');
-const html = document.documentElement;
 
 // Toggle Dark Mode
 toggler.addEventListener('click', () => {
@@ -747,6 +754,7 @@ saveQuoteBtns.forEach(btn => {
     saveQuoteModal.classList.remove('invisible');
     saveQuoteModal.classList.remove('hidden');
     saveQuoteModal.classList.add('flex');
+    html.classList.add('overflow-y-hidden');
 
     // Select Current Quote
     const article = e.currentTarget.parentElement.parentElement;
@@ -903,6 +911,9 @@ saveQuoteForm.addEventListener('submit', e => {
     } else {
       quoteName = nameInput.value;
     }
+
+    // Remove Overflow Hidden From HTML
+    html.classList.remove('overflow-y-hidden');
 
     // Show Alert Message
     showAlertMessage(
