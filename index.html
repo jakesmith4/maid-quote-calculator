@@ -354,11 +354,6 @@
     <div
       class="modal-show bg-black bg-opacity-70 h-screen fixed top-0 left-0 w-full backdrop-blur-sm hidden items-center justify-center invisible"
     >
-      <!-- <div
-        class="absolute top-2 left-1/2 w-3/4 max-w-md transform -translate-x-1/2 bg-gradient-to-br from-emerald-700 to-neutral-800 text-center text-white tracking-widest p-2 shadow-xl rounded-xl border-2 border-white transition-all opacity-0 alert"
-      >
-        Text from Javascript is iserted here
-      </div> -->
       <div
         class="bg-white p-3 shadow-lg rounded-xl w-[80vw] max-w-sm max-h-[95vh] overflow-y-scroll dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
       >
@@ -446,58 +441,93 @@
               <!-- End Of Hours Number -->
             </div>
             <!-- End Of Hours Container -->
-            <!-- Email -->
-            <h3 class="text-center font-semibold tracking-widest">Email</h3>
-            <div class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2">
-              <small
-                class="single-email text-black font-semibold tracking-wider"
-              ></small>
-            </div>
-            <!-- End Of Email -->
-            <!-- Phone Number -->
-            <h3 class="text-center font-semibold tracking-widest">
-              Phone Number
-            </h3>
-            <div class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2">
-              <small
-                class="single-phone text-black font-semibold tracking-wider"
-              ></small>
-            </div>
-            <!-- End Of Phone Number -->
-            <!-- Address -->
-            <h3 class="text-center font-semibold tracking-widest">Address</h3>
-            <div class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2">
-              <small
-                class="single-address text-black font-semibold tracking-wider"
-              ></small>
-            </div>
-            <!-- End Of Address -->
-            <!-- City -->
-            <h3 class="text-center font-semibold tracking-widest">City</h3>
-            <div class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2">
-              <small
-                class="single-city text-black font-semibold tracking-wider"
-              ></small>
-            </div>
-            <!-- End Of City -->
-            <!-- Zipcode -->
-            <h3 class="text-center font-semibold tracking-widest">Zipcode</h3>
-            <div class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2">
-              <small
-                class="single-zipcode text-black font-semibold tracking-wider"
-              ></small>
-            </div>
-            <!-- End Of Zipcode -->
-            <!-- Special Notes -->
-            <h3 class="text-center font-semibold tracking-widest">
-              Special Notes
-            </h3>
-            <div class="bg-slate-200 py-2 text-center mx-auto mb-2 w-full px-2">
-              <p
-                class="single-notes text-black tracking-wider text-sm px-2"
-              ></p>
-            </div>
-            <!-- End Of Special Notes -->
+            <!-- Single Input Form -->
+            <form class="single-input-form">
+              <!-- Email -->
+              <h3 class="text-center font-semibold tracking-widest">Email</h3>
+              <div
+                class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2"
+              >
+                <input
+                  type="email"
+                  id="single-email"
+                  autocomplete="email"
+                  class="p-2 w-full text-center dark:text-black focus:outline-emerald-600"
+                />
+              </div>
+              <!-- End Of Email -->
+              <!-- Phone Number -->
+              <h3 class="text-center font-semibold tracking-widest">
+                Phone Number
+              </h3>
+              <div
+                class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2"
+              >
+                <input
+                  type="number"
+                  id="single-phone"
+                  autocomplete="tel"
+                  class="p-2 w-full text-center dark:text-black focus:outline-emerald-600"
+                />
+              </div>
+              <!-- End Of Phone Number -->
+              <!-- Address -->
+              <h3 class="text-center font-semibold tracking-widest">Address</h3>
+              <div
+                class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2"
+              >
+                <textarea
+                  id="single-address"
+                  class="p-2 w-full text-center resize-none dark:text-black focus:outline-emerald-600"
+                  autocomplete="street-address"
+                ></textarea>
+              </div>
+              <!-- End Of Address -->
+              <!-- City -->
+              <h3 class="text-center font-semibold tracking-widest">City</h3>
+              <div
+                class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2"
+              >
+                <input
+                  type="text"
+                  id="single-city"
+                  class="p-2 w-full text-center dark:text-black focus:outline-emerald-600"
+                />
+              </div>
+              <!-- End Of City -->
+              <!-- Zipcode -->
+              <h3 class="text-center font-semibold tracking-widest">Zipcode</h3>
+              <div
+                class="bg-slate-200 py-2 text-center mx-auto mb-3 w-full px-2"
+              >
+                <input
+                  type="number"
+                  id="single-zipcode"
+                  autocomplete="postal-code"
+                  class="p-2 w-full text-center dark:text-black focus:outline-emerald-600"
+                />
+              </div>
+              <!-- End Of Zipcode -->
+              <!-- Special Notes -->
+              <h3 class="text-center font-semibold tracking-widest">
+                Special Notes
+              </h3>
+              <div
+                class="bg-slate-200 py-2 text-center mx-auto mb-2 w-full px-2"
+              >
+                <!-- <p
+                  class="single-notes text-black tracking-wider text-sm px-2"
+                ></p> -->
+                <textarea
+                  id="single-notes"
+                  cols="30"
+                  rows="10"
+                  class="p-2 w-full text-center dark:text-black focus:outline-emerald-600"
+                ></textarea>
+              </div>
+              <!-- End Of Special Notes -->
+            </form>
+            <!-- End Of Single Input Form -->
             <!-- Status -->
             <h3 class="text-center font-semibold tracking-widest">Status</h3>
             <div class="bg-slate-200 py-2 text-center mx-auto mb-2 w-full px-2">

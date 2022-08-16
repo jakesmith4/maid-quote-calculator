@@ -378,12 +378,12 @@ const singleHours = document.querySelector('.single-hours');
 const cleanType = document.querySelector('.clean-type');
 const squareFootVal = document.querySelector('.square-foot-val');
 const singleTaxes = document.querySelector('.single-taxes');
-const singleEmail = document.querySelector('.single-email');
-const singlePhone = document.querySelector('.single-phone');
-const singleAddress = document.querySelector('.single-address');
-const singleCity = document.querySelector('.single-city');
-const singleZipcode = document.querySelector('.single-zipcode');
-const singleNotes = document.querySelector('.single-notes');
+const singleEmail = document.getElementById('single-email');
+const singlePhone = document.getElementById('single-phone');
+const singleAddress = document.getElementById('single-address');
+const singleCity = document.getElementById('single-city');
+const singleZipcode = document.getElementById('single-zipcode');
+const singleNotes = document.getElementById('single-notes');
 const singleStatus = document.querySelector('.single-status');
 const singleDeepPrice = document.querySelector('.single-deep-price');
 const singleDeepHours = document.querySelector('.single-deep-hours');
@@ -395,6 +395,11 @@ const singleBiWeeklyPrice = document.querySelector('.single-bi-weekly-price');
 const singleBiWeeklyHours = document.querySelector('.single-bi-weekly-hours');
 const singleMonthlyPrice = document.querySelector('.single-monthly-price');
 const singleMonthlyHours = document.querySelector('.single-monthly-hours');
+
+// Single Input Form Selection
+const singleInputForm = document.querySelector('.single-input-form');
+
+// HTML Element
 const html = document.documentElement;
 
 // FUNCTIONS //
@@ -409,6 +414,7 @@ const closeModalFunc = modal => {
     }
   });
 };
+// Run Close Modal Function On Each Modal
 closeModalFunc(saveQuoteModal);
 closeModalFunc(savedQuoteModal);
 closeModalFunc(settingsModal);
@@ -447,6 +453,7 @@ const keypressEscModal = modalName => {
     }
   });
 };
+// Run Escape Keypress Modal Close One Each Modal
 keypressEscModal(settingsModal);
 keypressEscModal(savedQuoteModal);
 keypressEscModal(saveQuoteModal);
@@ -460,7 +467,7 @@ const deleteQuote = () => {
     quote => quote.dataset.id === currentQuote.name
   );
 
-  // showAlertDeleteMessage('Quote Deleted');
+  // Show Alert Message
   showAlertMessage(
     document.querySelector('.alert-saved-quotes'),
     document.querySelector('.saved-text'),
@@ -517,20 +524,22 @@ const displayCurrentQuote = () => {
   singleTaxRate.textContent = `${currentQuote.taxRate}% tax rate`;
   cleanType.textContent = currentQuote.clean;
   squareFootVal.textContent = `${currentQuote.squareFootage} Sq foot`;
-  // Set All Secondary Content
+
+  // Set All Price Content
   singlePrice.textContent = currentQuote.price;
   singleHours.textContent = currentQuote.hours;
   singleTaxes.textContent = currentQuote.taxes;
-  singleEmail.textContent = currentQuote.email;
-  singlePhone.textContent = currentQuote.phoneNumber;
-  singleAddress.textContent = currentQuote.address;
-  singleCity.textContent = currentQuote.city;
-  singleZipcode.textContent = currentQuote.zipCode;
-  singleNotes.textContent = currentQuote.specialNotes;
-  // singleStatus.textContent = currentQuote.status;
+
+  // Set All Input Content
+  singleEmail.value = currentQuote.email;
+  singlePhone.value = currentQuote.phoneNumber;
+  singleAddress.value = currentQuote.address;
+  singleCity.value = currentQuote.city;
+  singleZipcode.value = currentQuote.zipCode;
+  singleNotes.value = currentQuote.specialNotes;
   singleStatus.selectedIndex = currentQuote.status;
 
-  // Set Other Quotes
+  // Set Other Quotes Info
   // Deep
   singleDeepPrice.textContent = currentQuote.deepPrice;
   singleDeepHours.textContent = currentQuote.deepHours;
@@ -551,6 +560,7 @@ const displayCurrentQuote = () => {
   singleMonthlyPrice.textContent = currentQuote.monthlyPrice;
   singleMonthlyHours.textContent = currentQuote.monthlyHours;
 
+  // Remove Event Listener From Delete Quote Btn
   document
     .querySelector('.delete-quote')
     .removeEventListener('click', deleteQuote);
@@ -560,11 +570,12 @@ const displayCurrentQuote = () => {
   changeColorStatus(statusGrey);
 };
 
-// All Cleans Slider
+// Slider Elements
 const slides = document.querySelectorAll('.slide');
 const nextBtn = document.querySelector('.next-btn');
 const prevBtn = document.querySelector('.prev-btn');
 
+// All Cleans Slider
 const carouselSlider = () => {
   let counter = 0;
   nextBtn.addEventListener('click', () => {
@@ -662,6 +673,20 @@ document.addEventListener('click', e => {
       displayCurrentQuote();
     });
   });
+});
+
+// Update Current Quote Info On Sinlge Input Event Change
+singleInputForm.addEventListener('change', () => {
+  // Update Current Quote Info
+  currentQuote.email = singleEmail.value;
+  currentQuote.phoneNumber = singlePhone.value;
+  currentQuote.address = singleAddress.value;
+  currentQuote.city = singleCity.value;
+  currentQuote.zipCode = singleZipcode.value;
+  currentQuote.specialNotes = singleNotes.value;
+
+  // Set Saved Quotes To Local Storage
+  localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
 });
 
 // See All Cleans Dropdown
