@@ -375,6 +375,7 @@ const quoteInfo = document.querySelector('.quote-info');
 const singleTaxRate = document.querySelector('.single-tax-rate');
 const singlePrice = document.querySelector('.single-price');
 const singleHours = document.querySelector('.single-hours');
+const singleHoursChanged = document.querySelector('.single-hours-changed');
 const cleanType = document.querySelector('.clean-type');
 const squareFootVal = document.querySelector('.square-foot-val');
 const singleTaxes = document.querySelector('.single-taxes');
@@ -398,6 +399,13 @@ const singleMonthlyHours = document.querySelector('.single-monthly-hours');
 
 // Single Input Form Selection
 const singleInputForm = document.querySelector('.single-input-form');
+
+// Select All Quotes
+const deepArticle = document.querySelector('.deep-article');
+const generalArticle = document.querySelector('.general-article');
+const weeklyArticle = document.querySelector('.weekly-article');
+const biWeeklyArticle = document.querySelector('.bi-weekly-article');
+const monthlyArticle = document.querySelector('.monthly-article');
 
 // HTML Element
 const html = document.documentElement;
@@ -524,6 +532,7 @@ const displayCurrentQuote = () => {
   singleTaxRate.textContent = `${currentQuote.taxRate}% tax rate`;
   cleanType.textContent = currentQuote.clean;
   squareFootVal.textContent = `${currentQuote.squareFootage} Sq foot`;
+  singleHoursChanged.textContent = `Hours Changed ${currentQuote.hoursChanged}`;
 
   // Set All Price Content
   singlePrice.textContent = currentQuote.price;
@@ -748,16 +757,11 @@ toggleTaxEl.addEventListener('click', () => {
 
 // Display Save Quote Modal
 const saveQuoteBtns = document.querySelectorAll('.quote-btn');
-// Select All Quotes
-const deepArticle = document.querySelector('.deep-article');
-const generalArticle = document.querySelector('.general-article');
-const weeklyArticle = document.querySelector('.weekly-article');
-const biWeeklyArticle = document.querySelector('.bi-weekly-article');
-const monthlyArticle = document.querySelector('.monthly-article');
 let price;
 let hours;
 let clean;
 let taxes;
+let hoursChanged;
 // Price
 let deepSavedPrice;
 let generalSavedPrice;
@@ -796,6 +800,9 @@ saveQuoteBtns.forEach(btn => {
 
     // Store Taxes Into Var
     taxes = article.querySelector('.tax-number').textContent;
+
+    // Store Hours Changed Intor Var
+    hoursChanged = article.querySelector('.change-individual').value;
 
     // STORE OTHER QUOTES
 
@@ -911,6 +918,7 @@ if (localStorage.getItem('savedQuotes')) {
   savedQuotes = [];
 }
 
+// Push Data Into Saved Quotes Array, On Save Form Quote Submit (Array Of Objects)
 const saveQuoteForm = document.querySelector('.save-quote-form');
 saveQuoteForm.addEventListener('submit', e => {
   e.preventDefault();
@@ -949,6 +957,11 @@ saveQuoteForm.addEventListener('submit', e => {
       quoteName
     );
 
+    // Add A + Symbol In Front Of Hours Changed If It Is Positive
+    if (Math.sign(+hoursChanged) === 1) {
+      hoursChanged = `+${hoursChanged}`;
+    }
+
     // Push Data Into Saved Quotes Array
     savedQuotes.push({
       name: `${quoteName}`,
@@ -961,6 +974,7 @@ saveQuoteForm.addEventListener('submit', e => {
       hours: `${hours}`,
       taxes: `${taxes}`,
       clean: `${clean}`,
+      hoursChanged: `${hoursChanged}`,
       squareFootage: `${squareFootSelect.value}`,
       amountPerHour: `${amountPerHour.value}`,
       taxRate: `${taxRate.value}`,
