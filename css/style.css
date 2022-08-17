@@ -1773,11 +1773,23 @@ video {
   .xss\:h-\[190px\] {
     height: 190px;
   }
+
+  .xss\:h-\[237px\] {
+    height: 237px;
+  }
 }
 
 @media (min-width: 368px) {
   .xs\:h-\[158px\] {
     height: 158px;
+  }
+
+  .xs\:h-\[237px\] {
+    height: 237px;
+  }
+
+  .xs\:h-\[178px\] {
+    height: 178px;
   }
 }
 

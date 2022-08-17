@@ -396,6 +396,19 @@ const singleBiWeeklyPrice = document.querySelector('.single-bi-weekly-price');
 const singleBiWeeklyHours = document.querySelector('.single-bi-weekly-hours');
 const singleMonthlyPrice = document.querySelector('.single-monthly-price');
 const singleMonthlyHours = document.querySelector('.single-monthly-hours');
+const singleDeepHoursChanged = document.querySelector('.deep-hours-changed');
+const singleGeneralHoursChanged = document.querySelector(
+  '.general-hours-changed'
+);
+const singleWeeklyHoursChanged = document.querySelector(
+  '.weekly-hours-changed'
+);
+const singleBiWeeklyHoursChanged = document.querySelector(
+  '.bi-weekly-hours-changed'
+);
+const singleMonthlyHoursChanged = document.querySelector(
+  '.monthly-hours-changed'
+);
 
 // Single Input Form Selection
 const singleInputForm = document.querySelector('.single-input-form');
@@ -568,6 +581,21 @@ const displayCurrentQuote = () => {
   // Monthly
   singleMonthlyPrice.textContent = currentQuote.monthlyPrice;
   singleMonthlyHours.textContent = currentQuote.monthlyHours;
+
+  // Deep Hours Changed
+  singleDeepHoursChanged.textContent = `Hours Changed ${currentQuote.deepHoursChanged}`;
+
+  // General Hours Changed
+  singleGeneralHoursChanged.textContent = `Hours Changed ${currentQuote.generalHoursChanged}`;
+
+  // Weekly Hours Changed
+  singleWeeklyHoursChanged.textContent = `Hours Changed ${currentQuote.weeklyHoursChanged}`;
+
+  // Bi Weekly Hours Changed
+  singleBiWeeklyHoursChanged.textContent = `Hours Changed ${currentQuote.biWeeklyHoursChanged}`;
+
+  // Monthly Hours Changed
+  singleMonthlyHoursChanged.textContent = `Hours Changed ${currentQuote.monthlyHoursChanged}`;
 
   // Remove Event Listener From Delete Quote Btn
   document
@@ -774,6 +802,12 @@ let generalSavedHours;
 let weeklySavedHours;
 let biWeeklySavedHours;
 let monthlySavedHours;
+// Hours Changed
+let deepHoursChanged;
+let generalHoursChanged;
+let weeklyHoursChanged;
+let biWeeklyHoursChanged;
+let monthlyHoursChanged;
 
 // Save Quote Info On Save Quote Btn Click
 saveQuoteBtns.forEach(btn => {
@@ -837,6 +871,25 @@ saveQuoteBtns.forEach(btn => {
 
     // Store Monthly Hours Into Var
     monthlySavedHours = monthlyArticle.querySelector('.hours').textContent;
+
+    // Store Deep Hours Changed Into Var
+    deepHoursChanged = deepArticle.querySelector('.change-individual').value;
+
+    // Store General Hours Changed Into Var
+    generalHoursChanged =
+      generalArticle.querySelector('.change-individual').value;
+
+    // Store Weekly Hours Changed Into Var
+    weeklyHoursChanged =
+      weeklyArticle.querySelector('.change-individual').value;
+
+    // Store Bi-Weekly Hours Changed Into Var
+    biWeeklyHoursChanged =
+      biWeeklyArticle.querySelector('.change-individual').value;
+
+    // Store Monthly Hours Changed Into Var
+    monthlyHoursChanged =
+      monthlyArticle.querySelector('.change-individual').value;
   });
 });
 
@@ -961,6 +1014,21 @@ saveQuoteForm.addEventListener('submit', e => {
     if (Math.sign(+hoursChanged) === 1) {
       hoursChanged = `+${hoursChanged}`;
     }
+    if (Math.sign(+deepHoursChanged) === 1) {
+      deepHoursChanged = `+${deepHoursChanged}`;
+    }
+    if (Math.sign(+generalHoursChanged) === 1) {
+      generalHoursChanged = `+${generalHoursChanged}`;
+    }
+    if (Math.sign(+weeklyHoursChanged) === 1) {
+      weeklyHoursChanged = `+${weeklyHoursChanged}`;
+    }
+    if (Math.sign(+biWeeklyHoursChanged) === 1) {
+      biWeeklyHoursChanged = `+${biWeeklyHoursChanged}`;
+    }
+    if (Math.sign(+monthlyHoursChanged) === 1) {
+      monthlyHoursChanged = `+${monthlyHoursChanged}`;
+    }
 
     // Push Data Into Saved Quotes Array
     savedQuotes.push({
@@ -990,6 +1058,11 @@ saveQuoteForm.addEventListener('submit', e => {
       weeklyHours: `${weeklySavedHours}`,
       biWeeklyHours: `${biWeeklySavedHours}`,
       monthlyHours: `${monthlySavedHours}`,
+      deepHoursChanged: `${deepHoursChanged}`,
+      generalHoursChanged: `${generalHoursChanged}`,
+      biWeeklyHoursChanged: `${biWeeklyHoursChanged}`,
+      weeklyHoursChanged: `${weeklyHoursChanged}`,
+      monthlyHoursChanged: `${monthlyHoursChanged}`,
     });
 
     // Add Newley Created Quote To SavedQuotesContainer Modal
