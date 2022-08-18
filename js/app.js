@@ -19,23 +19,109 @@ const monthlyHours = document.querySelector('.monthly-hours');
 const formControl = document.querySelector('.form-control');
 const sqFootage = document.getElementById('square-footage');
 
+// Change Hours Adjust Elements
+const cleanAdjustForm = document.querySelector('.clean-adjust');
+const deepCleanAdjustSelect = document.getElementById('deep-clean-adjust');
+const generalCleanAdjustSelect = document.getElementById(
+  'general-clean-adjust'
+);
+const weeklyCleanAdjustSelect = document.getElementById('weekly-clean-adjust');
+const biWeeklyCleanAdjustSelect = document.getElementById(
+  'bi-weekly-clean-adjust'
+);
+const monthlyCleanAdjustSelect = document.getElementById(
+  'monthly-clean-adjust'
+);
+
 // Global State Var
 let flag = true;
 
 // DATA //
-const allDeepHours = [
+// Deep Hours
+const allDeepHoursMain = [
   6.5, 8, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5,
 ];
-const allGeneralHours = [4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5];
-const allWeeklyHours = [
+let allDeepHours = allDeepHoursMain;
+
+// General Hours
+const allGeneralHoursMain = [4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5];
+let allGeneralHours = allGeneralHoursMain;
+
+// Weekly Hours
+const allWeeklyHoursMain = [
   2.5, 3, 3.5, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75,
 ];
-const allbiWeeklyHours = [
+let allWeeklyHours = allWeeklyHoursMain;
+
+// Bi Weekly Hours
+const allBiWeeklyHoursMain = [
   3, 3.25, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6,
 ];
-const allMonthlyHours = [
+let allbiWeeklyHours = allBiWeeklyHoursMain;
+
+// Monthly Hours
+const allMonthlyHoursMain = [
   3.25, 3.5, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6, 6.25,
 ];
+let allMonthlyHours = allMonthlyHoursMain;
+
+// Change Hours Depending On What Ajustment Is Made In Settings
+cleanAdjustForm.addEventListener('change', e => {
+  // Deep Clean Adjust
+  if (e.target.classList.contains('deep-clean-adjust')) {
+    if (e.target.value === '0') {
+      allDeepHours = allDeepHoursMain;
+    } else {
+      allDeepHours = allDeepHoursMain.map(
+        hour => hour + +deepCleanAdjustSelect.value
+      );
+    }
+  }
+
+  // General Clean Adjust
+  if (e.target.classList.contains('general-clean-adjust')) {
+    if (e.target.value === '0') {
+      allGeneralHours = allGeneralHoursMain;
+    } else {
+      allGeneralHours = allGeneralHoursMain.map(
+        hour => hour + +generalCleanAdjustSelect.value
+      );
+    }
+  }
+
+  // Weekly Clean Adjust
+  if (e.target.classList.contains('weekly-clean-adjust')) {
+    if (e.target.value === '0') {
+      allWeeklyHours = allWeeklyHoursMain;
+    } else {
+      allWeeklyHours = allWeeklyHoursMain.map(
+        hour => hour + +weeklyCleanAdjustSelect.value
+      );
+    }
+  }
+
+  // Bi-Weekly Clean Adjust
+  if (e.target.classList.contains('bi-weekly-clean-adjust')) {
+    if (e.target.value === '0') {
+      allbiWeeklyHours = allBiWeeklyHoursMain;
+    } else {
+      allbiWeeklyHours = allBiWeeklyHoursMain.map(
+        hour => hour + +biWeeklyCleanAdjustSelect.value
+      );
+    }
+  }
+
+  // Monthly Clean Adjust
+  if (e.target.classList.contains('monthly-clean-adjust')) {
+    if (e.target.value === '0') {
+      allMonthlyHours = allMonthlyHoursMain;
+    } else {
+      allMonthlyHours = allMonthlyHoursMain.map(
+        hour => hour + +monthlyCleanAdjustSelect.value
+      );
+    }
+  }
+});
 
 // FUNCTIONS //
 const calcDisplayQuote = (
