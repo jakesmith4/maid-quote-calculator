@@ -30,35 +30,134 @@ let flag = true;
 const allDeepHoursMain = [
   6.5, 8, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5,
 ];
-let allDeepHours = allDeepHoursMain.slice();
-// let allDeepHours;
-// if (localStorage.getItem('changedDeep')) {
-//   allDeepHours = JSON.parse(localStorage.getItem('changedDeep'));
-// } else {
-//   allDeepHours = allDeepHoursMain.slice();
-// }
+let allDeepHours;
+if (localStorage.getItem('changedDeep')) {
+  allDeepHours = JSON.parse(localStorage.getItem('changedDeep'));
+} else {
+  allDeepHours = allDeepHoursMain.slice();
+}
 
 // General Hours
 const allGeneralHoursMain = [4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5];
-let allGeneralHours = allGeneralHoursMain.slice();
+let allGeneralHours;
+if (localStorage.getItem('changedGeneral')) {
+  allGeneralHours = JSON.parse(localStorage.getItem('changedGeneral'));
+} else {
+  allGeneralHours = allGeneralHoursMain.slice();
+}
 
 // Weekly Hours
 const allWeeklyHoursMain = [
   2.5, 3, 3.5, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75,
 ];
-let allWeeklyHours = allWeeklyHoursMain.slice();
+let allWeeklyHours;
+if (localStorage.getItem('changedWeekly')) {
+  allWeeklyHours = JSON.parse(localStorage.getItem('changedWeekly'));
+} else {
+  allWeeklyHours = allWeeklyHoursMain.slice();
+}
 
 // Bi Weekly Hours
 const allBiWeeklyHoursMain = [
   3, 3.25, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6,
 ];
-let allbiWeeklyHours = allBiWeeklyHoursMain.slice();
+let allbiWeeklyHours;
+if (localStorage.getItem('changedBiWeekly')) {
+  allbiWeeklyHours = JSON.parse(localStorage.getItem('changedBiWeekly'));
+} else {
+  allbiWeeklyHours = allBiWeeklyHoursMain.slice();
+}
 
 // Monthly Hours
 const allMonthlyHoursMain = [
   3.25, 3.5, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6, 6.25,
 ];
-let allMonthlyHours = allMonthlyHoursMain.slice();
+// let allMonthlyHours = allMonthlyHoursMain.slice();
+let allMonthlyHours;
+if (localStorage.getItem('changedMonthly')) {
+  allMonthlyHours = JSON.parse(localStorage.getItem('changedMonthly'));
+} else {
+  allMonthlyHours = allMonthlyHoursMain.slice();
+}
+
+const checkLocalStorage = className => {
+  if (localStorage.getItem(className)) {
+    document.querySelector(`.${className}`).value =
+      localStorage.getItem(className);
+  } else {
+    document.querySelector(`.${className}`).value = '0';
+  }
+};
+
+// Deep Clean Adjust Local Storage Check
+checkLocalStorage('deep-clean-adjust-1000-1500');
+checkLocalStorage('deep-clean-adjust-1600-2000');
+checkLocalStorage('deep-clean-adjust-2100-2200');
+checkLocalStorage('deep-clean-adjust-2300-2500');
+checkLocalStorage('deep-clean-adjust-2600-2800');
+checkLocalStorage('deep-clean-adjust-2900-3100');
+checkLocalStorage('deep-clean-adjust-3200-3400');
+checkLocalStorage('deep-clean-adjust-3500-3700');
+checkLocalStorage('deep-clean-adjust-3800-4000');
+checkLocalStorage('deep-clean-adjust-4100-4300');
+checkLocalStorage('deep-clean-adjust-4400-4600');
+checkLocalStorage('deep-clean-adjust-4800-5000');
+
+// General Clean Adjust Local Storage Check
+checkLocalStorage('general-clean-adjust-1000-1500');
+checkLocalStorage('general-clean-adjust-1600-2000');
+checkLocalStorage('general-clean-adjust-2100-2200');
+checkLocalStorage('general-clean-adjust-2300-2500');
+checkLocalStorage('general-clean-adjust-2600-2800');
+checkLocalStorage('general-clean-adjust-2900-3100');
+checkLocalStorage('general-clean-adjust-3200-3400');
+checkLocalStorage('general-clean-adjust-3500-3700');
+checkLocalStorage('general-clean-adjust-3800-4000');
+checkLocalStorage('general-clean-adjust-4100-4300');
+checkLocalStorage('general-clean-adjust-4400-4600');
+checkLocalStorage('general-clean-adjust-4800-5000');
+
+// Weekly Clean Adjust Local Storage Check
+checkLocalStorage('weekly-clean-adjust-1000-1500');
+checkLocalStorage('weekly-clean-adjust-1600-2000');
+checkLocalStorage('weekly-clean-adjust-2100-2200');
+checkLocalStorage('weekly-clean-adjust-2300-2500');
+checkLocalStorage('weekly-clean-adjust-2600-2800');
+checkLocalStorage('weekly-clean-adjust-2900-3100');
+checkLocalStorage('weekly-clean-adjust-3200-3400');
+checkLocalStorage('weekly-clean-adjust-3500-3700');
+checkLocalStorage('weekly-clean-adjust-3800-4000');
+checkLocalStorage('weekly-clean-adjust-4100-4300');
+checkLocalStorage('weekly-clean-adjust-4400-4600');
+checkLocalStorage('weekly-clean-adjust-4800-5000');
+
+// Bi-Weekly Clean Adjust Local Storage Check
+checkLocalStorage('bi-weekly-clean-adjust-1000-1500');
+checkLocalStorage('bi-weekly-clean-adjust-1600-2000');
+checkLocalStorage('bi-weekly-clean-adjust-2100-2200');
+checkLocalStorage('bi-weekly-clean-adjust-2300-2500');
+checkLocalStorage('bi-weekly-clean-adjust-2600-2800');
+checkLocalStorage('bi-weekly-clean-adjust-2900-3100');
+checkLocalStorage('bi-weekly-clean-adjust-3200-3400');
+checkLocalStorage('bi-weekly-clean-adjust-3500-3700');
+checkLocalStorage('bi-weekly-clean-adjust-3800-4000');
+checkLocalStorage('bi-weekly-clean-adjust-4100-4300');
+checkLocalStorage('bi-weekly-clean-adjust-4400-4600');
+checkLocalStorage('bi-weekly-clean-adjust-4800-5000');
+
+// Monthly Clean Adjust Local Storage Check
+checkLocalStorage('monthly-clean-adjust-1000-1500');
+checkLocalStorage('monthly-clean-adjust-1600-2000');
+checkLocalStorage('monthly-clean-adjust-2100-2200');
+checkLocalStorage('monthly-clean-adjust-2300-2500');
+checkLocalStorage('monthly-clean-adjust-2600-2800');
+checkLocalStorage('monthly-clean-adjust-2900-3100');
+checkLocalStorage('monthly-clean-adjust-3200-3400');
+checkLocalStorage('monthly-clean-adjust-3500-3700');
+checkLocalStorage('monthly-clean-adjust-3800-4000');
+checkLocalStorage('monthly-clean-adjust-4100-4300');
+checkLocalStorage('monthly-clean-adjust-4400-4600');
+checkLocalStorage('monthly-clean-adjust-4800-5000');
 
 // Change Deep Hours
 const changeDeepHours = (event, className, index) => {
@@ -66,21 +165,21 @@ const changeDeepHours = (event, className, index) => {
     if (event.target.value === '0') {
       allDeepHours[index] = allDeepHoursMain.slice()[index];
       // Set Item To Local Storage
-      // localStorage.setItem(
-      //   'changedDeep',
-      //   JSON.stringify(allDeepHoursMain.slice())
-      // );
-      // localStorage.setItem(className, 0);
+      localStorage.setItem(
+        'changedDeep',
+        JSON.stringify(allDeepHoursMain.slice())
+      );
+      localStorage.setItem(className, 0);
     } else {
       allDeepHours[index] =
         allDeepHoursMain[index] +
         +document.querySelector(`.${className}`).value;
       // Set Item To Local Storage
-      // localStorage.setItem('changedDeep', JSON.stringify(allDeepHours));
-      // localStorage.setItem(
-      //   className,
-      //   +document.querySelector(`.${className}`).value
-      // );
+      localStorage.setItem('changedDeep', JSON.stringify(allDeepHours));
+      localStorage.setItem(
+        className,
+        document.querySelector(`.${className}`).value
+      );
     }
   }
 };
@@ -90,10 +189,22 @@ const changeGeneralHours = (event, className, index) => {
   if (event.target.classList.contains(className)) {
     if (event.target.value === '0') {
       allGeneralHours[index] = allGeneralHoursMain.slice()[index];
+      // Set Item To Local Storage
+      localStorage.setItem(
+        'changedGeneral',
+        JSON.stringify(allGeneralHoursMain.slice())
+      );
+      localStorage.setItem(className, 0);
     } else {
       allGeneralHours[index] =
         allGeneralHoursMain[index] +
         +document.querySelector(`.${className}`).value;
+      // Set Item To Local Storage
+      localStorage.setItem('changedGeneral', JSON.stringify(allGeneralHours));
+      localStorage.setItem(
+        className,
+        document.querySelector(`.${className}`).value
+      );
     }
   }
 };
@@ -103,10 +214,22 @@ const changeWeeklyHours = (event, className, index) => {
   if (event.target.classList.contains(className)) {
     if (event.target.value === '0') {
       allWeeklyHours[index] = allWeeklyHoursMain.slice()[index];
+      // Set Item To Local Storage
+      localStorage.setItem(
+        'changedWeekly',
+        JSON.stringify(allWeeklyHoursMain.slice())
+      );
+      localStorage.setItem(className, 0);
     } else {
       allWeeklyHours[index] =
         allWeeklyHoursMain[index] +
         +document.querySelector(`.${className}`).value;
+      // Set Item To Local Storage
+      localStorage.setItem('changedWeekly', JSON.stringify(allWeeklyHours));
+      localStorage.setItem(
+        className,
+        document.querySelector(`.${className}`).value
+      );
     }
   }
 };
@@ -116,10 +239,22 @@ const changeBiWeeklyHours = (event, className, index) => {
   if (event.target.classList.contains(className)) {
     if (event.target.value === '0') {
       allbiWeeklyHours[index] = allBiWeeklyHoursMain.slice()[index];
+      // Set Item To Local Storage
+      localStorage.setItem(
+        'changedBiWeekly',
+        JSON.stringify(allBiWeeklyHoursMain.slice())
+      );
+      localStorage.setItem(className, 0);
     } else {
       allbiWeeklyHours[index] =
         allBiWeeklyHoursMain[index] +
         +document.querySelector(`.${className}`).value;
+      // Set Item To Local Storage
+      localStorage.setItem('changedBiWeekly', JSON.stringify(allbiWeeklyHours));
+      localStorage.setItem(
+        className,
+        document.querySelector(`.${className}`).value
+      );
     }
   }
 };
@@ -129,10 +264,22 @@ const changeMonthlyHours = (event, className, index) => {
   if (event.target.classList.contains(className)) {
     if (event.target.value === '0') {
       allMonthlyHours[index] = allMonthlyHoursMain.slice()[index];
+      // Set Item To Local Storage
+      localStorage.setItem(
+        'changedMonthly',
+        JSON.stringify(allMonthlyHoursMain.slice())
+      );
+      localStorage.setItem(className, 0);
     } else {
       allMonthlyHours[index] =
         allMonthlyHoursMain[index] +
         +document.querySelector(`.${className}`).value;
+      // Set Item To Local Storage
+      localStorage.setItem('changedMonthly', JSON.stringify(allMonthlyHours));
+      localStorage.setItem(
+        className,
+        document.querySelector(`.${className}`).value
+      );
     }
   }
 };
@@ -419,10 +566,9 @@ window.onresize = () => {
   changeDisplayOnResize();
 };
 
-// EVENT HANDLERS //
-formControl.addEventListener('change', e => {
+const showQuote = event => {
   // Show Tax Indicator
-  if (!e.target.classList.contains('change-individual')) {
+  if (!event.target.classList?.contains('change-individual')) {
     showTaxIndicator();
     // Display Spinner
     displaySpinner();
@@ -527,6 +673,15 @@ formControl.addEventListener('change', e => {
   if (sqFootage.value === '4800-5000') {
     processedQuotes(11);
   }
+};
+
+// EVENT HANDLERS //
+formControl.addEventListener('change', e => {
+  showQuote(e);
+});
+
+window.addEventListener('load', e => {
+  showQuote(e);
 });
 
 // THIS SECOND HALF OF CODE DEALS WITH SHOWING ALL MODALS & DISPLAYING ALL THE DATA FOR SAVING QUOTES
@@ -797,7 +952,6 @@ const cleanAdjustSlider = () => {
     e.preventDefault();
     counter++;
     carousel();
-    console.log(counter);
   });
 
   cleanAdjustPrevBtn.addEventListener('click', e => {
