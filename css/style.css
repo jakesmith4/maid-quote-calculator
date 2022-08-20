@@ -578,6 +578,12 @@ video {
   }
 }
 
+@media (min-width: 454px) {
+  .container {
+    max-width: 454px;
+  }
+}
+
 @media (min-width: 640px) {
   .container {
     max-width: 640px;
@@ -650,6 +656,10 @@ video {
   right: 0px;
 }
 
+.left-\[100\%\] {
+  left: 100%;
+}
+
 .left-full {
   left: 100%;
 }
@@ -664,6 +674,34 @@ video {
 
 .left-\[400\%\] {
   left: 400%;
+}
+
+.left-\[500\%\] {
+  left: 500%;
+}
+
+.left-\[600\%\] {
+  left: 600%;
+}
+
+.left-\[700\%\] {
+  left: 700%;
+}
+
+.left-\[800\%\] {
+  left: 800%;
+}
+
+.left-\[900\%\] {
+  left: 900%;
+}
+
+.left-\[1000\%\] {
+  left: 1000%;
+}
+
+.left-\[1100\%\] {
+  left: 1100%;
 }
 
 .z-10 {
@@ -769,6 +807,10 @@ video {
   height: 1.5rem;
 }
 
+.h-\[476px\] {
+  height: 476px;
+}
+
 .h-\[230px\] {
   height: 230px;
 }
@@ -779,6 +821,30 @@ video {
 
 .h-12 {
   height: 3rem;
+}
+
+.h-\[420px\] {
+  height: 420px;
+}
+
+.h-\[428px\] {
+  height: 428px;
+}
+
+.h-\[450px\] {
+  height: 450px;
+}
+
+.h-\[465px\] {
+  height: 465px;
+}
+
+.h-\[470px\] {
+  height: 470px;
+}
+
+.h-\[4765px\] {
+  height: 4765px;
 }
 
 .max-h-\[98vh\] {
@@ -963,6 +1029,12 @@ video {
   margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
 }
 
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+
 .overflow-x-hidden {
   overflow-x: hidden;
 }
@@ -1009,6 +1081,10 @@ video {
 
 .border-b-2 {
   border-bottom-width: 2px;
+}
+
+.border-t-2 {
+  border-top-width: 2px;
 }
 
 .border-l-4 {
@@ -1079,6 +1155,11 @@ video {
   background-color: rgb(21 128 61 / var(--tw-bg-opacity));
 }
 
+.bg-emerald-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(5 150 105 / var(--tw-bg-opacity));
+}
+
 .bg-neutral-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(82 82 82 / var(--tw-bg-opacity));
@@ -1087,11 +1168,6 @@ video {
 .bg-blue-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
-}
-
-.bg-emerald-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(5 150 105 / var(--tw-bg-opacity));
 }
 
 .bg-slate-200 {
@@ -1168,6 +1244,11 @@ video {
   padding-right: 1rem;
 }
 
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
@@ -1242,9 +1323,9 @@ video {
   line-height: 1.75rem;
 }
 
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .text-2xl {
@@ -1257,9 +1338,9 @@ video {
   line-height: 1.75rem;
 }
 
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .font-semibold {
@@ -1573,23 +1654,18 @@ video {
 }
 
 @media (min-width: 359px) {
-  .xss\:h-\[190px\] {
-    height: 190px;
+  .xss\:mb-4 {
+    margin-bottom: 1rem;
   }
 
-  .xss\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+  .xss\:h-\[190px\] {
+    height: 190px;
   }
 }
 
 @media (min-width: 368px) {
   .xs\:h-\[178px\] {
     height: 178px;
-  }
-
-  .xs\:font-serif {
-    font-family: Poppins, sans-serif;
   }
 
   .xs\:text-base {
@@ -1600,6 +1676,48 @@ video {
   .xs\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+}
+
+@media (min-width: 454px) {
+  .xmd\:block {
+    display: block;
+  }
+
+  .xmd\:h-\[351px\] {
+    height: 351px;
+  }
+
+  .xmd\:h-\[451px\] {
+    height: 451px;
+  }
+
+  .xmd\:h-\[375px\] {
+    height: 375px;
+  }
+
+  .xmd\:space-y-0 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(0px * var(--tw-space-y-reverse));
+  }
+
+  .xmd\:py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .xmd\:pb-4 {
+    padding-bottom: 1rem;
+  }
+
+  .xmd\:text-left {
+    text-align: left;
+  }
+
+  .xmd\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
@@ -1616,16 +1734,6 @@ video {
 
   .sm\:font-serif {
     font-family: Poppins, sans-serif;
-  }
-
-  .sm\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-
-  .sm\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
   }
 }
 
@@ -1695,10 +1803,6 @@ video {
 
   .md\:pr-1 {
     padding-right: 0.25rem;
-  }
-
-  .md\:font-serif {
-    font-family: Poppins, sans-serif;
   }
 
   .md\:text-base {

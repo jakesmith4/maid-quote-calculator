@@ -117,167 +117,2250 @@
           <!-- End Of Toggler Wrapper (Tax Toggle) -->
 
           <!-- Hours Scale -->
-          <form class="clean-adjust space-y-4 mt-4">
-            <!-- Deep Hours Adjust -->
-            <div class="space-x-2 border-b-2 pb-4">
-              <select
-                name="deep-clean-adjust"
-                id="deep-clean-adjust"
-                class="deep-clean-adjust bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+          <form
+            class="clean-adjust mt-4 relative h-[470px] overflow-x-hidden xmd:h-[375px]"
+          >
+            <button
+              class="absolute top-1/2 right-0 text-xl hover:animate-bounce cursor-pointer z-10 clean-adjust-next-btn"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <button
+              class="absolute top-1/2 left-0 text-xl hover:animate-bounce cursor-pointer z-10 clean-adjust-prev-btn"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <!-- All Cleans Adjust Wrapper 1000-1500 -->
+            <div
+              class="space-y-4 clean-adjust-slide absolute top-0 left-0 w-full transition-transform duration-300 px-6"
+            >
+              <!-- Deep Hours Adjust Wrapper -->
+              <div>
+                <h2
+                  class="text-center text-bold text-sm text-white mb-2 p-2 font-serif bg-emerald-600 xmd:text-xl xss:mb-4"
+                >
+                  1000 - 1500 Square Feet
+                </h2>
+                <!-- Deep Hours Adjust -->
+                <div
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                >
+                  <select
+                    name="deep-clean-adjust-1000-1500"
+                    id="deep-clean-adjust-1000-1500"
+                    class="deep-clean-adjust-1000-1500 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  >
+                    <option value="-2">-2</option>
+                    <option value="-1.75">-1.75</option>
+                    <option value="-1.50">-1.50</option>
+                    <option value="-1.25">-1.25</option>
+                    <option value="-1">-1</option>
+                    <option value="-.75">-.75</option>
+                    <option value="-.50">-.50</option>
+                    <option value="-.25">-.25</option>
+                    <option value="0" selected>0</option>
+                    <option value=".25">+.25</option>
+                    <option value=".50">+.50</option>
+                    <option value=".75">+.75</option>
+                    <option value="1">+1</option>
+                    <option value="1.25">+1.25</option>
+                    <option value="1.50">+1.50</option>
+                    <option value="1.75">+1.75</option>
+                    <option value="2">+2</option>
+                  </select>
+                  <label
+                    for="deep-clean-adjust-1000-1500"
+                    class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                    >Deep Hours Adjust</label
+                  >
+                </div>
+                <!-- End Of Deep Hours Adjust -->
+              </div>
+              <!-- End Of Deep Hours Adjust Wrapper -->
+              <!-- General Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
               >
-                <option value="-2">-2</option>
-                <option value="-1.75">-1.75</option>
-                <option value="-1.50">-1.50</option>
-                <option value="-1.25">-1.25</option>
-                <option value="-1">-1</option>
-                <option value="-.75">-.75</option>
-                <option value="-.50">-.50</option>
-                <option value="-.25">-.25</option>
-                <option value="0" selected>0</option>
-                <option value=".25">+.25</option>
-                <option value=".50">+.50</option>
-                <option value=".75">+.75</option>
-                <option value="1">+1</option>
-                <option value="1.25">+1.25</option>
-                <option value="1.50">+1.50</option>
-                <option value="1.75">+1.75</option>
-                <option value="2">+2</option>
-              </select>
-              <label
-                for="deep-clean-adjust"
-                class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm md:text-base sm:font-serif"
-                >Deep Clean Adjust</label
+                <select
+                  name="general-clean-adjust-1000-1500"
+                  id="general-clean-adjust-1000-1500"
+                  class="general-clean-adjust-1000-1500 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="general-clean-adjust-1000-1500"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >General Hours Adjust</label
+                >
+              </div>
+              <!-- End Of General Hours Adjust -->
+              <!-- Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
               >
+                <select
+                  name="weekly-clean-adjust-1000-1500"
+                  id="weekly-clean-adjust-1000-1500"
+                  class="weekly-clean-adjust-1000-1500 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="weekly-clean-adjust-1000-1500"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Weekly Hours Adjust -->
+              <!-- Bi-Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="bi-weekly-clean-adjust-1000-1500"
+                  id="bi-weekly-clean-adjust-1000-1500"
+                  class="bi-weekly-clean-adjust-1000-1500 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="bi-weekly-clean-adjust-1000-1500"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Bi-Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Bi-Weekly Hours Adjust -->
+              <!-- Monthly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="monthly-clean-adjust-1000-1500"
+                  id="monthly-clean-adjust-1000-1500"
+                  class="monthly-clean-adjust-1000-1500 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="monthly-clean-adjust-1000-1500"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Monthly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Monthly Hours Adjust -->
             </div>
-            <!-- End Of Deep Hours Adjust -->
-            <!-- General Hours Adjust -->
-            <div class="space-x-2 border-b-2 pb-4">
-              <select
-                name="general-clean-adjust"
-                id="general-clean-adjust"
-                class="general-clean-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+            <!-- End Of All Cleans Adjust Wrapper 1000-1500 -->
+
+            <!-- All Cleans Adjust Wrapper 1600-2000 -->
+            <div
+              class="space-y-4 clean-adjust-slide absolute top-0 left-full w-full transition-transform duration-300 px-6"
+            >
+              <!-- Deep Hours Adjust Wrapper -->
+              <div>
+                <h2
+                  class="text-center text-bold text-sm text-white mb-2 p-2 font-serif bg-emerald-600 xmd:text-xl xss:mb-4"
+                >
+                  1600 - 2000 Square Feet
+                </h2>
+                <!-- Deep Hours Adjust -->
+                <div
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                >
+                  <select
+                    name="deep-clean-adjust-1600-2000"
+                    id="deep-clean-adjust-1600-2000"
+                    class="deep-clean-adjust-1600-2000 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  >
+                    <option value="-2">-2</option>
+                    <option value="-1.75">-1.75</option>
+                    <option value="-1.50">-1.50</option>
+                    <option value="-1.25">-1.25</option>
+                    <option value="-1">-1</option>
+                    <option value="-.75">-.75</option>
+                    <option value="-.50">-.50</option>
+                    <option value="-.25">-.25</option>
+                    <option value="0" selected>0</option>
+                    <option value=".25">+.25</option>
+                    <option value=".50">+.50</option>
+                    <option value=".75">+.75</option>
+                    <option value="1">+1</option>
+                    <option value="1.25">+1.25</option>
+                    <option value="1.50">+1.50</option>
+                    <option value="1.75">+1.75</option>
+                    <option value="2">+2</option>
+                  </select>
+                  <label
+                    for="deep-clean-adjust-1600-2000"
+                    class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                    >Deep Hours Adjust</label
+                  >
+                </div>
+                <!-- End Of Deep Hours Adjust -->
+              </div>
+              <!-- End Of Deep Hours Adjust Wrapper -->
+              <!-- General Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
               >
-                <option value="-2">-2</option>
-                <option value="-1.75">-1.75</option>
-                <option value="-1.50">-1.50</option>
-                <option value="-1.25">-1.25</option>
-                <option value="-1">-1</option>
-                <option value="-.75">-.75</option>
-                <option value="-.50">-.50</option>
-                <option value="-.25">-.25</option>
-                <option value="0" selected>0</option>
-                <option value=".25">+.25</option>
-                <option value=".50">+.50</option>
-                <option value=".75">+.75</option>
-                <option value="1">+1</option>
-                <option value="1.25">+1.25</option>
-                <option value="1.50">+1.50</option>
-                <option value="1.75">+1.75</option>
-                <option value="2">+2</option>
-              </select>
-              <label
-                for="general-clean-adjust"
-                class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm md:text-base sm:font-serif"
-                >General Clean Adjust</label
+                <select
+                  name="general-clean-adjust-1600-2000"
+                  id="general-clean-adjust-1600-2000"
+                  class="general-clean-adjust-1600-2000 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="general-clean-adjust-1600-2000"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >General Hours Adjust</label
+                >
+              </div>
+              <!-- End Of General Hours Adjust -->
+              <!-- Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
               >
+                <select
+                  name="weekly-clean-adjust-1600-2000"
+                  id="weekly-clean-adjust-1600-2000"
+                  class="weekly-clean-adjust-1600-2000 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="weekly-clean-adjust-1600-2000"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Weekly Hours Adjust -->
+              <!-- Bi-Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="bi-weekly-clean-adjust-1600-2000"
+                  id="bi-weekly-clean-adjust-1600-2000"
+                  class="bi-weekly-clean-adjust-1600-2000 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="bi-weekly-clean-adjust-1600-2000"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Bi-Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Bi-Weekly Hours Adjust -->
+              <!-- Monthly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="monthly-clean-adjust-1600-2000"
+                  id="monthly-clean-adjust-1600-2000"
+                  class="monthly-clean-adjust-1600-2000 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="monthly-clean-adjust-1600-2000"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Monthly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Monthly Hours Adjust -->
             </div>
-            <!-- End Of General Hours Adjust -->
-            <!-- Weekly Hours Adjust -->
-            <div class="space-x-2 border-b-2 pb-4">
-              <select
-                name="weekly-clean-adjust"
-                id="weekly-clean-adjust"
-                class="weekly-clean-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+            <!-- End Of All Cleans Adjust Wrapper 1600-2000 -->
+
+            <!-- All Cleans Adjust Wrapper 2100-2200 -->
+            <div
+              class="space-y-4 clean-adjust-slide absolute top-0 left-[200%] w-full transition-transform duration-300 px-6"
+            >
+              <!-- Deep Hours Adjust Wrapper -->
+              <div>
+                <h2
+                  class="text-center text-bold text-sm text-white mb-2 p-2 font-serif bg-emerald-600 xmd:text-xl xss:mb-4"
+                >
+                  2100 - 2200 Square Feet
+                </h2>
+                <!-- Deep Hours Adjust -->
+                <div
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                >
+                  <select
+                    name="deep-clean-adjust-2100-2200"
+                    id="deep-clean-adjust-2100-2200"
+                    class="deep-clean-adjust-2100-2200 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  >
+                    <option value="-2">-2</option>
+                    <option value="-1.75">-1.75</option>
+                    <option value="-1.50">-1.50</option>
+                    <option value="-1.25">-1.25</option>
+                    <option value="-1">-1</option>
+                    <option value="-.75">-.75</option>
+                    <option value="-.50">-.50</option>
+                    <option value="-.25">-.25</option>
+                    <option value="0" selected>0</option>
+                    <option value=".25">+.25</option>
+                    <option value=".50">+.50</option>
+                    <option value=".75">+.75</option>
+                    <option value="1">+1</option>
+                    <option value="1.25">+1.25</option>
+                    <option value="1.50">+1.50</option>
+                    <option value="1.75">+1.75</option>
+                    <option value="2">+2</option>
+                  </select>
+                  <label
+                    for="deep-clean-adjust-2100-2200"
+                    class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                    >Deep Hours Adjust</label
+                  >
+                </div>
+                <!-- End Of Deep Hours Adjust -->
+              </div>
+              <!-- End Of Deep Hours Adjust Wrapper -->
+              <!-- General Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
               >
-                <option value="-2">-2</option>
-                <option value="-1.75">-1.75</option>
-                <option value="-1.50">-1.50</option>
-                <option value="-1.25">-1.25</option>
-                <option value="-1">-1</option>
-                <option value="-.75">-.75</option>
-                <option value="-.50">-.50</option>
-                <option value="-.25">-.25</option>
-                <option value="0" selected>0</option>
-                <option value=".25">+.25</option>
-                <option value=".50">+.50</option>
-                <option value=".75">+.75</option>
-                <option value="1">+1</option>
-                <option value="1.25">+1.25</option>
-                <option value="1.50">+1.50</option>
-                <option value="1.75">+1.75</option>
-                <option value="2">+2</option>
-              </select>
-              <label
-                for="weekly-clean-adjust"
-                class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm md:text-base sm:font-serif"
-                >Weekly Clean Adjust</label
+                <select
+                  name="general-clean-adjust-2100-2200"
+                  id="general-clean-adjust-2100-2200"
+                  class="general-clean-adjust-2100-2200 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="general-clean-adjust-2100-2200"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >General Hours Adjust</label
+                >
+              </div>
+              <!-- End Of General Hours Adjust -->
+              <!-- Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
               >
+                <select
+                  name="weekly-clean-adjust-2100-2200"
+                  id="weekly-clean-adjust-2100-2200"
+                  class="weekly-clean-adjust-2100-2200 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="weekly-clean-adjust-2100-2200"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Weekly Hours Adjust -->
+              <!-- Bi-Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="bi-weekly-clean-adjust-2100-2200"
+                  id="bi-weekly-clean-adjust-2100-2200"
+                  class="bi-weekly-clean-adjust-2100-2200 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="bi-weekly-clean-adjust-2100-2200"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Bi-Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Bi-Weekly Hours Adjust -->
+              <!-- Monthly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="monthly-clean-adjust-2100-2200"
+                  id="monthly-clean-adjust-2100-2200"
+                  class="monthly-clean-adjust-2100-2200 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="monthly-clean-adjust-2100-2200"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Monthly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Monthly Hours Adjust -->
             </div>
-            <!-- End Of Weekly Hours Adjust -->
-            <!-- Bi-Weekly Hours Adjust -->
-            <div class="space-x-2 border-b-2 pb-4">
-              <select
-                name="bi-weekly-clean-adjust"
-                id="bi-weekly-clean-adjust"
-                class="bi-weekly-clean-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+            <!-- End Of All Cleans Adjust Wrapper 2100-2200 -->
+
+            <!-- All Cleans Adjust Wrapper 2300-2500 -->
+            <div
+              class="space-y-4 clean-adjust-slide absolute top-0 left-[300%] w-full transition-transform duration-300 px-6"
+            >
+              <!-- Deep Hours Adjust Wrapper -->
+              <div>
+                <h2
+                  class="text-center text-bold text-sm text-white mb-2 p-2 font-serif bg-emerald-600 xmd:text-xl xss:mb-4"
+                >
+                  2300 - 2500 Square Feet
+                </h2>
+                <!-- Deep Hours Adjust -->
+                <div
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                >
+                  <select
+                    name="deep-clean-adjust-2300-2500"
+                    id="deep-clean-adjust-2300-2500"
+                    class="deep-clean-adjust-2300-2500 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  >
+                    <option value="-2">-2</option>
+                    <option value="-1.75">-1.75</option>
+                    <option value="-1.50">-1.50</option>
+                    <option value="-1.25">-1.25</option>
+                    <option value="-1">-1</option>
+                    <option value="-.75">-.75</option>
+                    <option value="-.50">-.50</option>
+                    <option value="-.25">-.25</option>
+                    <option value="0" selected>0</option>
+                    <option value=".25">+.25</option>
+                    <option value=".50">+.50</option>
+                    <option value=".75">+.75</option>
+                    <option value="1">+1</option>
+                    <option value="1.25">+1.25</option>
+                    <option value="1.50">+1.50</option>
+                    <option value="1.75">+1.75</option>
+                    <option value="2">+2</option>
+                  </select>
+                  <label
+                    for="deep-clean-adjust-2300-2500"
+                    class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                    >Deep Hours Adjust</label
+                  >
+                </div>
+                <!-- End Of Deep Hours Adjust -->
+              </div>
+              <!-- End Of Deep Hours Adjust Wrapper -->
+              <!-- General Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
               >
-                <option value="-2">-2</option>
-                <option value="-1.75">-1.75</option>
-                <option value="-1.50">-1.50</option>
-                <option value="-1.25">-1.25</option>
-                <option value="-1">-1</option>
-                <option value="-.75">-.75</option>
-                <option value="-.50">-.50</option>
-                <option value="-.25">-.25</option>
-                <option value="0" selected>0</option>
-                <option value=".25">+.25</option>
-                <option value=".50">+.50</option>
-                <option value=".75">+.75</option>
-                <option value="1">+1</option>
-                <option value="1.25">+1.25</option>
-                <option value="1.50">+1.50</option>
-                <option value="1.75">+1.75</option>
-                <option value="2">+2</option>
-              </select>
-              <label
-                for="bi-weekly-clean-adjust"
-                class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm md:text-base sm:font-serif"
-                >Bi-Weekly Clean Adjust</label
+                <select
+                  name="general-clean-adjust-2300-2500"
+                  id="general-clean-adjust-2300-2500"
+                  class="general-clean-adjust-2300-2500 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="general-clean-adjust-2300-2500"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >General Hours Adjust</label
+                >
+              </div>
+              <!-- End Of General Hours Adjust -->
+              <!-- Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
               >
+                <select
+                  name="weekly-clean-adjust-2300-2500"
+                  id="weekly-clean-adjust-2300-2500"
+                  class="weekly-clean-adjust-2300-2500 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="weekly-clean-adjust-2300-2500"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Weekly Hours Adjust -->
+              <!-- Bi-Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="bi-weekly-clean-adjust-2300-2500"
+                  id="bi-weekly-clean-adjust-2300-2500"
+                  class="bi-weekly-clean-adjust-2300-2500 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="bi-weekly-clean-adjust-2300-2500"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Bi-Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Bi-Weekly Hours Adjust -->
+              <!-- Monthly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="monthly-clean-adjust-2300-2500"
+                  id="monthly-clean-adjust-2300-2500"
+                  class="monthly-clean-adjust-2300-2500 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="monthly-clean-adjust-2300-2500"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Monthly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Monthly Hours Adjust -->
             </div>
-            <!-- End Of Bi-Weekly Hours Adjust -->
-            <!-- Monthly Hours Adjust -->
-            <div class="space-x-2 border-b-2 pb-4">
-              <select
-                name="monthly-clean-adjust"
-                id="monthly-clean-adjust"
-                class="monthly-clean-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+            <!-- End Of All Cleans Adjust Wrapper 2300-2500 -->
+
+            <!-- All Cleans Adjust Wrapper 2600-2800 -->
+            <div
+              class="space-y-4 clean-adjust-slide absolute top-0 left-[400%] w-full transition-transform duration-300 px-6"
+            >
+              <!-- Deep Hours Adjust Wrapper -->
+              <div>
+                <h2
+                  class="text-center text-bold text-sm text-white mb-2 p-2 font-serif bg-emerald-600 xmd:text-xl xss:mb-4"
+                >
+                  2600 - 2800 Square Feet
+                </h2>
+                <!-- Deep Hours Adjust -->
+                <div
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                >
+                  <select
+                    name="deep-clean-adjust-2600-2800"
+                    id="deep-clean-adjust-2600-2800"
+                    class="deep-clean-adjust-2600-2800 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  >
+                    <option value="-2">-2</option>
+                    <option value="-1.75">-1.75</option>
+                    <option value="-1.50">-1.50</option>
+                    <option value="-1.25">-1.25</option>
+                    <option value="-1">-1</option>
+                    <option value="-.75">-.75</option>
+                    <option value="-.50">-.50</option>
+                    <option value="-.25">-.25</option>
+                    <option value="0" selected>0</option>
+                    <option value=".25">+.25</option>
+                    <option value=".50">+.50</option>
+                    <option value=".75">+.75</option>
+                    <option value="1">+1</option>
+                    <option value="1.25">+1.25</option>
+                    <option value="1.50">+1.50</option>
+                    <option value="1.75">+1.75</option>
+                    <option value="2">+2</option>
+                  </select>
+                  <label
+                    for="deep-clean-adjust-2600-2800"
+                    class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                    >Deep Hours Adjust</label
+                  >
+                </div>
+                <!-- End Of Deep Hours Adjust -->
+              </div>
+              <!-- End Of Deep Hours Adjust Wrapper -->
+              <!-- General Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
               >
-                <option value="-2">-2</option>
-                <option value="-1.75">-1.75</option>
-                <option value="-1.50">-1.50</option>
-                <option value="-1.25">-1.25</option>
-                <option value="-1">-1</option>
-                <option value="-.75">-.75</option>
-                <option value="-.50">-.50</option>
-                <option value="-.25">-.25</option>
-                <option value="0" selected>0</option>
-                <option value=".25">+.25</option>
-                <option value=".50">+.50</option>
-                <option value=".75">+.75</option>
-                <option value="1">+1</option>
-                <option value="1.25">+1.25</option>
-                <option value="1.50">+1.50</option>
-                <option value="1.75">+1.75</option>
-                <option value="2">+2</option>
-              </select>
-              <label
-                for="monthly-clean-adjust"
-                class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm md:text-base sm:font-serif"
-                >Monthly Clean Adjust</label
+                <select
+                  name="general-clean-adjust-2600-2800"
+                  id="general-clean-adjust-2600-2800"
+                  class="general-clean-adjust-2600-2800 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="general-clean-adjust-2600-2800"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >General Hours Adjust</label
+                >
+              </div>
+              <!-- End Of General Hours Adjust -->
+              <!-- Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
               >
+                <select
+                  name="weekly-clean-adjust-2600-2800"
+                  id="weekly-clean-adjust-2600-2800"
+                  class="weekly-clean-adjust-2600-2800 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="weekly-clean-adjust-2600-2800"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Weekly Hours Adjust -->
+              <!-- Bi-Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="bi-weekly-clean-adjust-2600-2800"
+                  id="bi-weekly-clean-adjust-2600-2800"
+                  class="bi-weekly-clean-adjust-2600-2800 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="bi-weekly-clean-adjust-2600-2800"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Bi-Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Bi-Weekly Hours Adjust -->
+              <!-- Monthly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="monthly-clean-adjust-2600-2800"
+                  id="monthly-clean-adjust-2600-2800"
+                  class="monthly-clean-adjust-2600-2800 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="monthly-clean-adjust-2600-2800"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Monthly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Monthly Hours Adjust -->
             </div>
-            <!-- End Of Monthly Hours Adjust -->
+            <!-- End Of All Cleans Adjust Wrapper 2600-2800 -->
+
+            <!-- All Cleans Adjust Wrapper 2900-3100 -->
+            <div
+              class="space-y-4 clean-adjust-slide absolute top-0 left-[500%] w-full transition-transform duration-300 px-6"
+            >
+              <!-- Deep Hours Adjust Wrapper -->
+              <div>
+                <h2
+                  class="text-center text-bold text-sm text-white mb-2 p-2 font-serif bg-emerald-600 xmd:text-xl xss:mb-4"
+                >
+                  2900 - 3100 Square Feet
+                </h2>
+                <!-- Deep Hours Adjust -->
+                <div
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                >
+                  <select
+                    name="deep-clean-adjust-2900-3100"
+                    id="deep-clean-adjust-2900-3100"
+                    class="deep-clean-adjust-2900-3100 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  >
+                    <option value="-2">-2</option>
+                    <option value="-1.75">-1.75</option>
+                    <option value="-1.50">-1.50</option>
+                    <option value="-1.25">-1.25</option>
+                    <option value="-1">-1</option>
+                    <option value="-.75">-.75</option>
+                    <option value="-.50">-.50</option>
+                    <option value="-.25">-.25</option>
+                    <option value="0" selected>0</option>
+                    <option value=".25">+.25</option>
+                    <option value=".50">+.50</option>
+                    <option value=".75">+.75</option>
+                    <option value="1">+1</option>
+                    <option value="1.25">+1.25</option>
+                    <option value="1.50">+1.50</option>
+                    <option value="1.75">+1.75</option>
+                    <option value="2">+2</option>
+                  </select>
+                  <label
+                    for="deep-clean-adjust-2900-3100"
+                    class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                    >Deep Hours Adjust</label
+                  >
+                </div>
+                <!-- End Of Deep Hours Adjust -->
+              </div>
+              <!-- End Of Deep Hours Adjust Wrapper -->
+              <!-- General Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="general-clean-adjust-2900-3100"
+                  id="general-clean-adjust-2900-3100"
+                  class="general-clean-adjust-2900-3100 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="general-clean-adjust-2900-3100"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >General Hours Adjust</label
+                >
+              </div>
+              <!-- End Of General Hours Adjust -->
+              <!-- Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="weekly-clean-adjust-2900-3100"
+                  id="weekly-clean-adjust-2900-3100"
+                  class="weekly-clean-adjust-2900-3100 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="weekly-clean-adjust-2900-3100"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Weekly Hours Adjust -->
+              <!-- Bi-Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="bi-weekly-clean-adjust-2900-3100"
+                  id="bi-weekly-clean-adjust-2900-3100"
+                  class="bi-weekly-clean-adjust-2900-3100 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="bi-weekly-clean-adjust-2900-3100"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Bi-Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Bi-Weekly Hours Adjust -->
+              <!-- Monthly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="monthly-clean-adjust-2900-3100"
+                  id="monthly-clean-adjust-2900-3100"
+                  class="monthly-clean-adjust-2900-3100 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="monthly-clean-adjust-2900-3100"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Monthly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Monthly Hours Adjust -->
+            </div>
+            <!-- End Of All Cleans Adjust Wrapper 2900-3100 -->
+
+            <!-- All Cleans Adjust Wrapper 3200-3400 -->
+            <div
+              class="space-y-4 clean-adjust-slide absolute top-0 left-[600%] w-full transition-transform duration-300 px-6"
+            >
+              <!-- Deep Hours Adjust Wrapper -->
+              <div>
+                <h2
+                  class="text-center text-bold text-sm text-white mb-2 p-2 font-serif bg-emerald-600 xmd:text-xl xss:mb-4"
+                >
+                  3200 - 3400 Square Feet
+                </h2>
+                <!-- Deep Hours Adjust -->
+                <div
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                >
+                  <select
+                    name="deep-clean-adjust-3200-3400"
+                    id="deep-clean-adjust-3200-3400"
+                    class="deep-clean-adjust-3200-3400 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  >
+                    <option value="-2">-2</option>
+                    <option value="-1.75">-1.75</option>
+                    <option value="-1.50">-1.50</option>
+                    <option value="-1.25">-1.25</option>
+                    <option value="-1">-1</option>
+                    <option value="-.75">-.75</option>
+                    <option value="-.50">-.50</option>
+                    <option value="-.25">-.25</option>
+                    <option value="0" selected>0</option>
+                    <option value=".25">+.25</option>
+                    <option value=".50">+.50</option>
+                    <option value=".75">+.75</option>
+                    <option value="1">+1</option>
+                    <option value="1.25">+1.25</option>
+                    <option value="1.50">+1.50</option>
+                    <option value="1.75">+1.75</option>
+                    <option value="2">+2</option>
+                  </select>
+                  <label
+                    for="deep-clean-adjust-3200-3400"
+                    class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                    >Deep Hours Adjust</label
+                  >
+                </div>
+                <!-- End Of Deep Hours Adjust -->
+              </div>
+              <!-- End Of Deep Hours Adjust Wrapper -->
+              <!-- General Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="general-clean-adjust-3200-3400"
+                  id="general-clean-adjust-3200-3400"
+                  class="general-clean-adjust-3200-3400 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="general-clean-adjust-3200-3400"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >General Hours Adjust</label
+                >
+              </div>
+              <!-- End Of General Hours Adjust -->
+              <!-- Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="weekly-clean-adjust-3200-3400"
+                  id="weekly-clean-adjust-3200-3400"
+                  class="weekly-clean-adjust-3200-3400 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="weekly-clean-adjust-3200-3400"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Weekly Hours Adjust -->
+              <!-- Bi-Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="bi-weekly-clean-adjust-3200-3400"
+                  id="bi-weekly-clean-adjust-3200-3400"
+                  class="bi-weekly-clean-adjust-3200-3400 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="bi-weekly-clean-adjust-3200-3400"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Bi-Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Bi-Weekly Hours Adjust -->
+              <!-- Monthly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="monthly-clean-adjust-3200-3400"
+                  id="monthly-clean-adjust-3200-3400"
+                  class="monthly-clean-adjust-3200-3400 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="monthly-clean-adjust-3200-3400"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Monthly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Monthly Hours Adjust -->
+            </div>
+            <!-- End Of All Cleans Adjust Wrapper 3200-3400 -->
+
+            <!-- All Cleans Adjust Wrapper 3500-3700 -->
+            <div
+              class="space-y-4 clean-adjust-slide absolute top-0 left-[700%] w-full transition-transform duration-300 px-6"
+            >
+              <!-- Deep Hours Adjust Wrapper -->
+              <div>
+                <h2
+                  class="text-center text-bold text-sm text-white mb-2 p-2 font-serif bg-emerald-600 xmd:text-xl xss:mb-4"
+                >
+                  3500 - 3700 Square Feet
+                </h2>
+                <!-- Deep Hours Adjust -->
+                <div
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                >
+                  <select
+                    name="deep-clean-adjust-3500-3700"
+                    id="deep-clean-adjust-3500-3700"
+                    class="deep-clean-adjust-3500-3700 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  >
+                    <option value="-2">-2</option>
+                    <option value="-1.75">-1.75</option>
+                    <option value="-1.50">-1.50</option>
+                    <option value="-1.25">-1.25</option>
+                    <option value="-1">-1</option>
+                    <option value="-.75">-.75</option>
+                    <option value="-.50">-.50</option>
+                    <option value="-.25">-.25</option>
+                    <option value="0" selected>0</option>
+                    <option value=".25">+.25</option>
+                    <option value=".50">+.50</option>
+                    <option value=".75">+.75</option>
+                    <option value="1">+1</option>
+                    <option value="1.25">+1.25</option>
+                    <option value="1.50">+1.50</option>
+                    <option value="1.75">+1.75</option>
+                    <option value="2">+2</option>
+                  </select>
+                  <label
+                    for="deep-clean-adjust-3500-3700"
+                    class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                    >Deep Hours Adjust</label
+                  >
+                </div>
+                <!-- End Of Deep Hours Adjust -->
+              </div>
+              <!-- End Of Deep Hours Adjust Wrapper -->
+              <!-- General Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="general-clean-adjust-3500-3700"
+                  id="general-clean-adjust-3500-3700"
+                  class="general-clean-adjust-3500-3700 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="general-clean-adjust-3500-3700"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >General Hours Adjust</label
+                >
+              </div>
+              <!-- End Of General Hours Adjust -->
+              <!-- Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="weekly-clean-adjust-3500-3700"
+                  id="weekly-clean-adjust-3500-3700"
+                  class="weekly-clean-adjust-3500-3700 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="weekly-clean-adjust-3500-3700"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Weekly Hours Adjust -->
+              <!-- Bi-Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="bi-weekly-clean-adjust-3500-3700"
+                  id="bi-weekly-clean-adjust-3500-3700"
+                  class="bi-weekly-clean-adjust-3500-3700 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="bi-weekly-clean-adjust-3500-3700"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Bi-Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Bi-Weekly Hours Adjust -->
+              <!-- Monthly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="monthly-clean-adjust-3500-3700"
+                  id="monthly-clean-adjust-3500-3700"
+                  class="monthly-clean-adjust-3500-3700 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="monthly-clean-adjust-3500-3700"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Monthly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Monthly Hours Adjust -->
+            </div>
+            <!-- End Of All Cleans Adjust Wrapper 3500-3700 -->
+
+            <!-- All Cleans Adjust Wrapper 3800-4000 -->
+            <div
+              class="space-y-4 clean-adjust-slide absolute top-0 left-[800%] w-full transition-transform duration-300 px-6"
+            >
+              <!-- Deep Hours Adjust Wrapper -->
+              <div>
+                <h2
+                  class="text-center text-bold text-sm text-white mb-2 p-2 font-serif bg-emerald-600 xmd:text-xl xss:mb-4"
+                >
+                  3800 - 4000 Square Feet
+                </h2>
+                <!-- Deep Hours Adjust -->
+                <div
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                >
+                  <select
+                    name="deep-clean-adjust-3800-4000"
+                    id="deep-clean-adjust-3800-4000"
+                    class="deep-clean-adjust-3800-4000 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  >
+                    <option value="-2">-2</option>
+                    <option value="-1.75">-1.75</option>
+                    <option value="-1.50">-1.50</option>
+                    <option value="-1.25">-1.25</option>
+                    <option value="-1">-1</option>
+                    <option value="-.75">-.75</option>
+                    <option value="-.50">-.50</option>
+                    <option value="-.25">-.25</option>
+                    <option value="0" selected>0</option>
+                    <option value=".25">+.25</option>
+                    <option value=".50">+.50</option>
+                    <option value=".75">+.75</option>
+                    <option value="1">+1</option>
+                    <option value="1.25">+1.25</option>
+                    <option value="1.50">+1.50</option>
+                    <option value="1.75">+1.75</option>
+                    <option value="2">+2</option>
+                  </select>
+                  <label
+                    for="deep-clean-adjust-3800-4000"
+                    class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                    >Deep Hours Adjust</label
+                  >
+                </div>
+                <!-- End Of Deep Hours Adjust -->
+              </div>
+              <!-- End Of Deep Hours Adjust Wrapper -->
+              <!-- General Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="general-clean-adjust-3800-4000"
+                  id="general-clean-adjust-3800-4000"
+                  class="general-clean-adjust-3800-4000 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="general-clean-adjust-3800-4000"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >General Hours Adjust</label
+                >
+              </div>
+              <!-- End Of General Hours Adjust -->
+              <!-- Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="weekly-clean-adjust-3800-4000"
+                  id="weekly-clean-adjust-3800-4000"
+                  class="weekly-clean-adjust-3800-4000 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="weekly-clean-adjust-3800-4000"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Weekly Hours Adjust -->
+              <!-- Bi-Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="bi-weekly-clean-adjust-3800-4000"
+                  id="bi-weekly-clean-adjust-3800-4000"
+                  class="bi-weekly-clean-adjust-3800-4000 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="bi-weekly-clean-adjust-3800-4000"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Bi-Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Bi-Weekly Hours Adjust -->
+              <!-- Monthly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="monthly-clean-adjust-3800-4000"
+                  id="monthly-clean-adjust-3800-4000"
+                  class="monthly-clean-adjust-3800-4000 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="monthly-clean-adjust-3800-4000"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Monthly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Monthly Hours Adjust -->
+            </div>
+            <!-- End Of All Cleans Adjust Wrapper 3800-4000 -->
+
+            <!-- All Cleans Adjust Wrapper 4100-4300 -->
+            <div
+              class="space-y-4 clean-adjust-slide absolute top-0 left-[900%] w-full transition-transform duration-300 px-6"
+            >
+              <!-- Deep Hours Adjust Wrapper -->
+              <div>
+                <h2
+                  class="text-center text-bold text-sm text-white mb-2 p-2 font-serif bg-emerald-600 xmd:text-xl xss:mb-4"
+                >
+                  4100 - 4300 Square Feet
+                </h2>
+                <!-- Deep Hours Adjust -->
+                <div
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                >
+                  <select
+                    name="deep-clean-adjust-4100-4300"
+                    id="deep-clean-adjust-4100-4300"
+                    class="deep-clean-adjust-4100-4300 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  >
+                    <option value="-2">-2</option>
+                    <option value="-1.75">-1.75</option>
+                    <option value="-1.50">-1.50</option>
+                    <option value="-1.25">-1.25</option>
+                    <option value="-1">-1</option>
+                    <option value="-.75">-.75</option>
+                    <option value="-.50">-.50</option>
+                    <option value="-.25">-.25</option>
+                    <option value="0" selected>0</option>
+                    <option value=".25">+.25</option>
+                    <option value=".50">+.50</option>
+                    <option value=".75">+.75</option>
+                    <option value="1">+1</option>
+                    <option value="1.25">+1.25</option>
+                    <option value="1.50">+1.50</option>
+                    <option value="1.75">+1.75</option>
+                    <option value="2">+2</option>
+                  </select>
+                  <label
+                    for="deep-clean-adjust-4100-4300"
+                    class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                    >Deep Hours Adjust</label
+                  >
+                </div>
+                <!-- End Of Deep Hours Adjust -->
+              </div>
+              <!-- End Of Deep Hours Adjust Wrapper -->
+              <!-- General Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="general-clean-adjust-4100-4300"
+                  id="general-clean-adjust-4100-4300"
+                  class="general-clean-adjust-4100-4300 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="general-clean-adjust-4100-4300"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >General Hours Adjust</label
+                >
+              </div>
+              <!-- End Of General Hours Adjust -->
+              <!-- Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="weekly-clean-adjust-4100-4300"
+                  id="weekly-clean-adjust-4100-4300"
+                  class="weekly-clean-adjust-4100-4300 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="weekly-clean-adjust-4100-4300"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Weekly Hours Adjust -->
+              <!-- Bi-Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="bi-weekly-clean-adjust-4100-4300"
+                  id="bi-weekly-clean-adjust-4100-4300"
+                  class="bi-weekly-clean-adjust-4100-4300 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="bi-weekly-clean-adjust-4100-4300"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Bi-Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Bi-Weekly Hours Adjust -->
+              <!-- Monthly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="monthly-clean-adjust-4100-4300"
+                  id="monthly-clean-adjust-4100-4300"
+                  class="monthly-clean-adjust-4100-4300 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="monthly-clean-adjust-4100-4300"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Monthly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Monthly Hours Adjust -->
+            </div>
+            <!-- End Of All Cleans Adjust Wrapper 4100-4300 -->
+
+            <!-- All Cleans Adjust Wrapper 4400-4600 -->
+            <div
+              class="space-y-4 clean-adjust-slide absolute top-0 left-[1000%] w-full transition-transform duration-300 px-6"
+            >
+              <!-- Deep Hours Adjust Wrapper -->
+              <div>
+                <h2
+                  class="text-center text-bold text-sm text-white mb-2 p-2 font-serif bg-emerald-600 xmd:text-xl xss:mb-4"
+                >
+                  4400 - 4600 Square Feet
+                </h2>
+                <!-- Deep Hours Adjust -->
+                <div
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                >
+                  <select
+                    name="deep-clean-adjust-4400-4600"
+                    id="deep-clean-adjust-4400-4600"
+                    class="deep-clean-adjust-4400-4600 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  >
+                    <option value="-2">-2</option>
+                    <option value="-1.75">-1.75</option>
+                    <option value="-1.50">-1.50</option>
+                    <option value="-1.25">-1.25</option>
+                    <option value="-1">-1</option>
+                    <option value="-.75">-.75</option>
+                    <option value="-.50">-.50</option>
+                    <option value="-.25">-.25</option>
+                    <option value="0" selected>0</option>
+                    <option value=".25">+.25</option>
+                    <option value=".50">+.50</option>
+                    <option value=".75">+.75</option>
+                    <option value="1">+1</option>
+                    <option value="1.25">+1.25</option>
+                    <option value="1.50">+1.50</option>
+                    <option value="1.75">+1.75</option>
+                    <option value="2">+2</option>
+                  </select>
+                  <label
+                    for="deep-clean-adjust-4400-4600"
+                    class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                    >Deep Hours Adjust</label
+                  >
+                </div>
+                <!-- End Of Deep Hours Adjust -->
+              </div>
+              <!-- End Of Deep Hours Adjust Wrapper -->
+              <!-- General Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="general-clean-adjust-4400-4600"
+                  id="general-clean-adjust-4400-4600"
+                  class="general-clean-adjust-4400-4600 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="general-clean-adjust-4400-4600"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >General Hours Adjust</label
+                >
+              </div>
+              <!-- End Of General Hours Adjust -->
+              <!-- Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="weekly-clean-adjust-4400-4600"
+                  id="weekly-clean-adjust-4400-4600"
+                  class="weekly-clean-adjust-4400-4600 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="weekly-clean-adjust-4400-4600"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Weekly Hours Adjust -->
+              <!-- Bi-Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="bi-weekly-clean-adjust-4400-4600"
+                  id="bi-weekly-clean-adjust-4400-4600"
+                  class="bi-weekly-clean-adjust-4400-4600 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="bi-weekly-clean-adjust-4400-4600"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Bi-Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Bi-Weekly Hours Adjust -->
+              <!-- Monthly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="monthly-clean-adjust-4400-4600"
+                  id="monthly-clean-adjust-4400-4600"
+                  class="monthly-clean-adjust-4400-4600 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="monthly-clean-adjust-4400-4600"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Monthly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Monthly Hours Adjust -->
+            </div>
+            <!-- End Of All Cleans Adjust Wrapper 4400-4600 -->
+
+            <!-- All Cleans Adjust Wrapper 4800-5000 -->
+            <div
+              class="space-y-4 clean-adjust-slide absolute top-0 left-[1100%] w-full transition-transform duration-300 px-6"
+            >
+              <!-- Deep Hours Adjust Wrapper -->
+              <div>
+                <h2
+                  class="text-center text-bold text-sm text-white mb-2 p-2 font-serif bg-emerald-600 xmd:text-xl xss:mb-4"
+                >
+                  4800 - 5000 Square Feet
+                </h2>
+                <!-- Deep Hours Adjust -->
+                <div
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                >
+                  <select
+                    name="deep-clean-adjust-4800-5000"
+                    id="deep-clean-adjust-4800-5000"
+                    class="deep-clean-adjust-4800-5000 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  >
+                    <option value="-2">-2</option>
+                    <option value="-1.75">-1.75</option>
+                    <option value="-1.50">-1.50</option>
+                    <option value="-1.25">-1.25</option>
+                    <option value="-1">-1</option>
+                    <option value="-.75">-.75</option>
+                    <option value="-.50">-.50</option>
+                    <option value="-.25">-.25</option>
+                    <option value="0" selected>0</option>
+                    <option value=".25">+.25</option>
+                    <option value=".50">+.50</option>
+                    <option value=".75">+.75</option>
+                    <option value="1">+1</option>
+                    <option value="1.25">+1.25</option>
+                    <option value="1.50">+1.50</option>
+                    <option value="1.75">+1.75</option>
+                    <option value="2">+2</option>
+                  </select>
+                  <label
+                    for="deep-clean-adjust-4800-5000"
+                    class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                    >Deep Hours Adjust</label
+                  >
+                </div>
+                <!-- End Of Deep Hours Adjust -->
+              </div>
+              <!-- End Of Deep Hours Adjust Wrapper -->
+              <!-- General Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="general-clean-adjust-4800-5000"
+                  id="general-clean-adjust-4800-5000"
+                  class="general-clean-adjust-4800-5000 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="general-clean-adjust-4800-5000"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >General Hours Adjust</label
+                >
+              </div>
+              <!-- End Of General Hours Adjust -->
+              <!-- Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="weekly-clean-adjust-4800-5000"
+                  id="weekly-clean-adjust-4800-5000"
+                  class="weekly-clean-adjust-4800-5000 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="weekly-clean-adjust-4800-5000"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Weekly Hours Adjust -->
+              <!-- Bi-Weekly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="bi-weekly-clean-adjust-4800-5000"
+                  id="bi-weekly-clean-adjust-4800-5000"
+                  class="bi-weekly-clean-adjust-4800-5000 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="bi-weekly-clean-adjust-4800-5000"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Bi-Weekly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Bi-Weekly Hours Adjust -->
+              <!-- Monthly Hours Adjust -->
+              <div
+                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+              >
+                <select
+                  name="monthly-clean-adjust-4800-5000"
+                  id="monthly-clean-adjust-4800-5000"
+                  class="monthly-clean-adjust-4800-5000 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                >
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0" selected>0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+                <label
+                  for="monthly-clean-adjust-4800-5000"
+                  class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
+                  >Monthly Hours Adjust</label
+                >
+              </div>
+              <!-- End Of Monthly Hours Adjust -->
+            </div>
+            <!-- End Of All Cleans Adjust Wrapper 4800-5000 -->
           </form>
           <!-- End Of Hours Scale -->
         </div>
@@ -289,7 +2372,7 @@
       class="modal-quote bg-black bg-opacity-70 h-screen fixed top-0 left-0 w-full backdrop-blur-sm hidden items-center justify-center invisible"
     >
       <div
-        class="bg-white p-3 shadow-lg rounded-xl w-[80vw] max-w-sm max-h-[98vh] overflow-y-scroll dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
+        class="bg-white p-3 shadow-lg rounded-xl w-[80vw] max-w-sm max-h-[98vh] dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
       >
         <div class="px-4 pt-2">
           <div class="flex items-center justify-between border-b-2 mb-2 pb-2">

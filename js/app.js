@@ -21,17 +21,6 @@ const sqFootage = document.getElementById('square-footage');
 
 // Change Hours Adjust Elements
 const cleanAdjustForm = document.querySelector('.clean-adjust');
-const deepCleanAdjustSelect = document.getElementById('deep-clean-adjust');
-const generalCleanAdjustSelect = document.getElementById(
-  'general-clean-adjust'
-);
-const weeklyCleanAdjustSelect = document.getElementById('weekly-clean-adjust');
-const biWeeklyCleanAdjustSelect = document.getElementById(
-  'bi-weekly-clean-adjust'
-);
-const monthlyCleanAdjustSelect = document.getElementById(
-  'monthly-clean-adjust'
-);
 
 // Global State Var
 let flag = true;
@@ -41,86 +30,184 @@ let flag = true;
 const allDeepHoursMain = [
   6.5, 8, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5,
 ];
-let allDeepHours = allDeepHoursMain;
+let allDeepHours = allDeepHoursMain.slice();
+// let allDeepHours;
+// if (localStorage.getItem('changedDeep')) {
+//   allDeepHours = JSON.parse(localStorage.getItem('changedDeep'));
+// } else {
+//   allDeepHours = allDeepHoursMain.slice();
+// }
 
 // General Hours
 const allGeneralHoursMain = [4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5];
-let allGeneralHours = allGeneralHoursMain;
+let allGeneralHours = allGeneralHoursMain.slice();
 
 // Weekly Hours
 const allWeeklyHoursMain = [
   2.5, 3, 3.5, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75,
 ];
-let allWeeklyHours = allWeeklyHoursMain;
+let allWeeklyHours = allWeeklyHoursMain.slice();
 
 // Bi Weekly Hours
 const allBiWeeklyHoursMain = [
   3, 3.25, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6,
 ];
-let allbiWeeklyHours = allBiWeeklyHoursMain;
+let allbiWeeklyHours = allBiWeeklyHoursMain.slice();
 
 // Monthly Hours
 const allMonthlyHoursMain = [
   3.25, 3.5, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6, 6.25,
 ];
-let allMonthlyHours = allMonthlyHoursMain;
+let allMonthlyHours = allMonthlyHoursMain.slice();
+
+// Change Deep Hours
+const changeDeepHours = (event, className, index) => {
+  if (event.target.classList.contains(className)) {
+    if (event.target.value === '0') {
+      allDeepHours[index] = allDeepHoursMain.slice()[index];
+      // Set Item To Local Storage
+      // localStorage.setItem(
+      //   'changedDeep',
+      //   JSON.stringify(allDeepHoursMain.slice())
+      // );
+      // localStorage.setItem(className, 0);
+    } else {
+      allDeepHours[index] =
+        allDeepHoursMain[index] +
+        +document.querySelector(`.${className}`).value;
+      // Set Item To Local Storage
+      // localStorage.setItem('changedDeep', JSON.stringify(allDeepHours));
+      // localStorage.setItem(
+      //   className,
+      //   +document.querySelector(`.${className}`).value
+      // );
+    }
+  }
+};
+
+// Change General Hours
+const changeGeneralHours = (event, className, index) => {
+  if (event.target.classList.contains(className)) {
+    if (event.target.value === '0') {
+      allGeneralHours[index] = allGeneralHoursMain.slice()[index];
+    } else {
+      allGeneralHours[index] =
+        allGeneralHoursMain[index] +
+        +document.querySelector(`.${className}`).value;
+    }
+  }
+};
+
+// Change Weekly Hours
+const changeWeeklyHours = (event, className, index) => {
+  if (event.target.classList.contains(className)) {
+    if (event.target.value === '0') {
+      allWeeklyHours[index] = allWeeklyHoursMain.slice()[index];
+    } else {
+      allWeeklyHours[index] =
+        allWeeklyHoursMain[index] +
+        +document.querySelector(`.${className}`).value;
+    }
+  }
+};
+
+// Change Bi-Weekly Hours
+const changeBiWeeklyHours = (event, className, index) => {
+  if (event.target.classList.contains(className)) {
+    if (event.target.value === '0') {
+      allbiWeeklyHours[index] = allBiWeeklyHoursMain.slice()[index];
+    } else {
+      allbiWeeklyHours[index] =
+        allBiWeeklyHoursMain[index] +
+        +document.querySelector(`.${className}`).value;
+    }
+  }
+};
+
+// Change Monthly Hours
+const changeMonthlyHours = (event, className, index) => {
+  if (event.target.classList.contains(className)) {
+    if (event.target.value === '0') {
+      allMonthlyHours[index] = allMonthlyHoursMain.slice()[index];
+    } else {
+      allMonthlyHours[index] =
+        allMonthlyHoursMain[index] +
+        +document.querySelector(`.${className}`).value;
+    }
+  }
+};
 
 // Change Hours Depending On What Ajustment Is Made In Settings
 cleanAdjustForm.addEventListener('change', e => {
-  // Deep Clean Adjust
-  if (e.target.classList.contains('deep-clean-adjust')) {
-    if (e.target.value === '0') {
-      allDeepHours = allDeepHoursMain;
-    } else {
-      allDeepHours = allDeepHoursMain.map(
-        hour => hour + +deepCleanAdjustSelect.value
-      );
-    }
-  }
+  // Change Deep Hours
+  changeDeepHours(e, 'deep-clean-adjust-1000-1500', 0);
+  changeDeepHours(e, 'deep-clean-adjust-1600-2000', 1);
+  changeDeepHours(e, 'deep-clean-adjust-2100-2200', 2);
+  changeDeepHours(e, 'deep-clean-adjust-2300-2500', 3);
+  changeDeepHours(e, 'deep-clean-adjust-2600-2800', 4);
+  changeDeepHours(e, 'deep-clean-adjust-2900-3100', 5);
+  changeDeepHours(e, 'deep-clean-adjust-3200-3400', 6);
+  changeDeepHours(e, 'deep-clean-adjust-3500-3700', 7);
+  changeDeepHours(e, 'deep-clean-adjust-3800-4000', 8);
+  changeDeepHours(e, 'deep-clean-adjust-4100-4300', 9);
+  changeDeepHours(e, 'deep-clean-adjust-4400-4600', 10);
+  changeDeepHours(e, 'deep-clean-adjust-4800-5000', 11);
 
-  // General Clean Adjust
-  if (e.target.classList.contains('general-clean-adjust')) {
-    if (e.target.value === '0') {
-      allGeneralHours = allGeneralHoursMain;
-    } else {
-      allGeneralHours = allGeneralHoursMain.map(
-        hour => hour + +generalCleanAdjustSelect.value
-      );
-    }
-  }
+  // Change General Hours
+  changeGeneralHours(e, 'general-clean-adjust-1000-1500', 0);
+  changeGeneralHours(e, 'general-clean-adjust-1600-2000', 1);
+  changeGeneralHours(e, 'general-clean-adjust-2100-2200', 2);
+  changeGeneralHours(e, 'general-clean-adjust-2300-2500', 3);
+  changeGeneralHours(e, 'general-clean-adjust-2600-2800', 4);
+  changeGeneralHours(e, 'general-clean-adjust-2900-3100', 5);
+  changeGeneralHours(e, 'general-clean-adjust-3200-3400', 6);
+  changeGeneralHours(e, 'general-clean-adjust-3500-3700', 7);
+  changeGeneralHours(e, 'general-clean-adjust-3800-4000', 8);
+  changeGeneralHours(e, 'general-clean-adjust-4100-4300', 9);
+  changeGeneralHours(e, 'general-clean-adjust-4400-4600', 10);
+  changeGeneralHours(e, 'general-clean-adjust-4800-5000', 11);
 
-  // Weekly Clean Adjust
-  if (e.target.classList.contains('weekly-clean-adjust')) {
-    if (e.target.value === '0') {
-      allWeeklyHours = allWeeklyHoursMain;
-    } else {
-      allWeeklyHours = allWeeklyHoursMain.map(
-        hour => hour + +weeklyCleanAdjustSelect.value
-      );
-    }
-  }
+  // Change Weekly Hours
+  changeWeeklyHours(e, 'weekly-clean-adjust-1000-1500', 0);
+  changeWeeklyHours(e, 'weekly-clean-adjust-1600-2000', 1);
+  changeWeeklyHours(e, 'weekly-clean-adjust-2100-2200', 2);
+  changeWeeklyHours(e, 'weekly-clean-adjust-2300-2500', 3);
+  changeWeeklyHours(e, 'weekly-clean-adjust-2600-2800', 4);
+  changeWeeklyHours(e, 'weekly-clean-adjust-2900-3100', 5);
+  changeWeeklyHours(e, 'weekly-clean-adjust-3200-3400', 6);
+  changeWeeklyHours(e, 'weekly-clean-adjust-3500-3700', 7);
+  changeWeeklyHours(e, 'weekly-clean-adjust-3800-4000', 8);
+  changeWeeklyHours(e, 'weekly-clean-adjust-4100-4300', 9);
+  changeWeeklyHours(e, 'weekly-clean-adjust-4400-4600', 10);
+  changeWeeklyHours(e, 'weekly-clean-adjust-4800-5000', 11);
 
-  // Bi-Weekly Clean Adjust
-  if (e.target.classList.contains('bi-weekly-clean-adjust')) {
-    if (e.target.value === '0') {
-      allbiWeeklyHours = allBiWeeklyHoursMain;
-    } else {
-      allbiWeeklyHours = allBiWeeklyHoursMain.map(
-        hour => hour + +biWeeklyCleanAdjustSelect.value
-      );
-    }
-  }
+  // Change Bi-Weekly Hours
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-1000-1500', 0);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-1600-2000', 1);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-2100-2200', 2);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-2300-2500', 3);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-2600-2800', 4);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-2900-3100', 5);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-3200-3400', 6);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-3500-3700', 7);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-3800-4000', 8);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-4100-4300', 9);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-4400-4600', 10);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-4800-5000', 11);
 
-  // Monthly Clean Adjust
-  if (e.target.classList.contains('monthly-clean-adjust')) {
-    if (e.target.value === '0') {
-      allMonthlyHours = allMonthlyHoursMain;
-    } else {
-      allMonthlyHours = allMonthlyHoursMain.map(
-        hour => hour + +monthlyCleanAdjustSelect.value
-      );
-    }
-  }
+  // Change Monthly Hours
+  changeMonthlyHours(e, 'monthly-clean-adjust-1000-1500', 0);
+  changeMonthlyHours(e, 'monthly-clean-adjust-1600-2000', 1);
+  changeMonthlyHours(e, 'monthly-clean-adjust-2100-2200', 2);
+  changeMonthlyHours(e, 'monthly-clean-adjust-2300-2500', 3);
+  changeMonthlyHours(e, 'monthly-clean-adjust-2600-2800', 4);
+  changeMonthlyHours(e, 'monthly-clean-adjust-2900-3100', 5);
+  changeMonthlyHours(e, 'monthly-clean-adjust-3200-3400', 6);
+  changeMonthlyHours(e, 'monthly-clean-adjust-3500-3700', 7);
+  changeMonthlyHours(e, 'monthly-clean-adjust-3800-4000', 8);
+  changeMonthlyHours(e, 'monthly-clean-adjust-4100-4300', 9);
+  changeMonthlyHours(e, 'monthly-clean-adjust-4400-4600', 10);
+  changeMonthlyHours(e, 'monthly-clean-adjust-4800-5000', 11);
 });
 
 // FUNCTIONS //
@@ -693,10 +780,46 @@ const displayCurrentQuote = () => {
   changeColorStatus(statusGrey);
 };
 
-// Slider Elements
+// Saved Quotes Slider Elements
 const slides = document.querySelectorAll('.slide');
 const nextBtn = document.querySelector('.next-btn');
 const prevBtn = document.querySelector('.prev-btn');
+
+// Clean Adjust Slider Elements
+const cleanAdjustSlides = document.querySelectorAll('.clean-adjust-slide');
+const cleanAdjustNextBtn = document.querySelector('.clean-adjust-next-btn');
+const cleanAdjustPrevBtn = document.querySelector('.clean-adjust-prev-btn');
+
+// Clean Adjust Slider
+const cleanAdjustSlider = () => {
+  let counter = 0;
+  cleanAdjustNextBtn.addEventListener('click', e => {
+    e.preventDefault();
+    counter++;
+    carousel();
+    console.log(counter);
+  });
+
+  cleanAdjustPrevBtn.addEventListener('click', e => {
+    e.preventDefault();
+    counter--;
+    carousel();
+    console.log(counter);
+  });
+
+  const carousel = () => {
+    cleanAdjustSlides.forEach(slide => {
+      if (counter === cleanAdjustSlides.length) {
+        counter = 0;
+      }
+      if (counter < 0) {
+        counter = cleanAdjustSlides.length - 1;
+      }
+      slide.style.transform = `translateX(-${counter * 100}%)`;
+    });
+  };
+};
+cleanAdjustSlider();
 
 // All Cleans Slider
 const carouselSlider = () => {
