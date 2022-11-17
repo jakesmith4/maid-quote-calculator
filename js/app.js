@@ -120,11 +120,10 @@ const addOptionDropdowns = (el, hours) => {
   el.forEach((select, i) => {
     select.innerHTML = options;
     select.value = hours[i];
-    select.children[select.selectedIndex].classList.add(
-      'bg-emerald-500',
-      'font-extrabold'
-    );
-    select.children[select.selectedIndex].style.background = 'green';
+
+    const element = select.children[select.selectedIndex];
+    element.style.background = 'green';
+    element.style.fontWeight = 'bold';
   });
 };
 
