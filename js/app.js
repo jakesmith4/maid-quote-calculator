@@ -21,9 +21,111 @@ const sqFootage = document.getElementById('square-footage');
 
 // Change Hours Adjust Elements
 const cleanAdjustForm = document.querySelector('.clean-adjust');
+const select1s = document.querySelectorAll('.select-1');
+const select2s = document.querySelectorAll('.select-2');
+const select3s = document.querySelectorAll('.select-3');
+const select4s = document.querySelectorAll('.select-4');
+const select5s = document.querySelectorAll('.select-5');
 
 // Global State Var
 let flag = true;
+
+// Options Var
+const options = `
+<option value="0">0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+`;
+
+// Add Option Dropdowns
+const addOptionDropdowns = (el, hours) => {
+  el.forEach((select, i) => {
+    select.innerHTML = options;
+    select.value = hours[i];
+    select.children[select.selectedIndex].classList.add(
+      'bg-emerald-500',
+      'font-extrabold'
+    );
+  });
+};
 
 // DATA //
 // Deep Hours
@@ -36,6 +138,7 @@ if (localStorage.getItem('changedDeep')) {
 } else {
   allDeepHours = allDeepHoursMain.slice();
 }
+addOptionDropdowns(select1s, allDeepHoursMain);
 
 // General Hours
 const allGeneralHoursMain = [4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5];
@@ -45,6 +148,7 @@ if (localStorage.getItem('changedGeneral')) {
 } else {
   allGeneralHours = allGeneralHoursMain.slice();
 }
+addOptionDropdowns(select2s, allGeneralHoursMain);
 
 // Weekly Hours
 const allWeeklyHoursMain = [
@@ -56,6 +160,7 @@ if (localStorage.getItem('changedWeekly')) {
 } else {
   allWeeklyHours = allWeeklyHoursMain.slice();
 }
+addOptionDropdowns(select3s, allWeeklyHoursMain);
 
 // Bi Weekly Hours
 const allBiWeeklyHoursMain = [
@@ -67,6 +172,7 @@ if (localStorage.getItem('changedBiWeekly')) {
 } else {
   allbiWeeklyHours = allBiWeeklyHoursMain.slice();
 }
+addOptionDropdowns(select4s, allBiWeeklyHoursMain);
 
 // Monthly Hours
 const allMonthlyHoursMain = [
@@ -79,13 +185,14 @@ if (localStorage.getItem('changedMonthly')) {
 } else {
   allMonthlyHours = allMonthlyHoursMain.slice();
 }
+addOptionDropdowns(select5s, allMonthlyHoursMain);
 
 const checkLocalStorage = className => {
   if (localStorage.getItem(className)) {
     document.querySelector(`.${className}`).value =
       localStorage.getItem(className);
   } else {
-    document.querySelector(`.${className}`).value = '0';
+    // document.querySelector(`.${className}`).value = '0';
   }
 };
 
@@ -162,18 +269,17 @@ checkLocalStorage('monthly-clean-adjust-4800-5000');
 // Change Deep Hours
 const changeDeepHours = (event, className, index) => {
   if (event.target.classList.contains(className)) {
-    if (event.target.value === '0') {
+    if (+event.target.value === allDeepHoursMain[0]) {
       allDeepHours[index] = allDeepHoursMain.slice()[index];
       // Set Item To Local Storage
       localStorage.setItem(
         'changedDeep',
         JSON.stringify(allDeepHoursMain.slice())
       );
-      localStorage.setItem(className, 0);
+      console.log(allDeepHoursMain[0]);
+      localStorage.setItem(className, allDeepHoursMain[0]);
     } else {
-      allDeepHours[index] =
-        allDeepHoursMain[index] +
-        +document.querySelector(`.${className}`).value;
+      allDeepHours[index] = +event.target.value;
       // Set Item To Local Storage
       localStorage.setItem('changedDeep', JSON.stringify(allDeepHours));
       localStorage.setItem(
@@ -187,18 +293,16 @@ const changeDeepHours = (event, className, index) => {
 // Change General Hours
 const changeGeneralHours = (event, className, index) => {
   if (event.target.classList.contains(className)) {
-    if (event.target.value === '0') {
+    if (+event.target.value === allGeneralHoursMain[0]) {
       allGeneralHours[index] = allGeneralHoursMain.slice()[index];
       // Set Item To Local Storage
       localStorage.setItem(
         'changedGeneral',
         JSON.stringify(allGeneralHoursMain.slice())
       );
-      localStorage.setItem(className, 0);
+      localStorage.setItem(className, allGeneralHoursMain[0]);
     } else {
-      allGeneralHours[index] =
-        allGeneralHoursMain[index] +
-        +document.querySelector(`.${className}`).value;
+      allGeneralHours[index] = +event.target.value;
       // Set Item To Local Storage
       localStorage.setItem('changedGeneral', JSON.stringify(allGeneralHours));
       localStorage.setItem(
@@ -212,18 +316,16 @@ const changeGeneralHours = (event, className, index) => {
 // Change Weekly Hours
 const changeWeeklyHours = (event, className, index) => {
   if (event.target.classList.contains(className)) {
-    if (event.target.value === '0') {
+    if (+event.target.value === allWeeklyHoursMain[0]) {
       allWeeklyHours[index] = allWeeklyHoursMain.slice()[index];
       // Set Item To Local Storage
       localStorage.setItem(
         'changedWeekly',
         JSON.stringify(allWeeklyHoursMain.slice())
       );
-      localStorage.setItem(className, 0);
+      localStorage.setItem(className, allWeeklyHoursMain[0]);
     } else {
-      allWeeklyHours[index] =
-        allWeeklyHoursMain[index] +
-        +document.querySelector(`.${className}`).value;
+      allWeeklyHours[index] = +event.target.value;
       // Set Item To Local Storage
       localStorage.setItem('changedWeekly', JSON.stringify(allWeeklyHours));
       localStorage.setItem(
@@ -237,18 +339,16 @@ const changeWeeklyHours = (event, className, index) => {
 // Change Bi-Weekly Hours
 const changeBiWeeklyHours = (event, className, index) => {
   if (event.target.classList.contains(className)) {
-    if (event.target.value === '0') {
+    if (+event.target.value === allBiWeeklyHoursMain[0]) {
       allbiWeeklyHours[index] = allBiWeeklyHoursMain.slice()[index];
       // Set Item To Local Storage
       localStorage.setItem(
         'changedBiWeekly',
         JSON.stringify(allBiWeeklyHoursMain.slice())
       );
-      localStorage.setItem(className, 0);
+      localStorage.setItem(className, allBiWeeklyHoursMain[0]);
     } else {
-      allbiWeeklyHours[index] =
-        allBiWeeklyHoursMain[index] +
-        +document.querySelector(`.${className}`).value;
+      allbiWeeklyHours[index] = +event.target.value;
       // Set Item To Local Storage
       localStorage.setItem('changedBiWeekly', JSON.stringify(allbiWeeklyHours));
       localStorage.setItem(
@@ -262,18 +362,16 @@ const changeBiWeeklyHours = (event, className, index) => {
 // Change Monthly Hours
 const changeMonthlyHours = (event, className, index) => {
   if (event.target.classList.contains(className)) {
-    if (event.target.value === '0') {
+    if (+event.target.value === allMonthlyHoursMain[0]) {
       allMonthlyHours[index] = allMonthlyHoursMain.slice()[index];
       // Set Item To Local Storage
       localStorage.setItem(
         'changedMonthly',
         JSON.stringify(allMonthlyHoursMain.slice())
       );
-      localStorage.setItem(className, 0);
+      localStorage.setItem(className, allMonthlyHoursMain[0]);
     } else {
-      allMonthlyHours[index] =
-        allMonthlyHoursMain[index] +
-        +document.querySelector(`.${className}`).value;
+      allMonthlyHours[index] = +event.target.value;
       // Set Item To Local Storage
       localStorage.setItem('changedMonthly', JSON.stringify(allMonthlyHours));
       localStorage.setItem(
@@ -958,7 +1056,6 @@ const cleanAdjustSlider = () => {
     e.preventDefault();
     counter--;
     carousel();
-    console.log(counter);
   });
 
   const carousel = () => {
