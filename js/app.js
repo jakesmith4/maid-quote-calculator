@@ -268,6 +268,7 @@ checkLocalStorage('monthly-clean-adjust-4800-5000');
 
 // Change Deep Hours
 const changeDeepHours = (event, className, index) => {
+  showQuote(event);
   if (event.target.classList.contains(className)) {
     if (+event.target.value === allDeepHoursMain[0]) {
       allDeepHours[index] = allDeepHoursMain.slice()[index];
@@ -292,6 +293,7 @@ const changeDeepHours = (event, className, index) => {
 
 // Change General Hours
 const changeGeneralHours = (event, className, index) => {
+  showQuote(event);
   if (event.target.classList.contains(className)) {
     if (+event.target.value === allGeneralHoursMain[0]) {
       allGeneralHours[index] = allGeneralHoursMain.slice()[index];
@@ -315,6 +317,7 @@ const changeGeneralHours = (event, className, index) => {
 
 // Change Weekly Hours
 const changeWeeklyHours = (event, className, index) => {
+  showQuote(event);
   if (event.target.classList.contains(className)) {
     if (+event.target.value === allWeeklyHoursMain[0]) {
       allWeeklyHours[index] = allWeeklyHoursMain.slice()[index];
@@ -338,6 +341,7 @@ const changeWeeklyHours = (event, className, index) => {
 
 // Change Bi-Weekly Hours
 const changeBiWeeklyHours = (event, className, index) => {
+  showQuote(event);
   if (event.target.classList.contains(className)) {
     if (+event.target.value === allBiWeeklyHoursMain[0]) {
       allbiWeeklyHours[index] = allBiWeeklyHoursMain.slice()[index];
@@ -361,6 +365,7 @@ const changeBiWeeklyHours = (event, className, index) => {
 
 // Change Monthly Hours
 const changeMonthlyHours = (event, className, index) => {
+  showQuote(event);
   if (event.target.classList.contains(className)) {
     if (+event.target.value === allMonthlyHoursMain[0]) {
       allMonthlyHours[index] = allMonthlyHoursMain.slice()[index];
@@ -668,6 +673,9 @@ const showQuote = event => {
   // Show Tax Indicator
   if (!event.target.classList?.contains('change-individual')) {
     showTaxIndicator();
+    changeDisplayOnResize();
+  }
+  if (event.target.classList?.contains('square-foot-select')) {
     // Display Spinner
     displaySpinner();
   }
@@ -1024,6 +1032,7 @@ const displayCurrentQuote = () => {
   singleMonthlyHoursChanged.textContent = `Hours Changed ${currentQuote.monthlyHoursChanged}`;
 
   // Remove Event Listener From Delete Quote Btn
+  // FIXME //
   document
     .querySelector('.delete-quote')
     .removeEventListener('click', deleteQuote);
