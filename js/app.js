@@ -124,6 +124,7 @@ const addOptionDropdowns = (el, hours) => {
       'bg-emerald-500',
       'font-extrabold'
     );
+    select.children[select.selectedIndex].style.background = 'green';
   });
 };
 
