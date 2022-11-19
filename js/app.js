@@ -380,7 +380,6 @@ const showQuote = event => {
 
 // Change Deep Hours
 const changeDeepHours = (event, className, index) => {
-  showQuote(event);
   if (event.target.classList.contains(className)) {
     if (+event.target.value === allDeepHoursMain[0]) {
       allDeepHours[index] = allDeepHoursMain.slice()[index];
@@ -405,7 +404,6 @@ const changeDeepHours = (event, className, index) => {
 
 // Change General Hours
 const changeGeneralHours = (event, className, index) => {
-  showQuote(event);
   if (event.target.classList.contains(className)) {
     if (+event.target.value === allGeneralHoursMain[0]) {
       allGeneralHours[index] = allGeneralHoursMain.slice()[index];
@@ -429,7 +427,6 @@ const changeGeneralHours = (event, className, index) => {
 
 // Change Weekly Hours
 const changeWeeklyHours = (event, className, index) => {
-  showQuote(event);
   if (event.target.classList.contains(className)) {
     if (+event.target.value === allWeeklyHoursMain[0]) {
       allWeeklyHours[index] = allWeeklyHoursMain.slice()[index];
@@ -453,7 +450,6 @@ const changeWeeklyHours = (event, className, index) => {
 
 // Change Bi-Weekly Hours
 const changeBiWeeklyHours = (event, className, index) => {
-  showQuote(event);
   if (event.target.classList.contains(className)) {
     if (+event.target.value === allBiWeeklyHoursMain[0]) {
       allbiWeeklyHours[index] = allBiWeeklyHoursMain.slice()[index];
@@ -477,7 +473,6 @@ const changeBiWeeklyHours = (event, className, index) => {
 
 // Change Monthly Hours
 const changeMonthlyHours = (event, className, index) => {
-  showQuote(event);
   if (event.target.classList.contains(className)) {
     if (+event.target.value === allMonthlyHoursMain[0]) {
       allMonthlyHours[index] = allMonthlyHoursMain.slice()[index];
@@ -581,6 +576,7 @@ const changeHours = e => {
 // Change Hours Depending On What Ajustment Is Made In Settings
 cleanAdjustForm.addEventListener('change', e => {
   changeHours(e);
+  showQuote(e);
 });
 
 // FUNCTIONS //
@@ -810,7 +806,7 @@ cleanAdjustForm.addEventListener('click', e => {
 
     const selectHours = event => {
       changeHours(event);
-      // showQuote(event);
+      showQuote(event);
     };
 
     // Add Event Listener
