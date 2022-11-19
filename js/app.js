@@ -266,6 +266,118 @@ checkLocalStorage('monthly-clean-adjust-4100-4300');
 checkLocalStorage('monthly-clean-adjust-4400-4600');
 checkLocalStorage('monthly-clean-adjust-4800-5000');
 
+const showQuote = event => {
+  // Show Tax Indicator
+  if (!event.target.classList?.contains('change-individual')) {
+    showTaxIndicator();
+    changeDisplayOnResize();
+  }
+  if (event.target.classList?.contains('square-foot-select')) {
+    // Display Spinner
+    displaySpinner();
+  }
+
+  const amountPerHour = +document.getElementById('amount-per-hour').value;
+  const taxRate = +document.getElementById('tax-rate').value;
+  const changeDeep = +document.getElementById('change-hours-deep').value;
+  const changeGeneral = +document.getElementById('change-hours-general').value;
+  const changeWeekly = +document.getElementById('change-hours-weekly').value;
+  const changeBiWeekly = +document.getElementById('change-hours-bi-weekly')
+    .value;
+  const changeMonthly = +document.getElementById('change-hours-monthly').value;
+
+  const taxesDeep = document.querySelector('.taxes-deep');
+  const taxesGeneral = document.querySelector('.taxes-general');
+  const taxesWeekly = document.querySelector('.taxes-weekly');
+  const taxesBiWeekly = document.querySelector('.taxes-bi-weekly');
+  const taxesMonthly = document.querySelector('.taxes-monthly');
+
+  const processedQuotes = processQuotes.bind(
+    processQuotes,
+    changeDeep,
+    changeGeneral,
+    changeWeekly,
+    changeBiWeekly,
+    changeMonthly,
+    amountPerHour,
+    taxRate,
+    taxesDeep,
+    taxesGeneral,
+    taxesWeekly,
+    taxesBiWeekly,
+    taxesMonthly
+  );
+  const processedDisplayChangeIcon = displayChangeIcon.bind(
+    displayChangeIcon,
+    amountPerHour,
+    taxRate
+  );
+
+  // Processed Display Changed Icon
+  processedDisplayChangeIcon(changeDeep, 'change-hours-deep', allDeepHours);
+
+  processedDisplayChangeIcon(
+    changeGeneral,
+    'change-hours-general',
+    allGeneralHours
+  );
+
+  processedDisplayChangeIcon(
+    changeWeekly,
+    'change-hours-weekly',
+    allWeeklyHours
+  );
+
+  processedDisplayChangeIcon(
+    changeBiWeekly,
+    'change-hours-bi-weekly',
+    allbiWeeklyHours
+  );
+
+  processedDisplayChangeIcon(
+    changeMonthly,
+    'change-hours-monthly',
+    allMonthlyHours
+  );
+
+  if (sqFootage.value === '1000-1500') {
+    processedQuotes(0);
+  }
+  if (sqFootage.value === '1600-2000') {
+    processedQuotes(1);
+  }
+  if (sqFootage.value === '2100-2200') {
+    processedQuotes(2);
+  }
+  if (sqFootage.value === '2300-2500') {
+    processedQuotes(3);
+  }
+  if (sqFootage.value === '2600-2800') {
+    processedQuotes(4);
+  }
+  if (sqFootage.value === '2900-3100') {
+    processedQuotes(5);
+  }
+  if (sqFootage.value === '3200-3400') {
+    processedQuotes(6);
+  }
+  if (sqFootage.value === '3500-3700') {
+    processedQuotes(7);
+  }
+  if (sqFootage.value === '3800-4000') {
+    processedQuotes(8);
+  }
+  if (sqFootage.value === '4100-4300') {
+    processedQuotes(9);
+  }
+  if (sqFootage.value === '4400-4600') {
+    processedQuotes(10);
+  }
+  if (sqFootage.value === '4800-5000') {
+    processedQuotes(11);
+  }
+};
+
 // Change Deep Hours
 const changeDeepHours = (event, className, index) => {
   showQuote(event);
@@ -387,8 +499,7 @@ const changeMonthlyHours = (event, className, index) => {
   }
 };
 
-// Change Hours Depending On What Ajustment Is Made In Settings
-cleanAdjustForm.addEventListener('change', e => {
+const changeHours = e => {
   // Change Deep Hours
   changeDeepHours(e, 'deep-clean-adjust-1000-1500', 0);
   changeDeepHours(e, 'deep-clean-adjust-1600-2000', 1);
@@ -458,6 +569,18 @@ cleanAdjustForm.addEventListener('change', e => {
   changeMonthlyHours(e, 'monthly-clean-adjust-4100-4300', 9);
   changeMonthlyHours(e, 'monthly-clean-adjust-4400-4600', 10);
   changeMonthlyHours(e, 'monthly-clean-adjust-4800-5000', 11);
+};
+
+// document.querySelectorAll('.select-adjust').forEach(el => {
+//   el.addEventListener('change', e => {
+//     changeHours(e);
+//     showQuote(e);
+//   });
+// });
+
+// Change Hours Depending On What Ajustment Is Made In Settings
+cleanAdjustForm.addEventListener('change', e => {
+  changeHours(e);
 });
 
 // FUNCTIONS //
@@ -669,118 +792,6 @@ window.onresize = () => {
   changeDisplayOnResize();
 };
 
-const showQuote = event => {
-  // Show Tax Indicator
-  if (!event.target.classList?.contains('change-individual')) {
-    showTaxIndicator();
-    changeDisplayOnResize();
-  }
-  if (event.target.classList?.contains('square-foot-select')) {
-    // Display Spinner
-    displaySpinner();
-  }
-
-  const amountPerHour = +document.getElementById('amount-per-hour').value;
-  const taxRate = +document.getElementById('tax-rate').value;
-  const changeDeep = +document.getElementById('change-hours-deep').value;
-  const changeGeneral = +document.getElementById('change-hours-general').value;
-  const changeWeekly = +document.getElementById('change-hours-weekly').value;
-  const changeBiWeekly = +document.getElementById('change-hours-bi-weekly')
-    .value;
-  const changeMonthly = +document.getElementById('change-hours-monthly').value;
-
-  const taxesDeep = document.querySelector('.taxes-deep');
-  const taxesGeneral = document.querySelector('.taxes-general');
-  const taxesWeekly = document.querySelector('.taxes-weekly');
-  const taxesBiWeekly = document.querySelector('.taxes-bi-weekly');
-  const taxesMonthly = document.querySelector('.taxes-monthly');
-
-  const processedQuotes = processQuotes.bind(
-    processQuotes,
-    changeDeep,
-    changeGeneral,
-    changeWeekly,
-    changeBiWeekly,
-    changeMonthly,
-    amountPerHour,
-    taxRate,
-    taxesDeep,
-    taxesGeneral,
-    taxesWeekly,
-    taxesBiWeekly,
-    taxesMonthly
-  );
-  const processedDisplayChangeIcon = displayChangeIcon.bind(
-    displayChangeIcon,
-    amountPerHour,
-    taxRate
-  );
-
-  // Processed Display Changed Icon
-  processedDisplayChangeIcon(changeDeep, 'change-hours-deep', allDeepHours);
-
-  processedDisplayChangeIcon(
-    changeGeneral,
-    'change-hours-general',
-    allGeneralHours
-  );
-
-  processedDisplayChangeIcon(
-    changeWeekly,
-    'change-hours-weekly',
-    allWeeklyHours
-  );
-
-  processedDisplayChangeIcon(
-    changeBiWeekly,
-    'change-hours-bi-weekly',
-    allbiWeeklyHours
-  );
-
-  processedDisplayChangeIcon(
-    changeMonthly,
-    'change-hours-monthly',
-    allMonthlyHours
-  );
-
-  if (sqFootage.value === '1000-1500') {
-    processedQuotes(0);
-  }
-  if (sqFootage.value === '1600-2000') {
-    processedQuotes(1);
-  }
-  if (sqFootage.value === '2100-2200') {
-    processedQuotes(2);
-  }
-  if (sqFootage.value === '2300-2500') {
-    processedQuotes(3);
-  }
-  if (sqFootage.value === '2600-2800') {
-    processedQuotes(4);
-  }
-  if (sqFootage.value === '2900-3100') {
-    processedQuotes(5);
-  }
-  if (sqFootage.value === '3200-3400') {
-    processedQuotes(6);
-  }
-  if (sqFootage.value === '3500-3700') {
-    processedQuotes(7);
-  }
-  if (sqFootage.value === '3800-4000') {
-    processedQuotes(8);
-  }
-  if (sqFootage.value === '4100-4300') {
-    processedQuotes(9);
-  }
-  if (sqFootage.value === '4400-4600') {
-    processedQuotes(10);
-  }
-  if (sqFootage.value === '4800-5000') {
-    processedQuotes(11);
-  }
-};
-
 // EVENT HANDLERS //
 formControl.addEventListener('change', e => {
   showQuote(e);
@@ -788,6 +799,33 @@ formControl.addEventListener('change', e => {
 
 window.addEventListener('load', e => {
   showQuote(e);
+});
+
+cleanAdjustForm.addEventListener('click', e => {
+  if (e.target.closest('.default-hours-btn')) {
+    e.preventDefault();
+    const currentSelect = e.target
+      .closest('.select-container')
+      .querySelector('.select-adjust');
+
+    const selectHours = event => {
+      changeHours(event);
+      // showQuote(event);
+    };
+
+    // Add Event Listener
+    currentSelect.addEventListener('change', selectHours);
+
+    currentSelect.value = currentSelect.dataset.id;
+    const changeEvent = new Event('change');
+    currentSelect.dispatchEvent(changeEvent, {
+      bubbles: true,
+      cancelable: false,
+    });
+
+    // Remove Event Listener
+    currentSelect.removeEventListener('change', selectHours);
+  }
 });
 
 // THIS SECOND HALF OF CODE DEALS WITH SHOWING ALL MODALS & DISPLAYING ALL THE DATA FOR SAVING QUOTES

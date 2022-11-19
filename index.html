@@ -57,12 +57,12 @@
         <span class="bg-red-600 inline-block px-3 span-tax-text"></span>
       </div>
       <div
-        class="bg-white p-3 shadow-lg rounded-xl w-[80vw] max-w-sm dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
+        class="bg-white p-3 shadow-lg rounded-xl w-[85vw] max-w-md dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
       >
         <div class="px-4 pt-2">
           <div class="flex items-center justify-between border-b-2 mb-4 pb-4">
-            <small class="tracking-widest font-semibold text-xl font-serif"
-              >App Settings</small
+            <span class="tracking-widest font-semibold text-xl font-serif"
+              >App Settings</span
             >
             <button class="close-modal">
               <i
@@ -132,7 +132,7 @@
             </button>
             <!-- All Cleans Adjust Wrapper 1000-1500 -->
             <div
-              class="space-y-4 clean-adjust-slide absolute top-0 left-0 w-full transition-transform duration-300 px-6"
+              class="clean-adjust-slide absolute top-0 left-0 w-full transition-transform duration-300 px-6"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -143,13 +143,21 @@
                 </h2>
                 <!-- Deep Hours Adjust -->
                 <div
-                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between select-container"
                 >
-                  <select
-                    name="deep-clean-adjust-1000-1500"
-                    id="deep-clean-adjust-1000-1500"
-                    class="deep-clean-adjust-1000-1500 select-1 select-adjust bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                  ></select>
+                  <div class="space-x-6 xmd:space-x-2">
+                    <select
+                      name="deep-clean-adjust-1000-1500"
+                      id="deep-clean-adjust-1000-1500"
+                      data-id="6.5"
+                      class="deep-clean-adjust-1000-1500 select-1 select-adjust bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                    ></select>
+                    <button class="default-hours-btn">
+                      <i
+                        class="fa-solid fa-clock-rotate-left default-hours"
+                      ></i>
+                    </button>
+                  </div>
                   <label
                     for="deep-clean-adjust-1000-1500"
                     class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -161,13 +169,19 @@
               <!-- End Of Deep Hours Adjust Wrapper -->
               <!-- General Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between select-container"
               >
-                <select
-                  name="general-clean-adjust-1000-1500"
-                  id="general-clean-adjust-1000-1500"
-                  class="general-clean-adjust-1000-1500 select-2 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="general-clean-adjust-1000-1500"
+                    id="general-clean-adjust-1000-1500"
+                    data-id="4"
+                    class="general-clean-adjust-1000-1500 select-2 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="general-clean-adjust-1000-1500"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -177,13 +191,19 @@
               <!-- End Of General Hours Adjust -->
               <!-- Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between select-container"
               >
-                <select
-                  name="weekly-clean-adjust-1000-1500"
-                  id="weekly-clean-adjust-1000-1500"
-                  class="weekly-clean-adjust-1000-1500 select-3 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="weekly-clean-adjust-1000-1500"
+                    id="weekly-clean-adjust-1000-1500"
+                    data-id="2.5"
+                    class="weekly-clean-adjust-1000-1500 select-3 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="weekly-clean-adjust-1000-1500"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -193,13 +213,19 @@
               <!-- End Of Weekly Hours Adjust -->
               <!-- Bi-Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="bi-weekly-clean-adjust-1000-1500"
-                  id="bi-weekly-clean-adjust-1000-1500"
-                  class="bi-weekly-clean-adjust-1000-1500 select-4 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="bi-weekly-clean-adjust-1000-1500"
+                    id="bi-weekly-clean-adjust-1000-1500"
+                    data-id="3"
+                    class="bi-weekly-clean-adjust-1000-1500 select-4 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="bi-weekly-clean-adjust-1000-1500"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -209,13 +235,19 @@
               <!-- End Of Bi-Weekly Hours Adjust -->
               <!-- Monthly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="monthly-clean-adjust-1000-1500"
-                  id="monthly-clean-adjust-1000-1500"
-                  class="monthly-clean-adjust-1000-1500 select-5 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="monthly-clean-adjust-1000-1500"
+                    id="monthly-clean-adjust-1000-1500"
+                    data-id="3.25"
+                    class="monthly-clean-adjust-1000-1500 select-5 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="monthly-clean-adjust-1000-1500"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -228,7 +260,7 @@
 
             <!-- All Cleans Adjust Wrapper 1600-2000 -->
             <div
-              class="space-y-4 clean-adjust-slide absolute top-0 left-full w-full transition-transform duration-300 px-6"
+              class="clean-adjust-slide absolute top-0 left-full w-full transition-transform duration-300 px-6"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -239,13 +271,21 @@
                 </h2>
                 <!-- Deep Hours Adjust -->
                 <div
-                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
                 >
-                  <select
-                    name="deep-clean-adjust-1600-2000"
-                    id="deep-clean-adjust-1600-2000"
-                    class="deep-clean-adjust-1600-2000 select-1 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                  ></select>
+                  <div class="space-x-6 xmd:space-x-2">
+                    <select
+                      name="deep-clean-adjust-1600-2000"
+                      id="deep-clean-adjust-1600-2000"
+                      data-id="8"
+                      class="deep-clean-adjust-1600-2000 select-1 select-adjust bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                    ></select>
+                    <button class="default-hours-btn">
+                      <i
+                        class="fa-solid fa-clock-rotate-left default-hours"
+                      ></i>
+                    </button>
+                  </div>
                   <label
                     for="deep-clean-adjust-1600-2000"
                     class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -257,13 +297,19 @@
               <!-- End Of Deep Hours Adjust Wrapper -->
               <!-- General Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="general-clean-adjust-1600-2000"
-                  id="general-clean-adjust-1600-2000"
-                  class="general-clean-adjust-1600-2000 select-2 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="general-clean-adjust-1600-2000"
+                    id="general-clean-adjust-1600-2000"
+                    data-id="4.5"
+                    class="general-clean-adjust-1600-2000 select-2 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="general-clean-adjust-1600-2000"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -273,13 +319,19 @@
               <!-- End Of General Hours Adjust -->
               <!-- Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="weekly-clean-adjust-1600-2000"
-                  id="weekly-clean-adjust-1600-2000"
-                  class="weekly-clean-adjust-1600-2000 select-3 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="weekly-clean-adjust-1600-2000"
+                    id="weekly-clean-adjust-1600-2000"
+                    data-id="3"
+                    class="weekly-clean-adjust-1600-2000 select-3 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="weekly-clean-adjust-1600-2000"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -289,13 +341,19 @@
               <!-- End Of Weekly Hours Adjust -->
               <!-- Bi-Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="bi-weekly-clean-adjust-1600-2000"
-                  id="bi-weekly-clean-adjust-1600-2000"
-                  class="bi-weekly-clean-adjust-1600-2000 select-4 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="bi-weekly-clean-adjust-1600-2000"
+                    id="bi-weekly-clean-adjust-1600-2000"
+                    data-id="3.25"
+                    class="bi-weekly-clean-adjust-1600-2000 select-4 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="bi-weekly-clean-adjust-1600-2000"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -305,13 +363,19 @@
               <!-- End Of Bi-Weekly Hours Adjust -->
               <!-- Monthly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="monthly-clean-adjust-1600-2000"
-                  id="monthly-clean-adjust-1600-2000"
-                  class="monthly-clean-adjust-1600-2000 select-5 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="monthly-clean-adjust-1600-2000"
+                    id="monthly-clean-adjust-1600-2000"
+                    data-id="3.5"
+                    class="monthly-clean-adjust-1600-2000 select-5 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="monthly-clean-adjust-1600-2000"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -324,7 +388,7 @@
 
             <!-- All Cleans Adjust Wrapper 2100-2200 -->
             <div
-              class="space-y-4 clean-adjust-slide absolute top-0 left-[200%] w-full transition-transform duration-300 px-6"
+              class="clean-adjust-slide absolute top-0 left-[200%] w-full transition-transform duration-300 px-6"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -335,13 +399,21 @@
                 </h2>
                 <!-- Deep Hours Adjust -->
                 <div
-                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
                 >
-                  <select
-                    name="deep-clean-adjust-2100-2200"
-                    id="deep-clean-adjust-2100-2200"
-                    class="deep-clean-adjust-2100-2200 select-1 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                  ></select>
+                  <div class="space-x-6 xmd:space-x-2">
+                    <select
+                      name="deep-clean-adjust-2100-2200"
+                      id="deep-clean-adjust-2100-2200"
+                      data-id="9.5"
+                      class="deep-clean-adjust-2100-2200 select-1 select-adjust bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                    ></select>
+                    <button class="default-hours-btn">
+                      <i
+                        class="fa-solid fa-clock-rotate-left default-hours"
+                      ></i>
+                    </button>
+                  </div>
                   <label
                     for="deep-clean-adjust-2100-2200"
                     class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -353,13 +425,19 @@
               <!-- End Of Deep Hours Adjust Wrapper -->
               <!-- General Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="general-clean-adjust-2100-2200"
-                  id="general-clean-adjust-2100-2200"
-                  class="general-clean-adjust-2100-2200 select-2 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="general-clean-adjust-2100-2200"
+                    id="general-clean-adjust-2100-2200"
+                    data-id="5"
+                    class="general-clean-adjust-2100-2200 select-2 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="general-clean-adjust-2100-2200"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -369,13 +447,19 @@
               <!-- End Of General Hours Adjust -->
               <!-- Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="weekly-clean-adjust-2100-2200"
-                  id="weekly-clean-adjust-2100-2200"
-                  class="weekly-clean-adjust-2100-2200 select-3 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="weekly-clean-adjust-2100-2200"
+                    id="weekly-clean-adjust-2100-2200"
+                    data-id="3.5"
+                    class="weekly-clean-adjust-2100-2200 select-3 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="weekly-clean-adjust-2100-2200"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -385,13 +469,19 @@
               <!-- End Of Weekly Hours Adjust -->
               <!-- Bi-Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="bi-weekly-clean-adjust-2100-2200"
-                  id="bi-weekly-clean-adjust-2100-2200"
-                  class="bi-weekly-clean-adjust-2100-2200 select-4 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="bi-weekly-clean-adjust-2100-2200"
+                    id="bi-weekly-clean-adjust-2100-2200"
+                    data-id="3.75"
+                    class="bi-weekly-clean-adjust-2100-2200 select-4 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="bi-weekly-clean-adjust-2100-2200"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -401,13 +491,19 @@
               <!-- End Of Bi-Weekly Hours Adjust -->
               <!-- Monthly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="monthly-clean-adjust-2100-2200"
-                  id="monthly-clean-adjust-2100-2200"
-                  class="monthly-clean-adjust-2100-2200 select-5 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="monthly-clean-adjust-2100-2200"
+                    id="monthly-clean-adjust-2100-2200"
+                    data-id="4"
+                    class="monthly-clean-adjust-2100-2200 select-5 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="monthly-clean-adjust-2100-2200"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -420,7 +516,7 @@
 
             <!-- All Cleans Adjust Wrapper 2300-2500 -->
             <div
-              class="space-y-4 clean-adjust-slide absolute top-0 left-[300%] w-full transition-transform duration-300 px-6"
+              class="clean-adjust-slide absolute top-0 left-[300%] w-full transition-transform duration-300 px-6"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -431,13 +527,21 @@
                 </h2>
                 <!-- Deep Hours Adjust -->
                 <div
-                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
                 >
-                  <select
-                    name="deep-clean-adjust-2300-2500"
-                    id="deep-clean-adjust-2300-2500"
-                    class="deep-clean-adjust-2300-2500 select-1 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                  ></select>
+                  <div class="space-x-6 xmd:space-x-2">
+                    <select
+                      name="deep-clean-adjust-2300-2500"
+                      id="deep-clean-adjust-2300-2500"
+                      data-id="10.5"
+                      class="deep-clean-adjust-2300-2500 select-1 select-adjust bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                    ></select>
+                    <button class="default-hours-btn">
+                      <i
+                        class="fa-solid fa-clock-rotate-left default-hours"
+                      ></i>
+                    </button>
+                  </div>
                   <label
                     for="deep-clean-adjust-2300-2500"
                     class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -449,13 +553,19 @@
               <!-- End Of Deep Hours Adjust Wrapper -->
               <!-- General Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="general-clean-adjust-2300-2500"
-                  id="general-clean-adjust-2300-2500"
-                  class="general-clean-adjust-2300-2500 select-2 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="general-clean-adjust-2300-2500"
+                    id="general-clean-adjust-2300-2500"
+                    data-id="5.5"
+                    class="general-clean-adjust-2300-2500 select-2 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="general-clean-adjust-2300-2500"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -465,13 +575,19 @@
               <!-- End Of General Hours Adjust -->
               <!-- Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="weekly-clean-adjust-2300-2500"
-                  id="weekly-clean-adjust-2300-2500"
-                  class="weekly-clean-adjust-2300-2500 select-3 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="weekly-clean-adjust-2300-2500"
+                    id="weekly-clean-adjust-2300-2500"
+                    data-id="3.75"
+                    class="weekly-clean-adjust-2300-2500 select-3 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="weekly-clean-adjust-2300-2500"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -481,13 +597,19 @@
               <!-- End Of Weekly Hours Adjust -->
               <!-- Bi-Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="bi-weekly-clean-adjust-2300-2500"
-                  id="bi-weekly-clean-adjust-2300-2500"
-                  class="bi-weekly-clean-adjust-2300-2500 select-4 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="bi-weekly-clean-adjust-2300-2500"
+                    id="bi-weekly-clean-adjust-2300-2500"
+                    data-id="4"
+                    class="bi-weekly-clean-adjust-2300-2500 select-4 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="bi-weekly-clean-adjust-2300-2500"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -497,13 +619,19 @@
               <!-- End Of Bi-Weekly Hours Adjust -->
               <!-- Monthly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="monthly-clean-adjust-2300-2500"
-                  id="monthly-clean-adjust-2300-2500"
-                  class="monthly-clean-adjust-2300-2500 select-5 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="monthly-clean-adjust-2300-2500"
+                    id="monthly-clean-adjust-2300-2500"
+                    data-id="4.25"
+                    class="monthly-clean-adjust-2300-2500 select-5 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="monthly-clean-adjust-2300-2500"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -516,7 +644,7 @@
 
             <!-- All Cleans Adjust Wrapper 2600-2800 -->
             <div
-              class="space-y-4 clean-adjust-slide absolute top-0 left-[400%] w-full transition-transform duration-300 px-6"
+              class="clean-adjust-slide absolute top-0 left-[400%] w-full transition-transform duration-300 px-6"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -527,13 +655,21 @@
                 </h2>
                 <!-- Deep Hours Adjust -->
                 <div
-                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
                 >
-                  <select
-                    name="deep-clean-adjust-2600-2800"
-                    id="deep-clean-adjust-2600-2800"
-                    class="deep-clean-adjust-2600-2800 select-1 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                  ></select>
+                  <div class="space-x-6 xmd:space-x-2">
+                    <select
+                      name="deep-clean-adjust-2600-2800"
+                      id="deep-clean-adjust-2600-2800"
+                      data-id="11.5"
+                      class="deep-clean-adjust-2600-2800 select-1 select-adjust bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                    ></select>
+                    <button class="default-hours-btn">
+                      <i
+                        class="fa-solid fa-clock-rotate-left default-hours"
+                      ></i>
+                    </button>
+                  </div>
                   <label
                     for="deep-clean-adjust-2600-2800"
                     class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -545,13 +681,19 @@
               <!-- End Of Deep Hours Adjust Wrapper -->
               <!-- General Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="general-clean-adjust-2600-2800"
-                  id="general-clean-adjust-2600-2800"
-                  class="general-clean-adjust-2600-2800 select-2 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="general-clean-adjust-2600-2800"
+                    id="general-clean-adjust-2600-2800"
+                    data-id="6"
+                    class="general-clean-adjust-2600-2800 select-2 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="general-clean-adjust-2600-2800"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -561,13 +703,19 @@
               <!-- End Of General Hours Adjust -->
               <!-- Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="weekly-clean-adjust-2600-2800"
-                  id="weekly-clean-adjust-2600-2800"
-                  class="weekly-clean-adjust-2600-2800 select-3 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="weekly-clean-adjust-2600-2800"
+                    id="weekly-clean-adjust-2600-2800"
+                    data-id="4"
+                    class="weekly-clean-adjust-2600-2800 select-3 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="weekly-clean-adjust-2600-2800"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -577,13 +725,19 @@
               <!-- End Of Weekly Hours Adjust -->
               <!-- Bi-Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="bi-weekly-clean-adjust-2600-2800"
-                  id="bi-weekly-clean-adjust-2600-2800"
-                  class="bi-weekly-clean-adjust-2600-2800 select-4 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="bi-weekly-clean-adjust-2600-2800"
+                    id="bi-weekly-clean-adjust-2600-2800"
+                    data-id="4.25"
+                    class="bi-weekly-clean-adjust-2600-2800 select-4 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="bi-weekly-clean-adjust-2600-2800"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -593,13 +747,19 @@
               <!-- End Of Bi-Weekly Hours Adjust -->
               <!-- Monthly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="monthly-clean-adjust-2600-2800"
-                  id="monthly-clean-adjust-2600-2800"
-                  class="monthly-clean-adjust-2600-2800 select-5 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="monthly-clean-adjust-2600-2800"
+                    id="monthly-clean-adjust-2600-2800"
+                    data-id="4.5"
+                    class="monthly-clean-adjust-2600-2800 select-5 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="monthly-clean-adjust-2600-2800"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -612,7 +772,7 @@
 
             <!-- All Cleans Adjust Wrapper 2900-3100 -->
             <div
-              class="space-y-4 clean-adjust-slide absolute top-0 left-[500%] w-full transition-transform duration-300 px-6"
+              class="clean-adjust-slide absolute top-0 left-[500%] w-full transition-transform duration-300 px-6"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -623,13 +783,21 @@
                 </h2>
                 <!-- Deep Hours Adjust -->
                 <div
-                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
                 >
-                  <select
-                    name="deep-clean-adjust-2900-3100"
-                    id="deep-clean-adjust-2900-3100"
-                    class="deep-clean-adjust-2900-3100 select-1 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                  ></select>
+                  <div class="space-x-6 xmd:space-x-2">
+                    <select
+                      name="deep-clean-adjust-2900-3100"
+                      id="deep-clean-adjust-2900-3100"
+                      data-id="12.5"
+                      class="deep-clean-adjust-2900-3100 select-1 select-adjust bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                    ></select>
+                    <button class="default-hours-btn">
+                      <i
+                        class="fa-solid fa-clock-rotate-left default-hours"
+                      ></i>
+                    </button>
+                  </div>
                   <label
                     for="deep-clean-adjust-2900-3100"
                     class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -641,13 +809,19 @@
               <!-- End Of Deep Hours Adjust Wrapper -->
               <!-- General Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="general-clean-adjust-2900-3100"
-                  id="general-clean-adjust-2900-3100"
-                  class="general-clean-adjust-2900-3100 select-2 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="general-clean-adjust-2900-3100"
+                    id="general-clean-adjust-2900-3100"
+                    data-id="6.5"
+                    class="general-clean-adjust-2900-3100 select-2 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="general-clean-adjust-2900-3100"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -657,13 +831,19 @@
               <!-- End Of General Hours Adjust -->
               <!-- Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="weekly-clean-adjust-2900-3100"
-                  id="weekly-clean-adjust-2900-3100"
-                  class="weekly-clean-adjust-2900-3100 select-3 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="weekly-clean-adjust-2900-3100"
+                    id="weekly-clean-adjust-2900-3100"
+                    data-id="4.25"
+                    class="weekly-clean-adjust-2900-3100 select-3 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="weekly-clean-adjust-2900-3100"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -673,13 +853,19 @@
               <!-- End Of Weekly Hours Adjust -->
               <!-- Bi-Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="bi-weekly-clean-adjust-2900-3100"
-                  id="bi-weekly-clean-adjust-2900-3100"
-                  class="bi-weekly-clean-adjust-2900-3100 select-4 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="bi-weekly-clean-adjust-2900-3100"
+                    id="bi-weekly-clean-adjust-2900-3100"
+                    data-id="4.5"
+                    class="bi-weekly-clean-adjust-2900-3100 select-4 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="bi-weekly-clean-adjust-2900-3100"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -689,13 +875,19 @@
               <!-- End Of Bi-Weekly Hours Adjust -->
               <!-- Monthly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="monthly-clean-adjust-2900-3100"
-                  id="monthly-clean-adjust-2900-3100"
-                  class="monthly-clean-adjust-2900-3100 select-5 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="monthly-clean-adjust-2900-3100"
+                    id="monthly-clean-adjust-2900-3100"
+                    data-id="4.75"
+                    class="monthly-clean-adjust-2900-3100 select-5 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="monthly-clean-adjust-2900-3100"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -708,7 +900,7 @@
 
             <!-- All Cleans Adjust Wrapper 3200-3400 -->
             <div
-              class="space-y-4 clean-adjust-slide absolute top-0 left-[600%] w-full transition-transform duration-300 px-6"
+              class="clean-adjust-slide absolute top-0 left-[600%] w-full transition-transform duration-300 px-6"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -719,13 +911,21 @@
                 </h2>
                 <!-- Deep Hours Adjust -->
                 <div
-                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
                 >
-                  <select
-                    name="deep-clean-adjust-3200-3400"
-                    id="deep-clean-adjust-3200-3400"
-                    class="deep-clean-adjust-3200-3400 select-1 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                  ></select>
+                  <div class="space-x-6 xmd:space-x-2">
+                    <select
+                      name="deep-clean-adjust-3200-3400"
+                      id="deep-clean-adjust-3200-3400"
+                      data-id="13.5"
+                      class="deep-clean-adjust-3200-3400 select-1 select-adjust bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                    ></select>
+                    <button class="default-hours-btn">
+                      <i
+                        class="fa-solid fa-clock-rotate-left default-hours"
+                      ></i>
+                    </button>
+                  </div>
                   <label
                     for="deep-clean-adjust-3200-3400"
                     class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -737,13 +937,19 @@
               <!-- End Of Deep Hours Adjust Wrapper -->
               <!-- General Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="general-clean-adjust-3200-3400"
-                  id="general-clean-adjust-3200-3400"
-                  class="general-clean-adjust-3200-3400 select-2 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="general-clean-adjust-3200-3400"
+                    id="general-clean-adjust-3200-3400"
+                    data-id="7"
+                    class="general-clean-adjust-3200-3400 select-2 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="general-clean-adjust-3200-3400"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -753,13 +959,19 @@
               <!-- End Of General Hours Adjust -->
               <!-- Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="weekly-clean-adjust-3200-3400"
-                  id="weekly-clean-adjust-3200-3400"
-                  class="weekly-clean-adjust-3200-3400 select-3 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="weekly-clean-adjust-3200-3400"
+                    id="weekly-clean-adjust-3200-3400"
+                    data-id="4.5"
+                    class="weekly-clean-adjust-3200-3400 select-3 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="weekly-clean-adjust-3200-3400"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -769,13 +981,19 @@
               <!-- End Of Weekly Hours Adjust -->
               <!-- Bi-Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="bi-weekly-clean-adjust-3200-3400"
-                  id="bi-weekly-clean-adjust-3200-3400"
-                  class="bi-weekly-clean-adjust-3200-3400 select-4 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="bi-weekly-clean-adjust-3200-3400"
+                    id="bi-weekly-clean-adjust-3200-3400"
+                    data-id="4.75"
+                    class="bi-weekly-clean-adjust-3200-3400 select-4 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="bi-weekly-clean-adjust-3200-3400"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -785,13 +1003,19 @@
               <!-- End Of Bi-Weekly Hours Adjust -->
               <!-- Monthly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="monthly-clean-adjust-3200-3400"
-                  id="monthly-clean-adjust-3200-3400"
-                  class="monthly-clean-adjust-3200-3400 select-5 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="monthly-clean-adjust-3200-3400"
+                    id="monthly-clean-adjust-3200-3400"
+                    data-id="5"
+                    class="monthly-clean-adjust-3200-3400 select-5 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="monthly-clean-adjust-3200-3400"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -804,7 +1028,7 @@
 
             <!-- All Cleans Adjust Wrapper 3500-3700 -->
             <div
-              class="space-y-4 clean-adjust-slide absolute top-0 left-[700%] w-full transition-transform duration-300 px-6"
+              class="clean-adjust-slide absolute top-0 left-[700%] w-full transition-transform duration-300 px-6"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -815,13 +1039,21 @@
                 </h2>
                 <!-- Deep Hours Adjust -->
                 <div
-                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
                 >
-                  <select
-                    name="deep-clean-adjust-3500-3700"
-                    id="deep-clean-adjust-3500-3700"
-                    class="deep-clean-adjust-3500-3700 select-1 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                  ></select>
+                  <div class="space-x-6 xmd:space-x-2">
+                    <select
+                      name="deep-clean-adjust-3500-3700"
+                      id="deep-clean-adjust-3500-3700"
+                      data-id="14.5"
+                      class="deep-clean-adjust-3500-3700 select-1 select-adjust bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                    ></select>
+                    <button class="default-hours-btn">
+                      <i
+                        class="fa-solid fa-clock-rotate-left default-hours"
+                      ></i>
+                    </button>
+                  </div>
                   <label
                     for="deep-clean-adjust-3500-3700"
                     class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -833,13 +1065,19 @@
               <!-- End Of Deep Hours Adjust Wrapper -->
               <!-- General Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="general-clean-adjust-3500-3700"
-                  id="general-clean-adjust-3500-3700"
-                  class="general-clean-adjust-3500-3700 select-2 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="general-clean-adjust-3500-3700"
+                    id="general-clean-adjust-3500-3700"
+                    data-id="7.5"
+                    class="general-clean-adjust-3500-3700 select-2 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="general-clean-adjust-3500-3700"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -849,13 +1087,19 @@
               <!-- End Of General Hours Adjust -->
               <!-- Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="weekly-clean-adjust-3500-3700"
-                  id="weekly-clean-adjust-3500-3700"
-                  class="weekly-clean-adjust-3500-3700 select-3 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="weekly-clean-adjust-3500-3700"
+                    id="weekly-clean-adjust-3500-3700"
+                    data-id="4.75"
+                    class="weekly-clean-adjust-3500-3700 select-3 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="weekly-clean-adjust-3500-3700"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -865,13 +1109,19 @@
               <!-- End Of Weekly Hours Adjust -->
               <!-- Bi-Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="bi-weekly-clean-adjust-3500-3700"
-                  id="bi-weekly-clean-adjust-3500-3700"
-                  class="bi-weekly-clean-adjust-3500-3700 select-4 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="bi-weekly-clean-adjust-3500-3700"
+                    id="bi-weekly-clean-adjust-3500-3700"
+                    data-id="5"
+                    class="bi-weekly-clean-adjust-3500-3700 select-4 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="bi-weekly-clean-adjust-3500-3700"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -881,13 +1131,19 @@
               <!-- End Of Bi-Weekly Hours Adjust -->
               <!-- Monthly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="monthly-clean-adjust-3500-3700"
-                  id="monthly-clean-adjust-3500-3700"
-                  class="monthly-clean-adjust-3500-3700 select-5 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="monthly-clean-adjust-3500-3700"
+                    id="monthly-clean-adjust-3500-3700"
+                    data-id="5.25"
+                    class="monthly-clean-adjust-3500-3700 select-5 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="monthly-clean-adjust-3500-3700"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -900,7 +1156,7 @@
 
             <!-- All Cleans Adjust Wrapper 3800-4000 -->
             <div
-              class="space-y-4 clean-adjust-slide absolute top-0 left-[800%] w-full transition-transform duration-300 px-6"
+              class="clean-adjust-slide absolute top-0 left-[800%] w-full transition-transform duration-300 px-6"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -911,13 +1167,21 @@
                 </h2>
                 <!-- Deep Hours Adjust -->
                 <div
-                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
                 >
-                  <select
-                    name="deep-clean-adjust-3800-4000"
-                    id="deep-clean-adjust-3800-4000"
-                    class="deep-clean-adjust-3800-4000 select-1 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                  ></select>
+                  <div class="space-x-6 xmd:space-x-2">
+                    <select
+                      name="deep-clean-adjust-3800-4000"
+                      id="deep-clean-adjust-3800-4000"
+                      data-id="15.5"
+                      class="deep-clean-adjust-3800-4000 select-1 select-adjust bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                    ></select>
+                    <button class="default-hours-btn">
+                      <i
+                        class="fa-solid fa-clock-rotate-left default-hours"
+                      ></i>
+                    </button>
+                  </div>
                   <label
                     for="deep-clean-adjust-3800-4000"
                     class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -929,13 +1193,19 @@
               <!-- End Of Deep Hours Adjust Wrapper -->
               <!-- General Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="general-clean-adjust-3800-4000"
-                  id="general-clean-adjust-3800-4000"
-                  class="general-clean-adjust-3800-4000 select-2 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="general-clean-adjust-3800-4000"
+                    id="general-clean-adjust-3800-4000"
+                    data-id="8"
+                    class="general-clean-adjust-3800-4000 select-2 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="general-clean-adjust-3800-4000"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -945,13 +1215,19 @@
               <!-- End Of General Hours Adjust -->
               <!-- Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="weekly-clean-adjust-3800-4000"
-                  id="weekly-clean-adjust-3800-4000"
-                  class="weekly-clean-adjust-3800-4000 select-3 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="weekly-clean-adjust-3800-4000"
+                    id="weekly-clean-adjust-3800-4000"
+                    data-id="5"
+                    class="weekly-clean-adjust-3800-4000 select-3 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="weekly-clean-adjust-3800-4000"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -961,13 +1237,19 @@
               <!-- End Of Weekly Hours Adjust -->
               <!-- Bi-Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="bi-weekly-clean-adjust-3800-4000"
-                  id="bi-weekly-clean-adjust-3800-4000"
-                  class="bi-weekly-clean-adjust-3800-4000 select-4 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="bi-weekly-clean-adjust-3800-4000"
+                    id="bi-weekly-clean-adjust-3800-4000"
+                    data-id="5.25"
+                    class="bi-weekly-clean-adjust-3800-4000 select-4 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="bi-weekly-clean-adjust-3800-4000"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -977,13 +1259,19 @@
               <!-- End Of Bi-Weekly Hours Adjust -->
               <!-- Monthly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="monthly-clean-adjust-3800-4000"
-                  id="monthly-clean-adjust-3800-4000"
-                  class="monthly-clean-adjust-3800-4000 select-5 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="monthly-clean-adjust-3800-4000"
+                    id="monthly-clean-adjust-3800-4000"
+                    data-id="5.5"
+                    class="monthly-clean-adjust-3800-4000 select-5 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="monthly-clean-adjust-3800-4000"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -996,7 +1284,7 @@
 
             <!-- All Cleans Adjust Wrapper 4100-4300 -->
             <div
-              class="space-y-4 clean-adjust-slide absolute top-0 left-[900%] w-full transition-transform duration-300 px-6"
+              class="clean-adjust-slide absolute top-0 left-[900%] w-full transition-transform duration-300 px-6"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -1007,13 +1295,21 @@
                 </h2>
                 <!-- Deep Hours Adjust -->
                 <div
-                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                  class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
                 >
-                  <select
-                    name="deep-clean-adjust-4100-4300"
-                    id="deep-clean-adjust-4100-4300"
-                    class="deep-clean-adjust-4100-4300 select-1 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                  ></select>
+                  <div class="space-x-6 xmd:space-x-2">
+                    <select
+                      name="deep-clean-adjust-4100-4300"
+                      id="deep-clean-adjust-4100-4300"
+                      data-id="16.5"
+                      class="deep-clean-adjust-4100-4300 select-1 select-adjust bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                    ></select>
+                    <button class="default-hours-btn">
+                      <i
+                        class="fa-solid fa-clock-rotate-left default-hours"
+                      ></i>
+                    </button>
+                  </div>
                   <label
                     for="deep-clean-adjust-4100-4300"
                     class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -1025,13 +1321,19 @@
               <!-- End Of Deep Hours Adjust Wrapper -->
               <!-- General Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="general-clean-adjust-4100-4300"
-                  id="general-clean-adjust-4100-4300"
-                  class="general-clean-adjust-4100-4300 select-2 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="general-clean-adjust-4100-4300"
+                    id="general-clean-adjust-4100-4300"
+                    data-id="8.5"
+                    class="general-clean-adjust-4100-4300 select-2 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="general-clean-adjust-4100-4300"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -1041,13 +1343,19 @@
               <!-- End Of General Hours Adjust -->
               <!-- Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="weekly-clean-adjust-4100-4300"
-                  id="weekly-clean-adjust-4100-4300"
-                  class="weekly-clean-adjust-4100-4300 select-3 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="weekly-clean-adjust-4100-4300"
+                    id="weekly-clean-adjust-4100-4300"
+                    data-id="5.25"
+                    class="weekly-clean-adjust-4100-4300 select-3 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="weekly-clean-adjust-4100-4300"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -1057,13 +1365,19 @@
               <!-- End Of Weekly Hours Adjust -->
               <!-- Bi-Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="bi-weekly-clean-adjust-4100-4300"
-                  id="bi-weekly-clean-adjust-4100-4300"
-                  class="bi-weekly-clean-adjust-4100-4300 select-4 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="bi-weekly-clean-adjust-4100-4300"
+                    id="bi-weekly-clean-adjust-4100-4300"
+                    data-id="5.5"
+                    class="bi-weekly-clean-adjust-4100-4300 select-4 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="bi-weekly-clean-adjust-4100-4300"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -1073,13 +1387,19 @@
               <!-- End Of Bi-Weekly Hours Adjust -->
               <!-- Monthly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="monthly-clean-adjust-4100-4300"
-                  id="monthly-clean-adjust-4100-4300"
-                  class="monthly-clean-adjust-4100-4300 select-5 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="monthly-clean-adjust-4100-4300"
+                    id="monthly-clean-adjust-4100-4300"
+                    data-id="5.75"
+                    class="monthly-clean-adjust-4100-4300 select-5 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="monthly-clean-adjust-4100-4300"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -1092,7 +1412,7 @@
 
             <!-- All Cleans Adjust Wrapper 4400-4600 -->
             <div
-              class="space-y-4 clean-adjust-slide absolute top-0 left-[1000%] w-full transition-transform duration-300 px-6"
+              class="clean-adjust-slide absolute top-0 left-[1000%] w-full transition-transform duration-300 px-6"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -1103,13 +1423,21 @@
                 </h2>
                 <!-- Deep Hours Adjust -->
                 <div
-                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
                 >
-                  <select
-                    name="deep-clean-adjust-4400-4600"
-                    id="deep-clean-adjust-4400-4600"
-                    class="deep-clean-adjust-4400-4600 select-1 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                  ></select>
+                  <div class="space-x-6 xmd:space-x-2">
+                    <select
+                      name="deep-clean-adjust-4400-4600"
+                      id="deep-clean-adjust-4400-4600"
+                      data-id="17.5"
+                      class="deep-clean-adjust-4400-4600 select-1 select-adjust bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                    ></select>
+                    <button class="default-hours-btn">
+                      <i
+                        class="fa-solid fa-clock-rotate-left default-hours"
+                      ></i>
+                    </button>
+                  </div>
                   <label
                     for="deep-clean-adjust-4400-4600"
                     class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -1121,13 +1449,19 @@
               <!-- End Of Deep Hours Adjust Wrapper -->
               <!-- General Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="general-clean-adjust-4400-4600"
-                  id="general-clean-adjust-4400-4600"
-                  class="general-clean-adjust-4400-4600 select-2 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="general-clean-adjust-4400-4600"
+                    id="general-clean-adjust-4400-4600"
+                    data-id="9"
+                    class="general-clean-adjust-4400-4600 select-2 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="general-clean-adjust-4400-4600"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -1137,13 +1471,19 @@
               <!-- End Of General Hours Adjust -->
               <!-- Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="weekly-clean-adjust-4400-4600"
-                  id="weekly-clean-adjust-4400-4600"
-                  class="weekly-clean-adjust-4400-4600 select-3 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="weekly-clean-adjust-4400-4600"
+                    id="weekly-clean-adjust-4400-4600"
+                    data-id="5.5"
+                    class="weekly-clean-adjust-4400-4600 select-3 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="weekly-clean-adjust-4400-4600"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -1153,13 +1493,19 @@
               <!-- End Of Weekly Hours Adjust -->
               <!-- Bi-Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="bi-weekly-clean-adjust-4400-4600"
-                  id="bi-weekly-clean-adjust-4400-4600"
-                  class="bi-weekly-clean-adjust-4400-4600 select-4 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="bi-weekly-clean-adjust-4400-4600"
+                    id="bi-weekly-clean-adjust-4400-4600"
+                    data-id="5.75"
+                    class="bi-weekly-clean-adjust-4400-4600 select-4 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="bi-weekly-clean-adjust-4400-4600"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -1169,13 +1515,19 @@
               <!-- End Of Bi-Weekly Hours Adjust -->
               <!-- Monthly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="monthly-clean-adjust-4400-4600"
-                  id="monthly-clean-adjust-4400-4600"
-                  class="monthly-clean-adjust-4400-4600 select-5 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="monthly-clean-adjust-4400-4600"
+                    id="monthly-clean-adjust-4400-4600"
+                    data-id="6"
+                    class="monthly-clean-adjust-4400-4600 select-5 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="monthly-clean-adjust-4400-4600"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -1188,7 +1540,7 @@
 
             <!-- All Cleans Adjust Wrapper 4800-5000 -->
             <div
-              class="space-y-4 clean-adjust-slide absolute top-0 left-[1100%] w-full transition-transform duration-300 px-6"
+              class="clean-adjust-slide absolute top-0 left-[1100%] w-full transition-transform duration-300 px-6"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -1199,13 +1551,21 @@
                 </h2>
                 <!-- Deep Hours Adjust -->
                 <div
-                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:py-4"
+                  class="border-b-2 border-t-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
                 >
-                  <select
-                    name="deep-clean-adjust-4800-5000"
-                    id="deep-clean-adjust-4800-5000"
-                    class="deep-clean-adjust-4800-5000 select-1 bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                  ></select>
+                  <div class="space-x-6 xmd:space-x-2">
+                    <select
+                      name="deep-clean-adjust-4800-5000"
+                      id="deep-clean-adjust-4800-5000"
+                      data-id="18.5"
+                      class="deep-clean-adjust-4800-5000 select-1 select-adjust bg-neutral-600 font-bold dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                    ></select>
+                    <button class="default-hours-btn">
+                      <i
+                        class="fa-solid fa-clock-rotate-left default-hours"
+                      ></i>
+                    </button>
+                  </div>
                   <label
                     for="deep-clean-adjust-4800-5000"
                     class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -1217,13 +1577,19 @@
               <!-- End Of Deep Hours Adjust Wrapper -->
               <!-- General Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-1 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="general-clean-adjust-4800-5000"
-                  id="general-clean-adjust-4800-5000"
-                  class="general-clean-adjust-4800-5000 select-2 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="general-clean-adjust-4800-5000"
+                    id="general-clean-adjust-4800-5000"
+                    data-id="9.5"
+                    class="general-clean-adjust-4800-5000 select-2 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="general-clean-adjust-4800-5000"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -1233,13 +1599,19 @@
               <!-- End Of General Hours Adjust -->
               <!-- Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="weekly-clean-adjust-4800-5000"
-                  id="weekly-clean-adjust-4800-5000"
-                  class="weekly-clean-adjust-4800-5000 select-3 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="weekly-clean-adjust-4800-5000"
+                    id="weekly-clean-adjust-4800-5000"
+                    data-id="5.75"
+                    class="weekly-clean-adjust-4800-5000 select-3 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="weekly-clean-adjust-4800-5000"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -1249,13 +1621,19 @@
               <!-- End Of Weekly Hours Adjust -->
               <!-- Bi-Weekly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="bi-weekly-clean-adjust-4800-5000"
-                  id="bi-weekly-clean-adjust-4800-5000"
-                  class="bi-weekly-clean-adjust-4800-5000 select-4 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="bi-weekly-clean-adjust-4800-5000"
+                    id="bi-weekly-clean-adjust-4800-5000"
+                    data-id="6"
+                    class="bi-weekly-clean-adjust-4800-5000 select-4 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="bi-weekly-clean-adjust-4800-5000"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
@@ -1265,13 +1643,19 @@
               <!-- End Of Bi-Weekly Hours Adjust -->
               <!-- Monthly Hours Adjust -->
               <div
-                class="border-b-2 pb-2 text-center space-x-2 space-y-2 flex flex-col justify-center items-center xmd:block xmd:space-y-0 xmd:text-left xmd:pb-4"
+                class="border-b-2 py-2 space-x-2 space-y-2 flex flex-col justify-center items-center xmd:flex xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container"
               >
-                <select
-                  name="monthly-clean-adjust-4800-5000"
-                  id="monthly-clean-adjust-4800-5000"
-                  class="monthly-clean-adjust-4800-5000 select-5 font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
-                ></select>
+                <div class="space-x-6 xmd:space-x-2">
+                  <select
+                    name="monthly-clean-adjust-4800-5000"
+                    id="monthly-clean-adjust-4800-5000"
+                    data-id="6.25"
+                    class="monthly-clean-adjust-4800-5000 select-5 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600"
+                  ></select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
                 <label
                   for="monthly-clean-adjust-4800-5000"
                   class="dark:text-white tracking-widest font-semibold text-xs xs:text-sm sm:font-serif"
