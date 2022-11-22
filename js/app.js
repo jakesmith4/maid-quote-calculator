@@ -1107,11 +1107,7 @@ const addListenerToDeleteBtn = () => {
 
 // Show Current Quote On Name Click
 let currentQuote;
-document.addEventListener('click', e => {
-  if (e.target.classList.contains('quote-name')) {
-    console.log('hello world');
-    e.target.focus();
-  }
+document.addEventListener('click', () => {
   const allQuoteNames = document.querySelectorAll('.quote-name');
   allQuoteNames.forEach(quote => {
     quote.addEventListener('click', e => {
@@ -1340,6 +1336,7 @@ filterSelect.addEventListener('change', () => {
     quote => +quote.status === filterSelect.selectedIndex - 1
   );
   filterSelect.blur();
+  savedQuoteModal.focus();
   quoteNamesContainer.innerHTML = '';
   if (filterSelect.selectedIndex === 0) {
     savedQuotes.forEach(quote => {
