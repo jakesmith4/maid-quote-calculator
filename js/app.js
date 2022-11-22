@@ -1139,12 +1139,16 @@ singleInputForm.addEventListener('change', () => {
   localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
 });
 
-// Lose Focus On Input On Keyup
+// Lose Focus On Input On Keyup Event
 singleInputForm.addEventListener('keyup', e => {
-  console.log(e.key);
   if (e.key === 'Enter') {
     e.target.blur();
   }
+});
+
+// Lose Focus On Input On Keyboard Event (FOR MOBILE)
+singleInputForm.addEventListener('focusout', e => {
+  e.target.blur();
 });
 
 // See All Cleans Dropdown
