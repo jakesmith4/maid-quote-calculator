@@ -1148,23 +1148,19 @@ singleInputForm.addEventListener('keyup', e => {
 
 // Lose Focus On Input On Keyboard Event (FOR MOBILE)
 // Connects With Event Listener Below This!!
-// singleInputForm.addEventListener('focusout', e => {
-//   console.log(e.target);
-// });
+singleInputForm.addEventListener('focusout', e => {
+  for (const el of e.target) {
+    el.blur();
+  }
+});
 
 // Lose Focus On Input On Keyboard Closed (ON MOBILE)
 const focusoutEvent = new Event('focusout');
 window.visualViewport.addEventListener('resize', e => {
-  // singleInputForm.dispatchEvent(focusoutEvent, {
-  //   bubbles: true,
-  //   cancelable: false,
-  // });
-  singleEmail.blur();
-  singlePhone.blur();
-  singleAddress.blur();
-  singleCity.blur();
-  singleZipcode.blur();
-  singleNotes.blur();
+  singleInputForm.dispatchEvent(focusoutEvent, {
+    bubbles: true,
+    cancelable: false,
+  });
 });
 
 // See All Cleans Dropdown
