@@ -18,14 +18,10 @@ const monthlyHours = document.querySelector('.monthly-hours');
 // Forms & Inputs
 const formControl = document.querySelector('.form-control');
 const sqFootage = document.getElementById('square-footage');
+const taxRateInput = document.getElementById('tax-rate');
 
 // Change Hours Adjust Elements
 const cleanAdjustForm = document.querySelector('.clean-adjust');
-const select1s = document.querySelectorAll('.select-1');
-const select2s = document.querySelectorAll('.select-2');
-const select3s = document.querySelectorAll('.select-3');
-const select4s = document.querySelectorAll('.select-4');
-const select5s = document.querySelectorAll('.select-5');
 
 // Global State Var
 let flag = true;
@@ -661,6 +657,13 @@ let taxFlag = true;
 // Show Taxes Display Indicator
 const taxesDisplayDom = document.querySelector('.taxes-display');
 const showTaxIndicator = () => {
+  // Display Tax Indicator
+  if (taxRateInput.value === '' || taxRateInput.value === '0') {
+    taxesDisplayDom.style.display = 'none';
+  } else {
+    taxesDisplayDom.style.display = 'inline';
+  }
+  // Change Tax Indicator Text & Background
   if (taxFlag) {
     taxesDisplayDom.style.background = '#059669';
     taxesDisplayDom.textContent = 'Taxes Included In Price';
@@ -700,6 +703,10 @@ window.onresize = () => {
 
 // EVENT HANDLERS //
 formControl.addEventListener('change', e => {
+  showQuote(e);
+});
+
+formControl.addEventListener('input', e => {
   showQuote(e);
 });
 
