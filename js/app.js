@@ -1108,6 +1108,10 @@ const addListenerToDeleteBtn = () => {
 // Show Current Quote On Name Click
 let currentQuote;
 document.addEventListener('click', e => {
+  if (e.target.classList.contains('quote-name')) {
+    console.log('hello world');
+    e.target.focus();
+  }
   const allQuoteNames = document.querySelectorAll('.quote-name');
   allQuoteNames.forEach(quote => {
     quote.addEventListener('click', e => {
