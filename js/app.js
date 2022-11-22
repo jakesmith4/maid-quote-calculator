@@ -1329,6 +1329,9 @@ singleStatus.addEventListener('change', () => {
 const quoteNamesContainer = document.querySelector('.quote-names');
 let savedQuotes;
 
+const savedQuotesModelBox = document.querySelector('.saved-quotes-modal-box');
+console.log(savedQuotesModelBox);
+
 // Filter Quotes
 const filterSelect = document.getElementById('saved-quotes');
 filterSelect.addEventListener('change', () => {
@@ -1336,7 +1339,7 @@ filterSelect.addEventListener('change', () => {
     quote => +quote.status === filterSelect.selectedIndex - 1
   );
   filterSelect.blur();
-  quoteNamesContainer.click();
+  savedQuotesModelBox.click();
   quoteNamesContainer.innerHTML = '';
   if (filterSelect.selectedIndex === 0) {
     savedQuotes.forEach(quote => {
