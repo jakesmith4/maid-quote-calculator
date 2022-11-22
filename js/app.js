@@ -1337,6 +1337,8 @@ filterSelect.addEventListener('change', () => {
   );
   filterSelect.blur();
   savedQuoteModal.focus();
+  const savedQuotesModalBox = document.querySelector('.saved-quotes-modal-box');
+  savedQuotesModalBox.focus();
   quoteNamesContainer.innerHTML = '';
   if (filterSelect.selectedIndex === 0) {
     savedQuotes.forEach(quote => {
