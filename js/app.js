@@ -1069,7 +1069,6 @@ const showAlertMessage = (alertDom, parDom, spanDom, parText, spanText) => {
 const fillSavedQuotesContainer = quoteName => {
   const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}">${quoteName}</a>`;
   quoteNamesContainer.insertAdjacentHTML('beforeend', html);
-  quoteNamesContainer.focus();
 };
 
 // EVENT HANDLERS //
@@ -1337,6 +1336,7 @@ filterSelect.addEventListener('change', () => {
     quote => +quote.status === filterSelect.selectedIndex - 1
   );
   filterSelect.blur();
+  quoteNamesContainer.click();
   quoteNamesContainer.innerHTML = '';
   if (filterSelect.selectedIndex === 0) {
     savedQuotes.forEach(quote => {
