@@ -1157,10 +1157,13 @@ singleInputForm.addEventListener('focusout', e => {
 // Lose Focus On Input On Keyboard Closed (ON MOBILE)
 const focusoutEvent = new Event('focusout');
 window.visualViewport.addEventListener('resize', e => {
-  singleInputForm.dispatchEvent(focusoutEvent, {
-    bubbles: true,
-    cancelable: false,
-  });
+  console.log(window.innerHeight);
+  if (window.innerHeight > 400) {
+    singleInputForm.dispatchEvent(focusoutEvent, {
+      bubbles: true,
+      cancelable: false,
+    });
+  }
 });
 
 // See All Cleans Dropdown
