@@ -1125,7 +1125,7 @@ document.addEventListener('click', e => {
   });
 });
 
-// Update Current Quote Info On Sinlge Input Event Change
+// Update Current Quote Info On Single Input Event Change
 singleInputForm.addEventListener('change', () => {
   // Update Current Quote Info
   currentQuote.email = singleEmail.value;
@@ -1137,6 +1137,14 @@ singleInputForm.addEventListener('change', () => {
 
   // Set Saved Quotes To Local Storage
   localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
+});
+
+// Lose Focus On Input On Keyup
+singleInputForm.addEventListener('keyup', e => {
+  console.log(e.key);
+  if (e.key === 'Enter') {
+    e.target.blur();
+  }
 });
 
 // See All Cleans Dropdown
@@ -1328,6 +1336,7 @@ filterSelect.addEventListener('change', () => {
   const savedQuotes2 = savedQuotes.filter(
     quote => +quote.status === filterSelect.selectedIndex - 1
   );
+  filterSelect.blur();
   quoteNamesContainer.innerHTML = '';
   if (filterSelect.selectedIndex === 0) {
     savedQuotes.forEach(quote => {
