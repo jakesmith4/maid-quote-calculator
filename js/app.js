@@ -1158,7 +1158,7 @@ singleInputForm.addEventListener('focusout', e => {
 const focusoutEvent = new Event('focusout');
 window.visualViewport.addEventListener('resize', e => {
   console.log(window.innerHeight);
-  if (window.innerHeight > 400) {
+  if (window.innerHeight < 700) {
     singleInputForm.dispatchEvent(focusoutEvent, {
       bubbles: true,
       cancelable: false,
