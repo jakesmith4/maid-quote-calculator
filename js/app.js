@@ -27,6 +27,9 @@ const cleanAdjustForm = document.querySelector('.clean-adjust');
 const messageExclamationDom = document.querySelector('.message-exclamation');
 const priceText = document.querySelector('.span-tax-text');
 
+// Counter Var For Clean Adjust Slider
+counter = 0;
+
 // Global State Var
 let flag = true;
 let taxFlag = true;
@@ -258,39 +261,63 @@ const showQuote = event => {
 
   if (sqFootage.value === '1000-1500') {
     processedQuotes(0);
+    counter = 0;
+    carousel();
   }
   if (sqFootage.value === '1600-2000') {
     processedQuotes(1);
+    counter = 1;
+    carousel();
   }
   if (sqFootage.value === '2100-2200') {
     processedQuotes(2);
+    counter = 2;
+    carousel();
   }
   if (sqFootage.value === '2300-2500') {
     processedQuotes(3);
+    counter = 3;
+    carousel();
   }
   if (sqFootage.value === '2600-2800') {
     processedQuotes(4);
+    counter = 4;
+    carousel();
   }
   if (sqFootage.value === '2900-3100') {
     processedQuotes(5);
+    counter = 5;
+    carousel();
   }
   if (sqFootage.value === '3200-3400') {
     processedQuotes(6);
+    counter = 6;
+    carousel();
   }
   if (sqFootage.value === '3500-3700') {
     processedQuotes(7);
+    counter = 7;
+    carousel();
   }
   if (sqFootage.value === '3800-4000') {
     processedQuotes(8);
+    counter = 8;
+    carousel();
   }
   if (sqFootage.value === '4100-4300') {
     processedQuotes(9);
+    counter = 9;
+    carousel();
   }
   if (sqFootage.value === '4400-4600') {
     processedQuotes(10);
+    counter = 10;
+    carousel();
   }
   if (sqFootage.value === '4800-5000') {
     processedQuotes(11);
+    counter = 11;
+    carousel();
   }
 };
 
@@ -482,13 +509,6 @@ const changeHours = e => {
   changeMonthlyHours(e, 'monthly-clean-adjust-4800-5000', 11);
 };
 
-// document.querySelectorAll('.select-adjust').forEach(el => {
-//   el.addEventListener('change', e => {
-//     changeHours(e);
-//     showQuote(e);
-//   });
-// });
-
 // Change Hours Depending On What Ajustment Is Made In Settings
 cleanAdjustForm.addEventListener('change', e => {
   changeHours(e);
@@ -603,9 +623,6 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
   // Remove Change Icons
   const removeChangeIcon = () => {
     icon.classList.add('hidden');
-    // article.classList.remove('border-[#e5e7eb]');
-    // article.classList.add('border-transparent');
-    // article.style.background = '#f8f3f9';
     numIcon.style.background = '';
     numIcon.classList.add('hidden');
   };
@@ -629,6 +646,7 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
     icon.classList.remove('hidden');
     // article.style.background =
     //   'linear-gradient(to bottom right, #f9f7f4, #f6f3f8)';
+    article.classList.add('shadow-lg');
     article.classList.add('border-[#e5e7eb]');
     article.classList.remove('border-transparent');
     numIcon.classList.remove('hidden');
@@ -639,6 +657,7 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
   } else {
     removeChangeIcon();
     article.classList.add('border-transparent');
+    article.classList.remove('shadow-lg');
   }
 
   // Change Back Hours
@@ -650,6 +669,7 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
     if (flag) {
       changeArticleBcg();
     }
+
     calcDisplayQuote(
       article.children[4].children[1],
       article.children[5].children[1],
@@ -1012,9 +1032,21 @@ const cleanAdjustSlides = document.querySelectorAll('.clean-adjust-slide');
 const cleanAdjustNextBtn = document.querySelector('.clean-adjust-next-btn');
 const cleanAdjustPrevBtn = document.querySelector('.clean-adjust-prev-btn');
 
+// Carousel For Clean Adjust Slider
+const carousel = () => {
+  cleanAdjustSlides.forEach(slide => {
+    if (counter === cleanAdjustSlides.length) {
+      counter = 0;
+    }
+    if (counter < 0) {
+      counter = cleanAdjustSlides.length - 1;
+    }
+    slide.style.transform = `translateX(-${counter * 100}%)`;
+  });
+};
+
 // Clean Adjust Slider
 const cleanAdjustSlider = () => {
-  let counter = 0;
   cleanAdjustNextBtn.addEventListener('click', e => {
     e.preventDefault();
     counter++;
@@ -1026,18 +1058,6 @@ const cleanAdjustSlider = () => {
     counter--;
     carousel();
   });
-
-  const carousel = () => {
-    cleanAdjustSlides.forEach(slide => {
-      if (counter === cleanAdjustSlides.length) {
-        counter = 0;
-      }
-      if (counter < 0) {
-        counter = cleanAdjustSlides.length - 1;
-      }
-      slide.style.transform = `translateX(-${counter * 100}%)`;
-    });
-  };
 };
 cleanAdjustSlider();
 
