@@ -23,8 +23,12 @@ const taxRateInput = document.getElementById('tax-rate');
 // Change Hours Adjust Elements
 const cleanAdjustForm = document.querySelector('.clean-adjust');
 
+// Alert Message Vars
+const messageExclamationDom = document.querySelector('.message-exclamation');
+
 // Global State Var
 let flag = true;
+let taxFlag = true;
 
 // Add Option Dropdowns
 // const addOptionDropdowns = (el, hours) => {
@@ -653,7 +657,6 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
   });
 };
 
-let taxFlag = true;
 // Show Taxes Display Indicator
 const taxesDisplayDom = document.querySelector('.taxes-display');
 const showTaxIndicator = () => {
@@ -1060,11 +1063,14 @@ carouselSlider();
 
 // Show Alert Message
 const showAlertMessage = (alertDom, parDom, spanDom, parText, spanText) => {
+  // Show Alert Message
   alertDom.classList.remove('opacity-0');
   alertDom.classList.remove('hidden');
   alertDom.classList.add('opacity-1');
   parDom.textContent = parText;
   spanDom.textContent = spanText;
+
+  // Hide Alert Message After 4 Seconds
   setTimeout(() => {
     alertDom.classList.remove('opacity-1');
     alertDom.classList.add('opacity-0');
@@ -1189,25 +1195,32 @@ const showAlertMessageBinded = showAlertMessage.bind(
   document.querySelector('.span-tax-text')
 );
 
-toggleTaxEl.addEventListener('click', () => {
+toggleTaxEl.addEventListener('click', e => {
   toggleTaxEl.children[0].classList.toggle('translate-x-6');
   if (toggleTaxEl.classList.contains('bg-green-700')) {
     // Show Alert Message
-    showAlertMessageBinded(
-      'Tax will be Removed from price on next quote given',
-      'Taxes Removed'
-    );
+    showAlertMessageBinded('Taxes Removed From Prices');
+
+    // Change Color Of Exclamation Background
+    messageExclamationDom.classList.add('bg-red-500');
+    messageExclamationDom.classList.remove('bg-emerald-500');
+
+    // Change Color Of Tax Toggle Switch Background
     toggleTaxEl.classList.remove('bg-green-700');
     toggleTaxEl.classList.add('bg-gray-500');
   } else {
     // Show Alert Message
-    showAlertMessageBinded(
-      'Tax will be Added to price on next quote given',
-      'Taxes added'
-    );
+    showAlertMessageBinded('Taxes Added To Prices');
+
+    // Change Color Of Exclamation Background
+    messageExclamationDom.classList.remove('bg-red-500');
+    messageExclamationDom.classList.add('bg-emerald-500');
+
+    // Change Color Of Tax Toggle Switch Background
     toggleTaxEl.classList.add('bg-green-700');
   }
   taxFlag = !taxFlag;
+  showQuote(e);
 });
 
 // Display Save Quote Modal
