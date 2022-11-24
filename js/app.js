@@ -25,6 +25,7 @@ const cleanAdjustForm = document.querySelector('.clean-adjust');
 
 // Alert Message Vars
 const messageExclamationDom = document.querySelector('.message-exclamation');
+const priceText = document.querySelector('.span-tax-text');
 
 // Global State Var
 let flag = true;
@@ -1199,7 +1200,11 @@ toggleTaxEl.addEventListener('click', e => {
   toggleTaxEl.children[0].classList.toggle('translate-x-6');
   if (toggleTaxEl.classList.contains('bg-green-700')) {
     // Show Alert Message
-    showAlertMessageBinded('Taxes Removed From Prices');
+    showAlertMessageBinded('Taxes Removed From', 'Price');
+
+    // Change Color Of Price Background
+    priceText.classList.add('bg-red-500');
+    priceText.classList.remove('bg-emerald-500');
 
     // Change Color Of Exclamation Background
     messageExclamationDom.classList.add('bg-red-500');
@@ -1210,7 +1215,11 @@ toggleTaxEl.addEventListener('click', e => {
     toggleTaxEl.classList.add('bg-gray-500');
   } else {
     // Show Alert Message
-    showAlertMessageBinded('Taxes Added To Prices');
+    showAlertMessageBinded('Taxes Added To', 'Price');
+
+    // Change Color Of Price Background
+    priceText.classList.add('bg-emerald-500');
+    priceText.classList.remove('bg-red-500');
 
     // Change Color Of Exclamation Background
     messageExclamationDom.classList.remove('bg-red-500');
