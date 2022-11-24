@@ -31,6 +31,11 @@ const priceText = document.querySelector('.span-tax-text');
 let flag = true;
 let taxFlag = true;
 
+// Check Local Storage To Add Taxes Or Not
+if (localStorage.getItem('taxFlag')) {
+  taxFlag = JSON.parse(localStorage.getItem('taxFlag'));
+}
+
 // Add Option Dropdowns
 // const addOptionDropdowns = (el, hours) => {
 //   el.forEach((select, i) => {
@@ -1196,6 +1201,17 @@ const showAlertMessageBinded = showAlertMessage.bind(
   document.querySelector('.span-tax-text')
 );
 
+// Change Toggle Tax Switch On Or Off Depending On Local Storage
+if (taxFlag) {
+  toggleTaxEl.children[0].classList.add('translate-x-6');
+  toggleTaxEl.classList.add('bg-green-700');
+  toggleTaxEl.classList.remove('bg-gray-500');
+} else {
+  toggleTaxEl.children[0].classList.remove('translate-x-6');
+  toggleTaxEl.classList.add('bg-gray-500');
+  toggleTaxEl.classList.remove('bg-green-700');
+}
+
 toggleTaxEl.addEventListener('click', e => {
   toggleTaxEl.children[0].classList.toggle('translate-x-6');
   if (toggleTaxEl.classList.contains('bg-green-700')) {
@@ -1229,6 +1245,7 @@ toggleTaxEl.addEventListener('click', e => {
     toggleTaxEl.classList.add('bg-green-700');
   }
   taxFlag = !taxFlag;
+  localStorage.setItem('taxFlag', taxFlag);
   showQuote(e);
 });
 
