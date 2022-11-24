@@ -841,11 +841,18 @@ const html = document.documentElement;
 // Close Modal
 const closeModalFunc = modal => {
   modal.addEventListener('click', e => {
+    // Close Modal And Return To Home Screen
     if (e.target.classList.contains('close')) {
       modal.classList.add('invisible');
       modal.classList.add('hidden');
       modal.classList.remove('flex');
       html.classList.remove('overflow-y-hidden');
+    }
+
+    // Close App Settings Alert On Close Icon Click
+    if (e.target.classList.contains('close-alert')) {
+      const alertTaxDom = document.querySelector('.alert-tax');
+      alertTaxDom.classList.add('hidden', 'opacity-0');
     }
   });
 };
