@@ -1175,20 +1175,54 @@ seeCleans.addEventListener('click', () => {
 // Toggle Dark Functionality
 // Dark flag is used as a state variable (in this toggleDark function) to toggle dark mode on and off
 let darkFlag = true;
+
+// If Darkflag Is Stored In Local Storage, Assign The Value
+if (localStorage.getItem('darkFlag')) {
+  darkFlag = JSON.parse(localStorage.getItem('darkFlag'));
+}
+
+// Toggler Vars
 const toggler = document.querySelector('.toggler');
 const sunIcon = document.querySelector('.sun');
 const moonIcon = document.querySelector('.moon');
 
+// Change Darkflag Toggler Button Color & Icon Depending What Is In Local Storage
+if (darkFlag) {
+  moonIcon.classList.add('hidden');
+  sunIcon.classList.remove('hidden');
+  toggler.classList.add('bg-gray-500');
+  toggler.classList.remove('bg-green-700');
+  html.classList.remove('dark');
+} else {
+  sunIcon.classList.add('hidden');
+  moonIcon.classList.remove('hidden');
+  toggler.classList.add('bg-green-700');
+  toggler.classList.remove('bg-gray-500');
+  html.classList.add('dark');
+}
+
 // Toggle Dark Mode
 toggler.addEventListener('click', () => {
+  // Toggle Sun & Moon Icon
   sunIcon.classList.toggle('hidden');
   moonIcon.classList.toggle('hidden');
+
+  // Toggle Dark Toggler Background From Gray To Green
+  toggler.classList.toggle('bg-green-700');
+  toggler.classList.toggle('bg-gray-500');
+
+  // Add Or Remove Dark Class From HTML Element
   if (darkFlag) {
     html.classList.add('dark');
   } else {
     html.classList.remove('dark');
   }
+
+  // Change Darkflag
   darkFlag = !darkFlag;
+
+  // Add Darkflag Status To Local Storage
+  localStorage.setItem('darkFlag', darkFlag);
 });
 
 // Toggler Tax
