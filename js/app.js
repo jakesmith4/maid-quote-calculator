@@ -1095,7 +1095,15 @@ const carouselSlider = () => {
 carouselSlider();
 
 // Show Alert Message
+let alertTimer;
 const showAlertMessage = (alertDom, parDom, spanDom, parText, spanText) => {
+  // Declare Remove Alert Message Function
+  const removeAlertMessage = () => {
+    alertDom.classList.remove('opacity-1');
+    alertDom.classList.add('opacity-0');
+    alertDom.classList.add('hidden');
+  };
+
   // Show Alert Message
   alertDom.classList.remove('opacity-0');
   alertDom.classList.remove('hidden');
@@ -1103,12 +1111,12 @@ const showAlertMessage = (alertDom, parDom, spanDom, parText, spanText) => {
   parDom.textContent = parText;
   spanDom.textContent = spanText;
 
-  // Hide Alert Message After 4 Seconds
-  setTimeout(() => {
-    alertDom.classList.remove('opacity-1');
-    alertDom.classList.add('opacity-0');
-    alertDom.classList.add('hidden');
-  }, 4000);
+  // Clear Alert Message Timer
+  clearTimeout(alertTimer);
+
+  // Add Alert Message Timer (setTimeout)
+  // Hides Message After 4 Seconds
+  alertTimer = setTimeout(removeAlertMessage, 4000);
 };
 
 // Fill QuotesNamesContainer Function
@@ -1277,7 +1285,7 @@ toggleTaxEl.addEventListener('click', e => {
   toggleTaxEl.children[0].classList.toggle('translate-x-6');
   if (toggleTaxEl.classList.contains('bg-green-700')) {
     // Show Alert Message
-    showAlertMessageBinded('Taxes Removed From', 'Price');
+    showAlertMessageBinded('Taxes Removed From Total', 'Price');
 
     // Change Color Of Price Background
     priceText.classList.add('bg-red-500');
@@ -1292,7 +1300,7 @@ toggleTaxEl.addEventListener('click', e => {
     toggleTaxEl.classList.add('bg-gray-500');
   } else {
     // Show Alert Message
-    showAlertMessageBinded('Taxes Added To', 'Price');
+    showAlertMessageBinded('Taxes Included In Total', 'Price');
 
     // Change Color Of Price Background
     priceText.classList.add('bg-emerald-500');
