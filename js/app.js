@@ -794,6 +794,7 @@ const singleHours = document.querySelector('.single-hours');
 const singleHoursChanged = document.querySelector('.single-hours-changed');
 const cleanType = document.querySelector('.clean-type');
 const squareFootVal = document.querySelector('.square-foot-val');
+const taxIncluded = document.querySelector('.tax-included');
 const singleTaxes = document.querySelector('.single-taxes');
 const singleEmail = document.getElementById('single-email');
 const singlePhone = document.getElementById('single-phone');
@@ -969,11 +970,20 @@ const displayCurrentQuote = () => {
   // Set Heading As Name
   showQuoteHeading.textContent = currentQuote.name;
   // Set All Main Content
+  singleHoursChanged.textContent = `Hours Changed ${currentQuote.hoursChanged}`;
   amountPerHour.textContent = `$${currentQuote.amountPerHour} per hour`;
   singleTaxRate.textContent = `${currentQuote.taxRate}% tax rate`;
   cleanType.textContent = currentQuote.clean;
   squareFootVal.textContent = `${currentQuote.squareFootage} Sq foot`;
-  singleHoursChanged.textContent = `Hours Changed ${currentQuote.hoursChanged}`;
+
+  // If Taxes Are Over 0: Include A String Indicating If Taxes Are Included In Price Or Not
+  if (+currentQuote.taxes.slice(1) > 0) {
+    taxIncluded.textContent = `Taxes ${
+      currentQuote.taxesAddedToPrice ? 'Included' : 'NOT Included'
+    } In Price`;
+  } else {
+    taxIncluded.textContent = '';
+  }
 
   // Set All Price Content
   singlePrice.textContent = currentQuote.price;
@@ -1168,22 +1178,24 @@ const addListenerToDeleteBtn = () => {
 
 // Show Current Quote On Name Click
 let currentQuote;
-document.addEventListener('click', () => {
-  const allQuoteNames = document.querySelectorAll('.quote-name');
-  allQuoteNames.forEach(quote => {
-    quote.addEventListener('click', e => {
-      currentQuote = savedQuotes.find(
-        quote => quote.name === e.target.textContent
-      );
-      showQuoteModal.classList.remove('invisible');
-      showQuoteModal.classList.remove('hidden');
-      showQuoteModal.classList.add('flex');
-      if (!savedQuoteModal.classList.contains('invisible')) {
-        savedQuoteModal.classList.add('invisible');
-      }
-      displayCurrentQuote();
-    });
-  });
+document.addEventListener('click', e => {
+  // Guard Cause
+  // If Current Clicked Element Is Not A Proper Link Stop Here!
+  if (!e.target.classList.contains('quote-name')) return;
+
+  // Assign Current Quote
+  currentQuote = savedQuotes.find(quote => quote.name === e.target.textContent);
+
+  // Display Show Quote Modal
+  showQuoteModal.classList.remove('invisible');
+  showQuoteModal.classList.remove('hidden');
+  showQuoteModal.classList.add('flex');
+  if (!savedQuoteModal.classList.contains('invisible')) {
+    savedQuoteModal.classList.add('invisible');
+  }
+
+  // Display Current Quote
+  displayCurrentQuote();
 });
 
 // Update Current Quote Info On Single Input Event Change
@@ -1607,6 +1619,7 @@ saveQuoteForm.addEventListener('submit', e => {
       biWeeklyHoursChanged: `${biWeeklyHoursChanged}`,
       weeklyHoursChanged: `${weeklyHoursChanged}`,
       monthlyHoursChanged: `${monthlyHoursChanged}`,
+      taxesAddedToPrice: taxFlag,
     });
 
     // Add Newley Created Quote To SavedQuotesContainer Modal
