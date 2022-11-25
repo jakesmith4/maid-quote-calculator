@@ -5946,33 +5946,43 @@
             <div class="text-center">
               <label
                 for="amount-per-hour"
-                class="capitalize text-2xl font-semibold inline-block"
+                class="capitalize text-2xl font-semibold inline-block cursor-pointer"
               >
                 amount per hour
               </label>
-              <input
-                type="number"
-                id="amount-per-hour"
-                class="py-2 px-4 border-2 block mx-auto my-4 font-serif w-20 focus:outline-emerald-600 dark:bg-emerald-700 dark:focus:outline-white"
-                value="38"
-              />
+              <!-- Amount Per Hour Time User Wrapper -->
+              <div class="flex items-center justify-center gap-2">
+                <input
+                  type="number"
+                  id="amount-per-hour"
+                  class="py-2 px-4 border-2 block my-4 font-serif w-20 focus:outline-emerald-600 dark:bg-emerald-700 dark:focus:outline-white"
+                  value="38"
+                />
+                <span><i class="fa-solid fa-user-clock text-xl"></i></span>
+              </div>
+              <!-- Amount Per Hour Time User Wrapper -->
             </div>
             <!-- End Of Amount Per Hour Input -->
             <!-- Tax Rate Input -->
             <div class="text-center">
               <label
                 for="tax-rate"
-                class="capitalize text-2xl font-semibold text-center inline-block"
+                class="capitalize text-2xl font-semibold text-center inline-block cursor-pointer"
               >
                 tax rate
               </label>
-              <input
-                type="number"
-                id="tax-rate"
-                class="py-2 px-4 border-2 block mx-auto my-4 font-serif w-24 focus:outline-emerald-600 dark:bg-emerald-700 dark:focus:outline-white"
-                value="0"
-                step=".01"
-              />
+              <!-- Tax Rate Percentage Wrapper -->
+              <div class="flex items-center justify-center gap-2">
+                <input
+                  type="number"
+                  id="tax-rate"
+                  class="py-2 px-4 border-2 block my-4 font-serif w-24 focus:outline-emerald-600 dark:bg-emerald-700 dark:focus:outline-white"
+                  value="0"
+                  step=".01"
+                />
+                <span><i class="fa-solid fa-percent text-xl"></i></span>
+              </div>
+              <!-- End Of Tax Rate Percentage Wrapper -->
             </div>
             <!-- End Of Tax Rate Input -->
           </div>
