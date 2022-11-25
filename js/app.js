@@ -26,6 +26,8 @@ const cleanAdjustForm = document.querySelector('.clean-adjust');
 // Alert Message Vars
 const messageExclamationDom = document.querySelector('.message-exclamation');
 const priceText = document.querySelector('.span-tax-text');
+const alertTaxDom = document.querySelector('.alert-tax');
+const alertSavingForm = document.querySelector('.alert-saving-form');
 
 // Counter Var For Clean Adjust Slider
 counter = 0;
@@ -849,10 +851,15 @@ const closeModalFunc = modal => {
       html.classList.remove('overflow-y-hidden');
     }
 
-    // Close App Settings Alert On Close Icon Click
+    // Close Alerts On Close Icon Click
     if (e.target.classList.contains('close-alert')) {
-      const alertTaxDom = document.querySelector('.alert-tax');
+      // Close Tax Alert Message On Close Btn Click
       alertTaxDom.classList.add('hidden', 'opacity-0');
+    }
+
+    if (e.target.classList.contains('close-save-alert')) {
+      // Close Save Quote Alert Message On Close Btn Click
+      alertSavingForm.classList.add('hidden', 'opacity-0');
     }
   });
 };
