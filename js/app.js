@@ -968,7 +968,7 @@ const statusGrey = document.querySelector('.status-grey');
 // Display Current Quote
 const displayCurrentQuote = () => {
   // Set Heading As Name
-  showQuoteHeading.textContent = currentQuote.name;
+  showQuoteHeading.value = currentQuote.name;
   // Set All Main Content
   singleHoursChanged.textContent = `Hours Changed ${currentQuote.hoursChanged}`;
   amountPerHour.textContent = `$${currentQuote.amountPerHour} per hour`;
@@ -998,6 +998,7 @@ const displayCurrentQuote = () => {
   singleZipcode.value = currentQuote.zipCode;
   singleNotes.value = currentQuote.specialNotes;
   singleStatus.selectedIndex = currentQuote.status;
+  showQuoteHeading.value = currentQuote.name;
 
   // Set Other Quotes Info
   // Deep
@@ -1199,7 +1200,7 @@ document.addEventListener('click', e => {
 });
 
 // Update Current Quote Info On Single Input Event Change
-singleInputForm.addEventListener('change', () => {
+singleInputForm.addEventListener('input', () => {
   // Update Current Quote Info
   currentQuote.email = singleEmail.value;
   currentQuote.phoneNumber = singlePhone.value;
@@ -1207,6 +1208,28 @@ singleInputForm.addEventListener('change', () => {
   currentQuote.city = singleCity.value;
   currentQuote.zipCode = singleZipcode.value;
   currentQuote.specialNotes = singleNotes.value;
+
+  // Set Saved Quotes To Local Storage
+  localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
+});
+
+// Update Current Quote Name On Name Input Event Change
+showQuoteHeading.addEventListener('input', () => {
+  // Get The Index Of The Current Link
+  const currentName = [...quoteNamesContainer.children].findIndex(
+    el => el.textContent === currentQuote.name
+  );
+
+  const currentElement = quoteNamesContainer.children[currentName];
+
+  // Assign New Current Quote Name Property To The Current Input Value
+  currentQuote.name = showQuoteHeading.value;
+
+  // Assign New Current Quote Data Id To The Current Element
+  currentElement.dataset.id = currentQuote.name;
+
+  // Update The Current Quote Name In The Saved Quotes Modal
+  currentElement.textContent = currentQuote.name;
 
   // Set Saved Quotes To Local Storage
   localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
