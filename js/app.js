@@ -1384,7 +1384,7 @@ saveQuoteBtns.forEach(btn => {
     hours = article.querySelector('.hours').textContent;
 
     // Store Cleanining Type Into Var
-    clean = article.querySelector('.cleaning-type').textContent;
+    clean = article.querySelector('.cleaning-type').dataset.id;
 
     // Store Taxes Into Var
     taxes = article.querySelector('.tax-number').textContent;
@@ -1597,7 +1597,7 @@ saveQuoteForm.addEventListener('submit', e => {
       price: `${price}`,
       hours: `${hours}`,
       taxes: `${taxes}`,
-      clean: `${clean}`,
+      clean: clean,
       hoursChanged: `${hoursChanged}`,
       squareFootage: `${squareFootSelect.value}`,
       amountPerHour: `${amountPerHour.value}`,
