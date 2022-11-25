@@ -687,7 +687,7 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
 const taxesDisplayDom = document.querySelector('.taxes-display');
 const showTaxIndicator = () => {
   // Display Tax Indicator
-  if (taxRateInput.value === '' || taxRateInput.value === '0') {
+  if (+taxRateInput.value <= 0) {
     taxesDisplayDom.style.display = 'none';
   } else {
     taxesDisplayDom.style.display = 'inline';
