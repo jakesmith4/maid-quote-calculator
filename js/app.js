@@ -639,8 +639,10 @@ const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
   // Add Or Remove Tax Element
   if (tax > 0) {
     taxElementContainer.classList.remove('hidden');
+    taxElementContainer.classList.add('flex');
   } else {
     taxElementContainer.classList.add('hidden');
+    taxElementContainer.classList.remove('flex');
   }
 
   // Add Change Icons
