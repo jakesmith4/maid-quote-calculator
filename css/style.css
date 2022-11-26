@@ -888,6 +888,14 @@ video {
   height: 100%;
 }
 
+.h-\[250px\] {
+  height: 250px;
+}
+
+.h-\[260px\] {
+  height: 260px;
+}
+
 .max-h-\[98vh\] {
   max-height: 98vh;
 }
@@ -1833,6 +1841,10 @@ video {
     height: 178px;
   }
 
+  .xs\:h-auto {
+    height: auto;
+  }
+
   .xs\:w-3\/4 {
     width: 75%;
   }
@@ -2019,6 +2031,10 @@ video {
 
   .md\:h-\[250px\] {
     height: 250px;
+  }
+
+  .md\:h-\[188px\] {
+    height: 188px;
   }
 
   .md\:w-36 {
