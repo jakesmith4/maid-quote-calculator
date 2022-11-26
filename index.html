@@ -5337,7 +5337,7 @@
       class="modal-show bg-black bg-opacity-70 h-full fixed top-0 left-0 w-full backdrop-blur-sm hidden items-center justify-center invisible"
     >
       <div
-        class="bg-white p-3 shadow-lg rounded-xl rounded-tr-none rounded-br-none w-[80vw] max-w-sm max-h-[95vh] border-2 border-white overflow-y-scroll dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white sm:max-w-2xl md:max-w-5xl"
+        class="bg-white p-3 shadow-lg rounded-xl rounded-tr-none rounded-br-none w-[80vw] max-w-sm max-h-[95vh] border-2 border-none overflow-y-scroll dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white dark:border-white sm:max-w-2xl md:max-w-5xl"
       >
         <div class="p-2">
           <!-- Quote Heading -->
@@ -5363,7 +5363,7 @@
           <!-- Quote Info -->
           <div class="quote-info sm:grid grid-cols-2 gap-6">
             <!-- First Item -->
-            <article class="row-span-1 sm:border-4 border-white sm:p-4">
+            <article class="row-span-1 sm:border-4 border-black sm:p-4 dark:border-white">
               <h3 class="text-center text-4xl font-bold p-1">Quote Info</h3>
               <!-- Hours Changed -->
               <span
@@ -5446,9 +5446,11 @@
               <!-- Single Input Form -->
             </article>
             <form
-              class="single-input-form row-span-2 sm:border-4 border-white sm:p-4"
+              class="single-input-form row-span-2 sm:border-4 border-black sm:p-4 dark:border-white"
             >
-              <h3 class="text-center text-4xl font-bold p-1 bg-emerald-700">
+              <h3
+                class="text-center text-4xl text-white font-bold p-1 bg-emerald-700"
+              >
                 Client Info
               </h3>
               <!-- Email -->
@@ -5536,8 +5538,12 @@
 
             <!-- Status -->
             <!-- 3rd Item -->
-            <article class="sm:-mt-25 sm:border-4 border-white sm:p-4">
-              <h3 class="text-center text-2xl font-bold p-1 bg-emerald-700">
+            <article
+              class="sm:-mt-25 sm:border-4 border-black sm:p-4 dark:border-white"
+            >
+              <h3
+                class="text-center text-white text-2xl font-bold p-1 bg-emerald-700"
+              >
                 Status & Other Quotes
               </h3>
               <h3 class="text-center font-semibold tracking-widest">Status</h3>
