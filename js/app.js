@@ -19,6 +19,7 @@ const monthlyHours = document.querySelector('.monthly-hours');
 const formControl = document.querySelector('.form-control');
 const sqFootage = document.getElementById('square-footage');
 const taxRateInput = document.getElementById('tax-rate');
+const inputPerHour = document.getElementById('amount-per-hour');
 
 // Change Hours Adjust Elements
 const cleanAdjustForm = document.querySelector('.clean-adjust');
@@ -39,6 +40,15 @@ let taxFlag = true;
 // Check Local Storage To Add Taxes Or Not
 if (localStorage.getItem('taxFlag')) {
   taxFlag = JSON.parse(localStorage.getItem('taxFlag'));
+}
+
+// Check Local Storage To Restore User Input Data
+if (localStorage.getItem('inputPerHour')) {
+  // Set Input Per Hour To User Data
+  inputPerHour.value = localStorage.getItem('inputPerHour');
+
+  // Set Input Tax Rate To User Data
+  taxRateInput.value = localStorage.getItem('taxRateInput');
 }
 
 // Add Option Dropdowns
@@ -112,8 +122,6 @@ const checkLocalStorage = className => {
   if (localStorage.getItem(className)) {
     document.querySelector(`.${className}`).value =
       localStorage.getItem(className);
-  } else {
-    // document.querySelector(`.${className}`).value = '0';
   }
 };
 
@@ -607,6 +615,9 @@ const processQuotes = (
     hoursMonthly,
     taxMonthly
   );
+
+  // Add Current User Input Data To Local Storage
+  setUserDataToLocalStorage();
 };
 
 const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
@@ -729,15 +740,24 @@ const displaySpinner = () => {
   }, 1000);
 };
 
+// Add Amount Per Hour & Tax Rate To Local Storage
+const setUserDataToLocalStorage = () => {
+  // Set User Input Per Hour To Local Storage
+  localStorage.setItem('inputPerHour', inputPerHour.value);
+
+  // Set User Input Tax Rate To Local Storage
+  localStorage.setItem('taxRateInput', taxRateInput.value);
+};
+
 // Change Quotes Container Display On Browser Resize
 window.onresize = () => {
   changeDisplayOnResize();
 };
 
 // EVENT HANDLERS //
-formControl.addEventListener('change', e => {
-  showQuote(e);
-});
+// formControl.addEventListener('change', e => {
+//   showQuote(e);
+// });
 
 formControl.addEventListener('input', e => {
   showQuote(e);
