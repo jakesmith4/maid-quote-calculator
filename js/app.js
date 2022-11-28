@@ -17,12 +17,29 @@ const monthlyHours = document.querySelector('.monthly-hours');
 
 // Forms & Inputs
 const formControl = document.querySelector('.form-control');
+const cleanAdjustForm = document.querySelector('.clean-adjust');
 const sqFootage = document.getElementById('square-footage');
 const taxRateInput = document.getElementById('tax-rate');
 const inputPerHour = document.getElementById('amount-per-hour');
 
+// Taxes Display Indicator
+const taxesDisplayDom = document.querySelector('.taxes-display');
+
 // Change Hours Adjust Elements
-const cleanAdjustForm = document.querySelector('.clean-adjust');
+const changeDeepInput = document.getElementById('change-hours-deep');
+const changeGeneralInput = document.getElementById('change-hours-general');
+const changeWeeklyInput = document.getElementById('change-hours-weekly');
+const changeBiWeeklyInput = document.getElementById('change-hours-bi-weekly');
+const changeMonthlyInput = document.getElementById('change-hours-monthly');
+
+// All Change Input Icons
+const icons = document.querySelectorAll('.deep-changed');
+const numIcons = document.querySelectorAll('.num-icon');
+const allCleanArticles = document.querySelectorAll('.main-article');
+
+// Spinner
+const spinnerDom = document.querySelector('.spinner');
+const quotesContainerDom = document.querySelector('.quotes-container');
 
 // Alert Message Vars
 const messageExclamationDom = document.querySelector('.message-exclamation');
@@ -50,18 +67,6 @@ if (localStorage.getItem('inputPerHour')) {
   // Set Input Tax Rate To User Data
   taxRateInput.value = localStorage.getItem('taxRateInput');
 }
-
-// Add Option Dropdowns
-// const addOptionDropdowns = (el, hours) => {
-//   el.forEach((select, i) => {
-//     select.innerHTML = options;
-//     select.value = hours[i];
-
-//     const element = select.children[select.selectedIndex];
-//     element.style.background = 'green';
-//     element.style.fontWeight = 'bold';
-//   });
-// };
 
 // DATA //
 // Deep Hours
@@ -194,6 +199,228 @@ checkLocalStorage('monthly-clean-adjust-3800-4000');
 checkLocalStorage('monthly-clean-adjust-4100-4300');
 checkLocalStorage('monthly-clean-adjust-4400-4600');
 checkLocalStorage('monthly-clean-adjust-4800-5000');
+
+// FUNCTIONS //
+const calcDisplayQuote = (
+  elementPrice,
+  elementHours,
+  arrElement,
+  amount,
+  taxRate,
+  changeHours,
+  taxDomElement
+) => {
+  // Calculate Hours
+  const allHours = arrElement + changeHours;
+  // Calculate Tax
+  const tax = (taxRate / 100) * allHours * amount;
+  // Display Price
+  if (taxFlag) {
+    elementPrice.textContent = (allHours * amount + tax)
+      .toFixed(2)
+      .replace(/^/, '$');
+  } else {
+    elementPrice.textContent = (allHours * amount).toFixed(2).replace(/^/, '$');
+  }
+  // Display Hours
+  elementHours.textContent = allHours;
+  // Display Taxes
+  if (flag) {
+    taxDomElement.textContent = tax.toFixed(2).replace(/^/, '$');
+  }
+};
+
+// Displays Hours Changed Icon In Each Article
+const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
+  const element = document.getElementById(selectEl);
+  const article = element.parentElement.parentElement;
+  const icon = article.querySelector('.deep-changed');
+  const numIcon = article.querySelector('.num-icon');
+  const taxElementContainer = article.querySelector('.tax-element');
+  const taxElement = taxElementContainer.children[1];
+
+  // Calculate Taxes
+  const taxAmount = ((tax / 100) * allHours[sqFootage.selectedIndex - 1] * hour)
+    .toFixed(2)
+    .replace(/^/, '$');
+
+  // Remove Change Icons
+  const removeChangeIcon = () => {
+    icon.classList.add('hidden');
+    numIcon.style.background = '';
+    numIcon.classList.add('hidden');
+  };
+
+  // Change Article Background
+  const changeArticleBcg = () => {
+    article.classList.remove('border-[#e5e7eb]');
+    article.classList.add('border-transparent');
+    article.style.background = '#f8f3f9';
+  };
+
+  // Add Or Remove Tax Element
+  if (tax > 0) {
+    taxElementContainer.classList.remove('hidden');
+    taxElementContainer.classList.add('flex');
+  } else {
+    taxElementContainer.classList.add('hidden');
+    taxElementContainer.classList.remove('flex');
+  }
+
+  // Add Change Icons
+  if (change !== 0) {
+    icon.classList.remove('hidden');
+    // article.style.background =
+    //   'linear-gradient(to bottom right, #f9f7f4, #f6f3f8)';
+    article.classList.add('shadow-lg');
+    article.classList.add('border-[#e5e7eb]');
+    article.classList.remove('border-transparent');
+    numIcon.classList.remove('hidden');
+    numIcon.textContent = `${change > 0 ? '+' : ''}${change}`;
+    numIcon.style.background = `${
+      change > 0 ? 'rgb(52 211 153)' : 'rgb(248 113 113)'
+    }`;
+  } else {
+    removeChangeIcon();
+    article.classList.add('border-transparent');
+    article.classList.remove('shadow-lg');
+  }
+
+  // Change Back Hours
+  element.previousElementSibling.addEventListener('click', () => {
+    flag = false;
+    element.value = 0;
+    removeChangeIcon();
+    article.classList.add('border-transparent');
+    if (flag) {
+      changeArticleBcg();
+    }
+
+    calcDisplayQuote(
+      article.children[4].children[1],
+      article.children[5].children[1],
+      allHours[sqFootage.selectedIndex - 1],
+      hour,
+      tax,
+      0
+    );
+    taxElement.textContent = taxAmount;
+    flag = !flag;
+  });
+};
+
+// Add Amount Per Hour & Tax Rate To Local Storage
+const setUserDataToLocalStorage = () => {
+  // Set User Input Per Hour To Local Storage
+  localStorage.setItem('inputPerHour', inputPerHour.value);
+
+  // Set User Input Tax Rate To Local Storage
+  localStorage.setItem('taxRateInput', taxRateInput.value);
+};
+
+const processQuotes = (
+  hoursDeep,
+  hoursGeneral,
+  hoursWeekly,
+  hoursBiWeekly,
+  hoursMonthly,
+  hourAmount,
+  taxAmount,
+  taxDeep,
+  taxGeneral,
+  taxWeekly,
+  taxBiWeekly,
+  taxMonthly,
+  num
+) => {
+  calcDisplayQuote(
+    deepPrice,
+    deepHours,
+    allDeepHours[num],
+    hourAmount,
+    taxAmount,
+    hoursDeep,
+    taxDeep
+  );
+  calcDisplayQuote(
+    generalPrice,
+    generalHours,
+    allGeneralHours[num],
+    hourAmount,
+    taxAmount,
+    hoursGeneral,
+    taxGeneral
+  );
+  calcDisplayQuote(
+    weeklyPrice,
+    weeklyHours,
+    allWeeklyHours[num],
+    hourAmount,
+    taxAmount,
+    hoursWeekly,
+    taxWeekly
+  );
+  calcDisplayQuote(
+    biWeeklyPrice,
+    biWeeklyHours,
+    allbiWeeklyHours[num],
+    hourAmount,
+    taxAmount,
+    hoursBiWeekly,
+    taxBiWeekly
+  );
+  calcDisplayQuote(
+    monthlyPrice,
+    monthlyHours,
+    allMonthlyHours[num],
+    hourAmount,
+    taxAmount,
+    hoursMonthly,
+    taxMonthly
+  );
+
+  // Add Current User Input Data To Local Storage
+  setUserDataToLocalStorage();
+};
+
+// Show Taxes Display Indicator
+const showTaxIndicator = () => {
+  // Display Tax Indicator
+  if (+taxRateInput.value <= 0) {
+    taxesDisplayDom.style.display = 'none';
+  } else {
+    taxesDisplayDom.style.display = 'inline';
+  }
+  // Change Tax Indicator Text & Background
+  if (taxFlag) {
+    taxesDisplayDom.style.background = '#059669';
+    taxesDisplayDom.textContent = 'Taxes Included In Price';
+  } else {
+    taxesDisplayDom.style.background = '#dc2626';
+    taxesDisplayDom.textContent = 'Taxes NOT Included In Price';
+  }
+};
+
+// Change Display Of Quotes Container On Browser Resize
+const mediaQuery = window.matchMedia('(min-width: 768px)');
+const changeDisplayOnResize = () => {
+  if (mediaQuery.matches) {
+    quotesContainerDom.style.display = 'flex';
+  } else {
+    quotesContainerDom.style.display = 'block';
+  }
+};
+
+// Display Spinner
+const displaySpinner = () => {
+  spinnerDom.style.display = 'flex';
+  quotesContainerDom.style.display = 'none';
+  setTimeout(() => {
+    spinnerDom.style.display = 'none';
+    // Change Display Depending On Browser Size
+    changeDisplayOnResize();
+  }, 1000);
+};
 
 const showQuote = event => {
   // Show Tax Indicator
@@ -519,234 +746,34 @@ const changeHours = e => {
   changeMonthlyHours(e, 'monthly-clean-adjust-4800-5000', 11);
 };
 
-// Change Hours Depending On What Ajustment Is Made In Settings
-cleanAdjustForm.addEventListener('change', e => {
-  changeHours(e);
-  showQuote(e);
-});
-
-// FUNCTIONS //
-const calcDisplayQuote = (
-  elementPrice,
-  elementHours,
-  arrElement,
-  amount,
-  taxRate,
-  changeHours,
-  taxDomElement
+// Set All Change Hour Inputs Back To 0
+const changeHourInputsBack = (
+  deepInput,
+  generalInput,
+  weeklyInput,
+  biWeeklyInput,
+  monthlyInput
 ) => {
-  // Calculate Hours
-  const allHours = arrElement + changeHours;
-  // Calculate Tax
-  const tax = (taxRate / 100) * allHours * amount;
-  // Display Price
-  if (taxFlag) {
-    elementPrice.textContent = (allHours * amount + tax)
-      .toFixed(2)
-      .replace(/^/, '$');
-  } else {
-    elementPrice.textContent = (allHours * amount).toFixed(2).replace(/^/, '$');
-  }
-  // Display Hours
-  elementHours.textContent = allHours;
-  // Display Taxes
-  if (flag) {
-    taxDomElement.textContent = tax.toFixed(2).replace(/^/, '$');
-  }
+  deepInput.selectedIndex = 0;
+
+  generalInput.selectedIndex = 0;
+
+  weeklyInput.selectedIndex = 0;
+
+  biWeeklyInput.selectedIndex = 0;
+
+  monthlyInput.selectedIndex = 0;
 };
 
-const processQuotes = (
-  hoursDeep,
-  hoursGeneral,
-  hoursWeekly,
-  hoursBiWeekly,
-  hoursMonthly,
-  hourAmount,
-  taxAmount,
-  taxDeep,
-  taxGeneral,
-  taxWeekly,
-  taxBiWeekly,
-  taxMonthly,
-  num
-) => {
-  calcDisplayQuote(
-    deepPrice,
-    deepHours,
-    allDeepHours[num],
-    hourAmount,
-    taxAmount,
-    hoursDeep,
-    taxDeep
-  );
-  calcDisplayQuote(
-    generalPrice,
-    generalHours,
-    allGeneralHours[num],
-    hourAmount,
-    taxAmount,
-    hoursGeneral,
-    taxGeneral
-  );
-  calcDisplayQuote(
-    weeklyPrice,
-    weeklyHours,
-    allWeeklyHours[num],
-    hourAmount,
-    taxAmount,
-    hoursWeekly,
-    taxWeekly
-  );
-  calcDisplayQuote(
-    biWeeklyPrice,
-    biWeeklyHours,
-    allbiWeeklyHours[num],
-    hourAmount,
-    taxAmount,
-    hoursBiWeekly,
-    taxBiWeekly
-  );
-  calcDisplayQuote(
-    monthlyPrice,
-    monthlyHours,
-    allMonthlyHours[num],
-    hourAmount,
-    taxAmount,
-    hoursMonthly,
-    taxMonthly
-  );
-
-  // Add Current User Input Data To Local Storage
-  setUserDataToLocalStorage();
-};
-
-const displayChangeIcon = (hour, tax, change, selectEl, allHours) => {
-  const element = document.getElementById(selectEl);
-  const article = element.parentElement.parentElement;
-  const icon = article.querySelector('.deep-changed');
-  const numIcon = article.querySelector('.num-icon');
-  const taxElementContainer = article.querySelector('.tax-element');
-  const taxElement = taxElementContainer.children[1];
-
-  // Calculate Taxes
-  const taxAmount = ((tax / 100) * allHours[sqFootage.selectedIndex - 1] * hour)
-    .toFixed(2)
-    .replace(/^/, '$');
-
-  // Remove Change Icons
-  const removeChangeIcon = () => {
-    icon.classList.add('hidden');
-    numIcon.style.background = '';
-    numIcon.classList.add('hidden');
-  };
-
-  // Change Article Background
-  const changeArticleBcg = () => {
-    article.classList.remove('border-[#e5e7eb]');
-    article.classList.add('border-transparent');
-    article.style.background = '#f8f3f9';
-  };
-
-  // Add Or Remove Tax Element
-  if (tax > 0) {
-    taxElementContainer.classList.remove('hidden');
-    taxElementContainer.classList.add('flex');
-  } else {
-    taxElementContainer.classList.add('hidden');
-    taxElementContainer.classList.remove('flex');
-  }
-
-  // Add Change Icons
-  if (change !== 0) {
-    icon.classList.remove('hidden');
-    // article.style.background =
-    //   'linear-gradient(to bottom right, #f9f7f4, #f6f3f8)';
-    article.classList.add('shadow-lg');
-    article.classList.add('border-[#e5e7eb]');
-    article.classList.remove('border-transparent');
-    numIcon.classList.remove('hidden');
-    numIcon.textContent = `${change > 0 ? '+' : ''}${change}`;
-    numIcon.style.background = `${
-      change > 0 ? 'rgb(52 211 153)' : 'rgb(248 113 113)'
-    }`;
-  } else {
-    removeChangeIcon();
+// Remove Change Icons
+const removeChangeIcons = () => {
+  icons.forEach(icon => icon.classList.add('hidden'));
+  numIcons.forEach(icon => (icon.style.background = ''));
+  numIcons.forEach(icon => icon.classList.add('hidden'));
+  allCleanArticles.forEach(article => {
     article.classList.add('border-transparent');
     article.classList.remove('shadow-lg');
-  }
-
-  // Change Back Hours
-  element.previousElementSibling.addEventListener('click', () => {
-    flag = false;
-    element.value = 0;
-    removeChangeIcon();
-    article.classList.add('border-transparent');
-    if (flag) {
-      changeArticleBcg();
-    }
-
-    calcDisplayQuote(
-      article.children[4].children[1],
-      article.children[5].children[1],
-      allHours[sqFootage.selectedIndex - 1],
-      hour,
-      tax,
-      0
-    );
-    taxElement.textContent = taxAmount;
-    flag = !flag;
   });
-};
-
-// Show Taxes Display Indicator
-const taxesDisplayDom = document.querySelector('.taxes-display');
-const showTaxIndicator = () => {
-  // Display Tax Indicator
-  if (+taxRateInput.value <= 0) {
-    taxesDisplayDom.style.display = 'none';
-  } else {
-    taxesDisplayDom.style.display = 'inline';
-  }
-  // Change Tax Indicator Text & Background
-  if (taxFlag) {
-    taxesDisplayDom.style.background = '#059669';
-    taxesDisplayDom.textContent = 'Taxes Included In Price';
-  } else {
-    taxesDisplayDom.style.background = '#dc2626';
-    taxesDisplayDom.textContent = 'Taxes NOT Included In Price';
-  }
-};
-
-// Change Display Of Quotes Container On Browser Resize
-const mediaQuery = window.matchMedia('(min-width: 768px)');
-const changeDisplayOnResize = () => {
-  if (mediaQuery.matches) {
-    quotesContainerDom.style.display = 'flex';
-  } else {
-    quotesContainerDom.style.display = 'block';
-  }
-};
-
-// Display Spinner
-const spinnerDom = document.querySelector('.spinner');
-const quotesContainerDom = document.querySelector('.quotes-container');
-const displaySpinner = () => {
-  spinnerDom.style.display = 'flex';
-  quotesContainerDom.style.display = 'none';
-  setTimeout(() => {
-    spinnerDom.style.display = 'none';
-    // Change Display Depending On Browser Size
-    changeDisplayOnResize();
-  }, 1000);
-};
-
-// Add Amount Per Hour & Tax Rate To Local Storage
-const setUserDataToLocalStorage = () => {
-  // Set User Input Per Hour To Local Storage
-  localStorage.setItem('inputPerHour', inputPerHour.value);
-
-  // Set User Input Tax Rate To Local Storage
-  localStorage.setItem('taxRateInput', taxRateInput.value);
 };
 
 // Change Quotes Container Display On Browser Resize
@@ -755,15 +782,30 @@ window.onresize = () => {
 };
 
 // EVENT HANDLERS //
-// formControl.addEventListener('change', e => {
-//   showQuote(e);
-// });
-
 formControl.addEventListener('input', e => {
+  if (e.target.classList.contains('square-foot-select')) {
+    // Change All Change Hour Inputs Back To 0
+    changeHourInputsBack(
+      changeDeepInput,
+      changeGeneralInput,
+      changeWeeklyInput,
+      changeBiWeeklyInput,
+      changeMonthlyInput
+    );
+
+    removeChangeIcons();
+  }
+
   showQuote(e);
 });
 
 window.addEventListener('load', e => {
+  showQuote(e);
+});
+
+// Change Hours Depending On What Ajustment Is Made In Settings
+cleanAdjustForm.addEventListener('change', e => {
+  changeHours(e);
   showQuote(e);
 });
 
