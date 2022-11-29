@@ -816,6 +816,10 @@ video {
   display: inline-flex;
 }
 
+.grid {
+  display: grid;
+}
+
 .hidden {
   display: none;
 }
@@ -858,6 +862,10 @@ video {
 
 .max-h-\[95vh\] {
   max-height: 95vh;
+}
+
+.max-h-full {
+  max-height: 100%;
 }
 
 .w-\[7rem\] {
@@ -1004,6 +1012,10 @@ video {
 
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.place-items-center {
+  place-items: center;
 }
 
 .items-start {
