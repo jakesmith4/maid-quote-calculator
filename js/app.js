@@ -1426,6 +1426,19 @@ toggleTaxEl.addEventListener('click', e => {
   showQuote(e);
 });
 
+const toggleMenu = document.querySelector('.toggler-menu');
+const toggleMenuBall = document.querySelector('.toggle-menu-ball');
+const sidebar = document.querySelector('.sidebar');
+// Toggler Show Menu
+toggleMenu.addEventListener('click', () => {
+  toggleMenu.classList.toggle('bg-green-700');
+  toggleMenu.classList.toggle('bg-gray-500');
+  toggleMenuBall.classList.toggle('translate-x-6');
+
+  sidebar.classList.toggle('md:-translate-x-24');
+  sidebar.classList.toggle('show-sidebar');
+});
+
 // Display Save Quote Modal
 const saveQuoteBtns = document.querySelectorAll('.quote-btn');
 let price;

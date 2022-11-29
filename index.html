@@ -117,6 +117,25 @@
             <!-- End Of Toggler Name -->
           </div>
           <!-- End Of Toggler Wrapper (Dark Mode) -->
+          <!-- Toggler Wrapper (Menu Toggle) -->
+          <div class="flex space-x-2 items-center pb-4">
+            <!-- Toggler -->
+            <div
+              class="bg-gray-500 w-12 h-6 cursor-pointer rounded-3xl flex items-center transition-all toggler-menu"
+            >
+              <div
+                class="bg-white w-6 h-6 transform scale-75 rounded-3xl transition-transform flex items-center justify-center toggle-menu-ball"
+              ></div>
+            </div>
+            <!-- End Of Toggler -->
+            <!-- Toggler Name -->
+            <span
+              class="dark:text-white tracking-widest font-semibold text-xs xs:text-base sm:font-serif"
+              >Show Side Menu
+            </span>
+            <!-- End Of Toggler Name -->
+          </div>
+          <!-- End Of Toggler Wrapper (Menu Toggle) -->
           <!-- Toggler Wrapper (Tax Toggle) -->
           <div class="flex space-x-2 items-center border-b-2 pb-4">
             <!-- Toggler -->
@@ -5891,21 +5910,23 @@
     <!-- End Of Show Quote Modal -->
     <!-- Sidebar -->
     <div
-      class="fixed top-1/2 -translate-y-1/2 bg-emerald-700 w-14 rounded-xl -translate-x-12 hover:-translate-x-1 hover:rounded-tl-none hover:rounded-bl-none hover:bg-emerald-600 transition-all shadow-2xll flex items-start justify-center py-2 border-2 border-transparent hover:border-black md:w-36 md:justify-end md:pr-1 md:-translate-x-24 dark:bg-gradient-to-tr dark:from-emerald-600 dark:to-neutral-600 group"
+      class="fixed top-1/2 -translate-y-1/2 bg-emerald-700 w-14 rounded-xl -translate-x-12 hover:-translate-x-1 hover:rounded-tl-none hover:rounded-bl-none hover:bg-emerald-600 transition-all shadow-2xl flex items-start justify-center py-2 border-2 border-transparent hover:border-black md:w-36 md:justify-end md:pr-1 md:-translate-x-24 dark:bg-gradient-to-tr dark:from-emerald-600 dark:to-neutral-600 dark:hover:border-white group sidebar"
     >
       <div
-        class="flex flex-col items-center group-hover:md:items-end group-hover:md:pr-2"
+        class="flex flex-col items-center group-hover:md:items-end group-hover:md:pr-2 sidebar-wrap"
       >
         <div>
           <span
-            class="font-semibold hidden md:group-hover:inline-block tracking-widest text-white"
+            class="font-semibold hidden md:group-hover:inline-block tracking-widest text-white menu-text"
             >Menu</span
           >
           <i
             class="fa-solid fa-sliders mb-4 text-2xl bg-white rounded-full p-1 border-2 border-black"
           ></i>
         </div>
-        <div class="flex flex-col space-y-4 group-hover:md:items-end">
+        <div
+          class="flex flex-col space-y-4 group-hover:md:items-end settings-wrapper"
+        >
           <!-- Settings Icon -->
           <div
             class="group-hover:md:bg-slate-100 group-hover:md:p-2 group-hover:md:w-[119px] cursor-pointer transition-all duration-200 border-2 border-transparent md:flex md:justify-around md:items-center md:hover:shadow-lg md:hover:border-emerald-700 settings-button settings"

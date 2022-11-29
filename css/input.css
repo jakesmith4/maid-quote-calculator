@@ -3,6 +3,38 @@
 @tailwind utilities;
 
 /* Sidebar */
+.show-sidebar {
+  @apply -translate-x-1 rounded-tl-none rounded-bl-none border-black dark:border-white;
+}
+
+.show-sidebar .sidebar-wrap {
+  @apply md:items-end md:pr-2;
+}
+
+.show-sidebar .menu-text {
+  @apply md:inline-block;
+}
+
+.show-sidebar .settings-wrapper {
+  @apply md:items-end;
+}
+
+.show-sidebar .settings {
+  @apply md:bg-slate-100 md:p-2 md:w-[119px];
+}
+
+.show-sidebar .settings-text {
+  @apply md:inline-block;
+}
+
+.show-sidebar .save {
+  @apply md:bg-slate-100 md:p-2 md:w-[119px];
+}
+
+.show-sidebar .save-text {
+  @apply md:inline-block;
+}
+
 .settings-button:hover .settings-icon {
   @apply scale-110 text-white md:text-emerald-600 rotate-[360deg];
 }
