@@ -1870,6 +1870,10 @@ video {
     height: 178px;
   }
 
+  .xs\:h-auto {
+    height: auto;
+  }
+
   .xs\:w-3\/4 {
     width: 75%;
   }
@@ -1937,6 +1941,10 @@ video {
 
   .sm\:h-\[270px\] {
     height: 270px;
+  }
+
+  .sm\:h-auto {
+    height: auto;
   }
 
   .sm\:max-w-2xl {
