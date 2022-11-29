@@ -1221,7 +1221,7 @@ saveIcon.addEventListener('click', () => {
 });
 
 // Toggle Settings Modal On Setting Icon Click (Sidebar)
-settingsIcon.addEventListener('click', e => {
+settingsIcon.addEventListener('click', () => {
   settingsModal.classList.toggle('invisible');
   settingsModal.classList.toggle('flex');
   settingsModal.classList.toggle('hidden');

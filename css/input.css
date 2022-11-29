@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Sidebar */
+.settings-button:hover .settings-icon {
+  @apply scale-110 text-white md:text-emerald-600 rotate-[360deg];
+}
+
+.settings-button:hover .settings-text {
+  @apply text-emerald-700 transition-all duration-200;
+}
+
+.save-button:hover .save-icon {
+  @apply scale-110 text-white md:text-emerald-600 rotate-[360deg];
+}
+
+.save-button:hover .save-text {
+  @apply text-emerald-700 transition-all duration-200;
+}
