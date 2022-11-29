@@ -422,6 +422,19 @@ const displaySpinner = () => {
   }, 1000);
 };
 
+// Carousel For Clean Adjust Slider
+const carousel = () => {
+  cleanAdjustSlides.forEach(slide => {
+    if (counter === cleanAdjustSlides.length) {
+      counter = 0;
+    }
+    if (counter < 0) {
+      counter = cleanAdjustSlides.length - 1;
+    }
+    slide.style.transform = `translateX(-${counter * 100}%)`;
+  });
+};
+
 const showQuote = event => {
   // Show Tax Indicator
   if (!event.target.classList?.contains('change-individual')) {
@@ -973,6 +986,31 @@ keypressEscModal(savedQuoteModal);
 keypressEscModal(saveQuoteModal);
 keypressEscModal(showQuoteModal);
 
+// Show Alert Message
+let alertTimer;
+const showAlertMessage = (alertDom, parDom, spanDom, parText, spanText) => {
+  // Declare Remove Alert Message Function
+  const removeAlertMessage = () => {
+    alertDom.classList.remove('opacity-1');
+    alertDom.classList.add('opacity-0');
+    alertDom.classList.add('hidden');
+  };
+
+  // Show Alert Message
+  alertDom.classList.remove('opacity-0');
+  alertDom.classList.remove('hidden');
+  alertDom.classList.add('opacity-1');
+  parDom.textContent = parText;
+  spanDom.textContent = spanText;
+
+  // Clear Alert Message Timer
+  clearTimeout(alertTimer);
+
+  // Add Alert Message Timer (setTimeout)
+  // Hides Message After 4 Seconds
+  alertTimer = setTimeout(removeAlertMessage, 4000);
+};
+
 // Delete Quote
 const deleteQuote = () => {
   const allQuoteNames = [...document.querySelectorAll('.quote-name')];
@@ -1101,10 +1139,11 @@ const displayCurrentQuote = () => {
   singleMonthlyHoursChanged.textContent = `Hours Changed ${currentQuote.monthlyHoursChanged}`;
 
   // Remove Event Listener From Delete Quote Btn
-  // FIXME //
   document
     .querySelector('.delete-quote')
     .removeEventListener('click', deleteQuote);
+
+  // Add Event Listener To Delete Quote Btn
   addListenerToDeleteBtn();
 
   // Set Status To Correct Color
@@ -1120,19 +1159,6 @@ const prevBtn = document.querySelector('.prev-btn');
 const cleanAdjustSlides = document.querySelectorAll('.clean-adjust-slide');
 const cleanAdjustNextBtn = document.querySelector('.clean-adjust-next-btn');
 const cleanAdjustPrevBtn = document.querySelector('.clean-adjust-prev-btn');
-
-// Carousel For Clean Adjust Slider
-const carousel = () => {
-  cleanAdjustSlides.forEach(slide => {
-    if (counter === cleanAdjustSlides.length) {
-      counter = 0;
-    }
-    if (counter < 0) {
-      counter = cleanAdjustSlides.length - 1;
-    }
-    slide.style.transform = `translateX(-${counter * 100}%)`;
-  });
-};
 
 // Clean Adjust Slider
 const cleanAdjustSlider = () => {
@@ -1152,16 +1178,7 @@ cleanAdjustSlider();
 
 // All Cleans Slider
 const carouselSlider = () => {
-  let counter = 0;
-  nextBtn.addEventListener('click', () => {
-    counter++;
-    carousel();
-  });
-  prevBtn.addEventListener('click', () => {
-    counter--;
-    carousel();
-  });
-
+  // Carousel Function
   const carousel = () => {
     slides.forEach(slide => {
       if (counter === slides.length) {
@@ -1173,33 +1190,18 @@ const carouselSlider = () => {
       slide.style.transform = `translateX(-${counter * 100}%)`;
     });
   };
+
+  let counter = 0;
+  nextBtn.addEventListener('click', () => {
+    counter++;
+    carousel();
+  });
+  prevBtn.addEventListener('click', () => {
+    counter--;
+    carousel();
+  });
 };
 carouselSlider();
-
-// Show Alert Message
-let alertTimer;
-const showAlertMessage = (alertDom, parDom, spanDom, parText, spanText) => {
-  // Declare Remove Alert Message Function
-  const removeAlertMessage = () => {
-    alertDom.classList.remove('opacity-1');
-    alertDom.classList.add('opacity-0');
-    alertDom.classList.add('hidden');
-  };
-
-  // Show Alert Message
-  alertDom.classList.remove('opacity-0');
-  alertDom.classList.remove('hidden');
-  alertDom.classList.add('opacity-1');
-  parDom.textContent = parText;
-  spanDom.textContent = spanText;
-
-  // Clear Alert Message Timer
-  clearTimeout(alertTimer);
-
-  // Add Alert Message Timer (setTimeout)
-  // Hides Message After 4 Seconds
-  alertTimer = setTimeout(removeAlertMessage, 4000);
-};
 
 // Fill QuotesNamesContainer Function
 const fillSavedQuotesContainer = quoteName => {
