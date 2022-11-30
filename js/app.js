@@ -1426,9 +1426,20 @@ toggleTaxEl.addEventListener('click', e => {
   showQuote(e);
 });
 
+// Get Show Menu Info From Local Storage
 const toggleMenu = document.querySelector('.toggler-menu');
 const toggleMenuBall = document.querySelector('.toggle-menu-ball');
 const sidebar = document.querySelector('.sidebar');
+let sideMenuOpen = false;
+if (JSON.parse(localStorage.getItem('showSideMenu'))) {
+  sideMenuOpen = true;
+  toggleMenu.classList.add('bg-green-700');
+  toggleMenu.classList.remove('bg-gray-500');
+  toggleMenuBall.classList.add('translate-x-6');
+  sidebar.classList.remove('md:-translate-x-24');
+  sidebar.classList.add('show-sidebar');
+}
+
 // Toggler Show Menu
 toggleMenu.addEventListener('click', () => {
   toggleMenu.classList.toggle('bg-green-700');
@@ -1437,6 +1448,10 @@ toggleMenu.addEventListener('click', () => {
 
   sidebar.classList.toggle('md:-translate-x-24');
   sidebar.classList.toggle('show-sidebar');
+
+  // Set Show Menu Info To Local Storage
+  sideMenuOpen = !sideMenuOpen;
+  localStorage.setItem('showSideMenu', sideMenuOpen);
 });
 
 // Display Save Quote Modal
