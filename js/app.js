@@ -914,6 +914,17 @@ const weeklyArticle = document.querySelector('.weekly-article');
 const biWeeklyArticle = document.querySelector('.bi-weekly-article');
 const monthlyArticle = document.querySelector('.monthly-article');
 
+// Save Quote Info
+const quoteNamesContainer = document.querySelector('.quote-names');
+let savedQuotes;
+
+// Filter Quotes
+const filterSelect = document.getElementById('saved-quotes');
+
+// Sort Elements
+let sort = false;
+const sortBtn = document.querySelector('.sort-btn');
+
 // HTML Element
 const html = document.documentElement;
 
@@ -1208,6 +1219,54 @@ const fillSavedQuotesContainer = quoteName => {
   const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}">${quoteName}</a>`;
   quoteNamesContainer.insertAdjacentHTML('beforeend', html);
 };
+
+const sortDisplaySavedQuotes = () => {
+  // Clear QuoteNamesContainer
+  quoteNamesContainer.innerHTML = '';
+
+  // Store SavedQuotes Into Array
+  const savedQuotesNames = savedQuotes.map(quote => quote.name);
+
+  // Store SavedQuotes Into Sorted Array
+  const namesSorted = savedQuotesNames.slice().sort();
+
+  if (sort) {
+    // Display Sorted Quotes
+    namesSorted.forEach(name => fillSavedQuotesContainer(name));
+  } else {
+    // Display Non Sorted Quotes
+    savedQuotesNames.forEach(name => fillSavedQuotesContainer(name));
+  }
+};
+
+const sortDisplayFilteredQuotes = savedQuotes => {
+  // Clear QuoteNamesContainer
+  quoteNamesContainer.innerHTML = '';
+
+  if (sort) {
+    // Display Sorted Quotes
+    savedQuotes
+      .slice()
+      .map(quote => quote.name)
+      .sort()
+      .forEach(name => fillSavedQuotesContainer(name));
+  } else {
+    // Display Non Sorted Quotes
+    savedQuotes.forEach(quote => fillSavedQuotesContainer(quote.name));
+  }
+};
+
+// Get savedQuotes from Local Storage & Put It into the savedQuotes array
+if (localStorage.getItem('savedQuotes')) {
+  // Add Local Storage Items To savedQuotes Array
+  savedQuotes = JSON.parse(localStorage.getItem('savedQuotes'));
+  // Loop Over Each Quote and Create A Link. Set Link In quoteNamesContainer
+  savedQuotes.forEach(quote => {
+    fillSavedQuotesContainer(quote.name);
+  });
+} else {
+  savedQuotes = [];
+}
 
 // EVENT HANDLERS //
 // Toggle Save Quote Modal On Save Icon Click (Sidebar)
@@ -1570,33 +1629,20 @@ singleStatus.addEventListener('change', () => {
   // Update Local Storage
   localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
   filterSelect.selectedIndex = 0;
-  quoteNamesContainer.innerHTML = '';
-  savedQuotes.forEach(quote => {
-    fillSavedQuotesContainer(quote.name);
-  });
+
+  sortDisplaySavedQuotes();
 });
 
-// Save Quote Info
-const quoteNamesContainer = document.querySelector('.quote-names');
-let savedQuotes;
-
-// Filter Quotes
-const filterSelect = document.getElementById('saved-quotes');
 filterSelect.addEventListener('change', () => {
   const savedQuotes2 = savedQuotes.filter(
     quote => +quote.status === filterSelect.selectedIndex - 1
   );
   filterSelect.blur();
   quoteNamesContainer.focus();
-  quoteNamesContainer.innerHTML = '';
   if (filterSelect.selectedIndex === 0) {
-    savedQuotes.forEach(quote => {
-      fillSavedQuotesContainer(quote.name);
-    });
+    sortDisplaySavedQuotes();
   } else {
-    savedQuotes2.forEach(quote => {
-      fillSavedQuotesContainer(quote.name);
-    });
+    sortDisplayFilteredQuotes(savedQuotes2);
   }
 });
 
@@ -1631,18 +1677,6 @@ const statusSelectSave = document.querySelector('.others-select-colors');
 statusSelectSave.addEventListener('change', () => {
   changeColorStatus(statusSelectSave);
 });
-
-// Get savedQuotes from Local Storage & Put It into the savedQuotes array
-if (localStorage.getItem('savedQuotes')) {
-  // Add Local Storage Items To savedQuotes Array
-  savedQuotes = JSON.parse(localStorage.getItem('savedQuotes'));
-  // Loop Over Each Quote and Create A Link. Set Link In quoteNamesContainer
-  savedQuotes.forEach(quote => {
-    fillSavedQuotesContainer(quote.name);
-  });
-} else {
-  savedQuotes = [];
-}
 
 // Push Data Into Saved Quotes Array, On Save Form Quote Submit (Array Of Objects)
 const saveQuoteForm = document.querySelector('.save-quote-form');
@@ -1740,7 +1774,7 @@ saveQuoteForm.addEventListener('submit', e => {
     });
 
     // Add Newley Created Quote To SavedQuotesContainer Modal
-    fillSavedQuotesContainer(quoteName);
+    sortDisplaySavedQuotes();
 
     // Set Saved Quotes To Local Storage
     localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
@@ -1767,5 +1801,20 @@ saveQuoteForm.addEventListener('submit', e => {
       '',
       'Please Enter A Name'
     );
+  }
+});
+
+sortBtn.addEventListener('click', () => {
+  sort = !sort;
+
+  if (filterSelect.selectedIndex !== 0) {
+    // Filter Quotes
+    const savedQuotes2 = savedQuotes.filter(
+      quote => +quote.status === filterSelect.selectedIndex - 1
+    );
+
+    sortDisplayFilteredQuotes(savedQuotes2);
+  } else {
+    sortDisplaySavedQuotes();
   }
 });
