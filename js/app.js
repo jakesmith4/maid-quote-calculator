@@ -914,6 +914,16 @@ const weeklyArticle = document.querySelector('.weekly-article');
 const biWeeklyArticle = document.querySelector('.bi-weekly-article');
 const monthlyArticle = document.querySelector('.monthly-article');
 
+// Saved Quotes Slider Elements
+const slides = document.querySelectorAll('.slide');
+const nextBtn = document.querySelector('.next-btn');
+const prevBtn = document.querySelector('.prev-btn');
+
+// Clean Adjust Slider Elements
+const cleanAdjustSlides = document.querySelectorAll('.clean-adjust-slide');
+const cleanAdjustNextBtn = document.querySelector('.clean-adjust-next-btn');
+const cleanAdjustPrevBtn = document.querySelector('.clean-adjust-prev-btn');
+
 // Save Quote Info
 const quoteNamesContainer = document.querySelector('.quote-names');
 let savedQuotes;
@@ -1161,16 +1171,6 @@ const displayCurrentQuote = () => {
   changeColorStatus(statusGrey);
 };
 
-// Saved Quotes Slider Elements
-const slides = document.querySelectorAll('.slide');
-const nextBtn = document.querySelector('.next-btn');
-const prevBtn = document.querySelector('.prev-btn');
-
-// Clean Adjust Slider Elements
-const cleanAdjustSlides = document.querySelectorAll('.clean-adjust-slide');
-const cleanAdjustNextBtn = document.querySelector('.clean-adjust-next-btn');
-const cleanAdjustPrevBtn = document.querySelector('.clean-adjust-prev-btn');
-
 // Clean Adjust Slider
 const cleanAdjustSlider = () => {
   cleanAdjustNextBtn.addEventListener('click', e => {
@@ -1213,6 +1213,14 @@ const carouselSlider = () => {
   });
 };
 carouselSlider();
+
+// Fix Name
+const fixName = str =>
+  str
+    .toLowerCase()
+    .split(' ')
+    .map(str => `${str[0]?.toUpperCase()}${str.slice(1)}`)
+    .join(' ');
 
 // Fill QuotesNamesContainer Function
 const fillSavedQuotesContainer = quoteName => {
@@ -1348,7 +1356,8 @@ showQuoteHeading.addEventListener('input', () => {
   const currentElement = quoteNamesContainer.children[currentName];
 
   // Assign New Current Quote Name Property To The Current Input Value
-  currentQuote.name = showQuoteHeading.value;
+  // currentQuote.name = showQuoteHeading.value;
+  currentQuote.name = fixName(showQuoteHeading.value);
 
   // Assign New Current Quote Data Id To The Current Element
   currentElement.dataset.id = currentQuote.name;
@@ -1714,7 +1723,7 @@ saveQuoteForm.addEventListener('submit', e => {
       document.querySelector('.par-text'),
       document.querySelector('.span-text'),
       'Quote Saved',
-      quoteName
+      fixName(quoteName)
     );
 
     // Add A + Symbol In Front Of Hours Changed If It Is Positive
@@ -1739,7 +1748,7 @@ saveQuoteForm.addEventListener('submit', e => {
 
     // Push Data Into Saved Quotes Array
     savedQuotes.push({
-      name: `${quoteName}`,
+      name: `${fixName(quoteName)}`,
       email: `${emailInput.value}`,
       phoneNumber: `${phoneNumberInput.value}`,
       address: `${addressInput.value}`,
