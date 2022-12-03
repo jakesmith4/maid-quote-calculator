@@ -935,6 +935,21 @@ const filterSelect = document.getElementById('saved-quotes');
 let sort = false;
 const sortBtn = document.querySelector('.sort-btn');
 
+// Toggle Dark Functionality
+// Dark flag is used as a state variable (in this toggleDark function) to toggle dark mode on and off
+let darkFlag = true;
+
+// Toggler Vars
+const toggler = document.querySelector('.toggler');
+const sunIcon = document.querySelector('.sun');
+const moonIcon = document.querySelector('.moon');
+
+// SideMenu Toggle
+const toggleMenu = document.querySelector('.toggler-menu');
+const toggleMenuBall = document.querySelector('.toggle-menu-ball');
+const sidebar = document.querySelector('.sidebar');
+let sideMenuOpen = false;
+
 // HTML Element
 const html = document.documentElement;
 
@@ -1264,16 +1279,36 @@ const sortDisplayFilteredQuotes = savedQuotes => {
   }
 };
 
+// LOCAL STORAGE //
+// Change Sort Var If It Is Found In Local Storage
+if (localStorage.getItem('sort')) {
+  sort = JSON.parse(localStorage.getItem('sort'));
+  console.log(JSON.parse(localStorage.getItem('sort')));
+}
+
 // Get savedQuotes from Local Storage & Put It into the savedQuotes array
 if (localStorage.getItem('savedQuotes')) {
   // Add Local Storage Items To savedQuotes Array
   savedQuotes = JSON.parse(localStorage.getItem('savedQuotes'));
   // Loop Over Each Quote and Create A Link. Set Link In quoteNamesContainer
-  savedQuotes.forEach(quote => {
-    fillSavedQuotesContainer(quote.name);
-  });
+  sortDisplaySavedQuotes();
 } else {
   savedQuotes = [];
+}
+
+// If Darkflag Is Stored In Local Storage, Assign The Value
+if (localStorage.getItem('darkFlag')) {
+  darkFlag = JSON.parse(localStorage.getItem('darkFlag'));
+}
+
+// Show Sidebar If It Is Stored In Local Storage
+if (JSON.parse(localStorage.getItem('showSideMenu'))) {
+  sideMenuOpen = true;
+  toggleMenu.classList.add('bg-green-700');
+  toggleMenu.classList.remove('bg-gray-500');
+  toggleMenuBall.classList.add('translate-x-6');
+  sidebar.classList.remove('md:-translate-x-24');
+  sidebar.classList.add('show-sidebar');
 }
 
 // EVENT HANDLERS //
@@ -1383,20 +1418,6 @@ seeCleans.addEventListener('click', () => {
   showCleans.classList.toggle('hidden');
 });
 
-// Toggle Dark Functionality
-// Dark flag is used as a state variable (in this toggleDark function) to toggle dark mode on and off
-let darkFlag = true;
-
-// If Darkflag Is Stored In Local Storage, Assign The Value
-if (localStorage.getItem('darkFlag')) {
-  darkFlag = JSON.parse(localStorage.getItem('darkFlag'));
-}
-
-// Toggler Vars
-const toggler = document.querySelector('.toggler');
-const sunIcon = document.querySelector('.sun');
-const moonIcon = document.querySelector('.moon');
-
 // Change Darkflag Toggler Button Color & Icon Depending What Is In Local Storage
 if (darkFlag) {
   moonIcon.classList.add('hidden');
@@ -1493,20 +1514,6 @@ toggleTaxEl.addEventListener('click', e => {
   localStorage.setItem('taxFlag', taxFlag);
   showQuote(e);
 });
-
-// Get Show Menu Info From Local Storage
-const toggleMenu = document.querySelector('.toggler-menu');
-const toggleMenuBall = document.querySelector('.toggle-menu-ball');
-const sidebar = document.querySelector('.sidebar');
-let sideMenuOpen = false;
-if (JSON.parse(localStorage.getItem('showSideMenu'))) {
-  sideMenuOpen = true;
-  toggleMenu.classList.add('bg-green-700');
-  toggleMenu.classList.remove('bg-gray-500');
-  toggleMenuBall.classList.add('translate-x-6');
-  sidebar.classList.remove('md:-translate-x-24');
-  sidebar.classList.add('show-sidebar');
-}
 
 // Toggler Show Menu
 toggleMenu.addEventListener('click', () => {
@@ -1819,6 +1826,9 @@ saveQuoteForm.addEventListener('submit', e => {
 
 sortBtn.addEventListener('click', () => {
   sort = !sort;
+
+  // Set Sort To Local Storage
+  localStorage.setItem('sort', sort);
 
   if (filterSelect.selectedIndex !== 0) {
     // Filter Quotes
