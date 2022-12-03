@@ -1773,6 +1773,10 @@ saveQuoteForm.addEventListener('submit', e => {
       taxesAddedToPrice: taxFlag,
     });
 
+    // Set Filter Select Go Back to Index 0
+    filterSelect.selectedIndex = 0;
+    filterSelect.style.background = 'rgb(5, 150, 105)';
+
     // Add Newley Created Quote To SavedQuotesContainer Modal
     sortDisplaySavedQuotes();
 
