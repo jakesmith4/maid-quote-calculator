@@ -935,6 +935,10 @@ const filterSelect = document.getElementById('saved-quotes');
 let sort = false;
 const sortBtn = document.querySelector('.sort-btn');
 
+// Sort Icons
+const sortedIcon = document.querySelector('.sorted-icon');
+const notSortedIcon = document.querySelector('.not-sorted-icon');
+
 // Toggle Dark Functionality
 // Dark flag is used as a state variable (in this toggleDark function) to toggle dark mode on and off
 let darkFlag = true;
@@ -1254,9 +1258,17 @@ const sortDisplaySavedQuotes = () => {
   const namesSorted = savedQuotesNames.slice().sort();
 
   if (sort) {
+    // Show Not Sorted Icon
+    sortedIcon.classList.add('hidden');
+    notSortedIcon.classList.remove('hidden');
+
     // Display Sorted Quotes
     namesSorted.forEach(name => fillSavedQuotesContainer(name));
   } else {
+    // Show Sorted Icon
+    notSortedIcon.classList.add('hidden');
+    sortedIcon.classList.remove('hidden');
+
     // Display Non Sorted Quotes
     savedQuotesNames.forEach(name => fillSavedQuotesContainer(name));
   }
@@ -1267,6 +1279,10 @@ const sortDisplayFilteredQuotes = savedQuotes => {
   quoteNamesContainer.innerHTML = '';
 
   if (sort) {
+    // Show Not Sorted Icon
+    sortedIcon.classList.add('hidden');
+    notSortedIcon.classList.remove('hidden');
+
     // Display Sorted Quotes
     savedQuotes
       .slice()
@@ -1274,6 +1290,10 @@ const sortDisplayFilteredQuotes = savedQuotes => {
       .sort()
       .forEach(name => fillSavedQuotesContainer(name));
   } else {
+    // Show Sorted Icon
+    notSortedIcon.classList.add('hidden');
+    sortedIcon.classList.remove('hidden');
+
     // Display Non Sorted Quotes
     savedQuotes.forEach(quote => fillSavedQuotesContainer(quote.name));
   }
