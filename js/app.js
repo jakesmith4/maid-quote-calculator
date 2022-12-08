@@ -1276,7 +1276,7 @@ const fillSavedQuotesContainer = (quoteName, date) => {
   // Calculate Days Passed
   const daysPassed = calcDaysPassed(new Date(), new Date(date));
 
-  // Change Formatted Date To Today, Yesterday, or Days Ago
+  // Change Formatted Date To Today, Yesterday, or Days Ago If Needed
   if (daysPassed === 0) formatedDate = 'TODAY';
   if (daysPassed === 1) formatedDate = 'YESTERDAY';
   if (daysPassed !== 0 && daysPassed !== 1 && daysPassed <= 7) {
