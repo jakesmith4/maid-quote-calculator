@@ -1446,8 +1446,9 @@ singleInputForm.addEventListener('input', () => {
 // Update Current Quote Name On Name Input Event Change
 showQuoteHeading.addEventListener('input', () => {
   // Get The Index Of The Current Link
+
   const currentName = [...quoteNamesContainer.children].findIndex(
-    el => el.textContent === currentQuote.name
+    el => el.children[0].textContent === currentQuote.name
   );
 
   const currentElement = quoteNamesContainer.children[currentName];
@@ -1457,10 +1458,10 @@ showQuoteHeading.addEventListener('input', () => {
   currentQuote.name = fixName(showQuoteHeading.value);
 
   // Assign New Current Quote Data Id To The Current Element
-  currentElement.dataset.id = currentQuote.name;
+  currentElement.children[0].dataset.id = currentQuote.name;
 
   // Update The Current Quote Name In The Saved Quotes Modal
-  currentElement.textContent = currentQuote.name;
+  currentElement.children[0].textContent = currentQuote.name;
 
   // Set Saved Quotes To Local Storage
   localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
