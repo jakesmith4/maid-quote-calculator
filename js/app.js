@@ -954,6 +954,17 @@ const toggleMenuBall = document.querySelector('.toggle-menu-ball');
 const sidebar = document.querySelector('.sidebar');
 let sideMenuOpen = false;
 
+// Show Current Quote
+const quoteDate = document.querySelector('.quote-date');
+const options = {
+  hour: 'numeric',
+  minute: 'numeric',
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  weekday: 'long',
+};
+
 // HTML Element
 const html = document.documentElement;
 
@@ -1111,6 +1122,16 @@ const statusGrey = document.querySelector('.status-grey');
 const displayCurrentQuote = () => {
   // Set Heading As Name
   showQuoteHeading.value = currentQuote.name;
+
+  // Internationalization API
+  const currentDate = new Date(currentQuote.date);
+  const date = new Intl.DateTimeFormat(navigator.language, options).format(
+    currentDate
+  );
+
+  // Set Quote Date
+  quoteDate.textContent = date;
+
   // Set All Main Content
   singleHoursChanged.textContent = `Hours Changed ${currentQuote.hoursChanged}`;
   amountPerHour.textContent = `$${currentQuote.amountPerHour} per hour`;
@@ -1242,8 +1263,13 @@ const fixName = str =>
     .join(' ');
 
 // Fill QuotesNamesContainer Function
-const fillSavedQuotesContainer = quoteName => {
-  const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}">${quoteName}</a>`;
+const fillSavedQuotesContainer = (quoteName, date) => {
+  // Format Date
+  const formatedDate = Intl.DateTimeFormat(navigator.language).format(
+    new Date(date)
+  );
+
+  const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}"><p class="inline-block mr-4">${quoteName}</p><span class="text-white text-xs">${formatedDate}</span></a>`;
   quoteNamesContainer.insertAdjacentHTML('beforeend', html);
 };
 
@@ -1251,8 +1277,11 @@ const sortDisplaySavedQuotes = () => {
   // Clear QuoteNamesContainer
   quoteNamesContainer.innerHTML = '';
 
-  // Store SavedQuotes Into Array
+  // Store SavedQuotes Names Into Array
   const savedQuotesNames = savedQuotes.map(quote => quote.name);
+
+  // Store All Saved Quote Dates Into Array
+  const savedQuoteDates = savedQuotes.map(quote => quote.date);
 
   // Store SavedQuotes Into Sorted Array
   const namesSorted = savedQuotesNames.slice().sort();
@@ -1263,20 +1292,27 @@ const sortDisplaySavedQuotes = () => {
     notSortedIcon.classList.remove('hidden');
 
     // Display Sorted Quotes
-    namesSorted.forEach(name => fillSavedQuotesContainer(name));
+    namesSorted.forEach((name, i) =>
+      fillSavedQuotesContainer(name, savedQuoteDates[i])
+    );
   } else {
     // Show Sorted Icon
     notSortedIcon.classList.add('hidden');
     sortedIcon.classList.remove('hidden');
 
     // Display Non Sorted Quotes
-    savedQuotesNames.forEach(name => fillSavedQuotesContainer(name));
+    savedQuotesNames.forEach((name, i) =>
+      fillSavedQuotesContainer(name, savedQuoteDates[i])
+    );
   }
 };
 
 const sortDisplayFilteredQuotes = savedQuotes => {
   // Clear QuoteNamesContainer
   quoteNamesContainer.innerHTML = '';
+
+  // Store All Saved Quote Dates Into Array
+  const savedQuoteDates = savedQuotes.map(quote => quote.date);
 
   if (sort) {
     // Show Not Sorted Icon
@@ -1288,14 +1324,16 @@ const sortDisplayFilteredQuotes = savedQuotes => {
       .slice()
       .map(quote => quote.name)
       .sort()
-      .forEach(name => fillSavedQuotesContainer(name));
+      .forEach((name, i) => fillSavedQuotesContainer(name, savedQuoteDates[i]));
   } else {
     // Show Sorted Icon
     notSortedIcon.classList.add('hidden');
     sortedIcon.classList.remove('hidden');
 
     // Display Non Sorted Quotes
-    savedQuotes.forEach(quote => fillSavedQuotesContainer(quote.name));
+    savedQuotes.forEach((quote, i) =>
+      fillSavedQuotesContainer(quote.name, savedQuoteDates[i])
+    );
   }
 };
 
@@ -1303,7 +1341,6 @@ const sortDisplayFilteredQuotes = savedQuotes => {
 // Change Sort Var If It Is Found In Local Storage
 if (localStorage.getItem('sort')) {
   sort = JSON.parse(localStorage.getItem('sort'));
-  console.log(JSON.parse(localStorage.getItem('sort')));
 }
 
 // Get savedQuotes from Local Storage & Put It into the savedQuotes array
@@ -1370,10 +1407,15 @@ let currentQuote;
 document.addEventListener('click', e => {
   // Guard Cause
   // If Current Clicked Element Is Not A Proper Link Stop Here!
-  if (!e.target.classList.contains('quote-name')) return;
+
+  if (!e.target.closest('.quote-name')?.classList.contains('quote-name'))
+    return;
 
   // Assign Current Quote
-  currentQuote = savedQuotes.find(quote => quote.name === e.target.textContent);
+  currentQuote = savedQuotes.find(
+    quote =>
+      quote.name === e.target.closest('.quote-name').children[0].textContent
+  );
 
   // Display Show Quote Modal
   showQuoteModal.classList.remove('invisible');
@@ -1753,6 +1795,9 @@ saveQuoteForm.addEventListener('submit', e => {
       fixName(quoteName)
     );
 
+    // Store Current Date Into ISOString
+    const ISOString = new Date().toISOString();
+
     // Add A + Symbol In Front Of Hours Changed If It Is Positive
     if (Math.sign(+hoursChanged) === 1) {
       hoursChanged = `+${hoursChanged}`;
@@ -1807,6 +1852,7 @@ saveQuoteForm.addEventListener('submit', e => {
       weeklyHoursChanged: `${weeklyHoursChanged}`,
       monthlyHoursChanged: `${monthlyHoursChanged}`,
       taxesAddedToPrice: taxFlag,
+      date: ISOString,
     });
 
     // Set Filter Select Go Back to Index 0
