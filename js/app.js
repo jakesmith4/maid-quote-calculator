@@ -1265,9 +1265,23 @@ const fixName = str =>
 // Fill QuotesNamesContainer Function
 const fillSavedQuotesContainer = (quoteName, date) => {
   // Format Date
-  const formatedDate = Intl.DateTimeFormat(navigator.language).format(
+  let formatedDate = Intl.DateTimeFormat(navigator.language).format(
     new Date(date)
   );
+
+  // Calc Days Passed Function
+  const calcDaysPassed = (date1, date2) =>
+    Math.round(Math.abs((date2 - date1) / (1000 * 60 * 60 * 24)));
+
+  // Calculate Days Passed
+  const daysPassed = calcDaysPassed(new Date(), new Date(date));
+
+  // Change Formatted Date To Today, Yesterday, or Days Ago
+  if (daysPassed === 0) formatedDate = 'TODAY';
+  if (daysPassed === 1) formatedDate = 'YESTERDAY';
+  if (daysPassed !== 0 && daysPassed !== 1 && daysPassed <= 7) {
+    formatedDate = `${daysPassed} days ago`;
+  }
 
   const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}"><p class="inline-block mr-4">${quoteName}</p><span class="text-white text-xs">${formatedDate}</span></a>`;
   quoteNamesContainer.insertAdjacentHTML('beforeend', html);
