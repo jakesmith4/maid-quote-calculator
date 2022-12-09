@@ -1263,27 +1263,32 @@ const fixName = str =>
     .join(' ');
 
 // Fill QuotesNamesContainer Function
-const fillSavedQuotesContainer = (quoteName, date) => {
+const fillSavedQuotesContainer = quoteInfo => {
   // Format Date
-  let formatedDate = Intl.DateTimeFormat(navigator.language).format(
-    new Date(date)
-  );
 
   // Calc Days Passed Function
-  const calcDaysPassed = (date1, date2) =>
-    Math.round(Math.abs((date2 - date1) / (1000 * 60 * 60 * 24)));
+  // const calcDaysPassed = (date1, date2) =>
+  //   Math.round(Math.abs((date2 - date1) / (1000 * 60 * 60 * 24)));
+
+  // Split Names & Dates Into An Array
+  const namePlusDate = quoteInfo.split('+');
+
+  // Store Names & Dates Into Diffrent Vars
+  let [quoteName, date] = namePlusDate;
 
   // Calculate Days Passed
-  const daysPassed = calcDaysPassed(new Date(), new Date(date));
+  // const daysPassed = calcDaysPassed(new Date(), new Date(date));
+
+  console.log(date);
 
   // Change Formatted Date To Today, Yesterday, or Days Ago If Needed
-  if (daysPassed === 0) formatedDate = 'TODAY';
-  if (daysPassed === 1) formatedDate = 'YESTERDAY';
-  if (daysPassed !== 0 && daysPassed !== 1 && daysPassed <= 7) {
-    formatedDate = `${daysPassed} days ago`;
-  }
+  // if (daysPassed === 0) date = 'TODAY';
+  // if (daysPassed === 1) date = 'YESTERDAY';
+  // if (daysPassed !== 0 && daysPassed !== 1 && daysPassed <= 7) {
+  //   date = `${daysPassed} days ago`;
+  // }
 
-  const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}"><p class="inline-block mr-4">${quoteName}</p><span class="text-white text-xs">${formatedDate}</span></a>`;
+  const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}"><p class="inline-block mr-4">${quoteName}</p><span class="text-xs">${date}</span></a>`;
   quoteNamesContainer.insertAdjacentHTML('beforeend', html);
 };
 
@@ -1297,8 +1302,16 @@ const sortDisplaySavedQuotes = () => {
   // Store All Saved Quote Dates Into Array
   const savedQuoteDates = savedQuotes.map(quote => quote.date);
 
+  // Store All Saved Names & Dates Into An Array
+  const quoteNamesPlusDates = savedQuotesNames.map(
+    (name, i) =>
+      `${name}+${Intl.DateTimeFormat(navigator.language).format(
+        new Date(savedQuoteDates[i])
+      )}`
+  );
+
   // Store SavedQuotes Into Sorted Array
-  const namesSorted = savedQuotesNames.slice().sort();
+  const namesSorted = quoteNamesPlusDates.slice().sort();
 
   if (sort) {
     // Show Not Sorted Icon
@@ -1306,18 +1319,14 @@ const sortDisplaySavedQuotes = () => {
     notSortedIcon.classList.remove('hidden');
 
     // Display Sorted Quotes
-    namesSorted.forEach((name, i) =>
-      fillSavedQuotesContainer(name, savedQuoteDates[i])
-    );
+    namesSorted.forEach(name => fillSavedQuotesContainer(name));
   } else {
     // Show Sorted Icon
     notSortedIcon.classList.add('hidden');
     sortedIcon.classList.remove('hidden');
 
     // Display Non Sorted Quotes
-    savedQuotesNames.forEach((name, i) =>
-      fillSavedQuotesContainer(name, savedQuoteDates[i])
-    );
+    quoteNamesPlusDates.forEach(name => fillSavedQuotesContainer(name));
   }
 };
 
@@ -1328,26 +1337,34 @@ const sortDisplayFilteredQuotes = savedQuotes => {
   // Store All Saved Quote Dates Into Array
   const savedQuoteDates = savedQuotes.map(quote => quote.date);
 
+  // Store All Saved Quote Names Into Array
+  const savedQuotesNames = savedQuotes.map(quote => quote.name);
+
+  // Store All Saved Names & Dates Into An Array
+  const quoteNamesPlusDates = savedQuotesNames.map(
+    (name, i) =>
+      `${name}+${Intl.DateTimeFormat(navigator.language).format(
+        new Date(savedQuoteDates[i])
+      )}`
+  );
+
   if (sort) {
     // Show Not Sorted Icon
     sortedIcon.classList.add('hidden');
     notSortedIcon.classList.remove('hidden');
 
     // Display Sorted Quotes
-    savedQuotes
+    quoteNamesPlusDates
       .slice()
-      .map(quote => quote.name)
       .sort()
-      .forEach((name, i) => fillSavedQuotesContainer(name, savedQuoteDates[i]));
+      .forEach(name => fillSavedQuotesContainer(name));
   } else {
     // Show Sorted Icon
     notSortedIcon.classList.add('hidden');
     sortedIcon.classList.remove('hidden');
 
     // Display Non Sorted Quotes
-    savedQuotes.forEach((quote, i) =>
-      fillSavedQuotesContainer(quote.name, savedQuoteDates[i])
-    );
+    quoteNamesPlusDates.forEach(name => fillSavedQuotesContainer(name));
   }
 };
 
@@ -1425,11 +1442,17 @@ document.addEventListener('click', e => {
   if (!e.target.closest('.quote-name')?.classList.contains('quote-name'))
     return;
 
+  console.log(e.target.closest('.quote-name').children[0]);
+  console.log(e.target.closest('.quote-name'));
+  console.log(savedQuotes);
+
   // Assign Current Quote
   currentQuote = savedQuotes.find(
     quote =>
       quote.name === e.target.closest('.quote-name').children[0].textContent
   );
+
+  console.log(currentQuote);
 
   // Display Show Quote Modal
   showQuoteModal.classList.remove('invisible');
