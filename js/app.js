@@ -1262,14 +1262,12 @@ const fixName = str =>
     .map(str => `${str[0]?.toUpperCase()}${str.slice(1)}`)
     .join(' ');
 
+// Calc Days Passed Function
+const calcDaysPassed = (date1, date2) =>
+  Math.round(Math.abs((date2 - date1) / (1000 * 60 * 60 * 24)));
+
 // Fill QuotesNamesContainer Function
 const fillSavedQuotesContainer = quoteInfo => {
-  // Format Date
-
-  // Calc Days Passed Function
-  // const calcDaysPassed = (date1, date2) =>
-  //   Math.round(Math.abs((date2 - date1) / (1000 * 60 * 60 * 24)));
-
   // Split Names & Dates Into An Array
   const namePlusDate = quoteInfo.split('+');
 
@@ -1277,18 +1275,19 @@ const fillSavedQuotesContainer = quoteInfo => {
   let [quoteName, date] = namePlusDate;
 
   // Calculate Days Passed
-  // const daysPassed = calcDaysPassed(new Date(), new Date(date));
+  const daysPassed = calcDaysPassed(new Date(), new Date(date));
 
-  console.log(date);
+  // Format Date
+  date = Intl.DateTimeFormat(navigator.language).format(new Date(date));
 
   // Change Formatted Date To Today, Yesterday, or Days Ago If Needed
-  // if (daysPassed === 0) date = 'TODAY';
-  // if (daysPassed === 1) date = 'YESTERDAY';
-  // if (daysPassed !== 0 && daysPassed !== 1 && daysPassed <= 7) {
-  //   date = `${daysPassed} days ago`;
-  // }
+  if (daysPassed === 0) date = 'TODAY';
+  if (daysPassed === 1) date = 'YESTERDAY';
+  if (daysPassed !== 0 && daysPassed !== 1 && daysPassed <= 7) {
+    date = `${daysPassed} days ago`;
+  }
 
-  const html = `<a href="#" class="text-semibold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}"><p class="inline-block mr-4">${quoteName}</p><span class="text-xs">${date}</span></a>`;
+  const html = `<a href="#" class="text-bold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}"><p class="inline-block mr-4">${quoteName}</p><span class="text-xs text-black dark:text-white">${date}</span></a>`;
   quoteNamesContainer.insertAdjacentHTML('beforeend', html);
 };
 
@@ -1304,10 +1303,7 @@ const sortDisplaySavedQuotes = () => {
 
   // Store All Saved Names & Dates Into An Array
   const quoteNamesPlusDates = savedQuotesNames.map(
-    (name, i) =>
-      `${name}+${Intl.DateTimeFormat(navigator.language).format(
-        new Date(savedQuoteDates[i])
-      )}`
+    (name, i) => `${name}+${savedQuoteDates[i]}`
   );
 
   // Store SavedQuotes Into Sorted Array
@@ -1342,10 +1338,7 @@ const sortDisplayFilteredQuotes = savedQuotes => {
 
   // Store All Saved Names & Dates Into An Array
   const quoteNamesPlusDates = savedQuotesNames.map(
-    (name, i) =>
-      `${name}+${Intl.DateTimeFormat(navigator.language).format(
-        new Date(savedQuoteDates[i])
-      )}`
+    (name, i) => `${name}+${savedQuoteDates[i]}`
   );
 
   if (sort) {
@@ -1442,17 +1435,11 @@ document.addEventListener('click', e => {
   if (!e.target.closest('.quote-name')?.classList.contains('quote-name'))
     return;
 
-  console.log(e.target.closest('.quote-name').children[0]);
-  console.log(e.target.closest('.quote-name'));
-  console.log(savedQuotes);
-
   // Assign Current Quote
   currentQuote = savedQuotes.find(
     quote =>
       quote.name === e.target.closest('.quote-name').children[0].textContent
   );
-
-  console.log(currentQuote);
 
   // Display Show Quote Modal
   showQuoteModal.classList.remove('invisible');
