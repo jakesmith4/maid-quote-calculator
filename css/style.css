@@ -1892,6 +1892,11 @@ video {
   .xss\:h-\[190px\] {
     height: 190px;
   }
+
+  .xss\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 @media (min-width: 368px) {
@@ -1901,6 +1906,15 @@ video {
 
   .xs\:w-3\/4 {
     width: 75%;
+  }
+
+  .xs\:gap-4 {
+    gap: 1rem;
+  }
+
+  .xs\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .xs\:text-base {
@@ -1970,6 +1984,10 @@ video {
 
   .sm\:max-w-2xl {
     max-width: 42rem;
+  }
+
+  .sm\:gap-4 {
+    gap: 1rem;
   }
 
   .sm\:border-4 {
