@@ -1266,6 +1266,49 @@ const fixName = str =>
 const calcDaysPassed = (date1, date2) =>
   Math.round(Math.abs((date2 - date1) / (1000 * 60 * 60 * 24)));
 
+// Check Days Ago
+const checkDaysAgo = (selectedIndex, index, storedDaysPassed, color) => {
+  if (selectedIndex === index) {
+    const quotesDaysAgo = savedQuotes.filter(
+      quote => quote.daysPassed === storedDaysPassed
+    );
+
+    sortDisplayFilteredQuotes(quotesDaysAgo);
+
+    filterSelect.style.background = color;
+  }
+};
+
+const checkLastFewDaysAgo = (selectedIndex, index, storedDaysPassed, color) => {
+  if (selectedIndex === index) {
+    const quotesLastFewDaysAgo = savedQuotes.filter(
+      quote => quote.daysPassed <= storedDaysPassed
+    );
+
+    sortDisplayFilteredQuotes(quotesLastFewDaysAgo);
+
+    filterSelect.style.background = color;
+  }
+};
+
+const checkAllDaysAgo = selectedIndex => {
+  // Check Today & Yesterday Filters
+  checkDaysAgo(selectedIndex, 4, 0, '#22c55e');
+  checkDaysAgo(selectedIndex, 5, 1, '#f59e0b');
+
+  // Check Over Last Few Days Filters
+  checkLastFewDaysAgo(selectedIndex, 6, 2, '#14b8a6');
+  checkLastFewDaysAgo(selectedIndex, 7, 3, '#6366f1');
+  checkLastFewDaysAgo(selectedIndex, 8, 4, '#a855f7');
+  checkLastFewDaysAgo(selectedIndex, 9, 5, '#d946ef');
+  checkLastFewDaysAgo(selectedIndex, 10, 7, '#ec4899');
+  checkLastFewDaysAgo(selectedIndex, 11, 31, '#84cc16');
+  checkLastFewDaysAgo(selectedIndex, 12, 60, '#06b6d4');
+  checkLastFewDaysAgo(selectedIndex, 13, 91, '#8b5cf6');
+  checkLastFewDaysAgo(selectedIndex, 14, 183, '#f43f5e');
+  checkLastFewDaysAgo(selectedIndex, 15, 365, '#f97316');
+};
+
 // Fill QuotesNamesContainer Function
 const fillSavedQuotesContainer = quoteInfo => {
   // Split Names & Dates Into An Array
@@ -1273,6 +1316,9 @@ const fillSavedQuotesContainer = quoteInfo => {
 
   // Store Names & Dates Into Diffrent Vars
   let [quoteName, date] = namePlusDate;
+
+  // Find Current Quote
+  const currentQuote = savedQuotes.find(quote => quote.name === quoteName);
 
   // Calculate Days Passed
   const daysPassed = calcDaysPassed(new Date(), new Date(date));
@@ -1286,6 +1332,9 @@ const fillSavedQuotesContainer = quoteInfo => {
   if (daysPassed !== 0 && daysPassed !== 1 && daysPassed <= 7) {
     date = `${daysPassed} days ago`;
   }
+
+  // Add daysPassed Property To Current Quote Object
+  currentQuote.daysPassed = daysPassed;
 
   const html = `<a href="#" class="text-bold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}"><p class="inline-block mr-4">${quoteName}</p><span class="text-xs text-black dark:text-white">${date}</span></a>`;
   quoteNamesContainer.insertAdjacentHTML('beforeend', html);
@@ -1740,13 +1789,22 @@ filterSelect.addEventListener('change', () => {
   const savedQuotes2 = savedQuotes.filter(
     quote => +quote.status === filterSelect.selectedIndex - 1
   );
+
+  // Store Selected Index Into Var
+  const selectedIndex = filterSelect.selectedIndex;
+
   filterSelect.blur();
   quoteNamesContainer.focus();
-  if (filterSelect.selectedIndex === 0) {
+
+  if (selectedIndex === 0) {
     sortDisplaySavedQuotes();
-  } else {
+  }
+  if (selectedIndex === 1 || selectedIndex === 2 || selectedIndex === 3) {
     sortDisplayFilteredQuotes(savedQuotes2);
   }
+
+  // Filter Dates To Show Correct Names (Today, Yesterday, Days Ago)
+  checkAllDaysAgo(selectedIndex);
 });
 
 // Change Colors On Status Select Saved Quote Modal
@@ -1921,14 +1979,22 @@ sortBtn.addEventListener('click', () => {
   // Set Sort To Local Storage
   localStorage.setItem('sort', sort);
 
-  if (filterSelect.selectedIndex !== 0) {
-    // Filter Quotes
+  // Store Selected Index Into Var
+  const selectedIndex = filterSelect.selectedIndex;
+
+  if (selectedIndex === 0) {
+    sortDisplaySavedQuotes();
+  }
+
+  if (selectedIndex === 1 || selectedIndex === 2 || selectedIndex === 3) {
+    // Store Filterd Saved Quotes Into An Array
     const savedQuotes2 = savedQuotes.filter(
       quote => +quote.status === filterSelect.selectedIndex - 1
     );
 
     sortDisplayFilteredQuotes(savedQuotes2);
-  } else {
-    sortDisplaySavedQuotes();
   }
+
+  // Filter Dates To Show Correct Names (Today, Yesterday, Days Ago)
+  checkAllDaysAgo(selectedIndex);
 });
