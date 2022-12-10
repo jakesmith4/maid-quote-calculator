@@ -848,6 +848,22 @@ video {
   height: 3rem;
 }
 
+.h-32 {
+  height: 8rem;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.h-7 {
+  height: 1.75rem;
+}
+
 .max-h-full {
   max-height: 100%;
 }
@@ -910,6 +926,18 @@ video {
 
 .w-24 {
   width: 6rem;
+}
+
+.w-16 {
+  width: 4rem;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
+.w-7 {
+  width: 1.75rem;
 }
 
 .max-w-sm {
@@ -1272,6 +1300,11 @@ video {
 
 .to-neutral-800 {
   --tw-gradient-to: #262626;
+}
+
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .p-2 {

@@ -965,6 +965,13 @@ const options = {
   weekday: 'long',
 };
 
+// All Saved Quotes Icons
+const calenderIcon = document.querySelector('.calender-icon');
+const allContactsIcon = document.querySelector('.all-contacts-icon');
+const gaveQuoteIcon = document.querySelector('.gave-quote-icon');
+const giveCallbackIcon = document.querySelector('.give-callback-icon');
+const bookedJobIcon = document.querySelector('.booked-job-icon');
+
 // HTML Element
 const html = document.documentElement;
 
@@ -1266,6 +1273,14 @@ const fixName = str =>
 const calcDaysPassed = (date1, date2) =>
   Math.round(Math.abs((date2 - date1) / (1000 * 60 * 60 * 24)));
 
+const removeAllFilterIcons = () => {
+  calenderIcon.classList.add('hidden');
+  allContactsIcon.classList.add('hidden');
+  gaveQuoteIcon.classList.add('hidden');
+  giveCallbackIcon.classList.add('hidden');
+  bookedJobIcon.classList.add('hidden');
+};
+
 // Check Days Ago
 const checkDaysAgo = (selectedIndex, index, storedDaysPassed, color) => {
   if (selectedIndex === index) {
@@ -1276,6 +1291,10 @@ const checkDaysAgo = (selectedIndex, index, storedDaysPassed, color) => {
     sortDisplayFilteredQuotes(quotesDaysAgo);
 
     filterSelect.style.background = color;
+
+    // Show Calender Icon
+    removeAllFilterIcons();
+    calenderIcon.classList.remove('hidden');
   }
 };
 
@@ -1288,6 +1307,9 @@ const checkLastFewDaysAgo = (selectedIndex, index, storedDaysPassed, color) => {
     sortDisplayFilteredQuotes(quotesLastFewDaysAgo);
 
     filterSelect.style.background = color;
+
+    removeAllFilterIcons();
+    calenderIcon.classList.remove('hidden');
   }
 };
 
@@ -1797,9 +1819,38 @@ filterSelect.addEventListener('change', () => {
   quoteNamesContainer.focus();
 
   if (selectedIndex === 0) {
+    // calenderIcon.classList.add('hidden');
+    // gaveQuoteIcon.classList.add('hidden');
+    // giveCallbackIcon.classList.add('hidden');
+    // bookedJobIcon.classList.add('hidden');
+    // allContactsIcon.classList.remove('hidden');
+
+    removeAllFilterIcons();
+    allContactsIcon.classList.remove('hidden');
+
     sortDisplaySavedQuotes();
   }
+
+  if (selectedIndex === 1) {
+    removeAllFilterIcons();
+    gaveQuoteIcon.classList.remove('hidden');
+  }
+
+  if (selectedIndex === 2) {
+    removeAllFilterIcons();
+    giveCallbackIcon.classList.remove('hidden');
+  }
+
+  if (selectedIndex === 3) {
+    removeAllFilterIcons();
+    bookedJobIcon.classList.remove('hidden');
+  }
+
   if (selectedIndex === 1 || selectedIndex === 2 || selectedIndex === 3) {
+    // Hide Calender Icon
+    calenderIcon.classList.add('hidden');
+    allContactsIcon.classList.add('hidden');
+
     sortDisplayFilteredQuotes(savedQuotes2);
   }
 
