@@ -1314,21 +1314,17 @@ const checkLastFewDaysAgo = (selectedIndex, index, storedDaysPassed, color) => {
 };
 
 const checkAllDaysAgo = selectedIndex => {
-  // Check Today & Yesterday Filters
+  // Check Today Filter
   checkDaysAgo(selectedIndex, 4, 0, '#22c55e');
-  checkDaysAgo(selectedIndex, 5, 1, '#f59e0b');
 
   // Check Over Last Few Days Filters
-  checkLastFewDaysAgo(selectedIndex, 6, 2, '#14b8a6');
-  checkLastFewDaysAgo(selectedIndex, 7, 3, '#6366f1');
-  checkLastFewDaysAgo(selectedIndex, 8, 4, '#a855f7');
-  checkLastFewDaysAgo(selectedIndex, 9, 5, '#d946ef');
-  checkLastFewDaysAgo(selectedIndex, 10, 7, '#ec4899');
-  checkLastFewDaysAgo(selectedIndex, 11, 31, '#84cc16');
-  checkLastFewDaysAgo(selectedIndex, 12, 60, '#06b6d4');
-  checkLastFewDaysAgo(selectedIndex, 13, 91, '#8b5cf6');
-  checkLastFewDaysAgo(selectedIndex, 14, 183, '#f43f5e');
-  checkLastFewDaysAgo(selectedIndex, 15, 365, '#f97316');
+  checkLastFewDaysAgo(selectedIndex, 5, 3, '#14b8a6');
+  checkLastFewDaysAgo(selectedIndex, 6, 7, '#6366f1');
+  checkLastFewDaysAgo(selectedIndex, 7, 31, '#a855f7');
+  checkLastFewDaysAgo(selectedIndex, 8, 61, '#ec4899');
+  checkLastFewDaysAgo(selectedIndex, 9, 91, '#84cc16');
+  checkLastFewDaysAgo(selectedIndex, 10, 183, '#06b6d4');
+  checkLastFewDaysAgo(selectedIndex, 11, 365, '#8b5cf6');
 };
 
 // Fill QuotesNamesContainer Function
