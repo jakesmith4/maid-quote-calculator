@@ -1352,13 +1352,13 @@ const fillSavedQuotesContainer = quoteInfo => {
   if (daysPassed === 0) date = 'TODAY';
   if (daysPassed === 1) date = 'YESTERDAY';
   if (daysPassed !== 0 && daysPassed !== 1 && daysPassed <= 7) {
-    date = `${daysPassed} days ago`;
+    date = `${daysPassed} DAYS AGO`;
   }
 
   // Add daysPassed Property To Current Quote Object
   currentQuote.daysPassed = daysPassed;
 
-  const html = `<a href="#" class="text-bold text-emerald-600 tracking-widest block mb-3 quote-name" data-id="${quoteName}"><p class="inline-block mr-4">${quoteName}</p><span class="text-xs text-black dark:text-white">${date}</span></a>`;
+  const html = `<a href="#" class="text-bold text-emerald-600 tracking-widest flex items-center flex-wrap mb-3 quote-name" data-id="${quoteName}"><p class="inline-block mr-4">${quoteName}</p><span class="text-xs text-black dark:text-white">${date}</span></a>`;
   quoteNamesContainer.insertAdjacentHTML('beforeend', html);
 };
 
