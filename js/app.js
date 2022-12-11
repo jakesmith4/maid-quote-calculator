@@ -985,6 +985,17 @@ const last3MonthsColor = '#84cc16';
 const last6MonthsColor = '#06b6d4';
 const overLastYearColor = '#8b5cf6';
 
+// Analytics Data
+const analyticsFilter = document.getElementById('analytics-filter');
+const gaveQuoteDataBar = document.querySelector('.gave-quote-data');
+const giveCallbackDataBar = document.querySelector('.give-callback-data');
+const allBookedJobsDataBar = document.querySelector('.all-booked-jobs-data');
+const allAnalyticsData = document.querySelectorAll('.analytics-data');
+const totalQuotesGiven = document.querySelector('.total-quotes-given');
+const gaveQuoteCircle = document.querySelector('.gave-quote-circle');
+const giveCallbackCircle = document.querySelector('.give-callback-circle');
+const bookedJobCircle = document.querySelector('.booked-job-circle');
+
 // HTML Element
 const html = document.documentElement;
 
@@ -1485,21 +1496,28 @@ if (JSON.parse(localStorage.getItem('showSideMenu'))) {
   sidebar.classList.add('show-sidebar');
 }
 
-const analyticsFilter = document.getElementById('analytics-filter');
-const gaveQuoteDataBar = document.querySelector('.gave-quote-data');
-const giveCallbackDataBar = document.querySelector('.give-callback-data');
-const allBookedJobsDataBar = document.querySelector('.all-booked-jobs-data');
-const totalQuotesGiven = document.querySelector('.total-quotes-given');
-const gaveQuoteCircle = document.querySelector('.gave-quote-circle');
-const giveCallbackCircle = document.querySelector('.give-callback-circle');
-const bookedJobCircle = document.querySelector('.booked-job-circle');
-
 const calcDisplayAnalyticsData = daysPassed => {
   let allSavedQuotes;
 
   let currentSavedQuotes;
 
   const analyticsIndex = analyticsFilter.selectedIndex;
+
+  // Show Analytics Data If There Are Saved Quotes
+  if (savedQuotes.length !== 0) {
+    allAnalyticsData.forEach(el => {
+      el.classList.remove('opacity-0');
+      el.classList.remove('opacity-0');
+      el.classList.remove('opacity-0');
+    });
+  } else {
+    // Remove Analytics Data If There Are NO Saved Quotes
+    allAnalyticsData.forEach(el => {
+      el.classList.add('opacity-0');
+      el.classList.add('opacity-0');
+      el.classList.add('opacity-0');
+    });
+  }
 
   if (analyticsIndex === 0) {
     allSavedQuotes = savedQuotes.length;
