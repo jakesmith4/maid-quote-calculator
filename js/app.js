@@ -858,6 +858,8 @@ const settingsModal = document.querySelector('.modal');
 const saveQuoteModal = document.querySelector('.modal-quote');
 const savedQuoteModal = document.querySelector('.modal-saved');
 const showQuoteModal = document.querySelector('.modal-show');
+const analyticsModal = document.querySelector('.modal-analytics');
+const analyticsIcon = document.querySelector('.analytics');
 const closeModal = document.querySelector('.close-modal');
 const quoteHeading = document.querySelector('.quote-heading');
 
@@ -1004,9 +1006,15 @@ closeModalFunc(saveQuoteModal);
 closeModalFunc(savedQuoteModal);
 closeModalFunc(settingsModal);
 closeModalFunc(showQuoteModal);
+closeModalFunc(analyticsModal);
 
 // Remove Other Active Modals
-const removeactiveModals = (firstModal, secondModal, thirdModal) => {
+const removeactiveModals = (
+  firstModal,
+  secondModal,
+  thirdModal,
+  forthModal
+) => {
   if (!firstModal.classList.contains('invisible')) {
     firstModal.classList.add('invisible');
     firstModal.classList.remove('flex');
@@ -1023,6 +1031,12 @@ const removeactiveModals = (firstModal, secondModal, thirdModal) => {
     thirdModal.classList.add('invisible');
     thirdModal.classList.remove('flex');
     thirdModal.classList.add('hidden');
+    html.classList.add('overflow-y-hidden');
+  }
+  if (!forthModal.classList.contains('invisible')) {
+    forthModal.classList.add('invisible');
+    forthModal.classList.remove('flex');
+    forthModal.classList.add('hidden');
     html.classList.add('overflow-y-hidden');
   }
 };
@@ -1043,6 +1057,7 @@ keypressEscModal(settingsModal);
 keypressEscModal(savedQuoteModal);
 keypressEscModal(saveQuoteModal);
 keypressEscModal(showQuoteModal);
+keypressEscModal(analyticsModal);
 
 // Show Alert Message
 let alertTimer;
@@ -1459,6 +1474,72 @@ if (JSON.parse(localStorage.getItem('showSideMenu'))) {
   sidebar.classList.add('show-sidebar');
 }
 
+const gaveQuoteDataBar = document.querySelector('.gave-quote-data');
+const giveCallbackDataBar = document.querySelector('.give-callback-data');
+const allBookedJobsDataBar = document.querySelector('.all-booked-jobs-data');
+const totalQuotesGiven = document.querySelector('.total-quotes-given');
+const gaveQuoteCircle = document.querySelector('.gave-quote-circle');
+const giveCallbackCircle = document.querySelector('.give-callback-circle');
+const bookedJobCircle = document.querySelector('.booked-job-circle');
+
+const calcDisplayStatusPercentages = () => {
+  console.log(savedQuotes);
+  // Store All Saved Quotes Total Length Into Var
+  const allSavedQuotes = savedQuotes.length;
+
+  // Assign Total Number Of Quotes
+  totalQuotesGiven.textContent = allSavedQuotes;
+
+  // Store All Given Quotes Total Length Into Var
+  const allGaveQuotes = savedQuotes.filter(quote => quote.status === 0).length;
+
+  // Store All Give Callbacks Total Length Into Var
+  const allGiveCallback = savedQuotes.filter(
+    quote => quote.status === 1
+  ).length;
+
+  // Store All Booked Jobs Total Length Into Var
+  const allBookedJob = savedQuotes.filter(quote => quote.status === 2).length;
+
+  // Get The Percentage Of All Given Quotes
+  const gaveQuotesPercentage = ((allGaveQuotes / allSavedQuotes) * 100).toFixed(
+    0
+  );
+
+  // Get The Percentage Of All Give Callbacks
+  const giveCallbacksPercentage = (
+    (allGiveCallback / allSavedQuotes) *
+    100
+  ).toFixed(0);
+
+  // Get The Percentage Of All Booked Jobs
+  const allBookedJobsPercentage = (
+    (allBookedJob / allSavedQuotes) *
+    100
+  ).toFixed(0);
+
+  // Add Status Data To Gave Quote Data Bar
+  gaveQuoteDataBar.style.width = `${gaveQuotesPercentage}%`;
+  gaveQuoteDataBar.textContent = `${gaveQuotesPercentage}%`;
+
+  gaveQuoteCircle.textContent = allGaveQuotes;
+
+  // Add Status Data To Give Callback Data Bar & Circles
+  giveCallbackDataBar.style.width = `${giveCallbacksPercentage}%`;
+
+  giveCallbackDataBar.textContent = `${giveCallbacksPercentage}%`;
+
+  giveCallbackCircle.textContent = allGiveCallback;
+
+  // Add Status Data To All Booked Jobs Data Bar & Circles
+  allBookedJobsDataBar.style.width = `${allBookedJobsPercentage}%`;
+
+  allBookedJobsDataBar.textContent = `${allBookedJobsPercentage}%`;
+
+  bookedJobCircle.textContent = allBookedJob;
+};
+calcDisplayStatusPercentages();
+
 // EVENT HANDLERS //
 // Toggle Save Quote Modal On Save Icon Click (Sidebar)
 saveIcon.addEventListener('click', () => {
@@ -1467,7 +1548,12 @@ saveIcon.addEventListener('click', () => {
   savedQuoteModal.classList.add('flex');
   html.classList.add('overflow-y-hidden');
   // Remove Other Active Modals
-  removeactiveModals(settingsModal, saveQuoteModal, showQuoteModal);
+  removeactiveModals(
+    settingsModal,
+    saveQuoteModal,
+    showQuoteModal,
+    analyticsModal
+  );
 });
 
 // Toggle Settings Modal On Setting Icon Click (Sidebar)
@@ -1477,7 +1563,27 @@ settingsIcon.addEventListener('click', () => {
   settingsModal.classList.toggle('hidden');
   html.classList.toggle('overflow-y-hidden');
   // Remove Other Active Modals
-  removeactiveModals(saveQuoteModal, savedQuoteModal, showQuoteModal);
+  removeactiveModals(
+    saveQuoteModal,
+    savedQuoteModal,
+    showQuoteModal,
+    analyticsModal
+  );
+});
+
+// Toggle Analytics Modal On Analytics Modal Click (Sidebar)
+analyticsIcon.addEventListener('click', () => {
+  analyticsModal.classList.toggle('invisible');
+  analyticsModal.classList.toggle('flex');
+  analyticsModal.classList.toggle('hidden');
+  html.classList.toggle('overflow-y-hidden');
+  // Remove Other Active Modals
+  removeactiveModals(
+    saveQuoteModal,
+    savedQuoteModal,
+    showQuoteModal,
+    settingsModal
+  );
 });
 
 // Go Back To Saved Quotes Modal
@@ -1815,12 +1921,6 @@ filterSelect.addEventListener('change', () => {
   quoteNamesContainer.focus();
 
   if (selectedIndex === 0) {
-    // calenderIcon.classList.add('hidden');
-    // gaveQuoteIcon.classList.add('hidden');
-    // giveCallbackIcon.classList.add('hidden');
-    // bookedJobIcon.classList.add('hidden');
-    // allContactsIcon.classList.remove('hidden');
-
     removeAllFilterIcons();
     allContactsIcon.classList.remove('hidden');
 
@@ -1965,7 +2065,7 @@ saveQuoteForm.addEventListener('submit', e => {
       amountPerHour: `${amountPerHour.value}`,
       taxRate: `${taxRate.value}`,
       specialNotes: `${specialNotesInput.value}`,
-      status: `${status.selectedIndex}`,
+      status: status.selectedIndex,
       deepPrice: `${deepSavedPrice}`,
       generalPrice: `${generalSavedPrice}`,
       weeklyPrice: `${weeklySavedPrice}`,

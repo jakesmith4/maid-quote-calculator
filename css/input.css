@@ -35,6 +35,14 @@
   @apply md:inline-block;
 }
 
+.show-sidebar .analytics {
+  @apply md:bg-slate-100 md:p-2 md:w-[119px];
+}
+
+.show-sidebar .analytics-text {
+  @apply md:inline-block;
+}
+
 .settings-button:hover .settings-icon {
   @apply scale-110 text-white md:text-emerald-600 rotate-[360deg];
 }
@@ -48,5 +56,13 @@
 }
 
 .save-button:hover .save-text {
+  @apply text-emerald-700 transition-all duration-200;
+}
+
+.analytics-button:hover .analytics-icon {
+  @apply scale-110 text-white md:text-emerald-600 rotate-[360deg];
+}
+
+.analytics:hover .analytics-text {
   @apply text-emerald-700 transition-all duration-200;
 }
