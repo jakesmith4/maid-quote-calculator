@@ -974,6 +974,17 @@ const gaveQuoteIcon = document.querySelector('.gave-quote-icon');
 const giveCallbackIcon = document.querySelector('.give-callback-icon');
 const bookedJobIcon = document.querySelector('.booked-job-icon');
 
+// Filter Select Colors
+const allColor = '#15803d';
+const todayColor = '#22c55e';
+const last3DaysColor = '#14b8a6';
+const last7DaysColor = '#6366f1';
+const last31DaysColor = '#a855f7';
+const last2MonthsColor = '#ec4899';
+const last3MonthsColor = '#84cc16';
+const last6MonthsColor = '#06b6d4';
+const overLastYearColor = '#8b5cf6';
+
 // HTML Element
 const html = document.documentElement;
 
@@ -1135,7 +1146,7 @@ const changeColorStatus = select => {
     select.style.background = '#dc2626';
   }
   if (select.selectedIndex === 2) {
-    select.style.background = '#262626';
+    select.style.background = '#10b981';
   }
 };
 
@@ -1330,16 +1341,16 @@ const checkLastFewDaysAgo = (selectedIndex, index, storedDaysPassed, color) => {
 
 const checkAllDaysAgo = selectedIndex => {
   // Check Today Filter
-  checkDaysAgo(selectedIndex, 4, 0, '#22c55e');
+  checkDaysAgo(selectedIndex, 4, 0, todayColor);
 
   // Check Over Last Few Days Filters
-  checkLastFewDaysAgo(selectedIndex, 5, 3, '#14b8a6');
-  checkLastFewDaysAgo(selectedIndex, 6, 7, '#6366f1');
-  checkLastFewDaysAgo(selectedIndex, 7, 31, '#a855f7');
-  checkLastFewDaysAgo(selectedIndex, 8, 61, '#ec4899');
-  checkLastFewDaysAgo(selectedIndex, 9, 91, '#84cc16');
-  checkLastFewDaysAgo(selectedIndex, 10, 183, '#06b6d4');
-  checkLastFewDaysAgo(selectedIndex, 11, 365, '#8b5cf6');
+  checkLastFewDaysAgo(selectedIndex, 5, 3, last3DaysColor);
+  checkLastFewDaysAgo(selectedIndex, 6, 7, last7DaysColor);
+  checkLastFewDaysAgo(selectedIndex, 7, 31, last31DaysColor);
+  checkLastFewDaysAgo(selectedIndex, 8, 61, last2MonthsColor);
+  checkLastFewDaysAgo(selectedIndex, 9, 91, last3MonthsColor);
+  checkLastFewDaysAgo(selectedIndex, 10, 183, last6MonthsColor);
+  checkLastFewDaysAgo(selectedIndex, 11, 365, overLastYearColor);
 };
 
 // Fill QuotesNamesContainer Function
@@ -1474,6 +1485,7 @@ if (JSON.parse(localStorage.getItem('showSideMenu'))) {
   sidebar.classList.add('show-sidebar');
 }
 
+const analyticsFilter = document.getElementById('analytics-filter');
 const gaveQuoteDataBar = document.querySelector('.gave-quote-data');
 const giveCallbackDataBar = document.querySelector('.give-callback-data');
 const allBookedJobsDataBar = document.querySelector('.all-booked-jobs-data');
@@ -1482,24 +1494,55 @@ const gaveQuoteCircle = document.querySelector('.gave-quote-circle');
 const giveCallbackCircle = document.querySelector('.give-callback-circle');
 const bookedJobCircle = document.querySelector('.booked-job-circle');
 
-const calcDisplayStatusPercentages = () => {
-  console.log(savedQuotes);
-  // Store All Saved Quotes Total Length Into Var
-  const allSavedQuotes = savedQuotes.length;
+const calcDisplayAnalyticsData = daysPassed => {
+  let allSavedQuotes;
+
+  let currentSavedQuotes;
+
+  const analyticsIndex = analyticsFilter.selectedIndex;
+
+  if (analyticsIndex === 0) {
+    allSavedQuotes = savedQuotes.length;
+    currentSavedQuotes = savedQuotes;
+  }
+
+  if (analyticsIndex === 1) {
+    const allFilteredQuotes = savedQuotes.filter(
+      quote => quote.daysPassed === daysPassed
+    );
+
+    allSavedQuotes = allFilteredQuotes.length;
+
+    currentSavedQuotes = allFilteredQuotes;
+  }
+
+  if (analyticsIndex > 1) {
+    const allFilteredQuotes = savedQuotes.filter(
+      quote => quote.daysPassed <= daysPassed
+    );
+
+    allSavedQuotes = allFilteredQuotes.length;
+
+    currentSavedQuotes = allFilteredQuotes;
+  }
 
   // Assign Total Number Of Quotes
   totalQuotesGiven.textContent = allSavedQuotes;
 
   // Store All Given Quotes Total Length Into Var
-  const allGaveQuotes = savedQuotes.filter(quote => quote.status === 0).length;
+  const allGaveQuotes = currentSavedQuotes.filter(
+    quote => quote.status === 0
+  ).length;
 
   // Store All Give Callbacks Total Length Into Var
-  const allGiveCallback = savedQuotes.filter(
+  const allGiveCallback = currentSavedQuotes.filter(
     quote => quote.status === 1
   ).length;
 
   // Store All Booked Jobs Total Length Into Var
-  const allBookedJob = savedQuotes.filter(quote => quote.status === 2).length;
+  const allBookedJob = currentSavedQuotes.filter(
+    quote => quote.status === 2
+  ).length;
 
   // Get The Percentage Of All Given Quotes
   const gaveQuotesPercentage = ((allGaveQuotes / allSavedQuotes) * 100).toFixed(
@@ -1520,25 +1563,71 @@ const calcDisplayStatusPercentages = () => {
 
   // Add Status Data To Gave Quote Data Bar
   gaveQuoteDataBar.style.width = `${gaveQuotesPercentage}%`;
-  gaveQuoteDataBar.textContent = `${gaveQuotesPercentage}%`;
+
+  allGaveQuotes
+    ? (gaveQuoteDataBar.textContent = `${gaveQuotesPercentage}%`)
+    : (gaveQuoteDataBar.textContent = '');
 
   gaveQuoteCircle.textContent = allGaveQuotes;
 
   // Add Status Data To Give Callback Data Bar & Circles
   giveCallbackDataBar.style.width = `${giveCallbacksPercentage}%`;
 
-  giveCallbackDataBar.textContent = `${giveCallbacksPercentage}%`;
+  allGiveCallback
+    ? (giveCallbackDataBar.textContent = `${giveCallbacksPercentage}%`)
+    : (giveCallbackDataBar.textContent = '');
 
   giveCallbackCircle.textContent = allGiveCallback;
 
   // Add Status Data To All Booked Jobs Data Bar & Circles
   allBookedJobsDataBar.style.width = `${allBookedJobsPercentage}%`;
 
-  allBookedJobsDataBar.textContent = `${allBookedJobsPercentage}%`;
+  allBookedJob
+    ? (allBookedJobsDataBar.textContent = `${allBookedJobsPercentage}%`)
+    : (allBookedJobsDataBar.textContent = '');
 
   bookedJobCircle.textContent = allBookedJob;
 };
-calcDisplayStatusPercentages();
+calcDisplayAnalyticsData(null, '#10b981');
+
+const filterAnalyticsData = () => {
+  if (analyticsFilter.selectedIndex === 0) {
+    calcDisplayAnalyticsData(null);
+    analyticsFilter.style.background = allColor;
+  }
+  if (analyticsFilter.selectedIndex === 1) {
+    calcDisplayAnalyticsData(0);
+    analyticsFilter.style.background = todayColor;
+  }
+  if (analyticsFilter.selectedIndex === 2) {
+    calcDisplayAnalyticsData(3);
+    analyticsFilter.style.background = last3DaysColor;
+  }
+  if (analyticsFilter.selectedIndex === 3) {
+    calcDisplayAnalyticsData(7);
+    analyticsFilter.style.background = last7DaysColor;
+  }
+  if (analyticsFilter.selectedIndex === 4) {
+    calcDisplayAnalyticsData(31);
+    analyticsFilter.style.background = last31DaysColor;
+  }
+  if (analyticsFilter.selectedIndex === 5) {
+    calcDisplayAnalyticsData(61);
+    analyticsFilter.style.background = last2MonthsColor;
+  }
+  if (analyticsFilter.selectedIndex === 6) {
+    calcDisplayAnalyticsData(91);
+    analyticsFilter.style.background = last3MonthsColor;
+  }
+  if (analyticsFilter.selectedIndex === 7) {
+    calcDisplayAnalyticsData(183);
+    analyticsFilter.style.background = last6MonthsColor;
+  }
+  if (analyticsFilter.selectedIndex === 8) {
+    calcDisplayAnalyticsData(365);
+    analyticsFilter.style.background = overLastYearColor;
+  }
+};
 
 // EVENT HANDLERS //
 // Toggle Save Quote Modal On Save Icon Click (Sidebar)
@@ -1584,6 +1673,8 @@ analyticsIcon.addEventListener('click', () => {
     showQuoteModal,
     settingsModal
   );
+
+  filterAnalyticsData();
 });
 
 // Go Back To Saved Quotes Modal
@@ -1598,6 +1689,11 @@ const addListenerToDeleteBtn = () => {
   const deleteQuoteBtn = document.querySelector('.delete-quote');
   deleteQuoteBtn.addEventListener('click', deleteQuote);
 };
+
+// Filter Analytics Data
+analyticsFilter.addEventListener('change', () => {
+  filterAnalyticsData();
+});
 
 // Show Current Quote On Name Click
 let currentQuote;
@@ -1959,7 +2055,7 @@ const statusSelectSaved = document.querySelector('.select-colors');
 
 statusSelectSaved.addEventListener('change', () => {
   if (statusSelectSaved.selectedIndex === 0) {
-    statusSelectSaved.style.background = '#059669';
+    statusSelectSaved.style.background = allColor;
   }
   if (statusSelectSaved.selectedIndex === 1) {
     statusSelectSaved.style.background = '#2563eb';
@@ -1968,7 +2064,7 @@ statusSelectSaved.addEventListener('change', () => {
     statusSelectSaved.style.background = '#dc2626';
   }
   if (statusSelectSaved.selectedIndex === 3) {
-    statusSelectSaved.style.background = '#262626';
+    statusSelectSaved.style.background = '#10b981';
   }
 });
 

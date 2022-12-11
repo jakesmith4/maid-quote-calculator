@@ -1146,12 +1146,21 @@ video {
   border-bottom-right-radius: 0px;
 }
 
+.rounded-tl-full {
+  border-top-left-radius: 9999px;
+}
+
 .border-2 {
   border-width: 2px;
 }
 
 .border-\[3px\] {
   border-width: 3px;
+}
+
+.border-y-2 {
+  border-top-width: 2px;
+  border-bottom-width: 2px;
 }
 
 .border-b-2 {
@@ -1164,6 +1173,14 @@ video {
 
 .border-l-4 {
   border-left-width: 4px;
+}
+
+.border-l-2 {
+  border-left-width: 2px;
+}
+
+.border-r-2 {
+  border-right-width: 2px;
 }
 
 .border-white {
