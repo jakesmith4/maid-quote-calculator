@@ -2214,6 +2214,10 @@ saveQuoteForm.addEventListener('submit', e => {
     filterDate.selectedIndex = 0;
     filterDate.style.background = allColor;
 
+    // Change Filter Icon Back To Book
+    removeAllFilterIcons();
+    allContactsIcon.classList.remove('hidden');
+
     // Add Newley Created Quote To SavedQuotesContainer Modal
     sortDisplaySavedQuotes();
 
