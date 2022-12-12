@@ -1716,6 +1716,7 @@ analyticsIcon.addEventListener('click', () => {
 // Go Back To Saved Quotes Modal
 const backBtn = document.querySelector('.back-btn');
 backBtn.addEventListener('click', () => {
+  // Show Saved Quotes Modal
   showQuoteModal.classList.add('invisible');
   savedQuoteModal.classList.remove('invisible');
 });
@@ -2205,9 +2206,13 @@ saveQuoteForm.addEventListener('submit', e => {
       date: ISOString,
     });
 
-    // Set Filter Select Go Back to Index 0
+    // Make Filter Select Go Back All Selection
     filterSelect.selectedIndex = 0;
-    filterSelect.style.background = 'rgb(5, 150, 105)';
+    filterSelect.style.background = allColor;
+
+    // Make Filter Date Go Back To All Selection
+    filterDate.selectedIndex = 0;
+    filterDate.style.background = allColor;
 
     // Add Newley Created Quote To SavedQuotesContainer Modal
     sortDisplaySavedQuotes();
