@@ -932,6 +932,10 @@ let savedQuotes;
 
 // Filter Quotes
 const filterSelect = document.getElementById('saved-quotes');
+const filterDate = document.getElementById('filter-date');
+const bothSavedQuoteFilters = document.querySelector(
+  '.saved-quotes-filter-container'
+);
 
 // Sort Elements
 let sort = false;
@@ -979,7 +983,7 @@ const allColor = '#15803d';
 const todayColor = '#22c55e';
 const last3DaysColor = '#14b8a6';
 const last7DaysColor = '#6366f1';
-const last31DaysColor = '#a855f7';
+const last31DaysColor = '#d946ef';
 const last2MonthsColor = '#ec4899';
 const last3MonthsColor = '#84cc16';
 const last6MonthsColor = '#06b6d4';
@@ -1311,57 +1315,71 @@ const calcDaysPassed = (date1, date2) =>
   Math.round(Math.abs((date2 - date1) / (1000 * 60 * 60 * 24)));
 
 const removeAllFilterIcons = () => {
-  calenderIcon.classList.add('hidden');
   allContactsIcon.classList.add('hidden');
   gaveQuoteIcon.classList.add('hidden');
   giveCallbackIcon.classList.add('hidden');
   bookedJobIcon.classList.add('hidden');
 };
 
-// Check Days Ago
-const checkDaysAgo = (selectedIndex, index, storedDaysPassed, color) => {
-  if (selectedIndex === index) {
-    const quotesDaysAgo = savedQuotes.filter(
-      quote => quote.daysPassed === storedDaysPassed
-    );
+const filterDisplaySavedQuotes = (
+  selectedIndex,
+  index,
+  storedDaysPassed,
+  color
+) => {
+  if (selectedIndex.selectedIndex === index) {
+    // Filter Saved Quotes Array For Both Status & Dates
+    const quotesLastFewDaysAgo = savedQuotes
+      .filter(quote => quote.daysPassed <= storedDaysPassed)
+      .filter(quote => +quote.status === filterSelect.selectedIndex - 1);
 
-    sortDisplayFilteredQuotes(quotesDaysAgo);
-
-    filterSelect.style.background = color;
-
-    // Show Calender Icon
-    removeAllFilterIcons();
-    calenderIcon.classList.remove('hidden');
-  }
-};
-
-const checkLastFewDaysAgo = (selectedIndex, index, storedDaysPassed, color) => {
-  if (selectedIndex === index) {
-    const quotesLastFewDaysAgo = savedQuotes.filter(
+    // Filter Saved Quotes Array Just Dates
+    const quotesToday = savedQuotes.filter(
       quote => quote.daysPassed <= storedDaysPassed
     );
 
-    sortDisplayFilteredQuotes(quotesLastFewDaysAgo);
+    // Change Background Color Of Filter Dates
+    selectedIndex.style.background = color;
 
-    filterSelect.style.background = color;
-
-    removeAllFilterIcons();
-    calenderIcon.classList.remove('hidden');
+    // Display Quotes
+    if (filterSelect.selectedIndex === 0) {
+      sortDisplayFilteredQuotes(quotesToday);
+    } else {
+      sortDisplayFilteredQuotes(quotesLastFewDaysAgo);
+    }
   }
 };
 
-const checkAllDaysAgo = selectedIndex => {
-  // Check Today Filter
-  checkDaysAgo(selectedIndex, 4, 0, todayColor);
+const checkDisplayFilteredDates = selectedIndex => {
+  // FIXME //
+  // savedQuotes[0].date = new Date('Dec 5 2022');
+  // savedQuotes[1].date = new Date('Dec 9 2022');
 
-  // Check Over Last Few Days Filters
-  checkLastFewDaysAgo(selectedIndex, 5, 3, last3DaysColor);
-  checkLastFewDaysAgo(selectedIndex, 6, 7, last7DaysColor);
-  checkLastFewDaysAgo(selectedIndex, 7, 31, last31DaysColor);
-  checkLastFewDaysAgo(selectedIndex, 8, 61, last2MonthsColor);
-  checkLastFewDaysAgo(selectedIndex, 9, 91, last3MonthsColor);
-  checkLastFewDaysAgo(selectedIndex, 10, 183, last6MonthsColor);
-  checkLastFewDaysAgo(selectedIndex, 11, 365, overLastYearColor);
+  // All
+  filterDisplaySavedQuotes(selectedIndex, 0, Infinity, allColor);
+
+  // Today
+  filterDisplaySavedQuotes(selectedIndex, 1, 0, todayColor);
+  // Last 3 Days
+  filterDisplaySavedQuotes(selectedIndex, 2, 3, last3DaysColor);
+
+  // Last 7 Days
+  filterDisplaySavedQuotes(selectedIndex, 3, 7, last7DaysColor);
+
+  // Last 31 Days
+  filterDisplaySavedQuotes(selectedIndex, 4, 31, last31DaysColor);
+
+  // Last 2 Months
+  filterDisplaySavedQuotes(selectedIndex, 5, 61, last2MonthsColor);
+
+  // Last 3 Months
+  filterDisplaySavedQuotes(selectedIndex, 6, 91, last3MonthsColor);
+
+  // Last 6 Months
+  filterDisplaySavedQuotes(selectedIndex, 7, 182, last6MonthsColor);
+
+  // Over Last Year
+  filterDisplaySavedQuotes(selectedIndex, 8, 365, overLastYearColor);
 };
 
 // Fill QuotesNamesContainer Function
@@ -2023,49 +2041,37 @@ singleStatus.addEventListener('change', () => {
   sortDisplaySavedQuotes();
 });
 
-filterSelect.addEventListener('change', () => {
-  const savedQuotes2 = savedQuotes.filter(
-    quote => +quote.status === filterSelect.selectedIndex - 1
-  );
-
+bothSavedQuoteFilters.addEventListener('change', () => {
   // Store Selected Index Into Var
-  const selectedIndex = filterSelect.selectedIndex;
+  const statusIndex = filterSelect.selectedIndex;
 
-  filterSelect.blur();
-  quoteNamesContainer.focus();
-
-  if (selectedIndex === 0) {
+  if (statusIndex === 0) {
     removeAllFilterIcons();
     allContactsIcon.classList.remove('hidden');
 
-    sortDisplaySavedQuotes();
+    checkDisplayFilteredDates(filterDate);
   }
 
-  if (selectedIndex === 1) {
+  if (statusIndex === 1) {
     removeAllFilterIcons();
     gaveQuoteIcon.classList.remove('hidden');
+
+    checkDisplayFilteredDates(filterDate);
   }
 
-  if (selectedIndex === 2) {
+  if (statusIndex === 2) {
     removeAllFilterIcons();
     giveCallbackIcon.classList.remove('hidden');
+
+    checkDisplayFilteredDates(filterDate);
   }
 
-  if (selectedIndex === 3) {
+  if (statusIndex === 3) {
     removeAllFilterIcons();
     bookedJobIcon.classList.remove('hidden');
+
+    checkDisplayFilteredDates(filterDate);
   }
-
-  if (selectedIndex === 1 || selectedIndex === 2 || selectedIndex === 3) {
-    // Hide Calender Icon
-    calenderIcon.classList.add('hidden');
-    allContactsIcon.classList.add('hidden');
-
-    sortDisplayFilteredQuotes(savedQuotes2);
-  }
-
-  // Filter Dates To Show Correct Names (Today, Yesterday, Days Ago)
-  checkAllDaysAgo(selectedIndex);
 });
 
 // Change Colors On Status Select Saved Quote Modal
@@ -2240,22 +2246,5 @@ sortBtn.addEventListener('click', () => {
   // Set Sort To Local Storage
   localStorage.setItem('sort', sort);
 
-  // Store Selected Index Into Var
-  const selectedIndex = filterSelect.selectedIndex;
-
-  if (selectedIndex === 0) {
-    sortDisplaySavedQuotes();
-  }
-
-  if (selectedIndex === 1 || selectedIndex === 2 || selectedIndex === 3) {
-    // Store Filterd Saved Quotes Into An Array
-    const savedQuotes2 = savedQuotes.filter(
-      quote => +quote.status === filterSelect.selectedIndex - 1
-    );
-
-    sortDisplayFilteredQuotes(savedQuotes2);
-  }
-
-  // Filter Dates To Show Correct Names (Today, Yesterday, Days Ago)
-  checkAllDaysAgo(selectedIndex);
+  checkDisplayFilteredDates(filterDate);
 });
