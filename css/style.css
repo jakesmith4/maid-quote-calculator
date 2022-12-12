@@ -808,6 +808,10 @@ video {
   margin-top: -0.5rem;
 }
 
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
 .block {
   display: block;
 }
@@ -1048,6 +1052,10 @@ video {
 
 .items-center {
   align-items: center;
+}
+
+.items-baseline {
+  align-items: baseline;
 }
 
 .justify-center {
@@ -1986,6 +1994,10 @@ video {
 
   .xs\:justify-between {
     justify-content: space-between;
+  }
+
+  .xs\:gap-2 {
+    gap: 0.5rem;
   }
 
   .xs\:border-b-0 {

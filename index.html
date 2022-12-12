@@ -5357,12 +5357,12 @@
               class="flex justify-center xs:justify-between items-center flex-wrap gap-5 saved-quotes-filter-container"
             >
               <div class="flex flex-col">
-                <label
-                  for="saved-quotes"
-                  class="tracking-wider text-lg text-semi-bold text-center xs:text-left"
-                  >Filter Status</label
-                >
-                <div class="flex items-center flex-wrap gap-1 sm:gap-2">
+                <div class="flex items-center flex-wrap gap-1 sm:gap-2 mb-1">
+                  <label
+                    for="saved-quotes"
+                    class="tracking-wider text-lg text-semi-bold text-center"
+                    >Filter Status</label
+                  >
                   <div>
                     <img
                       src="img/contact-book.png"
@@ -5385,20 +5385,20 @@
                       alt="Booked Job Icon"
                     />
                   </div>
-                  <select
-                    name="saved-quotes"
-                    class="bg-green-700 text-white tracking-wider select-colors"
-                    id="saved-quotes"
-                  >
-                    <option value="all">All</option>
-                    <option value="gave quote">Gave Quote</option>
-                    <option value="give callback">Give Callback</option>
-                    <option value="booked job">Booked Job</option>
-                  </select>
                 </div>
+                <select
+                  name="saved-quotes"
+                  class="bg-green-700 text-white tracking-wider select-colors"
+                  id="saved-quotes"
+                >
+                  <option value="all">All</option>
+                  <option value="gave quote">Gave Quote</option>
+                  <option value="give callback">Give Callback</option>
+                  <option value="booked job">Booked Job</option>
+                </select>
               </div>
               <div class="flex flex-col text-center">
-                <div class="flex items-center flex-wrap gap-1 sm:gap-2">
+                <div class="flex items-center flex-wrap mb-1 gap-1 sm:gap-2">
                   <label
                     for="filter-date"
                     class="tracking-wider text-lg text-semi-bold"
@@ -5408,7 +5408,7 @@
                   <div>
                     <img
                       src="img/calendar-emoji-min.png"
-                      class="h-6 w-6 -mt-2 md:h-7 md:w-7 calender-icon"
+                      class="h-6 w-6 md:h-7 md:w-7 calender-icon"
                       alt="Calender Icon"
                     />
                   </div>
