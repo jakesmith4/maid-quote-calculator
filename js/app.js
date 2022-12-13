@@ -972,7 +972,7 @@ const options = {
 };
 
 // Name Search Input
-const nameSearchInput = document.getElementById('search-by-name');
+const searchInput = document.getElementById('search-by-name');
 
 // All Saved Quotes Icons
 const calenderIcon = document.querySelector('.calender-icon');
@@ -1353,54 +1353,88 @@ const filterDisplaySavedQuotes = (
   }
 };
 
-const filterDisplaySearchQuotes = () => {
-  const nameSearchValue = nameSearchInput.value;
+const dateIsValid = date => !Number.isNaN(new Date(date).getTime());
 
-  const quoteByName = savedQuotes.filter(quote =>
-    quote.name.toLowerCase().includes(nameSearchInput.value.toLowerCase())
+const changeFiltersToDefault = () => {
+  filterSelect.selectedIndex = 0;
+  filterSelect.style.background = allColor;
+  filterDate.selectedIndex = 0;
+  filterDate.style.background = allColor;
+  removeAllFilterIcons();
+  allContactsIcon.classList.remove('hidden');
+};
+
+const filterDisplaySearchQuotes = () => {
+  // Assign Search Input Value
+  const searchValue = searchInput.value;
+
+  // Assign Quotes By Name
+  const quotesByName = savedQuotes.filter(quote =>
+    quote.name.toLowerCase().includes(searchInput.value.toLowerCase())
   );
 
-  // const quotesByDate = savedQuotes.filter(
-  //   quote => quote.date === new Date(nameSearchInput.value.toISOString())
-  // );
-  // console.log(quotesByDate);
+  // Declare Quotes By Date
+  let quotesByDate;
 
-  console.log(quoteByName);
+  // Options For Intl Date
+  const options = {
+    day: 'numeric',
+    month: 'numeric',
+  };
 
-  if (nameSearchValue === '') {
-    checkDisplayFilteredDates(filterDate);
-  } else {
-    quoteNamesContainer.innerHTML = '';
-    if (quoteByName.length >= 1) {
-      // Change Filters Back To All
-      filterSelect.selectedIndex = 0;
-      filterSelect.style.background = allColor;
-      filterDate.selectedIndex = 0;
-      filterDate.style.background = allColor;
-      removeAllFilterIcons();
-      allContactsIcon.classList.remove('hidden');
+  if (dateIsValid(searchValue)) {
+    quotesByDate = savedQuotes.filter(
+      quote =>
+        Intl.DateTimeFormat(navigator.language, options).format(
+          new Date(quote.date)
+        ) ===
+        Intl.DateTimeFormat(navigator.language, options).format(
+          new Date(searchValue)
+        )
+    );
+  }
 
-      // Display Filtered Quotes By Name Or Date
-      sortDisplayFilteredQuotes(quoteByName);
-    } else {
-      quoteNamesContainer.innerHTML = `
+  // HTML For Quote Names Container Filling
+  const html = `
       <div class="text-center">
       <i class="fa-solid fa-circle-exclamation text-4xl text-red-500"></i>
       <h3 class="text-center text-2xl font-bold mb-2">Could Not Find Any Quotes Under</h3>
-      <span class="bg-red-500 text-white text-lg font-semibold tracking-wider p-1 px-3 capitalize shadow-lg">${nameSearchValue}</span>
+      <span class="bg-red-500 text-white text-lg font-semibold tracking-wider p-1 px-3 capitalize shadow-lg">${searchValue}</span>
       </div>
       `;
+
+  // Run Regular Filter
+  if (searchValue === '') {
+    checkDisplayFilteredDates(filterDate);
+  } else {
+    // Show Could Not Find Info
+    quoteNamesContainer.innerHTML = '';
+
+    // Change Filters Back To All
+    changeFiltersToDefault();
+
+    if (quotesByName.length >= 1) {
+      // Display Filtered Quotes By Name
+      sortDisplayFilteredQuotes(quotesByName);
+    } else {
+      // Show Could Not Find Info
+      quoteNamesContainer.innerHTML = html;
+    }
+
+    if (quotesByDate?.length >= 1) {
+      // Display Filtered Quotes By Date
+      sortDisplayFilteredQuotes(quotesByDate);
+    }
+
+    // Show Could Not Find Info
+    if (quotesByName.length < 1 && quotesByDate?.length < 1) {
+      quoteNamesContainer.innerHTML = html;
     }
   }
 };
 
-nameSearchInput.addEventListener('input', filterDisplaySearchQuotes);
-
 const checkDisplayFilteredDates = selectedIndex => {
-  nameSearchInput.value = '';
-  // FIXME //
-  // savedQuotes[0].date = new Date('Dec 5 2022');
-  // savedQuotes[1].date = new Date('Dec 9 2022');
+  searchInput.value = '';
 
   // All
   filterDisplaySavedQuotes(selectedIndex, 0, Infinity, allColor);
@@ -1778,6 +1812,9 @@ const addListenerToDeleteBtn = () => {
 analyticsFilter.addEventListener('change', () => {
   filterAnalyticsData();
 });
+
+// Search Input Event For Filtering Names & Dates
+searchInput.addEventListener('input', filterDisplaySearchQuotes);
 
 // Show Current Quote On Name Click
 let currentQuote;
@@ -2302,7 +2339,7 @@ sortBtn.addEventListener('click', () => {
   // Set Sort To Local Storage
   localStorage.setItem('sort', sort);
 
-  if (nameSearchInput.value.length === 0) {
+  if (searchInput.value.length === 0) {
     checkDisplayFilteredDates(filterDate);
   } else {
     filterDisplaySearchQuotes();

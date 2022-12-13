@@ -82,7 +82,7 @@
       >
         <div class="px-4 pt-2">
           <div class="flex items-center justify-between border-b-2 mb-4 pb-4">
-            <span class="tracking-widest font-semibold text-xl font-serif"
+            <span class="tracking-widest font-semibold text-2xl font-serif"
               >App Settings</span
             >
             <button class="close-modal">
@@ -5331,7 +5331,7 @@
         <div class="px-2 sm:px-4 pt-2">
           <!-- Quote Heading -->
           <div class="flex items-center justify-between border-b-2 mb-4 pb-4">
-            <h3 class="tracking-widest font-semibold text-xl font-serif">
+            <h3 class="tracking-widest font-semibold text-2xl font-serif">
               Saved Quotes
             </h3>
             <div class="flex items-center gap-2 sm:gap-4">
@@ -5356,16 +5356,19 @@
             <div class="text-center mb-4">
               <label
                 for="search-by-name"
-                class="tracking-wider text-lg text-semi-bold text-center"
-                >Search By Name</label
+                class="tracking-wider text-lg font-semibold text-center"
+                >Search By Name Or Date</label
               >
-              <span><i class="fa-solid fa-magnifying-glass"></i></span>
-              <input
-                type="search"
-                name="search-by-name"
-                id="search-by-name"
-                class="border-2 border-black text-black"
-              />
+              <div>
+                <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input
+                  type="search"
+                  name="search-by-name"
+                  id="search-by-name"
+                  spellcheck="false"
+                  class="border-2 border-black text-black capitalize px-1 dark:outline-emerald-700"
+                />
+              </div>
             </div>
             <div
               class="flex justify-center xs:justify-between items-center flex-wrap gap-5 saved-quotes-filter-container"
@@ -6020,7 +6023,7 @@
         <div class="px-2 sm:px-4 pt-2">
           <!-- Analytics Heading -->
           <div class="flex justify-between items-center border-b-2 mb-4 pb-4">
-            <h3 class="tracking-widest font-semibold text-xl font-serif">
+            <h3 class="tracking-widest font-semibold text-2xl font-serif">
               Analytics Data
             </h3>
             <button class="close-modal">

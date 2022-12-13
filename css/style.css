@@ -1575,6 +1575,10 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.outline-2 {
+  outline-width: 2px;
+}
+
 .outline-emerald-600 {
   outline-color: #059669;
 }
@@ -1853,6 +1857,14 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.focus\:border-0:focus {
+  border-width: 0px;
+}
+
+.focus\:border-transparent:focus {
+  border-color: transparent;
+}
+
 .focus\:outline-emerald-600:focus {
   outline-color: #059669;
 }
@@ -1965,6 +1977,10 @@ video {
 
 .dark .dark\:outline-white {
   outline-color: #fff;
+}
+
+.dark .dark\:outline-emerald-700 {
+  outline-color: #047857;
 }
 
 .dark .dark\:hover\:border-white:hover {
