@@ -971,6 +971,9 @@ const options = {
   weekday: 'long',
 };
 
+// Name Search Input
+const nameSearchInput = document.getElementById('search-by-name');
+
 // All Saved Quotes Icons
 const calenderIcon = document.querySelector('.calender-icon');
 const allContactsIcon = document.querySelector('.all-contacts-icon');
@@ -1350,7 +1353,51 @@ const filterDisplaySavedQuotes = (
   }
 };
 
+const filterDisplaySearchQuotes = () => {
+  const nameSearchValue = nameSearchInput.value;
+
+  const quoteByName = savedQuotes.filter(quote =>
+    quote.name.toLowerCase().includes(nameSearchInput.value.toLowerCase())
+  );
+
+  // const quotesByDate = savedQuotes.filter(
+  //   quote => quote.date === new Date(nameSearchInput.value.toISOString())
+  // );
+  // console.log(quotesByDate);
+
+  console.log(quoteByName);
+
+  if (nameSearchValue === '') {
+    checkDisplayFilteredDates(filterDate);
+  } else {
+    quoteNamesContainer.innerHTML = '';
+    if (quoteByName.length >= 1) {
+      // Change Filters Back To All
+      filterSelect.selectedIndex = 0;
+      filterSelect.style.background = allColor;
+      filterDate.selectedIndex = 0;
+      filterDate.style.background = allColor;
+      removeAllFilterIcons();
+      allContactsIcon.classList.remove('hidden');
+
+      // Display Filtered Quotes By Name Or Date
+      sortDisplayFilteredQuotes(quoteByName);
+    } else {
+      quoteNamesContainer.innerHTML = `
+      <div class="text-center">
+      <i class="fa-solid fa-circle-exclamation text-4xl text-red-500"></i>
+      <h3 class="text-center text-2xl font-bold mb-2">Could Not Find Any Quotes Under</h3>
+      <span class="bg-red-500 text-white text-lg font-semibold tracking-wider p-1 px-3 capitalize shadow-lg">${nameSearchValue}</span>
+      </div>
+      `;
+    }
+  }
+};
+
+nameSearchInput.addEventListener('input', filterDisplaySearchQuotes);
+
 const checkDisplayFilteredDates = selectedIndex => {
+  nameSearchInput.value = '';
   // FIXME //
   // savedQuotes[0].date = new Date('Dec 5 2022');
   // savedQuotes[1].date = new Date('Dec 9 2022');
@@ -2255,5 +2302,9 @@ sortBtn.addEventListener('click', () => {
   // Set Sort To Local Storage
   localStorage.setItem('sort', sort);
 
-  checkDisplayFilteredDates(filterDate);
+  if (nameSearchInput.value.length === 0) {
+    checkDisplayFilteredDates(filterDate);
+  } else {
+    filterDisplaySearchQuotes();
+  }
 });
