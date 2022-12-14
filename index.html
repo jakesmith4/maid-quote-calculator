@@ -81,7 +81,9 @@
         class="bg-white p-3 shadow-lg rounded-xl w-[85vw] max-w-md max-h-full border-2 border-white dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
       >
         <div class="px-4 pt-2">
-          <div class="flex items-center justify-between border-b-2 mb-4 pb-4">
+          <div
+            class="flex items-center justify-between gap-6 border-b-2 mb-4 pb-4"
+          >
             <span class="tracking-widest font-semibold text-2xl font-serif"
               >App Settings</span
             >
@@ -5330,7 +5332,9 @@
       >
         <div class="px-2 sm:px-4 pt-2">
           <!-- Quote Heading -->
-          <div class="flex items-center justify-between border-b-2 mb-4 pb-4">
+          <div
+            class="flex items-center justify-between gap-6 border-b-2 mb-4 pb-4"
+          >
             <h3 class="tracking-widest font-semibold text-2xl font-serif">
               Saved Quotes
             </h3>
@@ -5371,13 +5375,15 @@
               </div>
             </div>
             <div
-              class="flex justify-center xs:justify-between items-center flex-wrap gap-5 saved-quotes-filter-container"
+              class="flex justify-center xs:justify-between items-center gap-2 flex-wrap xs:flex-nowrap saved-quotes-filter-container"
             >
               <div class="flex flex-col">
-                <div class="flex items-center flex-wrap gap-1 sm:gap-2 mb-1">
+                <div
+                  class="flex items-center justify-between gap-2 flex-wrap mb-1"
+                >
                   <label
                     for="saved-quotes"
-                    class="tracking-wider text-lg text-semi-bold text-center"
+                    class="tracking-wider text-semi-bold text-center text-sm sm:text-lg"
                     >Filter Status</label
                   >
                   <div>
@@ -5405,7 +5411,7 @@
                 </div>
                 <select
                   name="saved-quotes"
-                  class="bg-green-700 text-white tracking-wider select-colors"
+                  class="bg-green-700 text-white tracking-wider select-colors text-sm sm:text-lg"
                   id="saved-quotes"
                 >
                   <option value="all">All</option>
@@ -5415,10 +5421,12 @@
                 </select>
               </div>
               <div class="flex flex-col text-center">
-                <div class="flex items-center flex-wrap mb-1 gap-1 sm:gap-2">
+                <div
+                  class="flex items-center justify-between gap-2 flex-wrap mb-1"
+                >
                   <label
                     for="filter-date"
-                    class="tracking-wider text-lg text-semi-bold"
+                    class="tracking-wider text-sm text-semi-bold sm:text-lg"
                     >Filter Dates</label
                   >
 
@@ -5433,7 +5441,7 @@
                 <select
                   name="filter-date"
                   id="filter-date"
-                  class="bg-green-700 text-white tracking-wider"
+                  class="bg-green-700 text-white tracking-wider text-sm sm:text-lg"
                 >
                   <option value="all">All</option>
                   <option value="today">Today</option>
@@ -6022,7 +6030,9 @@
       >
         <div class="px-2 sm:px-4 pt-2">
           <!-- Analytics Heading -->
-          <div class="flex justify-between items-center border-b-2 mb-4 pb-4">
+          <div
+            class="flex justify-between items-center gap-6 border-b-2 mb-4 pb-4"
+          >
             <h3 class="tracking-widest font-semibold text-2xl font-serif">
               Analytics Data
             </h3>

@@ -1495,6 +1495,10 @@ video {
   line-height: 2rem;
 }
 
+.text-\[5px\] {
+  font-size: 5px;
+}
+
 .font-semibold {
   font-weight: 600;
 }
@@ -2020,6 +2024,10 @@ video {
     width: 75%;
   }
 
+  .xs\:flex-nowrap {
+    flex-wrap: nowrap;
+  }
+
   .xs\:justify-between {
     justify-content: space-between;
   }
@@ -2155,6 +2163,16 @@ video {
   .sm\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+
+  .sm\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .sm\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 }
 
