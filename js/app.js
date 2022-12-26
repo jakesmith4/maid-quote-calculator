@@ -958,7 +958,7 @@ const moonIcon = document.querySelector('.moon');
 const toggleMenu = document.querySelector('.toggler-menu');
 const toggleMenuBall = document.querySelector('.toggle-menu-ball');
 const sidebar = document.querySelector('.sidebar');
-let sideMenuOpen = false;
+let sideMenuClosed = false;
 
 // Show Current Quote
 const quoteDate = document.querySelector('.quote-date');
@@ -1586,13 +1586,13 @@ if (localStorage.getItem('darkFlag')) {
 }
 
 // Show Sidebar If It Is Stored In Local Storage
-if (JSON.parse(localStorage.getItem('showSideMenu'))) {
-  sideMenuOpen = true;
-  toggleMenu.classList.add('bg-green-700');
-  toggleMenu.classList.remove('bg-gray-500');
-  toggleMenuBall.classList.add('translate-x-6');
-  sidebar.classList.remove('md:-translate-x-24');
-  sidebar.classList.add('show-sidebar');
+if (JSON.parse(localStorage.getItem('closeSideMenu'))) {
+  sideMenuClosed = true;
+  toggleMenu.classList.add('bg-gray-500');
+  toggleMenu.classList.remove('bg-green-700');
+  toggleMenuBall.classList.remove('translate-x-6');
+  sidebar.classList.add('md:-translate-x-24');
+  sidebar.classList.remove('show-sidebar');
 }
 
 const calcDisplayAnalyticsData = daysPassed => {
@@ -2002,8 +2002,8 @@ toggleMenu.addEventListener('click', () => {
   sidebar.classList.toggle('show-sidebar');
 
   // Set Show Menu Info To Local Storage
-  sideMenuOpen = !sideMenuOpen;
-  localStorage.setItem('showSideMenu', sideMenuOpen);
+  sideMenuClosed = !sideMenuClosed;
+  localStorage.setItem('closeSideMenu', sideMenuClosed);
 });
 
 // Display Save Quote Modal
