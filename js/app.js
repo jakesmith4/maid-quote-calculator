@@ -1688,21 +1688,27 @@ const calcDisplayAnalyticsData = daysPassed => {
   // Add Status Data To Gave Quote Data Bar
   gaveQuoteDataBar.style.width = `${gaveQuotesPercentage}%`;
 
-  gaveQuoteDataBar.textContent = `${gaveQuotesPercentage}%`;
+  allGaveQuotes
+    ? (gaveQuoteDataBar.textContent = `${gaveQuotesPercentage}%`)
+    : (gaveQuoteDataBar.textContent = '');
 
   gaveQuoteCircle.textContent = allGaveQuotes;
 
   // Add Status Data To Give Callback Data Bar & Circles
   giveCallbackDataBar.style.width = `${giveCallbacksPercentage}%`;
 
-  giveCallbackDataBar.textContent = `${giveCallbacksPercentage}%`;
+  allGiveCallback
+    ? (giveCallbackDataBar.textContent = `${giveCallbacksPercentage}%`)
+    : (giveCallbackDataBar.textContent = '');
 
   giveCallbackCircle.textContent = allGiveCallback;
 
   // Add Status Data To All Booked Jobs Data Bar & Circles
   allBookedJobsDataBar.style.width = `${allBookedJobsPercentage}%`;
 
-  allBookedJobsDataBar.textContent = `${allBookedJobsPercentage}%`;
+  allBookedJob
+    ? (allBookedJobsDataBar.textContent = `${allBookedJobsPercentage}%`)
+    : (allBookedJobsDataBar.textContent = '');
 
   bookedJobCircle.textContent = allBookedJob;
 };
