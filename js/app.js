@@ -993,6 +993,8 @@ const last6MonthsColor = '#06b6d4';
 const overLastYearColor = '#8b5cf6';
 
 // Analytics Data
+const statusDataContainer = document.querySelector('.status-data');
+const noDataMessage = document.querySelector('.no-data-message');
 const analyticsFilter = document.getElementById('analytics-filter');
 const gaveQuoteDataBar = document.querySelector('.gave-quote-data');
 const giveCallbackDataBar = document.querySelector('.give-callback-data');
@@ -1606,14 +1608,10 @@ const calcDisplayAnalyticsData = daysPassed => {
   if (savedQuotes.length !== 0) {
     allAnalyticsData.forEach(el => {
       el.classList.remove('opacity-0');
-      el.classList.remove('opacity-0');
-      el.classList.remove('opacity-0');
     });
   } else {
     // Remove Analytics Data If There Are NO Saved Quotes
     allAnalyticsData.forEach(el => {
-      el.classList.add('opacity-0');
-      el.classList.add('opacity-0');
       el.classList.add('opacity-0');
     });
   }
@@ -1641,6 +1639,15 @@ const calcDisplayAnalyticsData = daysPassed => {
     allSavedQuotes = allFilteredQuotes.length;
 
     currentSavedQuotes = allFilteredQuotes;
+  }
+
+  // Show Or Hide Analytics Data Bar
+  if (currentSavedQuotes.length === 0) {
+    statusDataContainer.style.display = 'none';
+    noDataMessage.classList.remove('hidden');
+  } else {
+    statusDataContainer.style.display = 'flex';
+    noDataMessage.classList.add('hidden');
   }
 
   // Assign Total Number Of Quotes
@@ -1681,27 +1688,21 @@ const calcDisplayAnalyticsData = daysPassed => {
   // Add Status Data To Gave Quote Data Bar
   gaveQuoteDataBar.style.width = `${gaveQuotesPercentage}%`;
 
-  allGaveQuotes
-    ? (gaveQuoteDataBar.textContent = `${gaveQuotesPercentage}%`)
-    : (gaveQuoteDataBar.textContent = '');
+  gaveQuoteDataBar.textContent = `${gaveQuotesPercentage}%`;
 
   gaveQuoteCircle.textContent = allGaveQuotes;
 
   // Add Status Data To Give Callback Data Bar & Circles
   giveCallbackDataBar.style.width = `${giveCallbacksPercentage}%`;
 
-  allGiveCallback
-    ? (giveCallbackDataBar.textContent = `${giveCallbacksPercentage}%`)
-    : (giveCallbackDataBar.textContent = '');
+  giveCallbackDataBar.textContent = `${giveCallbacksPercentage}%`;
 
   giveCallbackCircle.textContent = allGiveCallback;
 
   // Add Status Data To All Booked Jobs Data Bar & Circles
   allBookedJobsDataBar.style.width = `${allBookedJobsPercentage}%`;
 
-  allBookedJob
-    ? (allBookedJobsDataBar.textContent = `${allBookedJobsPercentage}%`)
-    : (allBookedJobsDataBar.textContent = '');
+  allBookedJobsDataBar.textContent = `${allBookedJobsPercentage}%`;
 
   bookedJobCircle.textContent = allBookedJob;
 };
