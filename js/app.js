@@ -2142,14 +2142,49 @@ saveQuoteBtns.forEach(btn => {
 
 // Set Status To Local Storage
 singleStatus.addEventListener('change', () => {
+  // Change Current Quote Status
   currentQuote.status = singleStatus.selectedIndex;
+
   // Update Local Storage
   localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
+
+  // Change Filter Select Back To All
   filterSelect.selectedIndex = 0;
 
-  sortDisplaySavedQuotes();
-  filterDate.selectedIndex = 0;
-  filterDate.style.background = allColor;
+  // Display Todays Links Function
+  const displayTodaysLinks = (statusIndex, days) => {
+    if (filterDate.selectedIndex === statusIndex) {
+      const quotesToDisplay = savedQuotes.filter(
+        quote => quote.daysPassed === days
+      );
+      sortDisplayFilteredQuotes(quotesToDisplay);
+    }
+  };
+
+  // Display Days Passed Links Function
+  const displayPassedLinks = (statusIndex, days) => {
+    if (filterDate.selectedIndex === statusIndex) {
+      const quotesToDisplay = savedQuotes.filter(
+        quote => quote.daysPassed <= days
+      );
+      sortDisplayFilteredQuotes(quotesToDisplay);
+    }
+  };
+
+  if (filterDate.selectedIndex === 0) {
+    console.log('not filtered date');
+    sortDisplaySavedQuotes();
+  }
+
+  displayTodaysLinks(1, 0);
+
+  displayPassedLinks(2, 3);
+  displayPassedLinks(3, 7);
+  displayPassedLinks(4, 31);
+  displayPassedLinks(5, 61);
+  displayPassedLinks(6, 91);
+  displayPassedLinks(7, 183);
+  displayPassedLinks(8, 365);
 });
 
 bothSavedQuoteFilters.addEventListener('change', () => {
@@ -2206,7 +2241,7 @@ statusSelectSaved.addEventListener('change', () => {
 // Add Main Status Back To Green When, Also Change Induidual Status To Proper Color When Changed
 statusGrey.addEventListener('change', () => {
   // Add Main Status Back To Green
-  filterSelect.style.background = '#059669';
+  filterSelect.style.background = allColor;
   changeColorStatus(statusGrey);
 });
 

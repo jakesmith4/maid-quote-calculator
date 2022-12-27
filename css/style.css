@@ -804,10 +804,6 @@ video {
   margin-left: 0.28rem;
 }
 
-.mt-5 {
-  margin-top: 1.25rem;
-}
-
 .block {
   display: block;
 }
@@ -852,16 +848,16 @@ video {
   height: 1.25rem;
 }
 
+.h-7 {
+  height: 1.75rem;
+}
+
 .h-24 {
   height: 6rem;
 }
 
 .h-12 {
   height: 3rem;
-}
-
-.h-7 {
-  height: 1.75rem;
 }
 
 .max-h-full {
@@ -1372,6 +1368,11 @@ video {
   padding-right: 0.5rem;
 }
 
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
@@ -1385,11 +1386,6 @@ video {
 .py-\[\.35rem\] {
   padding-top: .35rem;
   padding-bottom: .35rem;
-}
-
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
 }
 
 .pb-4 {
@@ -2118,11 +2114,6 @@ video {
 
   .md\:max-w-5xl {
     max-width: 64rem;
-  }
-
-  .md\:-translate-x-24 {
-    --tw-translate-x: -6rem;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .md\:flex-wrap {
