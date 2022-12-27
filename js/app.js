@@ -992,6 +992,12 @@ const last3MonthsColor = '#84cc16';
 const last6MonthsColor = '#06b6d4';
 const overLastYearColor = '#8b5cf6';
 
+// Status Colors
+let statusColor;
+const gaveQuoteColor = '#2563eb';
+const giveCallbackColor = '#DC2626';
+const bookedJobColor = '#10B981';
+
 // Analytics Data
 const statusDataContainer = document.querySelector('.status-data');
 const noDataMessage = document.querySelector('.no-data-message');
@@ -1492,7 +1498,18 @@ const fillSavedQuotesContainer = quoteInfo => {
   // Add daysPassed Property To Current Quote Object
   currentQuote.daysPassed = daysPassed;
 
-  const html = `<a href="#" class="text-bold text-emerald-600 tracking-widest flex items-center flex-wrap mb-3 quote-name" data-id="${quoteName}"><p class="inline-block mr-4">${quoteName}</p><span class="text-xs text-black dark:text-white">${date}</span></a>`;
+  // Set Color Status
+  if (currentQuote.status === 0) {
+    statusColor = gaveQuoteColor;
+  }
+  if (currentQuote.status === 1) {
+    statusColor = giveCallbackColor;
+  }
+  if (currentQuote.status === 2) {
+    statusColor = bookedJobColor;
+  }
+
+  const html = `<a href="#" class="font-bold text-white tracking-widest inline-flex items-center flex-wrap mb-3 px-2 py-1 quote-name" data-id="${quoteName}" style="background: ${statusColor}"><p class="inline-block mr-4">${quoteName}</p><span class="text-xs text-white bg-black px-2 py-1">${date}</span></a>`;
   quoteNamesContainer.insertAdjacentHTML('beforeend', html);
 };
 
@@ -2131,6 +2148,8 @@ singleStatus.addEventListener('change', () => {
   filterSelect.selectedIndex = 0;
 
   sortDisplaySavedQuotes();
+  filterDate.selectedIndex = 0;
+  filterDate.style.background = allColor;
 });
 
 bothSavedQuoteFilters.addEventListener('change', () => {
