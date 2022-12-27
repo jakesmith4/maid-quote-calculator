@@ -1509,7 +1509,7 @@ const fillSavedQuotesContainer = quoteInfo => {
     statusColor = bookedJobColor;
   }
 
-  const html = `<a href="#" class="font-bold text-white tracking-widest inline-flex items-center flex-wrap mb-3 px-2 py-1 quote-name" data-id="${quoteName}" style="background: ${statusColor}"><p class="inline-block mr-4">${quoteName}</p><span class="text-xs text-white bg-black px-2 py-1">${date}</span></a>`;
+  const html = `<a href="#" class="font-bold text-white tracking-widest flex items-center justify-between flex-wrap mb-3 px-2 py-1 quote-name" data-id="${quoteName}" style="background: ${statusColor}"><p class="inline-block mr-4">${quoteName}</p><span class="text-xs text-white bg-black px-2 py-1">${date}</span></a>`;
   quoteNamesContainer.insertAdjacentHTML('beforeend', html);
 };
 
