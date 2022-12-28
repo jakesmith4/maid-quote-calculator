@@ -1000,6 +1000,9 @@ const giveCallbackColor = '#f97316';
 const bookedJobColor = '#10B981';
 const deadQuotesColor = '#DC2626';
 
+// Status Select
+const statusBox = document.querySelector('.status-box');
+
 // Analytics Data
 const statusDataContainer = document.querySelector('.status-data');
 const noDataMessage = document.querySelector('.no-data-message');
@@ -1171,15 +1174,19 @@ const deleteQuote = () => {
 const changeColorStatus = select => {
   if (select.selectedIndex === 0) {
     select.style.background = gaveQuoteColor;
+    statusBox.style.background = gaveQuoteColor;
   }
   if (select.selectedIndex === 1) {
     select.style.background = giveCallbackColor;
+    statusBox.style.background = giveCallbackColor;
   }
   if (select.selectedIndex === 2) {
     select.style.background = bookedJobColor;
+    statusBox.style.background = bookedJobColor;
   }
   if (select.selectedIndex === 3) {
     select.style.background = deadQuotesColor;
+    statusBox.style.background = deadQuotesColor;
   }
 };
 
