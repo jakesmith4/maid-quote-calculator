@@ -1003,10 +1003,17 @@ const deadQuotesColor = '#DC2626';
 // Status Select
 const statusBox = document.querySelector('.status-box');
 
-// Change Quote Theme
+// Change Quote Theme For Current Quote
 const statusBackgrounds = document.querySelectorAll('.status-bg');
 
 const mainQuoteIcon = document.querySelector('.main-quote-icon');
+
+// Change Quote Theme For Save Quote
+const savedQuotesIcon = document.querySelector('.saved-quotes-icon');
+
+// Save Quote Modal Elements
+const savedQuoteLabels = document.querySelectorAll('.save-quote-label');
+const saveQuoteInputs = document.querySelectorAll('.save-quote-input');
 
 // Analytics Data
 const statusDataContainer = document.querySelector('.status-data');
@@ -1025,6 +1032,9 @@ const deadQuotesCircle = document.querySelector('.dead-quotes-circle');
 
 // HTML Element
 const html = document.documentElement;
+
+// Save Quote Select Var
+const statusSelectSave = document.querySelector('.others-select-colors');
 
 // FUNCTIONS //
 // Close Modal
@@ -1214,6 +1224,29 @@ const changeColorStatus = select => {
   changeQuoteTheme(1, giveCallbackColor, `fa-square-phone`, 'GIVE CALLBACK');
   changeQuoteTheme(2, bookedJobColor, `fa-book-open`, 'BOOKED JOB');
   changeQuoteTheme(3, deadQuotesColor, `fa-file-circle-xmark`, 'DEAD QUOTE');
+};
+
+// Change Save Modal Select Status Color and Icon
+const changeSaveColorStatus = select => {
+  savedQuotesIcon.innerHTML = '';
+  // Change Backgrounds Function
+  const changeBackgrounds = (index, color, icon) => {
+    if (select.selectedIndex === index) {
+      select.style.background = color;
+
+      savedQuotesIcon.innerHTML = `<i class="fa-solid ${icon} fa-2x text-[${color}]"></i>`;
+
+      savedQuoteLabels.forEach(label => (label.style.color = color));
+
+      saveQuoteInputs.forEach(input => (input.style.outlineColor = color));
+    }
+  };
+
+  // Change Backgrounds For Save Select
+  changeBackgrounds(0, gaveQuoteColor, `fa-comments-dollar`);
+  changeBackgrounds(1, giveCallbackColor, `fa-square-phone`);
+  changeBackgrounds(2, bookedJobColor, `fa-book-open`);
+  changeBackgrounds(3, deadQuotesColor, `fa-file-circle-xmark`);
 };
 
 const statusGrey = document.querySelector('.status-grey');
@@ -2309,10 +2342,8 @@ statusGrey.addEventListener('change', () => {
 });
 
 // Change Colors On Status Select Save Quote Modal
-const statusSelectSave = document.querySelector('.others-select-colors');
-
 statusSelectSave.addEventListener('change', () => {
-  changeColorStatus(statusSelectSave);
+  changeSaveColorStatus(statusSelectSave);
 });
 
 // Push Data Into Saved Quotes Array, On Save Form Quote Submit (Array Of Objects)
