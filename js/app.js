@@ -980,6 +980,7 @@ const allContactsIcon = document.querySelector('.all-contacts-icon');
 const gaveQuoteIcon = document.querySelector('.gave-quote-icon');
 const giveCallbackIcon = document.querySelector('.give-callback-icon');
 const bookedJobIcon = document.querySelector('.booked-job-icon');
+const deadQuoteIcon = document.querySelector('.dead-quote-icon');
 
 // Filter Select Colors
 const allColor = '#15803d';
@@ -995,8 +996,9 @@ const overLastYearColor = '#8b5cf6';
 // Status Colors
 let statusColor;
 const gaveQuoteColor = '#2563eb';
-const giveCallbackColor = '#DC2626';
+const giveCallbackColor = '#f97316';
 const bookedJobColor = '#10B981';
+const deadQuotesColor = '#DC2626';
 
 // Analytics Data
 const statusDataContainer = document.querySelector('.status-data');
@@ -1005,11 +1007,13 @@ const analyticsFilter = document.getElementById('analytics-filter');
 const gaveQuoteDataBar = document.querySelector('.gave-quote-data');
 const giveCallbackDataBar = document.querySelector('.give-callback-data');
 const allBookedJobsDataBar = document.querySelector('.all-booked-jobs-data');
+const allDeadQuotesDataBar = document.querySelector('.all-dead-quotes-data');
 const allAnalyticsData = document.querySelectorAll('.analytics-data');
 const totalQuotesGiven = document.querySelector('.total-quotes-given');
 const gaveQuoteCircle = document.querySelector('.gave-quote-circle');
 const giveCallbackCircle = document.querySelector('.give-callback-circle');
 const bookedJobCircle = document.querySelector('.booked-job-circle');
+const deadQuotesCircle = document.querySelector('.dead-quotes-circle');
 
 // HTML Element
 const html = document.documentElement;
@@ -1166,13 +1170,16 @@ const deleteQuote = () => {
 // Change Color Status
 const changeColorStatus = select => {
   if (select.selectedIndex === 0) {
-    select.style.background = '#2563eb';
+    select.style.background = gaveQuoteColor;
   }
   if (select.selectedIndex === 1) {
-    select.style.background = '#dc2626';
+    select.style.background = giveCallbackColor;
   }
   if (select.selectedIndex === 2) {
-    select.style.background = '#10b981';
+    select.style.background = bookedJobColor;
+  }
+  if (select.selectedIndex === 3) {
+    select.style.background = deadQuotesColor;
   }
 };
 
@@ -1330,6 +1337,7 @@ const removeAllFilterIcons = () => {
   gaveQuoteIcon.classList.add('hidden');
   giveCallbackIcon.classList.add('hidden');
   bookedJobIcon.classList.add('hidden');
+  deadQuoteIcon.classList.add('hidden');
 };
 
 const filterDisplaySavedQuotes = (
@@ -1508,6 +1516,9 @@ const fillSavedQuotesContainer = quoteInfo => {
   if (currentQuote.status === 2) {
     statusColor = bookedJobColor;
   }
+  if (currentQuote.status === 3) {
+    statusColor = deadQuotesColor;
+  }
 
   const html = `<a href="#" class="font-bold text-white tracking-widest flex items-center justify-between flex-wrap mb-3 px-2 py-1 quote-name" data-id="${quoteName}" style="background: ${statusColor}"><p class="inline-block mr-4">${quoteName}</p><span class="text-xs text-white bg-black px-2 py-1">${date}</span></a>`;
   quoteNamesContainer.insertAdjacentHTML('beforeend', html);
@@ -1685,6 +1696,11 @@ const calcDisplayAnalyticsData = daysPassed => {
     quote => quote.status === 2
   ).length;
 
+  // Store All Dead Quotes Total Length Into Var
+  const allDeadQuotes = currentSavedQuotes.filter(
+    quote => quote.status === 3
+  ).length;
+
   // Get The Percentage Of All Given Quotes
   const gaveQuotesPercentage = ((allGaveQuotes / allSavedQuotes) * 100).toFixed(
     0
@@ -1699,6 +1715,12 @@ const calcDisplayAnalyticsData = daysPassed => {
   // Get The Percentage Of All Booked Jobs
   const allBookedJobsPercentage = (
     (allBookedJob / allSavedQuotes) *
+    100
+  ).toFixed(0);
+
+  // Get The Percentage Of All Dead Quotes
+  const allDeadQuotesPercentage = (
+    (allDeadQuotes / allSavedQuotes) *
     100
   ).toFixed(0);
 
@@ -1728,6 +1750,15 @@ const calcDisplayAnalyticsData = daysPassed => {
     : (allBookedJobsDataBar.textContent = '');
 
   bookedJobCircle.textContent = allBookedJob;
+
+  // Add Status Data To All Dead Quotes Data Bar & Circles
+  allDeadQuotesDataBar.style.width = `${allDeadQuotesPercentage}%`;
+
+  allDeadQuotes
+    ? (allDeadQuotesDataBar.textContent = `${allDeadQuotesPercentage}%`)
+    : (allDeadQuotesDataBar.textContent = '');
+
+  deadQuotesCircle.textContent = allDeadQuotes;
 };
 calcDisplayAnalyticsData(null, '#10b981');
 
@@ -2191,51 +2222,39 @@ bothSavedQuoteFilters.addEventListener('change', () => {
   // Store Selected Index Into Var
   const statusIndex = filterSelect.selectedIndex;
 
-  if (statusIndex === 0) {
-    removeAllFilterIcons();
-    allContactsIcon.classList.remove('hidden');
+  // Add Correct Icon Function
+  const addCorrectIcon = (index, icon) => {
+    if (statusIndex === index) {
+      removeAllFilterIcons();
+      icon.classList.remove('hidden');
 
-    checkDisplayFilteredDates(filterDate);
-  }
+      checkDisplayFilteredDates(filterDate);
+    }
+  };
 
-  if (statusIndex === 1) {
-    removeAllFilterIcons();
-    gaveQuoteIcon.classList.remove('hidden');
-
-    checkDisplayFilteredDates(filterDate);
-  }
-
-  if (statusIndex === 2) {
-    removeAllFilterIcons();
-    giveCallbackIcon.classList.remove('hidden');
-
-    checkDisplayFilteredDates(filterDate);
-  }
-
-  if (statusIndex === 3) {
-    removeAllFilterIcons();
-    bookedJobIcon.classList.remove('hidden');
-
-    checkDisplayFilteredDates(filterDate);
-  }
+  addCorrectIcon(0, allContactsIcon);
+  addCorrectIcon(1, gaveQuoteIcon);
+  addCorrectIcon(2, giveCallbackIcon);
+  addCorrectIcon(3, bookedJobIcon);
+  addCorrectIcon(4, deadQuoteIcon);
 });
 
 // Change Colors On Status Select Saved Quote Modal
-const statusSelectSaved = document.querySelector('.select-colors');
+filterSelect.addEventListener('change', e => {
+  // Store Filter Select Into Var
+  const filterSelect = e.target;
 
-statusSelectSaved.addEventListener('change', () => {
-  if (statusSelectSaved.selectedIndex === 0) {
-    statusSelectSaved.style.background = allColor;
-  }
-  if (statusSelectSaved.selectedIndex === 1) {
-    statusSelectSaved.style.background = '#2563eb';
-  }
-  if (statusSelectSaved.selectedIndex === 2) {
-    statusSelectSaved.style.background = '#dc2626';
-  }
-  if (statusSelectSaved.selectedIndex === 3) {
-    statusSelectSaved.style.background = '#10b981';
-  }
+  const changeFilterSelectBcgColor = (index, color) => {
+    if (filterSelect.selectedIndex === index) {
+      filterSelect.style.background = color;
+    }
+  };
+
+  changeFilterSelectBcgColor(0, allColor);
+  changeFilterSelectBcgColor(1, gaveQuoteColor);
+  changeFilterSelectBcgColor(2, giveCallbackColor);
+  changeFilterSelectBcgColor(3, bookedJobColor);
+  changeFilterSelectBcgColor(4, deadQuotesColor);
 });
 
 // Add Main Status Back To Green When, Also Change Induidual Status To Proper Color When Changed
