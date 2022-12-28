@@ -1513,7 +1513,7 @@ const checkDisplayFilteredDates = selectedIndex => {
 };
 
 // Fill QuotesNamesContainer Function
-const fillSavedQuotesContainer = quoteInfo => {
+const fillSavedQuotesContainer = (quoteInfo, placement) => {
   // Split Names & Dates Into An Array
   const namePlusDate = quoteInfo.split('+');
 
@@ -1529,7 +1529,7 @@ const fillSavedQuotesContainer = quoteInfo => {
   // Format Date
   date = Intl.DateTimeFormat(navigator.language).format(new Date(date));
 
-  // Change Formatted Date To Today, Yesterday, or Days Ago If Needed
+  // Change Formatted Date To Today, Yesterday, or Days Ago
   if (daysPassed === 0) date = 'TODAY';
   if (daysPassed === 1) date = 'YESTERDAY';
   if (daysPassed !== 0 && daysPassed !== 1 && daysPassed <= 7) {
@@ -1554,7 +1554,7 @@ const fillSavedQuotesContainer = quoteInfo => {
   }
 
   const html = `<a href="#" class="font-bold text-white tracking-widest flex items-center justify-between flex-wrap mb-3 px-2 py-1 quote-name" data-id="${quoteName}" style="background: ${statusColor}"><p class="inline-block mr-4">${quoteName}</p><span class="text-xs text-white bg-black px-2 py-1">${date}</span></a>`;
-  quoteNamesContainer.insertAdjacentHTML('afterbegin', html);
+  quoteNamesContainer.insertAdjacentHTML(placement, html);
 };
 
 const sortDisplaySavedQuotes = () => {
@@ -1581,14 +1581,16 @@ const sortDisplaySavedQuotes = () => {
     notSortedIcon.classList.remove('hidden');
 
     // Display Sorted Quotes
-    namesSorted.forEach(name => fillSavedQuotesContainer(name));
+    namesSorted.forEach(name => fillSavedQuotesContainer(name, 'beforeend'));
   } else {
     // Show Sorted Icon
     notSortedIcon.classList.add('hidden');
     sortedIcon.classList.remove('hidden');
 
     // Display Non Sorted Quotes
-    quoteNamesPlusDates.forEach(name => fillSavedQuotesContainer(name));
+    quoteNamesPlusDates.forEach(name =>
+      fillSavedQuotesContainer(name, 'afterbegin')
+    );
   }
 };
 
@@ -1616,14 +1618,16 @@ const sortDisplayFilteredQuotes = savedQuotes => {
     quoteNamesPlusDates
       .slice()
       .sort()
-      .forEach(name => fillSavedQuotesContainer(name));
+      .forEach(name => fillSavedQuotesContainer(name, 'beforeend'));
   } else {
     // Show Sorted Icon
     notSortedIcon.classList.add('hidden');
     sortedIcon.classList.remove('hidden');
 
     // Display Non Sorted Quotes
-    quoteNamesPlusDates.forEach(name => fillSavedQuotesContainer(name));
+    quoteNamesPlusDates.forEach(name =>
+      fillSavedQuotesContainer(name, 'afterbegin')
+    );
   }
 };
 
