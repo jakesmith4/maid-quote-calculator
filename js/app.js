@@ -2219,6 +2219,13 @@ singleStatus.addEventListener('change', () => {
   // Change Filter Select Back To All
   filterSelect.selectedIndex = 0;
 
+  // Clear Search Input
+  searchInput.value = '';
+
+  // Change Icon Back To All Contacts
+  removeAllFilterIcons();
+  allContactsIcon.classList.remove('hidden');
+
   // Display Todays Links Function
   const displayTodaysLinks = (statusIndex, days) => {
     if (filterDate.selectedIndex === statusIndex) {
