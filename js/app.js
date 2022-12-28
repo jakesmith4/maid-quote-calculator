@@ -1003,6 +1003,11 @@ const deadQuotesColor = '#DC2626';
 // Status Select
 const statusBox = document.querySelector('.status-box');
 
+// Change Quote Theme
+const statusBackgrounds = document.querySelectorAll('.status-bg');
+
+const mainQuoteIcon = document.querySelector('.main-quote-icon');
+
 // Analytics Data
 const statusDataContainer = document.querySelector('.status-data');
 const noDataMessage = document.querySelector('.no-data-message');
@@ -1172,22 +1177,43 @@ const deleteQuote = () => {
 
 // Change Color Status
 const changeColorStatus = select => {
-  if (select.selectedIndex === 0) {
-    select.style.background = gaveQuoteColor;
-    statusBox.style.background = gaveQuoteColor;
-  }
-  if (select.selectedIndex === 1) {
-    select.style.background = giveCallbackColor;
-    statusBox.style.background = giveCallbackColor;
-  }
-  if (select.selectedIndex === 2) {
-    select.style.background = bookedJobColor;
-    statusBox.style.background = bookedJobColor;
-  }
-  if (select.selectedIndex === 3) {
-    select.style.background = deadQuotesColor;
-    statusBox.style.background = deadQuotesColor;
-  }
+  // Change Quote Theme Function
+  const changeQuoteTheme = (index, color, icon, status) => {
+    if (select.selectedIndex === index) {
+      mainQuoteIcon.innerHTML = '';
+      mainQuoteIcon.innerHTML = `<i class="fa-solid ${icon} fa-3x text-[${color}]"></i><h3 class="text-2xl text-[${color}] font-bold tracking-widest">${status}</h3>`;
+
+      select.style.background = color;
+      statusBox.style.background = color;
+
+      statusBackgrounds.forEach(el => (el.style.background = color));
+
+      singlePrice.style.background = color;
+      singleTaxes.style.background = color;
+      singleHours.style.background = color;
+
+      singleDeepPrice.style.background = color;
+      singleDeepHours.style.background = color;
+
+      singleGeneralPrice.style.background = color;
+      singleGeneralHours.style.background = color;
+
+      singleWeeklyPrice.style.background = color;
+      singleWeeklyHours.style.background = color;
+
+      singleBiWeeklyPrice.style.background = color;
+      singleBiWeeklyHours.style.background = color;
+
+      singleMonthlyPrice.style.background = color;
+      singleMonthlyHours.style.background = color;
+    }
+  };
+
+  // Change Quote Theme
+  changeQuoteTheme(0, gaveQuoteColor, `fa-comments-dollar`, 'GAVE QUOTE');
+  changeQuoteTheme(1, giveCallbackColor, `fa-square-phone`, 'GIVE CALLBACK');
+  changeQuoteTheme(2, bookedJobColor, `fa-book-open`, 'BOOKED JOB');
+  changeQuoteTheme(3, deadQuotesColor, `fa-file-circle-xmark`, 'DEAD QUOTE');
 };
 
 const statusGrey = document.querySelector('.status-grey');
