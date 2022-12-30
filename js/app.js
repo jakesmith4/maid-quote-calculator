@@ -1157,7 +1157,7 @@ const deleteQuote = () => {
     document.querySelector('.saved-text'),
     document.querySelector('.small-text'),
     'Quote Deleted',
-    quoteToDelete.textContent
+    currentQuote.name
   );
 
   // Remove That Quote From The DOM
