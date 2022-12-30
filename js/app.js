@@ -1226,27 +1226,28 @@ const changeColorStatus = select => {
   changeQuoteTheme(3, deadQuotesColor, `fa-file-circle-xmark`, 'DEAD QUOTE');
 };
 
+// Change Save Select Backgrounds Function
+const changeSaveSelectBackgrounds = (index, color, icon) => {
+  if (statusSelectSave.selectedIndex === index) {
+    statusSelectSave.style.background = color;
+
+    savedQuotesIcon.innerHTML = `<i class="fa-solid ${icon} fa-2x text-[${color}]"></i>`;
+
+    savedQuoteLabels.forEach(label => (label.style.color = color));
+
+    saveQuoteInputs.forEach(input => (input.style.outlineColor = color));
+  }
+};
+
 // Change Save Modal Select Status Color and Icon
-const changeSaveColorStatus = select => {
+const changeSaveSelectStatus = () => {
   savedQuotesIcon.innerHTML = '';
-  // Change Backgrounds Function
-  const changeBackgrounds = (index, color, icon) => {
-    if (select.selectedIndex === index) {
-      select.style.background = color;
-
-      savedQuotesIcon.innerHTML = `<i class="fa-solid ${icon} fa-2x text-[${color}]"></i>`;
-
-      savedQuoteLabels.forEach(label => (label.style.color = color));
-
-      saveQuoteInputs.forEach(input => (input.style.outlineColor = color));
-    }
-  };
 
   // Change Backgrounds For Save Select
-  changeBackgrounds(0, gaveQuoteColor, `fa-comments-dollar`);
-  changeBackgrounds(1, giveCallbackColor, `fa-square-phone`);
-  changeBackgrounds(2, bookedJobColor, `fa-book-open`);
-  changeBackgrounds(3, deadQuotesColor, `fa-file-circle-xmark`);
+  changeSaveSelectBackgrounds(0, gaveQuoteColor, `fa-comments-dollar`);
+  changeSaveSelectBackgrounds(1, giveCallbackColor, `fa-square-phone`);
+  changeSaveSelectBackgrounds(2, bookedJobColor, `fa-book-open`);
+  changeSaveSelectBackgrounds(3, deadQuotesColor, `fa-file-circle-xmark`);
 };
 
 const statusGrey = document.querySelector('.status-grey');
@@ -2161,6 +2162,11 @@ let monthlyHoursChanged;
 saveQuoteBtns.forEach(btn => {
   btn.addEventListener('click', e => {
     e.preventDefault();
+
+    // Change Quote Status Back To GAVE QUOTE
+    statusSelectSave.selectedIndex = 0;
+    changeSaveSelectStatus();
+
     // Show Save Quote Modal
     saveQuoteModal.classList.remove('invisible');
     saveQuoteModal.classList.remove('hidden');
@@ -2343,7 +2349,7 @@ statusGrey.addEventListener('change', () => {
 
 // Change Colors On Status Select Save Quote Modal
 statusSelectSave.addEventListener('change', () => {
-  changeSaveColorStatus(statusSelectSave);
+  changeSaveSelectStatus();
 });
 
 // Push Data Into Saved Quotes Array, On Save Form Quote Submit (Array Of Objects)
