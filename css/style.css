@@ -2134,6 +2134,10 @@ video {
     height: 188px;
   }
 
+  .md\:max-h-\[95vh\] {
+    max-height: 95vh;
+  }
+
   .md\:w-7 {
     width: 1.75rem;
   }
@@ -2243,5 +2247,11 @@ video {
 
   .group:hover .group-hover\:md\:pr-2 {
     padding-right: 0.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:max-h-\[95vh\] {
+    max-height: 95vh;
   }
 }
