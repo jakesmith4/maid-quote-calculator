@@ -71,54 +71,61 @@ if (localStorage.getItem('inputPerHour')) {
 // DATA //
 // Deep Hours
 const allDeepHoursMain = [
-  6.5, 8, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5,
+  4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5,
+  18.5, 19.5, 20.5, 21.5, 22.5,
 ];
 let allDeepHours;
-if (localStorage.getItem('changedDeep')) {
-  allDeepHours = JSON.parse(localStorage.getItem('changedDeep'));
+if (localStorage.getItem('changedDeepHours')) {
+  allDeepHours = JSON.parse(localStorage.getItem('changedDeepHours'));
 } else {
   allDeepHours = allDeepHoursMain.slice();
 }
 
 // General Hours
-const allGeneralHoursMain = [4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5];
+const allGeneralHoursMain = [
+  2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11,
+  11.5,
+];
 let allGeneralHours;
-if (localStorage.getItem('changedGeneral')) {
-  allGeneralHours = JSON.parse(localStorage.getItem('changedGeneral'));
+if (localStorage.getItem('changedGeneralHours')) {
+  allGeneralHours = JSON.parse(localStorage.getItem('changedGeneralHours'));
 } else {
   allGeneralHours = allGeneralHoursMain.slice();
 }
 
 // Weekly Hours
 const allWeeklyHoursMain = [
-  2.5, 3, 3.5, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75,
+  2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75,
+  6, 6.25, 6.5, 6.75,
 ];
 let allWeeklyHours;
-if (localStorage.getItem('changedWeekly')) {
-  allWeeklyHours = JSON.parse(localStorage.getItem('changedWeekly'));
+if (localStorage.getItem('changedWeeklyHours')) {
+  allWeeklyHours = JSON.parse(localStorage.getItem('changedWeeklyHours'));
 } else {
   allWeeklyHours = allWeeklyHoursMain.slice();
 }
 
 // Bi Weekly Hours
 const allBiWeeklyHoursMain = [
-  3, 3.25, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6,
+  2.5, 2.75, 3, 3.25, 3.5, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6,
+  6.25, 6.5, 6.75, 7,
 ];
 let allbiWeeklyHours;
-if (localStorage.getItem('changedBiWeekly')) {
-  allbiWeeklyHours = JSON.parse(localStorage.getItem('changedBiWeekly'));
+if (localStorage.getItem('changedBiWeeklyHours')) {
+  allbiWeeklyHours = JSON.parse(localStorage.getItem('changedBiWeeklyHours'));
 } else {
   allbiWeeklyHours = allBiWeeklyHoursMain.slice();
 }
 
 // Monthly Hours
 const allMonthlyHoursMain = [
-  3.25, 3.5, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6, 6.25,
+  2.75, 3, 3.25, 3.5, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6, 6.25,
+  6.5, 6.75, 7, 7.25,
 ];
 // let allMonthlyHours = allMonthlyHoursMain.slice();
 let allMonthlyHours;
-if (localStorage.getItem('changedMonthly')) {
-  allMonthlyHours = JSON.parse(localStorage.getItem('changedMonthly'));
+if (localStorage.getItem('changedMonthlyHours')) {
+  allMonthlyHours = JSON.parse(localStorage.getItem('changedMonthlyHours'));
 } else {
   allMonthlyHours = allMonthlyHoursMain.slice();
 }
@@ -131,9 +138,12 @@ const checkLocalStorage = className => {
 };
 
 // Deep Clean Adjust Local Storage Check
-checkLocalStorage('deep-clean-adjust-1000-1500');
-checkLocalStorage('deep-clean-adjust-1600-2000');
-checkLocalStorage('deep-clean-adjust-2100-2200');
+checkLocalStorage('deep-clean-adjust-500-700');
+checkLocalStorage('deep-clean-adjust-800-1000');
+checkLocalStorage('deep-clean-adjust-1100-1300');
+checkLocalStorage('deep-clean-adjust-1400-1600');
+checkLocalStorage('deep-clean-adjust-1700-1900');
+checkLocalStorage('deep-clean-adjust-2000-2200');
 checkLocalStorage('deep-clean-adjust-2300-2500');
 checkLocalStorage('deep-clean-adjust-2600-2800');
 checkLocalStorage('deep-clean-adjust-2900-3100');
@@ -142,12 +152,19 @@ checkLocalStorage('deep-clean-adjust-3500-3700');
 checkLocalStorage('deep-clean-adjust-3800-4000');
 checkLocalStorage('deep-clean-adjust-4100-4300');
 checkLocalStorage('deep-clean-adjust-4400-4600');
-checkLocalStorage('deep-clean-adjust-4800-5000');
+checkLocalStorage('deep-clean-adjust-4700-4900');
+checkLocalStorage('deep-clean-adjust-5000-5200');
+checkLocalStorage('deep-clean-adjust-5300-5500');
+checkLocalStorage('deep-clean-adjust-5600-5800');
+checkLocalStorage('deep-clean-adjust-5900-6100');
 
 // General Clean Adjust Local Storage Check
-checkLocalStorage('general-clean-adjust-1000-1500');
-checkLocalStorage('general-clean-adjust-1600-2000');
-checkLocalStorage('general-clean-adjust-2100-2200');
+checkLocalStorage('general-clean-adjust-500-700');
+checkLocalStorage('general-clean-adjust-800-1000');
+checkLocalStorage('general-clean-adjust-1100-1300');
+checkLocalStorage('general-clean-adjust-1400-1600');
+checkLocalStorage('general-clean-adjust-1700-1900');
+checkLocalStorage('general-clean-adjust-2000-2200');
 checkLocalStorage('general-clean-adjust-2300-2500');
 checkLocalStorage('general-clean-adjust-2600-2800');
 checkLocalStorage('general-clean-adjust-2900-3100');
@@ -156,12 +173,19 @@ checkLocalStorage('general-clean-adjust-3500-3700');
 checkLocalStorage('general-clean-adjust-3800-4000');
 checkLocalStorage('general-clean-adjust-4100-4300');
 checkLocalStorage('general-clean-adjust-4400-4600');
-checkLocalStorage('general-clean-adjust-4800-5000');
+checkLocalStorage('general-clean-adjust-4700-4900');
+checkLocalStorage('general-clean-adjust-5000-5200');
+checkLocalStorage('general-clean-adjust-5300-5500');
+checkLocalStorage('general-clean-adjust-5600-5800');
+checkLocalStorage('general-clean-adjust-5900-6100');
 
 // Weekly Clean Adjust Local Storage Check
-checkLocalStorage('weekly-clean-adjust-1000-1500');
-checkLocalStorage('weekly-clean-adjust-1600-2000');
-checkLocalStorage('weekly-clean-adjust-2100-2200');
+checkLocalStorage('weekly-clean-adjust-500-700');
+checkLocalStorage('weekly-clean-adjust-800-1000');
+checkLocalStorage('weekly-clean-adjust-1100-1300');
+checkLocalStorage('weekly-clean-adjust-1400-1600');
+checkLocalStorage('weekly-clean-adjust-1700-1900');
+checkLocalStorage('weekly-clean-adjust-2000-2200');
 checkLocalStorage('weekly-clean-adjust-2300-2500');
 checkLocalStorage('weekly-clean-adjust-2600-2800');
 checkLocalStorage('weekly-clean-adjust-2900-3100');
@@ -170,12 +194,19 @@ checkLocalStorage('weekly-clean-adjust-3500-3700');
 checkLocalStorage('weekly-clean-adjust-3800-4000');
 checkLocalStorage('weekly-clean-adjust-4100-4300');
 checkLocalStorage('weekly-clean-adjust-4400-4600');
-checkLocalStorage('weekly-clean-adjust-4800-5000');
+checkLocalStorage('weekly-clean-adjust-4700-4900');
+checkLocalStorage('weekly-clean-adjust-5000-5200');
+checkLocalStorage('weekly-clean-adjust-5300-5500');
+checkLocalStorage('weekly-clean-adjust-5600-5800');
+checkLocalStorage('weekly-clean-adjust-5900-6100');
 
 // Bi-Weekly Clean Adjust Local Storage Check
-checkLocalStorage('bi-weekly-clean-adjust-1000-1500');
-checkLocalStorage('bi-weekly-clean-adjust-1600-2000');
-checkLocalStorage('bi-weekly-clean-adjust-2100-2200');
+checkLocalStorage('bi-weekly-clean-adjust-500-700');
+checkLocalStorage('bi-weekly-clean-adjust-800-1000');
+checkLocalStorage('bi-weekly-clean-adjust-1100-1300');
+checkLocalStorage('bi-weekly-clean-adjust-1400-1600');
+checkLocalStorage('bi-weekly-clean-adjust-1700-1900');
+checkLocalStorage('bi-weekly-clean-adjust-2000-2200');
 checkLocalStorage('bi-weekly-clean-adjust-2300-2500');
 checkLocalStorage('bi-weekly-clean-adjust-2600-2800');
 checkLocalStorage('bi-weekly-clean-adjust-2900-3100');
@@ -184,12 +215,19 @@ checkLocalStorage('bi-weekly-clean-adjust-3500-3700');
 checkLocalStorage('bi-weekly-clean-adjust-3800-4000');
 checkLocalStorage('bi-weekly-clean-adjust-4100-4300');
 checkLocalStorage('bi-weekly-clean-adjust-4400-4600');
-checkLocalStorage('bi-weekly-clean-adjust-4800-5000');
+checkLocalStorage('bi-weekly-clean-adjust-4700-4900');
+checkLocalStorage('bi-weekly-clean-adjust-5000-5200');
+checkLocalStorage('bi-weekly-clean-adjust-5300-5500');
+checkLocalStorage('bi-weekly-clean-adjust-5600-5800');
+checkLocalStorage('bi-weekly-clean-adjust-5900-6100');
 
 // Monthly Clean Adjust Local Storage Check
-checkLocalStorage('monthly-clean-adjust-1000-1500');
-checkLocalStorage('monthly-clean-adjust-1600-2000');
-checkLocalStorage('monthly-clean-adjust-2100-2200');
+checkLocalStorage('monthly-clean-adjust-500-700');
+checkLocalStorage('monthly-clean-adjust-800-1000');
+checkLocalStorage('monthly-clean-adjust-1100-1300');
+checkLocalStorage('monthly-clean-adjust-1400-1600');
+checkLocalStorage('monthly-clean-adjust-1700-1900');
+checkLocalStorage('monthly-clean-adjust-2000-2200');
 checkLocalStorage('monthly-clean-adjust-2300-2500');
 checkLocalStorage('monthly-clean-adjust-2600-2800');
 checkLocalStorage('monthly-clean-adjust-2900-3100');
@@ -198,7 +236,11 @@ checkLocalStorage('monthly-clean-adjust-3500-3700');
 checkLocalStorage('monthly-clean-adjust-3800-4000');
 checkLocalStorage('monthly-clean-adjust-4100-4300');
 checkLocalStorage('monthly-clean-adjust-4400-4600');
-checkLocalStorage('monthly-clean-adjust-4800-5000');
+checkLocalStorage('monthly-clean-adjust-4700-4900');
+checkLocalStorage('monthly-clean-adjust-5000-5200');
+checkLocalStorage('monthly-clean-adjust-5300-5500');
+checkLocalStorage('monthly-clean-adjust-5600-5800');
+checkLocalStorage('monthly-clean-adjust-5900-6100');
 
 // FUNCTIONS //
 const calcDisplayQuote = (
@@ -435,7 +477,7 @@ const carousel = () => {
   });
 };
 
-const showQuote = event => {
+const showQuote = (event, slide = false) => {
   // Show Tax Indicator
   if (!event.target.classList?.contains('change-individual')) {
     showTaxIndicator();
@@ -509,65 +551,138 @@ const showQuote = event => {
     allMonthlyHours
   );
 
-  if (sqFootage.value === '1000-1500') {
+  if (sqFootage.value === '500-700') {
     processedQuotes(0);
-    counter = 0;
-    carousel();
+    if (!slide) {
+      counter = 0;
+      carousel();
+    }
   }
-  if (sqFootage.value === '1600-2000') {
+  if (sqFootage.value === '800-1000') {
     processedQuotes(1);
-    counter = 1;
-    carousel();
+    if (!slide) {
+      counter = 1;
+      carousel();
+    }
   }
-  if (sqFootage.value === '2100-2200') {
+  if (sqFootage.value === '1100-1300') {
     processedQuotes(2);
-    counter = 2;
-    carousel();
+    if (!slide) {
+      counter = 2;
+      carousel();
+    }
+  }
+  if (sqFootage.value === '1400-1600') {
+    processedQuotes(3);
+    if (!slide) {
+      counter = 3;
+      carousel();
+    }
+  }
+  if (sqFootage.value === '1700-1900') {
+    processedQuotes(4);
+    if (!slide) {
+      counter = 4;
+      carousel();
+    }
+  }
+  if (sqFootage.value === '2000-2200') {
+    processedQuotes(5);
+    if (!slide) {
+      counter = 5;
+      carousel();
+    }
   }
   if (sqFootage.value === '2300-2500') {
-    processedQuotes(3);
-    counter = 3;
-    carousel();
+    processedQuotes(6);
+    if (!slide) {
+      counter = 6;
+      carousel();
+    }
   }
   if (sqFootage.value === '2600-2800') {
-    processedQuotes(4);
-    counter = 4;
-    carousel();
+    processedQuotes(7);
+    if (!slide) {
+      counter = 7;
+      carousel();
+    }
   }
   if (sqFootage.value === '2900-3100') {
-    processedQuotes(5);
-    counter = 5;
-    carousel();
+    processedQuotes(8);
+    if (!slide) {
+      counter = 8;
+      carousel();
+    }
   }
   if (sqFootage.value === '3200-3400') {
-    processedQuotes(6);
-    counter = 6;
-    carousel();
+    processedQuotes(9);
+    if (!slide) {
+      counter = 9;
+      carousel();
+    }
   }
   if (sqFootage.value === '3500-3700') {
-    processedQuotes(7);
-    counter = 7;
-    carousel();
+    processedQuotes(10);
+    if (!slide) {
+      counter = 10;
+      carousel();
+    }
   }
   if (sqFootage.value === '3800-4000') {
-    processedQuotes(8);
-    counter = 8;
-    carousel();
+    processedQuotes(11);
+    if (!slide) {
+      counter = 11;
+      carousel();
+    }
   }
   if (sqFootage.value === '4100-4300') {
-    processedQuotes(9);
-    counter = 9;
-    carousel();
+    processedQuotes(12);
+    if (!slide) {
+      counter = 12;
+      carousel();
+    }
   }
   if (sqFootage.value === '4400-4600') {
-    processedQuotes(10);
-    counter = 10;
-    carousel();
+    processedQuotes(13);
+    if (!slide) {
+      counter = 13;
+      carousel();
+    }
   }
-  if (sqFootage.value === '4800-5000') {
-    processedQuotes(11);
-    counter = 11;
-    carousel();
+  if (sqFootage.value === '4700-4900') {
+    processedQuotes(14);
+    if (!slide) {
+      counter = 14;
+      carousel();
+    }
+  }
+  if (sqFootage.value === '5000-5200') {
+    processedQuotes(15);
+    if (!slide) {
+      counter = 15;
+      carousel();
+    }
+  }
+  if (sqFootage.value === '5300-5500') {
+    processedQuotes(16);
+    if (!slide) {
+      counter = 16;
+      carousel();
+    }
+  }
+  if (sqFootage.value === '5600-5800') {
+    processedQuotes(17);
+    if (!slide) {
+      counter = 17;
+      carousel();
+    }
+  }
+  if (sqFootage.value === '5900-6100') {
+    processedQuotes(18);
+    if (!slide) {
+      counter = 18;
+      carousel();
+    }
   }
 };
 
@@ -578,15 +693,14 @@ const changeDeepHours = (event, className, index) => {
       allDeepHours[index] = allDeepHoursMain.slice()[index];
       // Set Item To Local Storage
       localStorage.setItem(
-        'changedDeep',
+        'changedDeepHours',
         JSON.stringify(allDeepHoursMain.slice())
       );
-      console.log(allDeepHoursMain[0]);
       localStorage.setItem(className, allDeepHoursMain[0]);
     } else {
       allDeepHours[index] = +event.target.value;
       // Set Item To Local Storage
-      localStorage.setItem('changedDeep', JSON.stringify(allDeepHours));
+      localStorage.setItem('changedDeepHours', JSON.stringify(allDeepHours));
       localStorage.setItem(
         className,
         document.querySelector(`.${className}`).value
@@ -602,14 +716,17 @@ const changeGeneralHours = (event, className, index) => {
       allGeneralHours[index] = allGeneralHoursMain.slice()[index];
       // Set Item To Local Storage
       localStorage.setItem(
-        'changedGeneral',
+        'changedGeneralHours',
         JSON.stringify(allGeneralHoursMain.slice())
       );
       localStorage.setItem(className, allGeneralHoursMain[0]);
     } else {
       allGeneralHours[index] = +event.target.value;
       // Set Item To Local Storage
-      localStorage.setItem('changedGeneral', JSON.stringify(allGeneralHours));
+      localStorage.setItem(
+        'changedGeneralHours',
+        JSON.stringify(allGeneralHours)
+      );
       localStorage.setItem(
         className,
         document.querySelector(`.${className}`).value
@@ -625,14 +742,17 @@ const changeWeeklyHours = (event, className, index) => {
       allWeeklyHours[index] = allWeeklyHoursMain.slice()[index];
       // Set Item To Local Storage
       localStorage.setItem(
-        'changedWeekly',
+        'changedWeeklyHours',
         JSON.stringify(allWeeklyHoursMain.slice())
       );
       localStorage.setItem(className, allWeeklyHoursMain[0]);
     } else {
       allWeeklyHours[index] = +event.target.value;
       // Set Item To Local Storage
-      localStorage.setItem('changedWeekly', JSON.stringify(allWeeklyHours));
+      localStorage.setItem(
+        'changedWeeklyHours',
+        JSON.stringify(allWeeklyHours)
+      );
       localStorage.setItem(
         className,
         document.querySelector(`.${className}`).value
@@ -648,14 +768,17 @@ const changeBiWeeklyHours = (event, className, index) => {
       allbiWeeklyHours[index] = allBiWeeklyHoursMain.slice()[index];
       // Set Item To Local Storage
       localStorage.setItem(
-        'changedBiWeekly',
+        'changedBiWeeklyHours',
         JSON.stringify(allBiWeeklyHoursMain.slice())
       );
       localStorage.setItem(className, allBiWeeklyHoursMain[0]);
     } else {
       allbiWeeklyHours[index] = +event.target.value;
       // Set Item To Local Storage
-      localStorage.setItem('changedBiWeekly', JSON.stringify(allbiWeeklyHours));
+      localStorage.setItem(
+        'changedBiWeeklyHours',
+        JSON.stringify(allbiWeeklyHours)
+      );
       localStorage.setItem(
         className,
         document.querySelector(`.${className}`).value
@@ -671,14 +794,17 @@ const changeMonthlyHours = (event, className, index) => {
       allMonthlyHours[index] = allMonthlyHoursMain.slice()[index];
       // Set Item To Local Storage
       localStorage.setItem(
-        'changedMonthly',
+        'changedMonthlyHours',
         JSON.stringify(allMonthlyHoursMain.slice())
       );
       localStorage.setItem(className, allMonthlyHoursMain[0]);
     } else {
       allMonthlyHours[index] = +event.target.value;
       // Set Item To Local Storage
-      localStorage.setItem('changedMonthly', JSON.stringify(allMonthlyHours));
+      localStorage.setItem(
+        'changedMonthlyHours',
+        JSON.stringify(allMonthlyHours)
+      );
       localStorage.setItem(
         className,
         document.querySelector(`.${className}`).value
@@ -689,74 +815,109 @@ const changeMonthlyHours = (event, className, index) => {
 
 const changeHours = e => {
   // Change Deep Hours
-  changeDeepHours(e, 'deep-clean-adjust-1000-1500', 0);
-  changeDeepHours(e, 'deep-clean-adjust-1600-2000', 1);
-  changeDeepHours(e, 'deep-clean-adjust-2100-2200', 2);
-  changeDeepHours(e, 'deep-clean-adjust-2300-2500', 3);
-  changeDeepHours(e, 'deep-clean-adjust-2600-2800', 4);
-  changeDeepHours(e, 'deep-clean-adjust-2900-3100', 5);
-  changeDeepHours(e, 'deep-clean-adjust-3200-3400', 6);
-  changeDeepHours(e, 'deep-clean-adjust-3500-3700', 7);
-  changeDeepHours(e, 'deep-clean-adjust-3800-4000', 8);
-  changeDeepHours(e, 'deep-clean-adjust-4100-4300', 9);
-  changeDeepHours(e, 'deep-clean-adjust-4400-4600', 10);
-  changeDeepHours(e, 'deep-clean-adjust-4800-5000', 11);
+  changeDeepHours(e, 'deep-clean-adjust-500-700', 0);
+  changeDeepHours(e, 'deep-clean-adjust-800-1000', 1);
+  changeDeepHours(e, 'deep-clean-adjust-1100-1300', 2);
+  changeDeepHours(e, 'deep-clean-adjust-1400-1600', 3);
+  changeDeepHours(e, 'deep-clean-adjust-1700-1900', 4);
+  changeDeepHours(e, 'deep-clean-adjust-2000-2200', 5);
+  changeDeepHours(e, 'deep-clean-adjust-2300-2500', 6);
+  changeDeepHours(e, 'deep-clean-adjust-2600-2800', 7);
+  changeDeepHours(e, 'deep-clean-adjust-2900-3100', 8);
+  changeDeepHours(e, 'deep-clean-adjust-3200-3400', 9);
+  changeDeepHours(e, 'deep-clean-adjust-3500-3700', 10);
+  changeDeepHours(e, 'deep-clean-adjust-3800-4000', 11);
+  changeDeepHours(e, 'deep-clean-adjust-4100-4300', 12);
+  changeDeepHours(e, 'deep-clean-adjust-4400-4600', 13);
+  changeDeepHours(e, 'deep-clean-adjust-4700-4900', 14);
+  changeDeepHours(e, 'deep-clean-adjust-5000-5200', 15);
+  changeDeepHours(e, 'deep-clean-adjust-5300-5500', 16);
+  changeDeepHours(e, 'deep-clean-adjust-5600-5800', 17);
+  changeDeepHours(e, 'deep-clean-adjust-5900-6100', 18);
 
   // Change General Hours
-  changeGeneralHours(e, 'general-clean-adjust-1000-1500', 0);
-  changeGeneralHours(e, 'general-clean-adjust-1600-2000', 1);
-  changeGeneralHours(e, 'general-clean-adjust-2100-2200', 2);
-  changeGeneralHours(e, 'general-clean-adjust-2300-2500', 3);
-  changeGeneralHours(e, 'general-clean-adjust-2600-2800', 4);
-  changeGeneralHours(e, 'general-clean-adjust-2900-3100', 5);
-  changeGeneralHours(e, 'general-clean-adjust-3200-3400', 6);
-  changeGeneralHours(e, 'general-clean-adjust-3500-3700', 7);
-  changeGeneralHours(e, 'general-clean-adjust-3800-4000', 8);
-  changeGeneralHours(e, 'general-clean-adjust-4100-4300', 9);
-  changeGeneralHours(e, 'general-clean-adjust-4400-4600', 10);
-  changeGeneralHours(e, 'general-clean-adjust-4800-5000', 11);
+  changeGeneralHours(e, 'general-clean-adjust-500-700', 0);
+  changeGeneralHours(e, 'general-clean-adjust-800-1000', 1);
+  changeGeneralHours(e, 'general-clean-adjust-1100-1300', 2);
+  changeGeneralHours(e, 'general-clean-adjust-1400-1600', 3);
+  changeGeneralHours(e, 'general-clean-adjust-1700-1900', 4);
+  changeGeneralHours(e, 'general-clean-adjust-2000-2200', 5);
+  changeGeneralHours(e, 'general-clean-adjust-2300-2500', 6);
+  changeGeneralHours(e, 'general-clean-adjust-2600-2800', 7);
+  changeGeneralHours(e, 'general-clean-adjust-2900-3100', 8);
+  changeGeneralHours(e, 'general-clean-adjust-3200-3400', 9);
+  changeGeneralHours(e, 'general-clean-adjust-3500-3700', 10);
+  changeGeneralHours(e, 'general-clean-adjust-3800-4000', 11);
+  changeGeneralHours(e, 'general-clean-adjust-4100-4300', 12);
+  changeGeneralHours(e, 'general-clean-adjust-4400-4600', 13);
+  changeGeneralHours(e, 'general-clean-adjust-4700-4900', 14);
+  changeGeneralHours(e, 'general-clean-adjust-5000-5200', 15);
+  changeGeneralHours(e, 'general-clean-adjust-5300-5500', 16);
+  changeGeneralHours(e, 'general-clean-adjust-5600-5800', 17);
+  changeGeneralHours(e, 'general-clean-adjust-5900-6100', 18);
 
   // Change Weekly Hours
-  changeWeeklyHours(e, 'weekly-clean-adjust-1000-1500', 0);
-  changeWeeklyHours(e, 'weekly-clean-adjust-1600-2000', 1);
-  changeWeeklyHours(e, 'weekly-clean-adjust-2100-2200', 2);
-  changeWeeklyHours(e, 'weekly-clean-adjust-2300-2500', 3);
-  changeWeeklyHours(e, 'weekly-clean-adjust-2600-2800', 4);
-  changeWeeklyHours(e, 'weekly-clean-adjust-2900-3100', 5);
-  changeWeeklyHours(e, 'weekly-clean-adjust-3200-3400', 6);
-  changeWeeklyHours(e, 'weekly-clean-adjust-3500-3700', 7);
-  changeWeeklyHours(e, 'weekly-clean-adjust-3800-4000', 8);
-  changeWeeklyHours(e, 'weekly-clean-adjust-4100-4300', 9);
-  changeWeeklyHours(e, 'weekly-clean-adjust-4400-4600', 10);
-  changeWeeklyHours(e, 'weekly-clean-adjust-4800-5000', 11);
+  changeWeeklyHours(e, 'weekly-clean-adjust-500-700', 0);
+  changeWeeklyHours(e, 'weekly-clean-adjust-800-1000', 1);
+  changeWeeklyHours(e, 'weekly-clean-adjust-1100-1300', 2);
+  changeWeeklyHours(e, 'weekly-clean-adjust-1400-1600', 3);
+  changeWeeklyHours(e, 'weekly-clean-adjust-1700-1900', 4);
+  changeWeeklyHours(e, 'weekly-clean-adjust-2000-2200', 5);
+  changeWeeklyHours(e, 'weekly-clean-adjust-2300-2500', 6);
+  changeWeeklyHours(e, 'weekly-clean-adjust-2600-2800', 7);
+  changeWeeklyHours(e, 'weekly-clean-adjust-2900-3100', 8);
+  changeWeeklyHours(e, 'weekly-clean-adjust-3200-3400', 9);
+  changeWeeklyHours(e, 'weekly-clean-adjust-3500-3700', 10);
+  changeWeeklyHours(e, 'weekly-clean-adjust-3800-4000', 11);
+  changeWeeklyHours(e, 'weekly-clean-adjust-4100-4300', 12);
+  changeWeeklyHours(e, 'weekly-clean-adjust-4400-4600', 13);
+  changeWeeklyHours(e, 'weekly-clean-adjust-4700-4900', 14);
+  changeWeeklyHours(e, 'weekly-clean-adjust-5000-5200', 15);
+  changeWeeklyHours(e, 'weekly-clean-adjust-5300-5500', 16);
+  changeWeeklyHours(e, 'weekly-clean-adjust-5600-5800', 17);
+  changeWeeklyHours(e, 'weekly-clean-adjust-5900-6100', 18);
 
   // Change Bi-Weekly Hours
-  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-1000-1500', 0);
-  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-1600-2000', 1);
-  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-2100-2200', 2);
-  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-2300-2500', 3);
-  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-2600-2800', 4);
-  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-2900-3100', 5);
-  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-3200-3400', 6);
-  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-3500-3700', 7);
-  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-3800-4000', 8);
-  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-4100-4300', 9);
-  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-4400-4600', 10);
-  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-4800-5000', 11);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-500-700', 0);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-800-1000', 1);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-1100-1300', 2);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-1400-1600', 3);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-1700-1900', 4);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-2000-2200', 5);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-2300-2500', 6);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-2600-2800', 7);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-2900-3100', 8);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-3200-3400', 9);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-3500-3700', 10);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-3800-4000', 11);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-4100-4300', 12);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-4400-4600', 13);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-4700-4900', 14);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-5000-5200', 15);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-5300-5500', 16);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-5600-5800', 17);
+  changeBiWeeklyHours(e, 'bi-weekly-clean-adjust-5900-6100', 18);
 
   // Change Monthly Hours
-  changeMonthlyHours(e, 'monthly-clean-adjust-1000-1500', 0);
-  changeMonthlyHours(e, 'monthly-clean-adjust-1600-2000', 1);
-  changeMonthlyHours(e, 'monthly-clean-adjust-2100-2200', 2);
-  changeMonthlyHours(e, 'monthly-clean-adjust-2300-2500', 3);
-  changeMonthlyHours(e, 'monthly-clean-adjust-2600-2800', 4);
-  changeMonthlyHours(e, 'monthly-clean-adjust-2900-3100', 5);
-  changeMonthlyHours(e, 'monthly-clean-adjust-3200-3400', 6);
-  changeMonthlyHours(e, 'monthly-clean-adjust-3500-3700', 7);
-  changeMonthlyHours(e, 'monthly-clean-adjust-3800-4000', 8);
-  changeMonthlyHours(e, 'monthly-clean-adjust-4100-4300', 9);
-  changeMonthlyHours(e, 'monthly-clean-adjust-4400-4600', 10);
-  changeMonthlyHours(e, 'monthly-clean-adjust-4800-5000', 11);
+  changeMonthlyHours(e, 'monthly-clean-adjust-500-700', 0);
+  changeMonthlyHours(e, 'monthly-clean-adjust-800-1000', 1);
+  changeMonthlyHours(e, 'monthly-clean-adjust-1100-1300', 2);
+  changeMonthlyHours(e, 'monthly-clean-adjust-1400-1600', 3);
+  changeMonthlyHours(e, 'monthly-clean-adjust-1700-1900', 4);
+  changeMonthlyHours(e, 'monthly-clean-adjust-2000-2200', 5);
+  changeMonthlyHours(e, 'monthly-clean-adjust-2300-2500', 6);
+  changeMonthlyHours(e, 'monthly-clean-adjust-2600-2800', 7);
+  changeMonthlyHours(e, 'monthly-clean-adjust-2900-3100', 8);
+  changeMonthlyHours(e, 'monthly-clean-adjust-3200-3400', 9);
+  changeMonthlyHours(e, 'monthly-clean-adjust-3500-3700', 10);
+  changeMonthlyHours(e, 'monthly-clean-adjust-3800-4000', 11);
+  changeMonthlyHours(e, 'monthly-clean-adjust-4100-4300', 12);
+  changeMonthlyHours(e, 'monthly-clean-adjust-4400-4600', 13);
+  changeMonthlyHours(e, 'monthly-clean-adjust-4700-4900', 14);
+  changeMonthlyHours(e, 'monthly-clean-adjust-5000-5200', 15);
+  changeMonthlyHours(e, 'monthly-clean-adjust-5300-5500', 16);
+  changeMonthlyHours(e, 'monthly-clean-adjust-5600-5800', 17);
+  changeMonthlyHours(e, 'monthly-clean-adjust-5900-6100', 18);
 };
 
 // Set All Change Hour Inputs Back To 0
@@ -819,7 +980,7 @@ window.addEventListener('load', e => {
 // Change Hours Depending On What Ajustment Is Made In Settings
 cleanAdjustForm.addEventListener('change', e => {
   changeHours(e);
-  showQuote(e);
+  showQuote(e, true);
 });
 
 cleanAdjustForm.addEventListener('click', e => {
@@ -831,7 +992,7 @@ cleanAdjustForm.addEventListener('click', e => {
 
     const selectHours = event => {
       changeHours(event);
-      showQuote(event);
+      showQuote(event, true);
     };
 
     // Add Event Listener
