@@ -1169,6 +1169,9 @@ const savedQuotesIcon = document.querySelector('.saved-quotes-icon');
 // Save Quote Modal Elements
 const savedQuoteLabels = document.querySelectorAll('.save-quote-label');
 const saveQuoteInputs = document.querySelectorAll('.save-quote-input');
+const allInputFields = document.querySelectorAll('.input-field');
+const showAllFieldsCheckbox = document.getElementById('show-all-fields');
+const nameInput = document.querySelector('.name');
 
 // Analytics Data
 const statusDataContainer = document.querySelector('.status-data');
@@ -1190,6 +1193,17 @@ const html = document.documentElement;
 
 // Save Quote Select Var
 const statusSelectSave = document.querySelector('.others-select-colors');
+
+showAllFieldsCheckbox.addEventListener('click', () => {
+  console.log(showAllFieldsCheckbox.checked);
+  if (showAllFieldsCheckbox.checked) {
+    allInputFields.forEach(input => input.classList.remove('hidden'));
+    nameInput.classList.remove('mb-1');
+  } else {
+    allInputFields.forEach(input => input.classList.add('hidden'));
+    nameInput.classList.add('mb-1');
+  }
+});
 
 // FUNCTIONS //
 // Close Modal

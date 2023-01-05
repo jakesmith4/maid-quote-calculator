@@ -64,33 +64,76 @@
       <!-- End Of Maid Quote Calculator Heading -->
 
       <!-- User Message -->
-      <div class="user-message p-3 max-w-md mx-auto">
-        <h3 class="text-2xl text-center text-black dark:text-white mb-2">
-          Adjusting Hours:
-        </h3>
-        <p class="text-center text-red-500">
-          Use the settings in the
-          <span class="border-black border-b-2">SIDEMENU</span> for permanent
-          hourly adjustments. Once you make an hourly adjustment in settings,
-          the changes will be saved, even if you exit the site and come back.
-          The
-          <span class="border-black border-b-2">CHANGE HOUR BUTTONS</span> on
-          each cleaning type below only changes the hours TEMPORARILY!!
-        </p>
-        <h3 class="text-2xl text-center text-black dark:text-white mb-2">
-          Saving Quotes:
-        </h3>
-        <p class="text-center text-red-500">
-          Save a quote by clicking one of the
-          <span class="border-black border-b-2">SAVE QUOTE BUTTONS</span> on
-          each cleaning type below. When you save a quote, the only info you
-          need to fill out in the form is the
-          <span class="border-black border-b-2">NAME</span>, the rest can be
-          filled out later. All of your saved quotes can be viewed later in the
-          <span class="border-black border-b-2">SIDEMENU</span>. Click floppy
-          disk icon in the sidemenu to view all of your saved quotes. All saved
-          quotes will be saved even if you exit the site and come back!
-        </p>
+      <div
+        class="user-message p-3 md:flex items-start space-around gap-2 max-w-lg mx-auto md:items-center"
+      >
+        <div class="max-w-sm mx-auto">
+          <h3
+            class="text-2xl text-center text-black font-bold p-2 mb-2 dark:text-white"
+          >
+            Adjusting Hours:
+          </h3>
+          <span class="hidden toggler-menu">hello world</span>
+          <p class="text-center text-red-500 toggle-menu-ball mb-3">
+            Use the
+            <span
+              class="bg-emerald-600 text-white p-1 inline-flex items-center gap-1"
+              ><i class="fa-solid fa-gear text-black"></i> Settings</span
+            >
+            in the
+            <span
+              class="bg-emerald-600 text-white p-1 inline-flex items-center gap-1"
+              ><i
+                class="fa-solid fa-sliders bg-white rounded-full p-1 border-2 border-black text-black"
+              ></i>
+              Sidemenu</span
+            >
+            for permanently adjusting the hours of each cleaning type for each
+            diffrent square footage to what you want them to be. Once you make
+            an hourly adjustment in
+            <span
+              class="bg-emerald-600 text-white p-1 inline-flex items-center gap-1"
+              ><i class="fa-solid fa-gear text-black"></i> Settings</span
+            >
+            , the changes will be saved, even if you exit the site and come
+            back, you will still keep your data. The
+            <span class="text-black dark:text-white">CHANGE HOUR BUTTONS</span>
+            on each cleaning type below only changes the hours
+            <span class="text-black dark:text-white">TEMPORARILY!!</span>
+          </p>
+        </div>
+        <div class="max-w-sm mx-auto">
+          <h3
+            class="text-2xl text-center text-black p-2 mb-2 dark:text-white font-bold"
+          >
+            Saving Quotes:
+          </h3>
+          <p class="text-center text-red-500">
+            Save a quote by clicking one of the
+            <span
+              class="bg-neutral-700 border-2 border-emerald-600 text-white p-1 inline-flex items-center gap-1"
+              ><i class="fa-solid fa-floppy-disk text-white"></i> Save Quote
+              Buttons</span
+            >
+            on each cleaning type below. All of your saved quotes can be viewed
+            later by clicking on the
+            <span
+              class="bg-emerald-600 text-white p-1 inline-flex items-center gap-1"
+              ><i class="fa-solid fa-floppy-disk text-black"></i> Floppy Disk
+              Icon</span
+            >
+            in the
+            <span
+              class="bg-emerald-600 text-white p-1 inline-flex items-center gap-1"
+              ><i
+                class="fa-solid fa-sliders bg-white rounded-full p-1 border-2 border-black text-black"
+              ></i>
+              Sidemenu</span
+            >
+            . All your saved quotes will be saved even if you exit the site and
+            come back!
+          </p>
+        </div>
       </div>
       <!-- End Of User Message -->
 
@@ -8289,16 +8332,27 @@
                     ></i>
                   </div>
                 </div>
-                <select
-                  name="status"
-                  class="cursor-pointer px-1 text-white bg-blue-600 border-2 others-select-colors"
-                  id="status"
-                >
-                  <option value="gave quote">Gave Quote</option>
-                  <option value="give callback">Give Callback</option>
-                  <option value="booked job">Booked Job</option>
-                  <option value="dead quotes">Dead Quote</option>
-                </select>
+                <div>
+                  <select
+                    name="status"
+                    class="cursor-pointer px-1 text-white bg-blue-600 border-2 others-select-colors"
+                    id="status"
+                  >
+                    <option value="gave quote">Gave Quote</option>
+                    <option value="give callback">Give Callback</option>
+                    <option value="booked job">Booked Job</option>
+                    <option value="dead quotes">Dead Quote</option>
+                  </select>
+                  <div class="flex items-center gap-1 mt-3">
+                    <label for="show-all-fields">Show All Fields</label>
+                    <input
+                      type="checkbox"
+                      name="show-all-fields"
+                      id="show-all-fields"
+                      class="w-5 h-5"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <!-- End Of Set Status -->
@@ -8344,12 +8398,12 @@
                 id="name"
                 placeholder="Enter Name"
                 spellcheck="false"
-                class="save-quote-input outline-blue-600 border-2 py-[.10rem] px-2 placeholder:tracking-wide text-black w-full name"
+                class="save-quote-input outline-blue-600 border-2 py-[.10rem] px-2 placeholder:tracking-wide text-black w-full mb-1 name"
               />
             </div>
             <!-- End Of Name Input -->
             <!-- Email Input -->
-            <div>
+            <div class="hidden input-field">
               <label
                 for="email"
                 class="text-blue-600 tracking-widest font-semibold mr-5 save-quote-label"
@@ -8365,7 +8419,7 @@
             </div>
             <!-- End Of Email Input -->
             <!-- Phone Number Input -->
-            <div>
+            <div class="hidden input-field">
               <label
                 for="number"
                 class="text-blue-600 tracking-widest font-semibold save-quote-label"
@@ -8381,7 +8435,7 @@
             </div>
             <!-- End Of Phone Number Input -->
             <!-- Address Input -->
-            <div>
+            <div class="hidden input-field">
               <label
                 for="address"
                 class="text-blue-600 tracking-widest font-semibold save-quote-label"
@@ -8398,7 +8452,7 @@
             </div>
             <!-- End Of Address Input -->
             <!-- City Input -->
-            <div>
+            <div class="hidden input-field">
               <label
                 for="city"
                 class="text-blue-600 tracking-widest font-semibold block save-quote-label"
@@ -8414,7 +8468,7 @@
             </div>
             <!-- End Of City Input -->
             <!-- Zip Code Input -->
-            <div>
+            <div class="hidden input-field">
               <label
                 for="zipcode"
                 class="text-blue-600 tracking-widest font-semibold block save-quote-label"
@@ -8430,7 +8484,7 @@
             </div>
             <!-- End Of Zip Code Input -->
             <!-- Special Note Textarea -->
-            <div>
+            <div class="hidden input-field">
               <label
                 for="special-note"
                 class="text-blue-600 tracking-widest font-semibold save-quote-label"
@@ -10073,6 +10127,6 @@
     <!-- IF YOU CLONE THIS FROM GITHUB THEN RUN THIS COMMAND FIRST IN THE TERMERNAL: npm install -->
 
     <!-- THEN RUN THE FOLLOWING COMMAND IN TERMANAL: npm run watch -->
-    <script src="./js/app.js"></script>
+    <script src="./js/app-version-2.js"></script>
   </body>
 </html>
