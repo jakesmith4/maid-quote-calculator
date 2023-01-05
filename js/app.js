@@ -1115,12 +1115,6 @@ const toggler = document.querySelector('.toggler');
 const sunIcon = document.querySelector('.sun');
 const moonIcon = document.querySelector('.moon');
 
-// SideMenu Toggle
-const toggleMenu = document.querySelector('.toggler-menu');
-const toggleMenuBall = document.querySelector('.toggle-menu-ball');
-const sidebar = document.querySelector('.sidebar');
-let sideMenuClosed = false;
-
 // Show Current Quote
 const quoteDate = document.querySelector('.quote-date');
 const options = {
@@ -1847,16 +1841,6 @@ if (localStorage.getItem('darkFlag')) {
   darkFlag = JSON.parse(localStorage.getItem('darkFlag'));
 }
 
-// Show Sidebar If It Is Stored In Local Storage
-if (JSON.parse(localStorage.getItem('closeSideMenu'))) {
-  sideMenuClosed = true;
-  toggleMenu.classList.add('bg-gray-500');
-  toggleMenu.classList.remove('bg-green-700');
-  toggleMenuBall.classList.remove('translate-x-6');
-  sidebar.classList.add('md:-translate-x-24');
-  sidebar.classList.remove('show-sidebar');
-}
-
 const calcDisplayAnalyticsData = daysPassed => {
   let allSavedQuotes;
 
@@ -2277,20 +2261,6 @@ toggleTaxEl.addEventListener('click', e => {
   taxFlag = !taxFlag;
   localStorage.setItem('taxFlag', taxFlag);
   showQuote(e);
-});
-
-// Toggler Show Menu
-toggleMenu.addEventListener('click', () => {
-  toggleMenu.classList.toggle('bg-green-700');
-  toggleMenu.classList.toggle('bg-gray-500');
-  toggleMenuBall.classList.toggle('translate-x-6');
-
-  sidebar.classList.toggle('md:-translate-x-24');
-  sidebar.classList.toggle('show-sidebar');
-
-  // Set Show Menu Info To Local Storage
-  sideMenuClosed = !sideMenuClosed;
-  localStorage.setItem('closeSideMenu', sideMenuClosed);
 });
 
 // Display Save Quote Modal
