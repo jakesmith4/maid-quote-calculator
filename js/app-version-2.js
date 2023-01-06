@@ -1184,6 +1184,19 @@ cleanAdjustForm.addEventListener('click', e => {
     // Remove Event Listener
     currentSelect.removeEventListener('change', selectHours);
   }
+
+  const scrollCleanIntoView = (cleanElement, article) => {
+    if (e.target.closest('.clean-scroll').classList.contains(cleanElement)) {
+      document.querySelector(article).scrollIntoView();
+    }
+  };
+
+  // Scroll Clean Element Into View
+  scrollCleanIntoView('deep-clean-scroll', '.deep-article');
+  scrollCleanIntoView('general-clean-scroll', '.general-article');
+  scrollCleanIntoView('weekly-clean-scroll', '.weekly-article');
+  scrollCleanIntoView('bi-weekly-clean-scroll', '.bi-weekly-article');
+  scrollCleanIntoView('monthly-clean-scroll', '.monthly-article');
 });
 
 // THIS SECOND HALF OF CODE DEALS WITH SHOWING ALL MODALS & DISPLAYING ALL THE DATA FOR SAVING QUOTES
