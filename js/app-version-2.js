@@ -1115,7 +1115,7 @@ cleanAdjustForm.addEventListener('input', e => {
       document.querySelector(cleanTypeDom).textContent = e.target.value;
 
       // Scroll Into View Of The Cleaning Type You Are Changing
-      document.querySelector(article).scrollIntoView();
+      document.querySelector(article).scrollIntoView({ block: 'center' });
 
       // Store The New Cleaning Type Into Local Storage
       localStorage.setItem(storageKeyInput, e.target.value);
@@ -1187,7 +1187,7 @@ cleanAdjustForm.addEventListener('click', e => {
 
   const scrollCleanIntoView = (cleanElement, article) => {
     if (e.target.closest('.clean-scroll').classList.contains(cleanElement)) {
-      document.querySelector(article).scrollIntoView();
+      document.querySelector(article).scrollIntoView({ block: 'center' });
     }
   };
 
