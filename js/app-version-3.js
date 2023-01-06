@@ -977,7 +977,8 @@ const removeChangeIcons = () => {
 const bringInCleanTypeFromStorage = (
   storageKeyInput,
   cleanInputs,
-  cleanType
+  cleanType,
+  otherClean
 ) => {
   if (localStorage.getItem(storageKeyInput)) {
     const localStorageCleanInput = localStorage.getItem(storageKeyInput);
@@ -985,8 +986,11 @@ const bringInCleanTypeFromStorage = (
     // Bring In User Custom Clean Names Into App Settings
     cleanInputs.forEach(input => (input.value = localStorageCleanInput));
 
-    // Bring In User Custom Clean Names Into App Headings
+    // Bring In User Custom Clean Names Into App Main Clean Headings
     document.querySelector(cleanType).textContent = localStorageCleanInput;
+
+    // Bring In User Custom Clean Names Into App Other Clean Headings
+    document.querySelector(otherClean).textContent = localStorageCleanInput;
 
     // Bring In User Custom Clean Names into App Articles
     document.querySelector(cleanType).dataset.id =
@@ -998,35 +1002,40 @@ const bringInCleanTypeFromStorage = (
 bringInCleanTypeFromStorage(
   'deep-clean-input-change',
   deepCleanChangeInputs,
-  '.deep-clean-type'
+  '.deep-clean-type',
+  '.other-deep-clean'
 );
 
 // Bring In General Clean Type From Local Storage
 bringInCleanTypeFromStorage(
   'general-clean-input-change',
   generalCleanChangeInputs,
-  '.general-clean-type'
+  '.general-clean-type',
+  '.other-general-clean'
 );
 
 // Bring In Weekly Clean Type From Local Storage
 bringInCleanTypeFromStorage(
   'weekly-clean-input-change',
   weeklyCleanChangeInputs,
-  '.weekly-clean-type'
+  '.weekly-clean-type',
+  '.other-weekly-clean'
 );
 
 // Bring In Bi-Weekly Clean Type From Local Storage
 bringInCleanTypeFromStorage(
   'bi-weekly-clean-input-change',
   biWeeklyCleanChangeInputs,
-  '.bi-weekly-clean-type'
+  '.bi-weekly-clean-type',
+  '.other-bi-weekly-clean'
 );
 
 // Bring In Monthly Clean Type From Local Storage
 bringInCleanTypeFromStorage(
   'monthly-clean-input-change',
   monthlyCleanChangeInputs,
-  '.monthly-clean-type'
+  '.monthly-clean-type',
+  '.other-monthly-clean'
 );
 
 // Change Quotes Container Display On Browser Resize
@@ -1062,12 +1071,19 @@ cleanAdjustForm.addEventListener('change', e => {
   showQuote(e, true);
 
   // Change Clean Inputs Function
-  const changeCleanInputs = (currentCleanInput, allCleanInputs, cleanType) => {
+  const changeCleanInputs = (
+    currentCleanInput,
+    allCleanInputs,
+    cleanType,
+    otherCleanHeading
+  ) => {
     if (e.target.classList.contains(currentCleanInput)) {
       // Change All Clean Inputs
       allCleanInputs.forEach(input => (input.value = e.target.value));
 
       document.querySelector(cleanType).dataset.id = e.target.value;
+
+      document.querySelector(otherCleanHeading).textContent = e.target.value;
     }
   };
 
@@ -1075,35 +1091,40 @@ cleanAdjustForm.addEventListener('change', e => {
   changeCleanInputs(
     'deep-clean-input-change',
     deepCleanChangeInputs,
-    '.deep-clean-type'
+    '.deep-clean-type',
+    '.other-deep-clean'
   );
 
   // Change All General Clean Custom Inputs
   changeCleanInputs(
     'general-clean-input-change',
     generalCleanChangeInputs,
-    '.general-clean-type'
+    '.general-clean-type',
+    '.other-general-clean'
   );
 
   // Change All Weekly Clean Custom Inputs
   changeCleanInputs(
     'weekly-clean-input-change',
     weeklyCleanChangeInputs,
-    '.weekly-clean-type'
+    '.weekly-clean-type',
+    '.other-weekly-clean'
   );
 
   // Change All Bi-Weekly Clean Custom Inputs
   changeCleanInputs(
     'bi-weekly-clean-input-change',
     biWeeklyCleanChangeInputs,
-    '.bi-weekly-clean-type'
+    '.bi-weekly-clean-type',
+    '.other-bi-weekly-clean'
   );
 
   // Change All Monthly Clean Custom Inputs
   changeCleanInputs(
     'monthly-clean-input-change',
     monthlyCleanChangeInputs,
-    '.monthly-clean-type'
+    '.monthly-clean-type',
+    '.other-monthly-clean'
   );
 });
 
