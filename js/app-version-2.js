@@ -47,6 +47,29 @@ const priceText = document.querySelector('.span-tax-text');
 const alertTaxDom = document.querySelector('.alert-tax');
 const alertSavingForm = document.querySelector('.alert-saving-form');
 
+// Change Clean Vars
+const deepCleanChangeInputs = document.querySelectorAll(
+  '.deep-clean-input-change'
+);
+const generalCleanChangeInputs = document.querySelectorAll(
+  '.general-clean-input-change'
+);
+const weeklyCleanChangeInputs = document.querySelectorAll(
+  '.weekly-clean-input-change'
+);
+const biWeeklyCleanChangeInputs = document.querySelectorAll(
+  '.bi-weekly-clean-input-change'
+);
+const monthlyCleanChangeInputs = document.querySelectorAll(
+  '.monthly-clean-input-change'
+);
+
+const deepCleanType = document.querySelector('.deep-clean-type');
+const generalCleanType = document.querySelector('.general-clean-type');
+const weeklyCleanType = document.querySelector('.weekly-clean-type');
+const biWeeklyCleanType = document.querySelector('.bi-weekly-clean-type');
+const monthlyCleanType = document.querySelector('.monthly-clean-type');
+
 // Counter Var For Clean Adjust Slider
 counter = 0;
 
@@ -950,6 +973,62 @@ const removeChangeIcons = () => {
   });
 };
 
+// Bring In Users Cleaning Types From Local Storage
+const bringInCleanTypeFromStorage = (
+  storageKeyInput,
+  cleanInputs,
+  cleanType
+) => {
+  if (localStorage.getItem(storageKeyInput)) {
+    const localStorageCleanInput = localStorage.getItem(storageKeyInput);
+
+    // Bring In User Custom Clean Names Into App Settings
+    cleanInputs.forEach(input => (input.value = localStorageCleanInput));
+
+    // Bring In User Custom Clean Names Into App Headings
+    document.querySelector(cleanType).textContent = localStorageCleanInput;
+
+    // Bring In User Custom Clean Names into App Articles
+    document.querySelector(cleanType).dataset.id =
+      localStorage.getItem(storageKeyInput);
+  }
+};
+
+// Bring In Deep Clean Type From Local Storage
+bringInCleanTypeFromStorage(
+  'deep-clean-input-change',
+  deepCleanChangeInputs,
+  '.deep-clean-type'
+);
+
+// Bring In General Clean Type From Local Storage
+bringInCleanTypeFromStorage(
+  'general-clean-input-change',
+  generalCleanChangeInputs,
+  '.general-clean-type'
+);
+
+// Bring In Weekly Clean Type From Local Storage
+bringInCleanTypeFromStorage(
+  'weekly-clean-input-change',
+  weeklyCleanChangeInputs,
+  '.weekly-clean-type'
+);
+
+// Bring In Bi-Weekly Clean Type From Local Storage
+bringInCleanTypeFromStorage(
+  'bi-weekly-clean-input-change',
+  biWeeklyCleanChangeInputs,
+  '.bi-weekly-clean-type'
+);
+
+// Bring In Monthly Clean Type From Local Storage
+bringInCleanTypeFromStorage(
+  'monthly-clean-input-change',
+  monthlyCleanChangeInputs,
+  '.monthly-clean-type'
+);
+
 // Change Quotes Container Display On Browser Resize
 window.onresize = () => {
   changeDisplayOnResize();
@@ -977,10 +1056,107 @@ window.addEventListener('load', e => {
   showQuote(e);
 });
 
-// Change Hours Depending On What Ajustment Is Made In Settings
+// Change Hours & Cleaning Type Names Depending On What Ajustment Is Made In Settings
 cleanAdjustForm.addEventListener('change', e => {
   changeHours(e);
   showQuote(e, true);
+
+  // Change Clean Inputs Function
+  const changeCleanInputs = (currentCleanInput, allCleanInputs, cleanType) => {
+    if (e.target.classList.contains(currentCleanInput)) {
+      // Change All Clean Inputs
+      allCleanInputs.forEach(input => (input.value = e.target.value));
+
+      document.querySelector(cleanType).dataset.id = e.target.value;
+    }
+  };
+
+  // Change All Deep Clean Custom Inputs
+  changeCleanInputs(
+    'deep-clean-input-change',
+    deepCleanChangeInputs,
+    '.deep-clean-type'
+  );
+
+  // Change All General Clean Custom Inputs
+  changeCleanInputs(
+    'general-clean-input-change',
+    generalCleanChangeInputs,
+    '.general-clean-type'
+  );
+
+  // Change All Weekly Clean Custom Inputs
+  changeCleanInputs(
+    'weekly-clean-input-change',
+    weeklyCleanChangeInputs,
+    '.weekly-clean-type'
+  );
+
+  // Change All Bi-Weekly Clean Custom Inputs
+  changeCleanInputs(
+    'bi-weekly-clean-input-change',
+    biWeeklyCleanChangeInputs,
+    '.bi-weekly-clean-type'
+  );
+
+  // Change All Monthly Clean Custom Inputs
+  changeCleanInputs(
+    'monthly-clean-input-change',
+    monthlyCleanChangeInputs,
+    '.monthly-clean-type'
+  );
+});
+
+cleanAdjustForm.addEventListener('input', e => {
+  // Change Cleaning Type Function
+  const changeCleaningType = (storageKeyInput, cleanTypeDom, article) => {
+    if (e.target.classList.contains(storageKeyInput)) {
+      // Change Cleaing Type In UI
+      document.querySelector(cleanTypeDom).textContent = e.target.value;
+
+      // Scroll Into View Of The Cleaning Type You Are Changing
+      document.querySelector(article).scrollIntoView();
+
+      // Store The New Cleaning Type Into Local Storage
+      localStorage.setItem(storageKeyInput, e.target.value);
+    }
+  };
+
+  // Change Cleaning Type For Each Diffrent Clean
+  // Change Deep Clean Type
+  changeCleaningType(
+    'deep-clean-input-change',
+    '.deep-clean-type',
+    '.deep-article'
+  );
+
+  // Change General Clean Type
+  changeCleaningType(
+    'general-clean-input-change',
+    '.general-clean-type',
+    '.general-article'
+  );
+
+  // Change Weekly Clean Type
+  changeCleaningType(
+    'weekly-clean-input-change',
+    '.weekly-clean-type',
+    '.weekly-article'
+  );
+
+  // Change Bi-Weekly Clean Type
+  changeCleaningType(
+    'bi-weekly-clean-input-change',
+    '.bi-weekly-clean-type',
+    '.bi-weekly-article'
+  );
+
+  // Change Monthly Clean Type
+  changeCleaningType(
+    'monthly-clean-input-change',
+    '.monthly-clean-type',
+    '.monthly-article'
+  );
 });
 
 cleanAdjustForm.addEventListener('click', e => {
