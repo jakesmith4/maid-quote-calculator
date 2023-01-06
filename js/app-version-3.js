@@ -1186,7 +1186,7 @@ cleanAdjustForm.addEventListener('click', e => {
   }
 
   const scrollCleanIntoView = (cleanElement, article) => {
-    if (e.target.closest('.clean-scroll').classList.contains(cleanElement)) {
+    if (e.target.closest('.clean-scroll')?.classList.contains(cleanElement)) {
       document.querySelector(article).scrollIntoView({ block: 'center' });
     }
   };
