@@ -1767,12 +1767,14 @@ const carouselSlider = () => {
 carouselSlider();
 
 // Fix Name
-const fixName = str =>
-  str
+const fixName = str => {
+  return str
+    .replace(/\s+/g, ' ')
     .toLowerCase()
     .split(' ')
     .map(str => `${str[0]?.toUpperCase()}${str.slice(1)}`)
     .join(' ');
+};
 
 // Calc Days Passed Function
 const calcDaysPassed = (date1, date2) =>
@@ -2363,8 +2365,17 @@ showQuoteHeading.addEventListener('input', () => {
   const currentElement = quoteNamesContainer.children[currentName];
 
   // Assign New Current Quote Name Property To The Current Input Value
-  // currentQuote.name = showQuoteHeading.value;
-  currentQuote.name = fixName(showQuoteHeading.value);
+  const sameQuoteName = savedQuotes.find(
+    quote => quote.name === fixName(showQuoteHeading.value)
+  );
+
+  if (sameQuoteName) {
+    currentQuote.name = fixName(
+      `${showQuoteHeading.value}${Math.floor(Math.random() * 999) + 1}`
+    );
+  } else {
+    currentQuote.name = fixName(showQuoteHeading.value);
+  }
 
   // Assign New Current Quote Data Id To The Current Element
   currentElement.children[0].dataset.id = currentQuote.name;
@@ -2727,8 +2738,8 @@ saveQuoteForm.addEventListener('submit', e => {
   if (nameInput.value !== '') {
     // Add Number To End Of Name If That Name Already Exists
     let quoteName;
-    const savedQuotesNames = savedQuotes.map(quote => quote.name);
-    if (savedQuotesNames.includes(nameInput.value)) {
+    const savedQuotesNames = savedQuotes.map(quote => quote.name.toLowerCase());
+    if (savedQuotesNames.includes(fixName(nameInput.value).toLowerCase())) {
       quoteName = `${nameInput.value}${Math.floor(Math.random() * 999) + 1}`;
     } else {
       quoteName = nameInput.value;
