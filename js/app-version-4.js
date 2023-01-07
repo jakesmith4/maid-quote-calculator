@@ -2748,6 +2748,9 @@ saveQuoteForm.addEventListener('submit', e => {
     // Remove Overflow Hidden From HTML
     html.classList.remove('overflow-y-hidden');
 
+    // Clear Search Input
+    searchInput.value = '';
+
     // Show Alert Message
     showAlertMessage(
       document.querySelector('.alert-save-form'),
