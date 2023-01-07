@@ -1673,7 +1673,7 @@ const displayCurrentQuote = () => {
   singleZipcode.value = currentQuote.zipCode;
   singleNotes.value = currentQuote.specialNotes;
   singleStatus.selectedIndex = currentQuote.status;
-  showQuoteHeading.value = currentQuote.name;
+  showQuoteHeading.value = fixName(currentQuote.name);
 
   // Set Other Quotes Info
   // Deep
@@ -1769,6 +1769,7 @@ carouselSlider();
 // Fix Name
 const fixName = str => {
   return str
+    .trim()
     .replace(/\s+/g, ' ')
     .toLowerCase()
     .split(' ')
@@ -2369,12 +2370,14 @@ showQuoteHeading.addEventListener('input', () => {
     quote => quote.name === fixName(showQuoteHeading.value)
   );
 
+  console.log(sameQuoteName);
+
   if (sameQuoteName) {
     currentQuote.name = fixName(
       `${showQuoteHeading.value}${Math.floor(Math.random() * 999) + 1}`
     );
   } else {
-    currentQuote.name = fixName(showQuoteHeading.value);
+    currentQuote.name = showQuoteHeading.value;
   }
 
   // Assign New Current Quote Data Id To The Current Element
