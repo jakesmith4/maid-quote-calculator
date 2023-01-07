@@ -2377,7 +2377,7 @@ showQuoteHeading.addEventListener('input', () => {
       `${showQuoteHeading.value}${Math.floor(Math.random() * 999) + 1}`
     );
   } else {
-    currentQuote.name = showQuoteHeading.value;
+    currentQuote.name = fixName(showQuoteHeading.value);
   }
 
   // Assign New Current Quote Data Id To The Current Element
