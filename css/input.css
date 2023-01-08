@@ -8,43 +8,43 @@
 }
 
 .show-sidebar .sidebar-wrap {
-  @apply md:items-end md:pr-2;
+  @apply lg:items-end lg:pr-2;
 }
 
 .show-sidebar .menu-text {
-  @apply md:inline-block;
+  @apply lg:inline-block;
 }
 
 .show-sidebar .settings-wrapper {
-  @apply md:items-end;
+  @apply lg:items-end;
 }
 
 .show-sidebar .settings {
-  @apply md:bg-slate-100 md:p-2 md:w-[119px];
+  @apply lg:bg-slate-100 lg:p-2 lg:w-[119px];
 }
 
 .show-sidebar .settings-text {
-  @apply md:inline-block;
+  @apply lg:inline-block;
 }
 
 .show-sidebar .save {
-  @apply md:bg-slate-100 md:p-2 md:w-[119px];
+  @apply lg:bg-slate-100 lg:p-2 lg:w-[119px];
 }
 
 .show-sidebar .save-text {
-  @apply md:inline-block;
+  @apply lg:inline-block;
 }
 
 .show-sidebar .analytics {
-  @apply md:bg-slate-100 md:p-2 md:w-[119px];
+  @apply lg:bg-slate-100 lg:p-2 lg:w-[119px];
 }
 
 .show-sidebar .analytics-text {
-  @apply md:inline-block;
+  @apply lg:inline-block;
 }
 
 .settings-button:hover .settings-icon {
-  @apply scale-110 text-white md:text-emerald-600 rotate-[360deg];
+  @apply scale-110 text-white lg:text-emerald-600 rotate-[360deg];
 }
 
 .settings-button:hover .settings-text {
@@ -52,7 +52,7 @@
 }
 
 .save-button:hover .save-icon {
-  @apply scale-110 text-white md:text-emerald-600 rotate-[360deg];
+  @apply scale-110 text-white lg:text-emerald-600 rotate-[360deg];
 }
 
 .save-button:hover .save-text {
@@ -60,7 +60,7 @@
 }
 
 .analytics-button:hover .analytics-icon {
-  @apply scale-110 text-white md:text-emerald-600 rotate-[360deg];
+  @apply scale-110 text-white lg:text-emerald-600 rotate-[360deg];
 }
 
 .analytics:hover .analytics-text {
