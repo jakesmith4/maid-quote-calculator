@@ -2370,9 +2370,7 @@ showQuoteHeading.addEventListener('input', () => {
     quote => quote.name === fixName(showQuoteHeading.value)
   );
 
-  console.log(sameQuoteName);
-
-  if (sameQuoteName) {
+  if (sameQuoteName && currentQuote.name !== fixName(showQuoteHeading.value)) {
     currentQuote.name = fixName(
       `${showQuoteHeading.value}${Math.floor(Math.random() * 999) + 1}`
     );
