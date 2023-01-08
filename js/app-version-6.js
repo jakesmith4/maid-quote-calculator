@@ -1312,6 +1312,10 @@ const bothSavedQuoteFilters = document.querySelector(
 let sort = false;
 const sortBtn = document.querySelector('.sort-btn');
 
+// Grid Elements
+const gridBtn = document.querySelector('.grid-btn');
+const gridIcon = document.querySelector('.grid-icon');
+
 // Sort Icons
 const sortedIcon = document.querySelector('.sorted-icon');
 const notSortedIcon = document.querySelector('.not-sorted-icon');
@@ -1930,10 +1934,10 @@ const checkDisplayFilteredDates = selectedIndex => {
 // Fill QuotesNamesContainer Function
 const fillSavedQuotesContainer = (quoteInfo, placement) => {
   // Split Names & Dates Into An Array
-  const namePlusDate = quoteInfo.split('+');
+  const namePlusDatePlusClean = quoteInfo.split('+');
 
   // Store Names & Dates Into Diffrent Vars
-  let [quoteName, date] = namePlusDate;
+  let [quoteName, date, clean] = namePlusDatePlusClean;
 
   // Find Current Quote
   const currentQuote = savedQuotes.find(quote => quote.name === quoteName);
@@ -1968,7 +1972,7 @@ const fillSavedQuotesContainer = (quoteInfo, placement) => {
     statusColor = deadQuotesColor;
   }
 
-  const html = `<a href="#" class="w-1/2 font-bold text-white tracking-widest flex items-center justify-between flex-wrap mb-3 px-2 py-1 quote-name" data-id="${quoteName}" style="background: ${statusColor}"><p class="inline-block mr-4">${quoteName}</p><span class="text-xs text-white bg-black px-2 py-1">${date}</span></a>`;
+  const html = `<a href="#" class="font-bold text-white tracking-widest flex items-center justify-between flex-wrap px-2 py-1 quote-name" data-id="${quoteName}" style="background: ${statusColor}"><p class="flex flex-col mr-4"><span class="text-base xs:text-lg sm:text-xl md:text-2xl">${quoteName}</span><span class="text-xs sm:text-base capitalize text-white font-normal">${clean}</span></p><span class="text-xs text-white bg-black px-2 py-1">${date}</span></a>`;
   quoteNamesContainer.insertAdjacentHTML(placement, html);
 };
 
@@ -1982,13 +1986,16 @@ const sortDisplaySavedQuotes = () => {
   // Store All Saved Quote Dates Into Array
   const savedQuoteDates = savedQuotes.map(quote => quote.date);
 
+  // Store All Saved Quote Cleaning Types Into Array
+  const savedQuoteCleans = savedQuotes.map(quote => quote.clean);
+
   // Store All Saved Names & Dates Into An Array
-  const quoteNamesPlusDates = savedQuotesNames.map(
-    (name, i) => `${name}+${savedQuoteDates[i]}`
+  const quoteNamesPlusDatesPlusCleans = savedQuotesNames.map(
+    (name, i) => `${name}+${savedQuoteDates[i]}+${savedQuoteCleans[i]}`
   );
 
   // Store SavedQuotes Into Sorted Array
-  const namesSorted = quoteNamesPlusDates.slice().sort();
+  const namesSorted = quoteNamesPlusDatesPlusCleans.slice().sort();
 
   if (sort) {
     // Show Not Sorted Icon
@@ -2003,7 +2010,7 @@ const sortDisplaySavedQuotes = () => {
     sortedIcon.classList.remove('hidden');
 
     // Display Non Sorted Quotes
-    quoteNamesPlusDates.forEach(name =>
+    quoteNamesPlusDatesPlusCleans.forEach(name =>
       fillSavedQuotesContainer(name, 'afterbegin')
     );
   }
@@ -2019,9 +2026,12 @@ const sortDisplayFilteredQuotes = savedQuotes => {
   // Store All Saved Quote Names Into Array
   const savedQuotesNames = savedQuotes.map(quote => quote.name);
 
+  // Store All Saved Quote Cleans Into Array
+  const savedQuotesCleans = savedQuotes.map(quote => quote.clean);
+
   // Store All Saved Names & Dates Into An Array
-  const quoteNamesPlusDates = savedQuotesNames.map(
-    (name, i) => `${name}+${savedQuoteDates[i]}`
+  const quoteNamesPlusDatesPlusCleans = savedQuotesNames.map(
+    (name, i) => `${name}+${savedQuoteDates[i]}+${savedQuotesCleans[i]}`
   );
 
   if (sort) {
@@ -2030,7 +2040,7 @@ const sortDisplayFilteredQuotes = savedQuotes => {
     notSortedIcon.classList.remove('hidden');
 
     // Display Sorted Quotes
-    quoteNamesPlusDates
+    quoteNamesPlusDatesPlusCleans
       .slice()
       .sort()
       .forEach(name => fillSavedQuotesContainer(name, 'beforeend'));
@@ -2040,7 +2050,7 @@ const sortDisplayFilteredQuotes = savedQuotes => {
     sortedIcon.classList.remove('hidden');
 
     // Display Non Sorted Quotes
-    quoteNamesPlusDates.forEach(name =>
+    quoteNamesPlusDatesPlusCleans.forEach(name =>
       fillSavedQuotesContainer(name, 'afterbegin')
     );
   }
@@ -2325,7 +2335,9 @@ document.addEventListener('click', e => {
   // Assign Current Quote
   currentQuote = savedQuotes.find(
     quote =>
-      quote.name === e.target.closest('.quote-name').children[0].textContent
+      quote.name ===
+      e.target.closest('.quote-name').firstElementChild.firstElementChild
+        .textContent
   );
 
   // Display Show Quote Modal
@@ -2359,7 +2371,8 @@ showQuoteHeading.addEventListener('input', () => {
   // Get The Index Of The Current Link
 
   const currentName = [...quoteNamesContainer.children].findIndex(
-    el => el.children[0].textContent === currentQuote.name
+    el =>
+      el.firstElementChild.firstElementChild.textContent === currentQuote.name
   );
 
   const currentElement = quoteNamesContainer.children[currentName];
@@ -2378,10 +2391,12 @@ showQuoteHeading.addEventListener('input', () => {
   }
 
   // Assign New Current Quote Data Id To The Current Element
-  currentElement.children[0].dataset.id = currentQuote.name;
+  currentElement.firstElementChild.firstElementChild.dataset.id =
+    currentQuote.name;
 
   // Update The Current Quote Name In The Saved Quotes Modal
-  currentElement.children[0].textContent = currentQuote.name;
+  currentElement.firstElementChild.firstElementChild.textContent =
+    currentQuote.name;
 
   // Set Saved Quotes To Local Storage
   localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes));
@@ -2862,6 +2877,7 @@ saveQuoteForm.addEventListener('submit', e => {
   }
 });
 
+// Sort Names
 sortBtn.addEventListener('click', () => {
   sort = !sort;
 
@@ -2873,4 +2889,11 @@ sortBtn.addEventListener('click', () => {
   } else {
     filterDisplaySearchQuotes();
   }
+});
+
+// Display Grid View
+gridBtn.addEventListener('click', () => {
+  gridIcon.classList.toggle('text-emerald-600');
+  quoteNamesContainer.classList.toggle('grid');
+  quoteNamesContainer.classList.toggle('space-y-3');
 });

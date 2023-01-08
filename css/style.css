@@ -848,6 +848,10 @@ video {
   display: inline-flex;
 }
 
+.grid {
+  display: grid;
+}
+
 .hidden {
   display: none;
 }
@@ -1094,6 +1098,14 @@ video {
   gap: 1.5rem;
 }
 
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -1128,6 +1140,12 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
+}
+
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
 }
 
 .overflow-hidden {
@@ -1577,6 +1595,11 @@ video {
 .text-neutral-800 {
   --tw-text-opacity: 1;
   color: rgb(38 38 38 / var(--tw-text-opacity));
+}
+
+.text-emerald-600 {
+  --tw-text-opacity: 1;
+  color: rgb(5 150 105 / var(--tw-text-opacity));
 }
 
 .opacity-0 {
@@ -2094,6 +2117,10 @@ video {
     height: 270px;
   }
 
+  .sm\:max-h-\[95vh\] {
+    max-height: 95vh;
+  }
+
   .sm\:max-w-2xl {
     max-width: 42rem;
   }
@@ -2161,6 +2188,10 @@ video {
     height: 188px;
   }
 
+  .md\:max-h-\[95vh\] {
+    max-height: 95vh;
+  }
+
   .md\:w-7 {
     width: 1.75rem;
   }
@@ -2179,6 +2210,14 @@ video {
 
   .md\:max-w-5xl {
     max-width: 64rem;
+  }
+
+  .md\:max-w-2xl {
+    max-width: 42rem;
+  }
+
+  .md\:max-w-4xl {
+    max-width: 56rem;
   }
 
   .md\:flex-wrap {
@@ -2219,20 +2258,14 @@ video {
     margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
-  .md\:hover\:border-emerald-700:hover {
-    --tw-border-opacity: 1;
-    border-color: rgb(4 120 87 / var(--tw-border-opacity));
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .md\:hover\:text-emerald-600:hover {
     --tw-text-opacity: 1;
     color: rgb(5 150 105 / var(--tw-text-opacity));
-  }
-
-  .md\:hover\:shadow-lg:hover {
-    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
   .group:hover .group-hover\:md\:ml-1 {
@@ -2245,10 +2278,6 @@ video {
 
   .group:hover .group-hover\:md\:w-\[119px\] {
     width: 119px;
-  }
-
-  .group:hover .group-hover\:md\:items-end {
-    align-items: flex-end;
   }
 
   .group:hover .group-hover\:md\:bg-slate-100 {
