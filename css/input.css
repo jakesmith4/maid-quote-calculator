@@ -66,3 +66,17 @@
 .analytics:hover .analytics-text {
   @apply text-emerald-700 transition-all duration-200;
 }
+
+/* Classes For Javascript */
+.grid-class {
+  @apply grid;
+  @apply text-emerald-600;
+}
+
+.name-sizes {
+  @apply text-base xs:text-lg sm:text-xl md:text-2xl;
+}
+
+.emerald-color {
+  @apply text-emerald-600;
+}

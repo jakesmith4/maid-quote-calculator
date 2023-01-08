@@ -1972,7 +1972,7 @@ const fillSavedQuotesContainer = (quoteInfo, placement) => {
     statusColor = deadQuotesColor;
   }
 
-  const html = `<a href="#" class="font-bold text-white tracking-widest flex items-center justify-between flex-wrap px-2 py-1 quote-name" data-id="${quoteName}" style="background: ${statusColor}"><p class="flex flex-col mr-4"><span class="text-base xs:text-lg sm:text-xl md:text-2xl">${quoteName}</span><span class="text-xs sm:text-base capitalize text-white font-normal">${clean}</span></p><span class="text-xs text-white bg-black px-2 py-1">${date}</span></a>`;
+  const html = `<a href="#" class="font-bold text-white tracking-widest flex items-center justify-between flex-wrap px-2 py-1 quote-name" data-id="${quoteName}" style="background: ${statusColor}"><p class="flex flex-col mr-4"><span class="name-sizes">${quoteName}</span><span class="text-xs sm:text-base capitalize text-white font-normal">${clean}</span></p><span class="text-xs text-white bg-black px-2 py-1">${date}</span></a>`;
   quoteNamesContainer.insertAdjacentHTML(placement, html);
 };
 
@@ -2893,7 +2893,7 @@ sortBtn.addEventListener('click', () => {
 
 // Display Grid View
 gridBtn.addEventListener('click', () => {
-  gridIcon.classList.toggle('text-emerald-600');
-  quoteNamesContainer.classList.toggle('grid');
+  gridIcon.classList.toggle('emerald-color');
+  quoteNamesContainer.classList.toggle('grid-class');
   quoteNamesContainer.classList.toggle('space-y-3');
 });
