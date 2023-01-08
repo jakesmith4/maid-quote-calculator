@@ -1405,7 +1405,6 @@ const html = document.documentElement;
 const statusSelectSave = document.querySelector('.others-select-colors');
 
 showAllFieldsCheckbox.addEventListener('click', () => {
-  console.log(showAllFieldsCheckbox.checked);
   if (showAllFieldsCheckbox.checked) {
     allInputFields.forEach(input => input.classList.remove('hidden'));
     nameInput.classList.remove('mb-1');
@@ -2653,7 +2652,6 @@ singleStatus.addEventListener('change', () => {
   };
 
   if (filterDate.selectedIndex === 0) {
-    console.log('not filtered date');
     sortDisplaySavedQuotes();
   }
 
