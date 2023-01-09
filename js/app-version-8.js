@@ -2340,6 +2340,9 @@ quotesContainerDom.addEventListener('click', e => {
   // Guard Cause
   if (!e.target.classList.contains('clean-icon')) return;
 
+  // Add Overflow Hidden To HTML
+  html.classList.add('overflow-y-hidden');
+
   // Store All Icon Links Into Array
   const allIconLinks = [...iconPickerContainer.firstElementChild.children];
 
