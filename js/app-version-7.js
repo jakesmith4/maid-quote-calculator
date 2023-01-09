@@ -1225,6 +1225,7 @@ cleanAdjustForm.addEventListener('click', e => {
 // MODALS
 const settingsIcon = document.querySelector('.settings');
 const saveIcon = document.querySelector('.save');
+const iconPickerModal = document.querySelector('.icon-modal');
 const settingsModal = document.querySelector('.modal');
 const saveQuoteModal = document.querySelector('.modal-quote');
 const savedQuoteModal = document.querySelector('.modal-saved');
@@ -1402,6 +1403,10 @@ const giveCallbackCircle = document.querySelector('.give-callback-circle');
 const bookedJobCircle = document.querySelector('.booked-job-circle');
 const deadQuotesCircle = document.querySelector('.dead-quotes-circle');
 
+// Icon Picker Vars
+let articleNum;
+const iconPickerContainer = document.querySelector('.icon-picker-container');
+
 // HTML Element
 const html = document.documentElement;
 
@@ -1448,13 +1453,15 @@ closeModalFunc(savedQuoteModal);
 closeModalFunc(settingsModal);
 closeModalFunc(showQuoteModal);
 closeModalFunc(analyticsModal);
+closeModalFunc(iconPickerModal);
 
 // Remove Other Active Modals
 const removeactiveModals = (
   firstModal,
   secondModal,
   thirdModal,
-  forthModal
+  forthModal,
+  fifthModal
 ) => {
   if (!firstModal.classList.contains('invisible')) {
     firstModal.classList.add('invisible');
@@ -1480,6 +1487,12 @@ const removeactiveModals = (
     forthModal.classList.add('hidden');
     html.classList.add('overflow-y-hidden');
   }
+  if (!fifthModal.classList.contains('invisible')) {
+    fifthModal.classList.add('invisible');
+    fifthModal.classList.remove('flex');
+    fifthModal.classList.add('hidden');
+    html.classList.add('overflow-y-hidden');
+  }
 };
 
 // Escape Keypress Modal Close
@@ -1499,6 +1512,7 @@ keypressEscModal(savedQuoteModal);
 keypressEscModal(saveQuoteModal);
 keypressEscModal(showQuoteModal);
 keypressEscModal(analyticsModal);
+keypressEscModal(iconPickerModal);
 
 // Show Alert Message
 let alertTimer;
@@ -2056,6 +2070,16 @@ const sortDisplayFilteredQuotes = savedQuotes => {
   }
 };
 
+// Bring In User Icons From Local Storage Functon
+const bringInUserIconsFromStorage = (article, articleQuery) => {
+  if (localStorage.getItem(article)) {
+    const storeageClassList = JSON.parse(localStorage.getItem(article));
+
+    quotesContainerDom.querySelector(articleQuery).firstElementChild.className =
+      storeageClassList.join(' ');
+  }
+};
+
 // LOCAL STORAGE //
 // Change Sort Var If It Is Found In Local Storage
 if (localStorage.getItem('sort')) {
@@ -2076,6 +2100,13 @@ if (localStorage.getItem('savedQuotes')) {
 if (localStorage.getItem('darkFlag')) {
   darkFlag = JSON.parse(localStorage.getItem('darkFlag'));
 }
+
+// Bring In User Icons From Local Storage
+bringInUserIconsFromStorage('deep-article', '.deep-article');
+bringInUserIconsFromStorage('general-article', '.general-article');
+bringInUserIconsFromStorage('weekly-article', '.weekly-article');
+bringInUserIconsFromStorage('bi-weekly-article', '.bi-weekly-article');
+bringInUserIconsFromStorage('monthly-article', '.monthly-article');
 
 const calcDisplayAnalyticsData = daysPassed => {
   let allSavedQuotes;
@@ -2265,7 +2296,8 @@ saveIcon.addEventListener('click', () => {
     settingsModal,
     saveQuoteModal,
     showQuoteModal,
-    analyticsModal
+    analyticsModal,
+    iconPickerModal
   );
 });
 
@@ -2280,7 +2312,8 @@ settingsIcon.addEventListener('click', () => {
     saveQuoteModal,
     savedQuoteModal,
     showQuoteModal,
-    analyticsModal
+    analyticsModal,
+    iconPickerModal
   );
 });
 
@@ -2295,10 +2328,117 @@ analyticsIcon.addEventListener('click', () => {
     saveQuoteModal,
     savedQuoteModal,
     showQuoteModal,
-    settingsModal
+    settingsModal,
+    iconPickerModal
   );
 
   filterAnalyticsData();
+});
+
+// Show Icon Picker Modal On Article Icon Click
+quotesContainerDom.addEventListener('click', e => {
+  // Guard Cause
+  if (!e.target.classList.contains('clean-icon')) return;
+
+  // Store All Icon Links Into Array
+  const allIconLinks = [...iconPickerContainer.firstElementChild.children];
+
+  // Store The Icon Out Of Each Link Into An Array
+  const allIcons = allIconLinks.map(icon => icon.firstElementChild);
+
+  // Remove The Green Highlight On All Icons
+  allIcons.forEach(icon => icon.classList.remove('text-emerald-600'));
+
+  // Find The Current Icon That Is Being Clicked
+  const currentIcon = allIcons.find(
+    icon =>
+      icon.classList[1] === e.target.classList[1] &&
+      icon.classList[0] === e.target.classList[0]
+  );
+
+  // Add The Green Highlight To The Current Icon That Is Being Clicked
+  currentIcon.classList.add('text-emerald-600');
+
+  // Show The Icon Picker Modal
+  iconPickerModal.classList.remove('invisible');
+  iconPickerModal.classList.remove('hidden');
+  iconPickerModal.classList.add('flex');
+
+  const changeArticleNum = (article, num) => {
+    if (e.target.closest(article)) {
+      articleNum = num;
+    }
+  };
+
+  // Change Article Numbers For Icon Picker Container Function To Use
+  changeArticleNum('.deep-article', 1);
+  changeArticleNum('.general-article', 2);
+  changeArticleNum('.weekly-article', 3);
+  changeArticleNum('.bi-weekly-article', 4);
+  changeArticleNum('.monthly-article', 5);
+});
+
+// Change The Current Clean Articles Icon
+iconPickerContainer.addEventListener('click', e => {
+  e.preventDefault();
+
+  // Gaurd Cause
+  if (!e.target.classList.contains('picker-icon')) return;
+
+  // Select All Icons And Store Into An Array
+  const allIcons = [...e.currentTarget.firstElementChild.children];
+
+  // Remove The Green Highlight From All Icons
+  allIcons.forEach(icon =>
+    icon.firstElementChild.classList.remove('text-emerald-600')
+  );
+
+  // Add The Green Highlight To The Current Icon Being Clicked
+  e.target.classList.add('text-emerald-600');
+
+  // Change Article Icon Function
+  const changeArticleIcon = (num, article) => {
+    // Find The Current Article
+    if (articleNum === num) {
+      // Select Current Article And Store Into Var
+      const currentArticle = document.querySelector(article);
+
+      // Change The Current Article Icon To The Icon Being Clicked
+      currentArticle.firstElementChild.classList = e.target.classList;
+
+      // Remove The Green Highlight From The Current Article
+      currentArticle.firstElementChild.classList.remove('text-emerald-600');
+
+      // Add The Classes That Make The Current Article Back To Being Regular
+      currentArticle.firstElementChild.classList.add(
+        'p-4',
+        'text-xl',
+        'bg-white',
+        'rounded-full',
+        'dark:bg-neutral-800',
+        'clean-icon'
+      );
+
+      // Store Current Article ClassList Into Array
+      const [articleStorageKey] = [...currentArticle.classList].slice(-1);
+
+      // Store Current Article ClassList Into Local Storage
+      localStorage.setItem(
+        articleStorageKey,
+        JSON.stringify([...currentArticle.firstElementChild.classList])
+      );
+
+      // Make The Current Article Scroll Into View
+      currentArticle.scrollIntoView({ block: 'center' });
+    }
+  };
+
+  // Run Change Article Icon Fuction For Each Of The Articles
+  changeArticleIcon(1, '.deep-article');
+  changeArticleIcon(2, '.general-article');
+  changeArticleIcon(3, '.weekly-article');
+  changeArticleIcon(4, '.bi-weekly-article');
+  changeArticleIcon(5, '.monthly-article');
 });
 
 // Go Back To Saved Quotes Modal
