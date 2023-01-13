@@ -7,6 +7,7 @@ const generalPrice = document.querySelector('.general-price');
 const weeklyPrice = document.querySelector('.weekly-price');
 const biWeeklyPrice = document.querySelector('.bi-weekly-price');
 const monthlyPrice = document.querySelector('.monthly-price');
+const userPrice = document.querySelector('.user-price');
 
 // Hour Elements
 const deepHours = document.querySelector('.deep-hours');
@@ -14,6 +15,7 @@ const generalHours = document.querySelector('.general-hours');
 const weeklyHours = document.querySelector('.weekly-hours');
 const biWeeklyHours = document.querySelector('.bi-weekly-hours');
 const monthlyHours = document.querySelector('.monthly-hours');
+const userHours = document.querySelector('.user-hours');
 
 // Forms & Inputs
 const formControl = document.querySelector('.form-control');
@@ -31,6 +33,7 @@ const changeGeneralInput = document.getElementById('change-hours-general');
 const changeWeeklyInput = document.getElementById('change-hours-weekly');
 const changeBiWeeklyInput = document.getElementById('change-hours-bi-weekly');
 const changeMonthlyInput = document.getElementById('change-hours-monthly');
+const changeUserInput = document.getElementById('change-hours-user');
 
 // All Change Input Icons
 const icons = document.querySelectorAll('.deep-changed');
@@ -62,6 +65,9 @@ const biWeeklyCleanChangeInputs = document.querySelectorAll(
 );
 const monthlyCleanChangeInputs = document.querySelectorAll(
   '.monthly-clean-input-change'
+);
+const userCleanChangeInputs = document.querySelectorAll(
+  '.user-clean-input-change'
 );
 
 const deepCleanType = document.querySelector('.deep-clean-type');
@@ -151,6 +157,17 @@ if (localStorage.getItem('changedMonthlyHours')) {
   allMonthlyHours = JSON.parse(localStorage.getItem('changedMonthlyHours'));
 } else {
   allMonthlyHours = allMonthlyHoursMain.slice();
+}
+
+// User Hours
+const allUserHoursMain = [
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+];
+let allUserHours;
+if (localStorage.getItem('changedUserHours')) {
+  allUserHours = JSON.parse(localStorage.getItem('changedUserHours'));
+} else {
+  allUserHours = allUserHoursMain.slice();
 }
 
 const checkLocalStorage = className => {
@@ -264,6 +281,27 @@ checkLocalStorage('monthly-clean-adjust-5000-5200');
 checkLocalStorage('monthly-clean-adjust-5300-5500');
 checkLocalStorage('monthly-clean-adjust-5600-5800');
 checkLocalStorage('monthly-clean-adjust-5900-6100');
+
+// User Clean Adjust Local Storage Check
+checkLocalStorage('user-clean-adjust-500-700');
+checkLocalStorage('user-clean-adjust-800-1000');
+checkLocalStorage('user-clean-adjust-1100-1300');
+checkLocalStorage('user-clean-adjust-1400-1600');
+checkLocalStorage('user-clean-adjust-1700-1900');
+checkLocalStorage('user-clean-adjust-2000-2200');
+checkLocalStorage('user-clean-adjust-2300-2500');
+checkLocalStorage('user-clean-adjust-2600-2800');
+checkLocalStorage('user-clean-adjust-2900-3100');
+checkLocalStorage('user-clean-adjust-3200-3400');
+checkLocalStorage('user-clean-adjust-3500-3700');
+checkLocalStorage('user-clean-adjust-3800-4000');
+checkLocalStorage('user-clean-adjust-4100-4300');
+checkLocalStorage('user-clean-adjust-4400-4600');
+checkLocalStorage('user-clean-adjust-4700-4900');
+checkLocalStorage('user-clean-adjust-5000-5200');
+checkLocalStorage('user-clean-adjust-5300-5500');
+checkLocalStorage('user-clean-adjust-5600-5800');
+checkLocalStorage('user-clean-adjust-5900-6100');
 
 // FUNCTIONS //
 const calcDisplayQuote = (
@@ -389,6 +427,7 @@ const processQuotes = (
   hoursWeekly,
   hoursBiWeekly,
   hoursMonthly,
+  hoursUser,
   hourAmount,
   taxAmount,
   taxDeep,
@@ -396,6 +435,7 @@ const processQuotes = (
   taxWeekly,
   taxBiWeekly,
   taxMonthly,
+  taxesUser,
   num
 ) => {
   calcDisplayQuote(
@@ -442,6 +482,16 @@ const processQuotes = (
     taxAmount,
     hoursMonthly,
     taxMonthly
+  );
+
+  calcDisplayQuote(
+    userPrice,
+    userHours,
+    allUserHours[num],
+    hourAmount,
+    taxAmount,
+    hoursUser,
+    taxesUser
   );
 
   // Add Current User Input Data To Local Storage
@@ -519,12 +569,14 @@ const showQuote = (event, slide = false) => {
   const changeBiWeekly = +document.getElementById('change-hours-bi-weekly')
     .value;
   const changeMonthly = +document.getElementById('change-hours-monthly').value;
+  const changeUser = +document.getElementById('change-hours-user').value;
 
   const taxesDeep = document.querySelector('.taxes-deep');
   const taxesGeneral = document.querySelector('.taxes-general');
   const taxesWeekly = document.querySelector('.taxes-weekly');
   const taxesBiWeekly = document.querySelector('.taxes-bi-weekly');
   const taxesMonthly = document.querySelector('.taxes-monthly');
+  const taxesUser = document.querySelector('.taxes-user');
 
   const processedQuotes = processQuotes.bind(
     processQuotes,
@@ -533,13 +585,15 @@ const showQuote = (event, slide = false) => {
     changeWeekly,
     changeBiWeekly,
     changeMonthly,
+    changeUser,
     amountPerHour,
     taxRate,
     taxesDeep,
     taxesGeneral,
     taxesWeekly,
     taxesBiWeekly,
-    taxesMonthly
+    taxesMonthly,
+    taxesUser
   );
   const processedDisplayChangeIcon = displayChangeIcon.bind(
     displayChangeIcon,
@@ -573,6 +627,8 @@ const showQuote = (event, slide = false) => {
     'change-hours-monthly',
     allMonthlyHours
   );
+
+  processedDisplayChangeIcon(changeUser, 'change-hours-user', allUserHours);
 
   if (sqFootage.value === '500-700') {
     processedQuotes(0);
@@ -836,6 +892,29 @@ const changeMonthlyHours = (event, className, index) => {
   }
 };
 
+// Change User Hours
+const changeUserHours = (event, className, index) => {
+  if (event.target.classList.contains(className)) {
+    if (+event.target.value === allUserHoursMain[0]) {
+      allUserHours[index] = allUserHoursMain.slice()[index];
+      // Set Item To Local Storage
+      localStorage.setItem(
+        'changedUserHours',
+        JSON.stringify(allUserHoursMain.slice())
+      );
+      localStorage.setItem(className, allUserHoursMain[0]);
+    } else {
+      allUserHours[index] = +event.target.value;
+      // Set Item To Local Storage
+      localStorage.setItem('changedUserHours', JSON.stringify(allUserHours));
+      localStorage.setItem(
+        className,
+        document.querySelector(`.${className}`).value
+      );
+    }
+  }
+};
+
 const changeHours = e => {
   // Change Deep Hours
   changeDeepHours(e, 'deep-clean-adjust-500-700', 0);
@@ -941,6 +1020,27 @@ const changeHours = e => {
   changeMonthlyHours(e, 'monthly-clean-adjust-5300-5500', 16);
   changeMonthlyHours(e, 'monthly-clean-adjust-5600-5800', 17);
   changeMonthlyHours(e, 'monthly-clean-adjust-5900-6100', 18);
+
+  // Change User Hours
+  changeUserHours(e, 'user-clean-adjust-500-700', 0);
+  changeUserHours(e, 'user-clean-adjust-800-1000', 1);
+  changeUserHours(e, 'user-clean-adjust-1100-1300', 2);
+  changeUserHours(e, 'user-clean-adjust-1400-1600', 3);
+  changeUserHours(e, 'user-clean-adjust-1700-1900', 4);
+  changeUserHours(e, 'user-clean-adjust-2000-2200', 5);
+  changeUserHours(e, 'user-clean-adjust-2300-2500', 6);
+  changeUserHours(e, 'user-clean-adjust-2600-2800', 7);
+  changeUserHours(e, 'user-clean-adjust-2900-3100', 8);
+  changeUserHours(e, 'user-clean-adjust-3200-3400', 9);
+  changeUserHours(e, 'user-clean-adjust-3500-3700', 10);
+  changeUserHours(e, 'user-clean-adjust-3800-4000', 11);
+  changeUserHours(e, 'user-clean-adjust-4100-4300', 12);
+  changeUserHours(e, 'user-clean-adjust-4400-4600', 13);
+  changeUserHours(e, 'user-clean-adjust-4700-4900', 14);
+  changeUserHours(e, 'user-clean-adjust-5000-5200', 15);
+  changeUserHours(e, 'user-clean-adjust-5300-5500', 16);
+  changeUserHours(e, 'user-clean-adjust-5600-5800', 17);
+  changeUserHours(e, 'user-clean-adjust-5900-6100', 18);
 };
 
 // Set All Change Hour Inputs Back To 0
@@ -1038,6 +1138,14 @@ bringInCleanTypeFromStorage(
   '.other-monthly-clean'
 );
 
+// Bring In User Clean Type From Local Storage
+bringInCleanTypeFromStorage(
+  'user-clean-input-change',
+  userCleanChangeInputs,
+  '.user-clean-type',
+  '.other-user-clean'
+);
+
 // Change Quotes Container Display On Browser Resize
 window.onresize = () => {
   changeDisplayOnResize();
@@ -1126,6 +1234,14 @@ cleanAdjustForm.addEventListener('change', e => {
     '.monthly-clean-type',
     '.other-monthly-clean'
   );
+
+  // Change All User Clean Custom Inputs
+  changeCleanInputs(
+    'user-clean-input-change',
+    userCleanChangeInputs,
+    '.user-clean-type',
+    '.other-user-clean'
+  );
 });
 
 cleanAdjustForm.addEventListener('input', e => {
@@ -1178,6 +1294,13 @@ cleanAdjustForm.addEventListener('input', e => {
     '.monthly-clean-type',
     '.monthly-article'
   );
+
+  // Change User Clean Type
+  changeCleaningType(
+    'user-clean-input-change',
+    '.user-clean-type',
+    '.user-article'
+  );
 });
 
 cleanAdjustForm.addEventListener('click', e => {
@@ -1218,6 +1341,7 @@ cleanAdjustForm.addEventListener('click', e => {
   scrollCleanIntoView('weekly-clean-scroll', '.weekly-article');
   scrollCleanIntoView('bi-weekly-clean-scroll', '.bi-weekly-article');
   scrollCleanIntoView('monthly-clean-scroll', '.monthly-article');
+  scrollCleanIntoView('user-clean-scroll', '.user-article');
 });
 
 // THIS SECOND HALF OF CODE DEALS WITH SHOWING ALL MODALS & DISPLAYING ALL THE DATA FOR SAVING QUOTES
@@ -1263,6 +1387,8 @@ const singleWeeklyHours = document.querySelector('.single-weekly-hours');
 const singleBiWeeklyPrice = document.querySelector('.single-bi-weekly-price');
 const singleBiWeeklyHours = document.querySelector('.single-bi-weekly-hours');
 const singleMonthlyPrice = document.querySelector('.single-monthly-price');
+const singleUserPrice = document.querySelector('.single-user-price');
+const singleUserHours = document.querySelector('.single-user-hours');
 const singleMonthlyHours = document.querySelector('.single-monthly-hours');
 const singleDeepHoursChanged = document.querySelector('.deep-hours-changed');
 const singleGeneralHoursChanged = document.querySelector(
@@ -1277,6 +1403,7 @@ const singleBiWeeklyHoursChanged = document.querySelector(
 const singleMonthlyHoursChanged = document.querySelector(
   '.monthly-hours-changed'
 );
+const singleUserHoursChanged = document.querySelector('.user-hours-changed');
 
 // Single Input Form Selection
 const singleInputForm = document.querySelector('.single-input-form');
@@ -1289,7 +1416,6 @@ const biWeeklyArticle = document.querySelector('.bi-weekly-article');
 const monthlyArticle = document.querySelector('.monthly-article');
 
 // Saved Quotes Slider Elements
-const slides = document.querySelectorAll('.slide');
 const nextBtn = document.querySelector('.next-btn');
 const prevBtn = document.querySelector('.prev-btn');
 
@@ -1406,6 +1532,21 @@ const deadQuotesCircle = document.querySelector('.dead-quotes-circle');
 // Icon Picker Vars
 let articleNum;
 const iconPickerContainer = document.querySelector('.icon-picker-container');
+
+// User Clean Vars
+const newCleanBtn = document.querySelector('.new-clean-btn');
+const newCleanFormWrapper = document.querySelector('.new-clean-from-wrapper');
+
+const addCleanBtn = document.querySelector('.add-clean-btn');
+const userArticle = document.querySelector('.user-article');
+const userCleanInput = document.getElementById('clean-name');
+const userCleanType = document.querySelector('.user-clean-type');
+const userCleanAdjustSettings = document.querySelectorAll(
+  '.user-clean-settings'
+);
+const userSlide = document.querySelector('.user-slide');
+const deleteCleanBtn = document.querySelector('.delete-clean-btn');
+const cancelAddCleanBtn = document.querySelector('.cancel-add-clean');
 
 // HTML Element
 const html = document.documentElement;
@@ -1612,6 +1753,9 @@ const changeColorStatus = select => {
 
       singleMonthlyPrice.style.background = color;
       singleMonthlyHours.style.background = color;
+
+      singleUserPrice.style.background = color;
+      singleUserHours.style.background = color;
     }
   };
 
@@ -1713,6 +1857,12 @@ const displayCurrentQuote = () => {
   singleMonthlyPrice.textContent = currentQuote.monthlyPrice;
   singleMonthlyHours.textContent = currentQuote.monthlyHours;
 
+  // User
+  singleUserPrice.textContent = currentQuote.userPrice;
+  singleUserHours.textContent = currentQuote.userHours;
+
+  console.log(currentQuote.userPrice);
+
   // Deep Hours Changed
   singleDeepHoursChanged.textContent = `Hours Changed ${currentQuote.deepHoursChanged}`;
 
@@ -1727,6 +1877,9 @@ const displayCurrentQuote = () => {
 
   // Monthly Hours Changed
   singleMonthlyHoursChanged.textContent = `Hours Changed ${currentQuote.monthlyHoursChanged}`;
+
+  // User Hours Changed
+  singleUserHoursChanged.textContent = `Hours Changed ${currentQuote.userHoursChanged}`;
 
   // Remove Event Listener From Delete Quote Btn
   document
@@ -1758,6 +1911,7 @@ cleanAdjustSlider();
 
 // All Cleans Slider
 const carouselSlider = () => {
+  const slides = document.querySelectorAll('.slide');
   // Carousel Function
   const carousel = () => {
     slides.forEach(slide => {
@@ -2107,6 +2261,28 @@ bringInUserIconsFromStorage('general-article', '.general-article');
 bringInUserIconsFromStorage('weekly-article', '.weekly-article');
 bringInUserIconsFromStorage('bi-weekly-article', '.bi-weekly-article');
 bringInUserIconsFromStorage('monthly-article', '.monthly-article');
+bringInUserIconsFromStorage('user-article', '.user-article');
+
+// Show User Clean If It Is In Local Storage
+if (localStorage.getItem('show-user-article') === 'true') {
+  // Show New User Clean
+  newCleanBtn.classList.add('hidden');
+  newCleanFormWrapper.classList.add('hidden');
+  userArticle.classList.remove('hidden');
+
+  // Show New User Clean In Settings
+  userCleanAdjustSettings.forEach(el => {
+    el.classList.remove('hidden');
+    el.classList.add('flex');
+  });
+
+  // Show New User Clean in Show Current Quote Modal, Other Quote Slider
+  userSlide.classList.add('slide');
+  userSlide.classList.remove('hidden');
+
+  // Add New User Clean In The Other Cleans Slider
+  carouselSlider();
+}
 
 const calcDisplayAnalyticsData = daysPassed => {
   let allSavedQuotes;
@@ -2379,6 +2555,7 @@ quotesContainerDom.addEventListener('click', e => {
   changeArticleNum('.weekly-article', 3);
   changeArticleNum('.bi-weekly-article', 4);
   changeArticleNum('.monthly-article', 5);
+  changeArticleNum('.user-article', 6);
 });
 
 // Change The Current Clean Articles Icon
@@ -2442,6 +2619,82 @@ iconPickerContainer.addEventListener('click', e => {
   changeArticleIcon(3, '.weekly-article');
   changeArticleIcon(4, '.bi-weekly-article');
   changeArticleIcon(5, '.monthly-article');
+  changeArticleIcon(6, '.user-article');
+});
+
+// Show Create New User Clean Form
+newCleanBtn.addEventListener('click', e => {
+  e.preventDefault();
+  newCleanBtn.classList.add('hidden');
+  newCleanFormWrapper.classList.remove('hidden');
+});
+
+// Add New User Clean To The UI
+addCleanBtn.addEventListener('click', e => {
+  e.preventDefault();
+  // Show User Clean
+  userArticle.classList.remove('hidden');
+  newCleanFormWrapper.classList.add('hidden');
+
+  // Set New User Clean Showing To Local Storage
+  localStorage.setItem('show-user-article', 'true');
+
+  // Add New User Clean Name Heading To The Heading
+  userCleanType.textContent = userCleanInput.value;
+
+  // Add New User Clean Name To Each Of The Settings Inputs
+  userCleanChangeInputs.forEach(input => (input.value = userCleanInput.value));
+
+  // Add New User Clean Name To Local Storage
+  localStorage.setItem('user-clean-input-change', userCleanInput.value);
+
+  // Add New User Clean Name To Other Cleans Slides Heading
+  document.querySelector('.other-user-clean').textContent =
+    userCleanInput.value;
+
+  // Show New User Clean In The Settings
+  userCleanAdjustSettings.forEach(el => {
+    el.classList.remove('hidden');
+    el.classList.add('flex');
+  });
+
+  // Allow New User Clean To Slide In the Other Cleans Slider
+  userSlide.classList.add('slide');
+  userSlide.classList.remove('hidden');
+
+  carouselSlider();
+});
+
+// Remove New User Clean From UI
+deleteCleanBtn.addEventListener('click', e => {
+  e.preventDefault();
+
+  // Update Local Storage For New User Clean
+  localStorage.setItem('show-user-article', false);
+
+  // Remove New User Clean From UI
+  newCleanBtn.classList.remove('hidden');
+  newCleanFormWrapper.classList.add('hidden');
+  userArticle.classList.add('hidden');
+
+  // Remove New User Clean From Settings
+  userCleanAdjustSettings.forEach(el => {
+    el.classList.add('hidden');
+    el.classList.remove('flex');
+  });
+
+  // Remove New User Clean From Other Cleans Slider
+  userSlide.classList.remove('slide');
+  userSlide.classList.add('hidden');
+
+  carouselSlider();
+});
+
+// Cancel The Add New User Clean Form
+cancelAddCleanBtn.addEventListener('click', e => {
+  e.preventDefault();
+  newCleanFormWrapper.classList.add('hidden');
+  newCleanBtn.classList.remove('hidden');
 });
 
 // Go Back To Saved Quotes Modal
@@ -2669,18 +2922,21 @@ let generalSavedPrice;
 let weeklySavedPrice;
 let biWeeklySavedPrice;
 let monthlySavedPrice;
+let userSavedPrice;
 // Hours
 let deepSavedHours;
 let generalSavedHours;
 let weeklySavedHours;
 let biWeeklySavedHours;
 let monthlySavedHours;
+let userSavedHours;
 // Hours Changed
 let deepHoursChanged;
 let generalHoursChanged;
 let weeklyHoursChanged;
 let biWeeklyHoursChanged;
 let monthlyHoursChanged;
+let userHoursChanged;
 
 // Save Quote Info On Save Quote Btn Click
 saveQuoteBtns.forEach(btn => {
@@ -2734,6 +2990,9 @@ saveQuoteBtns.forEach(btn => {
     // Store Monthly Price Into Var
     monthlySavedPrice = monthlyArticle.querySelector('.price').textContent;
 
+    // Store User Price Into Var
+    userSavedPrice = userArticle.querySelector('.price').textContent;
+
     // HOURS
     // Store Deep Hours Into Var
     deepSavedHours = deepArticle.querySelector('.hours').textContent;
@@ -2749,6 +3008,9 @@ saveQuoteBtns.forEach(btn => {
 
     // Store Monthly Hours Into Var
     monthlySavedHours = monthlyArticle.querySelector('.hours').textContent;
+
+    // Store User Hours Into Var
+    userSavedHours = userArticle.querySelector('.hours').textContent;
 
     // Store Deep Hours Changed Into Var
     deepHoursChanged = deepArticle.querySelector('.change-individual').value;
@@ -2768,6 +3030,9 @@ saveQuoteBtns.forEach(btn => {
     // Store Monthly Hours Changed Into Var
     monthlyHoursChanged =
       monthlyArticle.querySelector('.change-individual').value;
+
+    // Store User Hours Changed Into Var
+    userHoursChanged = userArticle.querySelector('.change-individual').value;
   });
 });
 
@@ -2939,6 +3204,9 @@ saveQuoteForm.addEventListener('submit', e => {
     if (Math.sign(+monthlyHoursChanged) === 1) {
       monthlyHoursChanged = `+${monthlyHoursChanged}`;
     }
+    if (Math.sign(+userHoursChanged) === 1) {
+      userHoursChanged = `+${userHoursChanged}`;
+    }
 
     // Push Data Into Saved Quotes Array
     savedQuotes.push({
@@ -2963,16 +3231,19 @@ saveQuoteForm.addEventListener('submit', e => {
       weeklyPrice: `${weeklySavedPrice}`,
       biWeeklyPrice: `${biWeeklySavedPrice}`,
       monthlyPrice: `${monthlySavedPrice}`,
+      userPrice: `${userSavedPrice}`,
       deepHours: `${deepSavedHours}`,
       generalHours: `${generalSavedHours}`,
       weeklyHours: `${weeklySavedHours}`,
       biWeeklyHours: `${biWeeklySavedHours}`,
       monthlyHours: `${monthlySavedHours}`,
+      userHours: `${userSavedHours}`,
       deepHoursChanged: `${deepHoursChanged}`,
       generalHoursChanged: `${generalHoursChanged}`,
       biWeeklyHoursChanged: `${biWeeklyHoursChanged}`,
       weeklyHoursChanged: `${weeklyHoursChanged}`,
       monthlyHoursChanged: `${monthlyHoursChanged}`,
+      userHoursChanged: `${userHoursChanged}`,
       taxesAddedToPrice: taxFlag,
       date: ISOString,
     });

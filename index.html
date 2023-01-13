@@ -514,9 +514,9 @@
         </div>
       </div>
       <div
-        class="bg-white p-3 shadow-lg rounded-tl-xl rounded-bl-xl w-[85vw] max-w-md max-h-full border-2 border-white overflow-y-scroll dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
+        class="bg-white p-3 shadow-lg rounded-tl-xl rounded-bl-xl w-[85vw] max-w-md max-h-full xs:min-h-[90vh] border-2 border-white dark:bg-gradient-to-br dark:from-zinc-700 dark:to-neutral-800 dark:text-white"
       >
-        <div class="px-4 pt-2">
+        <div class="px-4 pt-2 overflow-x-hidden">
           <div
             class="flex items-start justify-between gap-6 border-b-2 mb-4 pb-4"
           >
@@ -576,9 +576,7 @@
           <!-- End Of Toggler Wrapper (Tax Toggle) -->
 
           <!-- Hours Scale -->
-          <form
-            class="clean-adjust mt-4 relative h-[470px] overflow-x-hidden xmd:h-[375px]"
-          >
+          <form class="clean-adjust mt-4 relative h-[470px] xmd:h-[420px]">
             <button
               class="absolute top-1/2 right-0 text-xl hover:animate-bounce cursor-pointer z-10 clean-adjust-next-btn"
             >
@@ -679,7 +677,6 @@
                     type="text"
                     name="deep-clean-input"
                     value="Deep Clean"
-                    style="max-width: 100%"
                     class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 deep-clean-input-change"
                   />
                 </div>
@@ -950,6 +947,114 @@
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-500-700"
+                    id="user-clean-adjust-500-700"
+                    data-id="0"
+                    class="user-clean-adjust-500-700 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 500-700 -->
 
@@ -1330,6 +1435,113 @@
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-800-1000"
+                    id="user-clean-adjust-800-1000"
+                    data-id="0"
+                    class="user-clean-adjust-800-1000 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option>1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 800-1000 -->
 
@@ -1727,6 +1939,113 @@
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-1100-1300"
+                    id="user-clean-adjust-1100-1300"
+                    data-id="0"
+                    class="user-clean-adjust-1100-1300 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 1100-1300 -->
 
@@ -2115,11 +2434,117 @@
                   type="text"
                   name="monthly-clean-input"
                   value="Monthly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 monthly-clean-input-change"
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-1400-1600"
+                    id="user-clean-adjust-1400-1600"
+                    data-id="0"
+                    class="user-clean-adjust-1400-1600 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 1400-1600 -->
 
@@ -2521,6 +2946,113 @@
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-1700-1900"
+                    id="user-clean-adjust-1700-1900"
+                    data-id="0"
+                    class="user-clean-adjust-1700-1900 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 1700-1900 -->
 
@@ -2914,6 +3446,113 @@
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-2000-2200"
+                    id="user-clean-adjust-2000-2200"
+                    data-id="0"
+                    class="user-clean-adjust-2000-2200 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 2000-2200 -->
 
@@ -3315,6 +3954,113 @@
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-2300-2500"
+                    id="user-clean-adjust-2300-2500"
+                    data-id="0"
+                    class="user-clean-adjust-2300-2500 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 2300-2500 -->
 
@@ -3736,6 +4482,113 @@
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-2600-2800"
+                    id="user-clean-adjust-2600-2800"
+                    data-id="0"
+                    class="user-clean-adjust-2600-2800 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 2600-2800 -->
 
@@ -4177,6 +5030,113 @@
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-2900-3100"
+                    id="user-clean-adjust-2900-3100"
+                    data-id="0"
+                    class="user-clean-adjust-2900-3100 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 2900-3100 -->
 
@@ -4614,13 +5574,119 @@
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-3200-3400"
+                    id="user-clean-adjust-3200-3400"
+                    data-id="0"
+                    class="user-clean-adjust-3200-3400 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 3200-3400 -->
 
             <!-- All Cleans Adjust Wrapper 3500-3700 -->
             <div
               class="clean-adjust-slide absolute top-0 left-[1000%] w-full transition-transform duration-300 px-6"
-              style="left: 1000%"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -5063,13 +6129,119 @@
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-3500-3700"
+                    id="user-clean-adjust-3500-3700"
+                    data-id="0"
+                    class="user-clean-adjust-3500-3700 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 3500-3700 -->
 
             <!-- All Cleans Adjust Wrapper 3800-4000 -->
             <div
               class="clean-adjust-slide absolute top-0 left-[1100%] w-full transition-transform duration-300 px-6"
-              style="left: 1100%"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -5511,18 +6683,123 @@
                   type="text"
                   name="monthly-clean-input"
                   value="Monthly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 monthly-clean-input-change"
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-3800-4000"
+                    id="user-clean-adjust-3800-4000"
+                    data-id="0"
+                    class="user-clean-adjust-3800-4000 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 3800-4000 -->
 
             <!-- All Cleans Adjust Wrapper 4100-4300 -->
             <div
               class="clean-adjust-slide absolute top-0 left-[1200%] w-full transition-transform duration-300 px-6"
-              style="left: 1200%"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -5642,7 +6919,6 @@
                     type="text"
                     name="deep-clean-input"
                     value="Deep Clean"
-                    style="max-width: 100%"
                     class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 deep-clean-input-change"
                   />
                 </div>
@@ -5824,7 +7100,6 @@
                   type="text"
                   name="weekly-clean-input"
                   value="Weekly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 weekly-clean-input-change"
                 />
               </div>
@@ -5984,18 +7259,123 @@
                   type="text"
                   name="monthly-clean-input"
                   value="Monthly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 monthly-clean-input-change"
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-4100-4300"
+                    id="user-clean-adjust-4100-4300"
+                    data-id="0"
+                    class="user-clean-adjust-4100-4300 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 4100-4300 -->
 
             <!-- All Cleans Adjust Wrapper 4400-4600 -->
             <div
               class="clean-adjust-slide absolute top-0 left-[1300%] w-full transition-transform duration-300 px-6"
-              style="left: 1300%"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -6123,7 +7503,6 @@
                     type="text"
                     name="deep-clean-input"
                     value="Deep Clean"
-                    style="max-width: 100%"
                     class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 deep-clean-input-change"
                   />
                 </div>
@@ -6227,7 +7606,6 @@
                   type="text"
                   name="general-clean-input"
                   value="General Clean"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 general-clean-input-change"
                 />
               </div>
@@ -6305,7 +7683,6 @@
                   type="text"
                   name="weekly-clean-input"
                   value="Weekly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 weekly-clean-input-change"
                 />
               </div>
@@ -6387,7 +7764,6 @@
                   type="text"
                   name="bi-weekly-clean-input"
                   value="Bi-Weekly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 bi-weekly-clean-input-change"
                 />
               </div>
@@ -6465,18 +7841,123 @@
                   type="text"
                   name="monthly-clean-input"
                   value="Monthly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 monthly-clean-input-change"
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-4400-4600"
+                    id="user-clean-adjust-4400-4600"
+                    data-id="0"
+                    class="user-clean-adjust-4400-4600 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 4400-4600 -->
 
             <!-- All Cleans Adjust Wrapper 4700-4900 -->
             <div
               class="clean-adjust-slide absolute top-0 left-[1400%] w-full transition-transform duration-300 px-6"
-              style="left: 1400%"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -6604,7 +8085,6 @@
                     type="text"
                     name="deep-clean-input"
                     value="Deep Clean"
-                    style="max-width: 100%"
                     class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 deep-clean-input-change"
                   />
                 </div>
@@ -6716,7 +8196,6 @@
                   type="text"
                   name="general-clean-input"
                   value="General Clean"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 general-clean-input-change"
                 />
               </div>
@@ -6798,7 +8277,6 @@
                   type="text"
                   name="weekly-clean-input"
                   value="Weekly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 weekly-clean-input-change"
                 />
               </div>
@@ -6876,7 +8354,6 @@
                   type="text"
                   name="bi-weekly-clean-input"
                   value="Bi-Weekly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 bi-weekly-clean-input-change"
                 />
               </div>
@@ -6962,18 +8439,123 @@
                   type="text"
                   name="monthly-clean-input"
                   value="Monthly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 monthly-clean-input-change"
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-4700-4900"
+                    id="user-clean-adjust-4700-4900"
+                    data-id="0"
+                    class="user-clean-adjust-4700-4900 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 4700-4900 -->
 
             <!-- All Cleans Adjust Wrapper 5000-5200 -->
             <div
               class="clean-adjust-slide absolute top-0 left-[1500%] w-full transition-transform duration-300 px-6"
-              style="left: 1500%"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -7109,7 +8691,6 @@
                     type="text"
                     name="deep-clean-input"
                     value="Deep Clean"
-                    style="max-width: 100%"
                     class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 deep-clean-input-change"
                   />
                 </div>
@@ -7221,7 +8802,6 @@
                   type="text"
                   name="general-clean-input"
                   value="General Clean"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 general-clean-input-change"
                 />
               </div>
@@ -7299,7 +8879,6 @@
                   type="text"
                   name="weekly-clean-input"
                   value="Weekly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 weekly-clean-input-change"
                 />
               </div>
@@ -7381,7 +8960,6 @@
                   type="text"
                   name="bi-weekly-clean-input"
                   value="Bi-Weekly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 bi-weekly-clean-input-change"
                 />
               </div>
@@ -7467,18 +9045,123 @@
                   type="text"
                   name="monthly-clean-input"
                   value="Monthly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 monthly-clean-input-change"
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-5000-5200"
+                    id="user-clean-adjust-5000-5200"
+                    data-id="0"
+                    class="user-clean-adjust-5000-5200 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 5000-5200 -->
 
             <!-- All Cleans Adjust Wrapper 5300-5500 -->
             <div
               class="clean-adjust-slide absolute top-0 left-[1600%] w-full transition-transform duration-300 px-6"
-              style="left: 1600%"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -7618,7 +9301,6 @@
                     type="text"
                     name="deep-clean-input"
                     value="Deep Clean"
-                    style="max-width: 100%"
                     class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 deep-clean-input-change"
                   />
                 </div>
@@ -7730,7 +9412,6 @@
                   type="text"
                   name="general-clean-input"
                   value="General Clean"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 general-clean-input-change"
                 />
               </div>
@@ -7812,7 +9493,6 @@
                   type="text"
                   name="weekly-clean-input"
                   value="Weekly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 weekly-clean-input-change"
                 />
               </div>
@@ -7894,7 +9574,6 @@
                   type="text"
                   name="bi-weekly-clean-input"
                   value="Bi-Weekly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 bi-weekly-clean-input-change"
                 />
               </div>
@@ -7980,18 +9659,123 @@
                   type="text"
                   name="monthly-clean-input"
                   value="Monthly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 monthly-clean-input-change"
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-5300-5500"
+                    id="user-clean-adjust-5300-5500"
+                    data-id="0"
+                    class="user-clean-adjust-5300-5500 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 5300-5500 -->
 
             <!-- All Cleans Adjust Wrapper 5600-5800 -->
             <div
               class="clean-adjust-slide absolute top-0 left-[1700%] w-full transition-transform duration-300 px-6"
-              style="left: 1700%"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -8131,7 +9915,6 @@
                     type="text"
                     name="deep-clean-input"
                     value="Deep Clean"
-                    style="max-width: 100%"
                     class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 deep-clean-input-change"
                   />
                 </div>
@@ -8243,7 +10026,6 @@
                   type="text"
                   name="general-clean-input"
                   value="General Clean"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 general-clean-input-change"
                 />
               </div>
@@ -8325,7 +10107,6 @@
                   type="text"
                   name="weekly-clean-input"
                   value="Weekly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 weekly-clean-input-change"
                 />
               </div>
@@ -8407,7 +10188,6 @@
                   type="text"
                   name="bi-weekly-clean-input"
                   value="Bi-Weekly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 bi-weekly-clean-input-change"
                 />
               </div>
@@ -8489,18 +10269,123 @@
                   type="text"
                   name="monthly-clean-input"
                   value="Monthly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 monthly-clean-input-change"
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-5600-5800"
+                    id="user-clean-adjust-5600-5800"
+                    data-id="0"
+                    class="user-clean-adjust-5600-5800 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 5600-5800 -->
 
             <!-- All Cleans Adjust Wrapper 5900-6100 -->
             <div
               class="clean-adjust-slide absolute top-0 left-[1800%] w-full transition-transform duration-300 px-6"
-              style="left: 1800%"
             >
               <!-- Deep Hours Adjust Wrapper -->
               <div>
@@ -8646,7 +10531,6 @@
                     type="text"
                     name="deep-clean-input"
                     value="Deep Clean"
-                    style="max-width: 100%"
                     class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 deep-clean-input-change"
                   />
                 </div>
@@ -8764,7 +10648,6 @@
                   type="text"
                   name="general-clean-input"
                   value="General Clean"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 general-clean-input-change"
                 />
               </div>
@@ -8846,7 +10729,6 @@
                   type="text"
                   name="weekly-clean-input"
                   value="Weekly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 weekly-clean-input-change"
                 />
               </div>
@@ -8924,7 +10806,6 @@
                   type="text"
                   name="bi-weekly-clean-input"
                   value="Bi-Weekly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 bi-weekly-clean-input-change"
                 />
               </div>
@@ -9010,11 +10891,117 @@
                   type="text"
                   name="monthly-clean-input"
                   value="Monthly Price"
-                  style="max-width: 100%"
                   class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 monthly-clean-input-change"
                 />
               </div>
               <!-- End Of Monthly Hours Adjust -->
+              <!-- User Clean Hours Adjust -->
+              <div
+                class="border-b-2 py-2 space-x-2 space-y-2 hidden flex-col justify-center items-center xmd:space-y-0 xmd:py-4 xmd:flex-row xmd:justify-between mt-0 select-container user-clean-settings"
+              >
+                <div
+                  class="space-x-6 xmd:space-x-2 clean-scroll user-clean-scroll"
+                >
+                  <select
+                    name="user-clean-adjust-5900-6100"
+                    id="user-clean-adjust-5900-6100"
+                    data-id="0"
+                    class="user-clean-adjust-5900-6100 select-adjust font-bold bg-neutral-600 dark:bg-neutral-800 text-white focus:outline-emerald-600 cursor-pointer"
+                  >
+                    <option value="0" selected>0</option>
+                    <option value=".25">.25</option>
+                    <option value=".50">.50</option>
+                    <option value=".75">.75</option>
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3">3</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.5">3.5</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4">4</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.5">4.5</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5">5</option>
+                    <option value="5.25">5.25</option>
+                    <option value="5.5">5.5</option>
+                    <option value="5.75">5.75</option>
+                    <option value="6">6</option>
+                    <option value="6.25">6.25</option>
+                    <option value="6.5">6.5</option>
+                    <option value="6.75">6.75</option>
+                    <option value="7">7</option>
+                    <option value="7.25">7.25</option>
+                    <option value="7.5">7.5</option>
+                    <option value="7.75">7.75</option>
+                    <option value="8">8</option>
+                    <option value="8.25">8.25</option>
+                    <option value="8.5">8.5</option>
+                    <option value="8.75">8.75</option>
+                    <option value="9">9</option>
+                    <option value="9.25">9.25</option>
+                    <option value="9.5">9.5</option>
+                    <option value="9.75">9.75</option>
+                    <option value="10">10</option>
+                    <option value="10.25">10.25</option>
+                    <option value="10.5">10.5</option>
+                    <option value="10.75">10.75</option>
+                    <option value="11">11</option>
+                    <option value="11.25">11.25</option>
+                    <option value="11.5">11.5</option>
+                    <option value="11.75">11.75</option>
+                    <option value="12">12</option>
+                    <option value="12.25">12.25</option>
+                    <option value="12.5">12.5</option>
+                    <option value="12.75">12.75</option>
+                    <option value="13">13</option>
+                    <option value="13.25">13.25</option>
+                    <option value="13.5">13.5</option>
+                    <option value="13.75">13.75</option>
+                    <option value="14">14</option>
+                    <option value="14.25">14.25</option>
+                    <option value="14.5">14.5</option>
+                    <option value="14.75">14.75</option>
+                    <option value="15">15</option>
+                    <option value="15.25">15.25</option>
+                    <option value="15.5">15.5</option>
+                    <option value="15.75">15.75</option>
+                    <option value="16">16</option>
+                    <option value="16.25">16.25</option>
+                    <option value="16.5">16.5</option>
+                    <option value="16.75">16.75</option>
+                    <option value="17">17</option>
+                    <option value="17.25">17.25</option>
+                    <option value="17.5">17.5</option>
+                    <option value="17.75">17.75</option>
+                    <option value="18">18</option>
+                    <option value="18.25">18.25</option>
+                    <option value="18.5">18.5</option>
+                    <option value="18.75">18.75</option>
+                    <option value="19">19</option>
+                    <option value="19.25">19.25</option>
+                    <option value="19.5">19.5</option>
+                    <option value="19.75">19.75</option>
+                    <option value="20">20</option>
+                  </select>
+                  <button class="default-hours-btn">
+                    <i class="fa-solid fa-clock-rotate-left default-hours"></i>
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  name="user-clean-input"
+                  value="User Price"
+                  class="text-black border-2 border-black tracking-widest font-bold text-sm capitalize text-center max-w-full xs:text-sm font-serif focus:outline-emerald-600 user-clean-input-change"
+                />
+              </div>
+              <!-- End Of User Clean Hours Adjust -->
             </div>
             <!-- End Of All Cleans Adjust Wrapper 5900-6100 -->
           </form>
@@ -9922,6 +11909,60 @@
                     <!-- End Of Hours Container -->
                   </div>
                   <!-- End Of Monthly Service -->
+                  <!-- User Clean-->
+                  <div
+                    class="absolute top-0 left-[500%] w-full transition-transform duration-300 hidden user-slide"
+                  >
+                    <!-- Price Container -->
+                    <h3
+                      class="tracking-widest text-center text-xl font-semibold capitalize other-user-clean"
+                    >
+                      User Service
+                    </h3>
+                    <!-- User Changed -->
+                    <span
+                      class="tracking-wider font-semibold text-xs user-hours-changed"
+                    ></span>
+                    <!-- End Of User Changed -->
+                    <div
+                      class="flex flex-wrap gap-1 items-center justify-center bg-slate-200 py-2 text-center w-4/5 mx-auto mb-3"
+                    >
+                      <!-- Price Logo -->
+                      <span
+                        class="inline-flex items-center justify-center bg-white w-[90px] py-2 dark:bg-neutral-800 dark:text-white"
+                      >
+                        <i class="fa-solid fa-magnifying-glass-dollar mr-2"></i>
+                        <span class="capitalize tracking-widest">price</span>
+                      </span>
+                      <!-- End Of Price Logo -->
+                      <!-- Price Number -->
+                      <span
+                        class="py-2 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 single-user-price"
+                      ></span>
+                      <!-- End Of Price Number -->
+                    </div>
+                    <!-- End Of Price Container -->
+                    <!-- Hours Container -->
+                    <div
+                      class="flex flex-wrap gap-1 items-center justify-center bg-slate-200 py-2 text-center w-4/5 mx-auto mb-3"
+                    >
+                      <!-- Hours Logo -->
+                      <span
+                        class="inline-flex items-center justify-center bg-white w-[90px] py-2 dark:bg-neutral-800 dark:text-white"
+                      >
+                        <i class="fa-solid fa-clock mr-2"></i>
+                        <span class="capitalize tracking-widest">hours</span>
+                      </span>
+                      <!-- End Of Hours Logo -->
+                      <!-- Hours Number -->
+                      <span
+                        class="py-2 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 single-user-hours"
+                      ></span>
+                      <!-- End Of Hours Number -->
+                    </div>
+                    <!-- End Of Hours Container -->
+                  </div>
+                  <!-- End Of User Clean -->
                 </div>
                 <!-- End Of Show Cleans -->
               </div>
@@ -10828,6 +12869,145 @@
               </div>
             </article>
             <!-- End Of Monthly Clean -->
+            <button
+              class="border-2 border-black dark:border-white dark:hover:border-emerald-600 py-1 px-2 hover:shadow-2xl hover:border-emerald-600 hover:text-emerald-600 new-clean-btn"
+            >
+              Add New Clean
+            </button>
+            <div class="hidden text-center new-clean-from-wrapper">
+              <form class="user-clean-form">
+                <label for="clean-name" class="inline-block mb-2 bold text-2xl"
+                  >Enter Clean Name</label
+                >
+                <div class="space-y-2">
+                  <input
+                    type="text"
+                    name="clean-name"
+                    placeholder="Enter Clean Name"
+                    id="clean-name"
+                    class="text-black border-2 border-black hover:outline-emerald-600"
+                  />
+                  <button
+                    class="border-2 border-black dark:border-white dark:hover:border-emerald-600 px-2 hover:shadow-2xl hover:border-emerald-600 hover:text-emerald-600 add-clean-btn"
+                  >
+                    Add Clean
+                  </button>
+                  <button class="hover:text-red-500 cancel-add-clean">
+                    <i class="fa-regular fa-rectangle-xmark"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <!-- User Clean -->
+            <article
+              class="hidden p-3 bg-[#f8f3f9] border-2 border-transparent transition-all duration-300 dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800 main-article user-article"
+            >
+              <i
+                class="fa-solid fa-calendar-days p-4 fa-2x bg-white rounded-full dark:bg-neutral-800 cursor-pointer clean-icon"
+              ></i>
+              <span
+                class="bg-red-400 p-2 rounded-full text-white text-xs font-semibold tracking-wider deep-changed hidden"
+                >Hours Changed</span
+              >
+              <span
+                class="p-2 rounded-full text-white text-xs font-semibold tracking-wider num-icon hidden"
+              ></span>
+              <h3
+                class="capitalize tracking-wider font-bold font-serif text-2xl my-4 cleaning-type user-clean-type"
+                data-id="user-price"
+              >
+                user price
+              </h3>
+              <div
+                class="flex flex-wrap gap-1 items-center justify-center bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full"
+              >
+                <span
+                  class="inline-flex items-center justify-center bg-white w-[90px] py-2 dark:bg-neutral-800"
+                >
+                  <i class="fa-solid fa-magnifying-glass-dollar mr-2"></i>
+                  <span class="capitalize tracking-widest">price</span>
+                </span>
+                <span
+                  class="py-2 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] user-price price dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+                  >$123.50</span
+                >
+              </div>
+              <div
+                class="flex flex-wrap gap-1 items-center justify-center bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full"
+              >
+                <span
+                  class="inline-flex items-center justify-center bg-white w-[90px] py-2 dark:bg-neutral-800"
+                >
+                  <i class="fa-solid fa-clock mr-2"></i>
+                  <span class="capitalize tracking-widest">hours</span>
+                </span>
+                <span
+                  class="py-2 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] user-hours hours dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+                  >3.25</span
+                >
+              </div>
+              <div
+                class="flex-wrap gap-1 items-center justify-center bg-slate-200 py-2 w-4/5 mx-auto mb-3 md:w-full tax-element hidden"
+              >
+                <span
+                  class="inline-flex items-center justify-center bg-white w-[90px] py-2 dark:bg-neutral-800"
+                >
+                  <i class="fa-solid fa-hand-holding-dollar mr-2"></i>
+                  <span class="capitalize tracking-widest">taxes</span>
+                </span>
+                <span
+                  class="py-2 px-4 bg-emerald-600 text-white font-semibold tracking-widest inline-block w-[90px] taxes-user tax-number dark:bg-gradient-to-br dark:from-emerald-700 dark:to-neutral-800"
+                  >0</span
+                >
+              </div>
+              <div
+                class="flex flex-wrap gap-1 items-center justify-center bg-slate-200 py-2 px-4 w-4/5 mx-auto md:w-full"
+              >
+                <span
+                  class="inline-flex items-center justify-center bg-white p-2 cursor-pointer dark:bg-neutral-800"
+                >
+                  <i class="fa-solid fa-clock-rotate-left"></i>
+                </span>
+                <select
+                  id="change-hours-user"
+                  class="border-2 font-serif py-[.35rem] px-1 text-sm cursor-pointer focus:outline-emerald-600 dark:bg-emerald-700 change-individual"
+                >
+                  <option value="0">Change Hours</option>
+                  <option value="-2">-2</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1">-1</option>
+                  <option value="-.75">-.75</option>
+                  <option value="-.50">-.50</option>
+                  <option value="-.25">-.25</option>
+                  <option value="0">0</option>
+                  <option value=".25">+.25</option>
+                  <option value=".50">+.50</option>
+                  <option value=".75">+.75</option>
+                  <option value="1">+1</option>
+                  <option value="1.25">+1.25</option>
+                  <option value="1.50">+1.50</option>
+                  <option value="1.75">+1.75</option>
+                  <option value="2">+2</option>
+                </select>
+              </div>
+              <div class="bg-slate-200 py-2 px-4 mt-3 w-4/5 mx-auto md:w-full">
+                <button
+                  class="bg-neutral-700 py-1 px-4 text-white text-sm tracking-widest border-[3px] border-emerald-600 transition-colors hover:bg-neutral-600 dark:bg-neutral-800 dark:hover:bg-neutral-700 quote-btn"
+                >
+                  <i class="fa-solid fa-floppy-disk"></i>
+                  Save Quote
+                </button>
+                <button class="delete-clean-btn">
+                  <i
+                    class="fa-regular fa-trash-can fa-xl text-red-500 ml-2"
+                    title="Delete Clean"
+                  ></i>
+                </button>
+              </div>
+            </article>
+            <!-- End Of User Clean -->
           </div>
         </form>
         <!-- Loading Spinner -->
